@@ -1,0 +1,126 @@
+; $Id: fusion_starter.info 7101 2010-04-08 06:51:41Z chris $
+
+name = Fusion Swimmingly
+description = Fusion Starter sub-theme. Requires <a href="http://drupal.org/project/fusion">Fusion Core</a> and the <a href="http://drupal.org/project/skinr">Skinr</a> module to enable easy point-and-click theming.
+base theme = fusion_core
+core = 6.x
+engine = phptemplate
+
+stylesheets[all][] = css/fusion-swimmingly-styles.css
+stylesheets[all][] = css/superfish-navbar.css
+
+scripts[] = js/script.js
+
+regions[sidebar_first] = sidebar first
+regions[sidebar_last] = sidebar last
+regions[header_top] = header top
+regions[header] = header
+regions[preface_bottom] = preface bottom
+regions[content_top] = content top
+regions[content] = content
+regions[content_bottom] = content bottom
+regions[postscript_top] = postscript top
+regions[postscript_bottom] = postscript bottom
+regions[footer] = footer
+regions[node_top] = node top
+regions[node_bottom] = node bottom
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+
+; Default theme settings
+settings[theme_grid] = grid16-960
+settings[theme_grid_options][] = grid16-960
+settings[theme_grid_options][] = grid16-fluid
+settings[fluid_grid_width] = fluid-100
+settings[theme_font_size] = font-size-14
+settings[sidebar_layout] = sidebars-both-last
+settings[sidebar_first_width] = 5
+settings[sidebar_last_width] = 3
+
+; Inherit Skinr styles from Fusion Core
+skinr[options][inherit_skins] = true
+
+; Swimmingly Color Options
+;skinr[fusion-example-styles][title] = Sample Skinr block styles
+;skinr[fusion-example-styles][type] = checkboxes
+;skinr[fusion-example-styles][features][] = block
+;skinr[fusion-example-styles][options][1][label] = My sample Skinr style
+;skinr[fusion-example-styles][options][1][class] = fusion-example-stylename
+
+; Swimmingly Color Options
+skinr[fusion-swimmingly-colors][title] = Swimmingly Color Options
+skinr[fusion-swimmingly-colors][type] = select
+skinr[fusion-swimmingly-colors][features][] = block
+skinr[fusion-swimmingly-colors][features][] = views_view
+skinr[fusion-swimmingly-colors][features][] = panels_pane
+skinr[fusion-swimmingly-colors][options][1][label] = Gray
+skinr[fusion-swimmingly-colors][options][1][class] = fusion-swimmingly-colors-gray
+skinr[fusion-swimmingly-colors][options][2][label] = Pink
+skinr[fusion-swimmingly-colors][options][2][class] = fusion-swimmingly-colors-pink
+skinr[fusion-swimmingly-colors][options][3][label] = Yellow
+skinr[fusion-swimmingly-colors][options][3][class] = fusion-swimmingly-colors-yellow
+skinr[fusion-swimmingly-colors][options][4][label] = Green
+skinr[fusion-swimmingly-colors][options][4][class] = fusion-swimmingly-colors-green
+skinr[fusion-swimmingly-colors][options][5][label] = Blue
+skinr[fusion-swimmingly-colors][options][5][class] = fusion-swimmingly-colors-blue
+
+; Swimmingly Link Styles
+skinr[fusion-swimmingly-links][title] = Swimmingly Link Styles
+skinr[fusion-swimmingly-links][type] = radios
+skinr[fusion-swimmingly-links][features][] = block
+skinr[fusion-swimmingly-links][features][] = views_view
+skinr[fusion-swimmingly-links][features][] = panels_pane
+skinr[fusion-swimmingly-links][options][1][label] = Big Button links
+skinr[fusion-swimmingly-links][options][1][class] = fusion-swimmingly-links-bigbutton
+;skinr[fusion-swimmingly-links][options][2][label] = Incognito links
+;skinr[fusion-swimmingly-links][options][2][class] = fusion-swimmingly-links-incognito
+
+;Swimmingly Page Backgrounds
+skinr[fusion-swimmingly-page-backgrounds][title] = Swimmingly Page Backgrounds
+skinr[fusion-swimmingly-page-backgrounds][type] = radios
+skinr[fusion-swimmingly-page-backgrounds][features][] = page
+skinr[fusion-swimmingly-page-backgrounds][options][1][label] = Crowd scene image
+skinr[fusion-swimmingly-page-backgrounds][options][1][class] = fusion-swimmingly-crowd-background
+skinr[fusion-swimmingly-page-backgrounds][options][2][label] = Nightime city scene image
+skinr[fusion-swimmingly-page-backgrounds][options][2][class] = fusion-swimmingly-city-night-background
+skinr[fusion-swimmingly-page-backgrounds][options][3][label] = Subway map image
+skinr[fusion-swimmingly-page-backgrounds][options][3][class] = fusion-swimmingly-subway-map-background
+skinr[fusion-swimmingly-page-backgrounds][options][4][label] = Retro futuristic city illustration
+skinr[fusion-swimmingly-page-backgrounds][options][4][class] = fusion-swimmingly-future-city-background
+skinr[fusion-swimmingly-page-backgrounds][options][5][label] = Conference center image
+skinr[fusion-swimmingly-page-backgrounds][options][5][class] = fusion-swimmingly-conference-center-background
+
+;Swimmingly Block styles
+skinr[fusion-swimmingly-block-styles][title] = Swimmingly Block & Pane Styles
+skinr[fusion-swimmingly-block-styles][type] = radios
+skinr[fusion-swimmingly-block-styles][features][] = block
+skinr[fusion-swimmingly-block-styles][features][] = panels_pane
+skinr[fusion-swimmingly-block-styles][options][1][label] = Light, transparent background
+skinr[fusion-swimmingly-block-styles][options][2][label] = Bold background with overhanging left edge
+skinr[fusion-swimmingly-block-styles][options][2][class] = fusion-swimmingly-overhang-left
+skinr[fusion-swimmingly-block-styles][options][3][label] = Bold background with overhanging right edge
+skinr[fusion-swimmingly-block-styles][options][3][class] = fusion-swimmingly-overhang-right
+skinr[fusion-swimmingly-block-styles][options][4][label] = Left-overhanging backround on title
+skinr[fusion-swimmingly-block-styles][options][4][class] = fusion-swimmingly-overhang-left-title
+skinr[fusion-swimmingly-block-styles][options][5][label] = Right-overhanging backround on title
+skinr[fusion-swimmingly-block-styles][options][5][class] = fusion-swimmingly-overhang-right-title
+;skinr[fusion-swimmingly-block-styles][options][6][label] = Hang-down banner (works best in header or header-top regions)
+;skinr[fusion-swimmingly-block-styles][options][6][class] = fusion-swimmingly-banner-block
+;skinr[fusion-swimmingly-block-styles][options][7][label] = Left tab vertical title
+;skinr[fusion-swimmingly-block-styles][options][7][class] = fusion-swimmingly-left-vertical-title
+;skinr[fusion-swimmingly-block-styles][options][8][label] = Right tab vertical title
+;skinr[fusion-swimmingly-block-styles][options][8][class] = fusion-swimmingly-right-vertical-title
+; Information added by drupal.org packaging script on 2011-08-12
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "fusion_swimmingly"
+datestamp = "1313161916"
+

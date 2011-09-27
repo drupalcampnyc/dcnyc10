@@ -1,0 +1,3 @@
+<?php
+
+include_once('cod_front_page.features.inc');

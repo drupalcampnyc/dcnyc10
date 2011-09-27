@@ -1,0 +1,11 @@
+name = Node access user reference
+description = Provides per node access control with CCK User reference fields.
+core = 6.x
+package = "CCK"
+dependencies[] = userreference
+; Information added by drupal.org packaging script on 2011-06-07
+version = "6.x-3.2"
+core = "6.x"
+project = "nodeaccess_userreference"
+datestamp = "1307418418"
+

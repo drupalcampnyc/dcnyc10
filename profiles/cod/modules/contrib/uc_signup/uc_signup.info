@@ -1,0 +1,17 @@
+name = Signup integration for Ubercart
+description = "Allows users to purchase signup.module signups via Ubercart"
+core = 6.x
+package = Signup
+dependencies[] = signup
+dependencies[] = uc_product
+dependencies[] = uc_payment
+dependencies[] = ca
+dependencies[] = date
+dependencies[] = profile
+
+; Information added by drupal.org packaging script on 2011-08-12
+version = "6.x-1.0-rc3"
+core = "6.x"
+project = "uc_signup"
+datestamp = "1313123857"
+

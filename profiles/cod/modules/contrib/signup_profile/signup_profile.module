@@ -1,0 +1,226 @@
+<?php
+
+/**
+ * @file
+ * Signup Profile integration module for Drupal 6.
+ */
+
+define('SIGNUP_PROFILE_ALL', 'all');
+define('SIGNUP_PROFILE_REQ', 'required');
+define('SIGNUP_PROFILE_REQ_NREG', 'required not registration');
+define('SIGNUP_PROFILE_NO_LIMIT', '--no limit--');
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function signup_profile_form_signup_form_alter(&$form, &$form_state) {
+  global $user;
+
+  $categories = profile_categories();
+  if (empty($categories)) {
+    // No categories means there are no profile fields set.
+    return;
+  }
+  // Continue if this Signup-enabled node is eligible for integration.
+  if (_signup_profile_eligible($form['nid']['#value'])) {
+    // Get fields to add to the form.
+    $profile_fields = _signup_profile_form_fields($categories);
+    if (!empty($profile_fields)) {
+      // Fully load the user object to set profile values.
+      $account = user_load(array('uid' => $user->uid));
+      foreach ($categories as $category) {
+        $form_fields = array();
+        // Build profile form.
+        $profile_form = profile_form_profile(array(), $account, $category['name']);
+        // Pop into the category's form.
+        $profile_form = array_shift($profile_form);
+        // Populate default values and build form elements to attach.
+        foreach (element_children($profile_form) as $name) {
+          // Be sure its a field set for display on the Signup form.
+          if (isset($profile_fields[$category['name']][$name])) {
+            $profile_form[$name]['#default_value'] = isset($account->{$name}) ? $account->{$name} : '';
+            $form_fields[$name] = $profile_form[$name];
+          }
+        }
+        // Add category and fields.
+        if (!empty($form_fields)) {
+          $form['signup_profile_' . $category['name']] = array(
+            '#type' => 'fieldset',
+            '#collapsible' => FALSE,
+            '#title' => check_plain($category['title']),
+            '#weight' => -1,
+          );
+          $form['signup_profile_' . $category['name']] += $form_fields;
+        }
+      }
+      // Add submit handler for saving profile fields.
+      $form['#submit'][] = 'signup_profile_signup_form_submit';
+    }
+  }
+}
+
+/**
+ * Submit handler for Signup form.
+ */
+function signup_profile_signup_form_submit(&$form, &$form_state) {
+  global $user;
+  $categories = profile_categories();
+  if (empty($categories)) {
+    // No categories means there are no profile fields set.
+    return;
+  }
+  // Fully load the user object to hold onto previously set profile values.
+  $account = user_load(array('uid' => $user->uid));
+  $edit_fields = array();
+  // Prefill $edit_fields with account's values for data integrity.
+  foreach ($categories as $category) {
+    $result = _profile_get_fields($category['name']);
+    $fields[$category['name']] = array();
+    while ($field = db_fetch_object($result)) {
+      if (!empty($account->{$field->name})) {
+        $edit_fields[$category['name']][$field->name] = $account->{$field->name};
+      }
+    }
+  }
+  // Update fields that were added to the form and set.
+  $profile_fields = _signup_profile_form_fields($categories);
+  $profile_categories = array_keys($profile_fields);
+  foreach ($form_state['values'] as $key => $form_value) {
+    // Confirm key is a profile field.
+    foreach ($profile_categories as $category_name) {
+      if (!empty($profile_fields[$category_name][$key])) {
+        $edit_fields[$category_name][$key] = $form_value;
+      }
+    }
+  }
+  if (!empty($edit_fields)) {
+    // There are fields to be saved.
+    foreach ($edit_fields as $category_name => $filled_fields) {
+      // Call user_save() so hooks are fired. user_save() must be called for
+      // each category that has set fields.
+      user_save($user, $filled_fields, $category_name);
+    }
+  }
+}
+
+/**
+ * Determine if a Signup node is elegible for Signup Profile integration.
+ */
+function _signup_profile_eligible($nid) {
+  $limit = variable_get('signup_profile_limit_view', SIGNUP_PROFILE_NO_LIMIT);
+  if ($limit != SIGNUP_PROFILE_NO_LIMIT) {
+    list($view, $display) = explode(':', $limit);
+    // Get View, load result nids and compare.
+    $view = views_get_view($view);
+    if ($view) {
+      $view->execute();
+      foreach ($view->result as $record) {
+        $nids[] = $record->nid;
+      }
+      if (!in_array($nid, $nids)) {
+        // This Signup form is not eligible.
+        return FALSE;
+      }
+    }
+  }
+  return TRUE;
+}
+
+/**
+ * Which profile fields to include on the Signup form.
+ */
+function _signup_profile_form_fields($categories) {
+  static $fields;
+  if (!empty($fields)) {
+    return $fields;
+  }
+  $fields = array();
+
+  $which_fields = variable_get('signup_profile_fields', SIGNUP_PROFILE_REQ_NREG);
+  foreach ($categories as $category) {
+    $result = _profile_get_fields($category['name']);
+    $fields[$category['name']] = array();
+    while ($field = db_fetch_object($result)) {
+      // Only include fields which have been specified to appear.
+      switch ($which_fields) {
+        case SIGNUP_PROFILE_REQ_NREG:
+          if ($field->required && !$field->register) {
+            $fields[$category['name']][$field->name] = $field;
+          }
+          break;
+        case SIGNUP_PROFILE_REQ:
+          if ($field->required) {
+            $fields[$category['name']][$field->name] = $field;
+          }
+          break;
+        default:
+          $fields[$category['name']][$field->name] = $field;
+          break;
+      }
+    }
+  }
+  // @todo drupal_alter()?
+  return $fields;
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function signup_profile_form_signup_edit_form_alter(&$form, &$form_state) {
+  // Add link to account edit page.
+  $form['elements']['signup_profile'] = array(
+    '#type' => 'markup',
+    '#value' => t('<div><a href="!url">Alter your profile information</a></div>', array('!url' => url('user/' . $form['#signup']->uid . '/edit'))),
+    '#weight' => -10,
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function signup_profile_form_signup_settings_form_alter(&$form, &$form_state) {
+  $form['signup_profile'] = array(
+    '#type' => 'fieldset',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#title' => t('Signup Profile integration'),
+    '#weight' => 0,
+  );
+  $form['signup_profile']['signup_profile_fields'] = array(
+    '#type' => 'radios',
+    '#title' => t('Profile fields to show'),
+    '#description' => t('Mark which profile fields should appear on the Signup form.'),
+    '#options' => array(
+      SIGNUP_PROFILE_ALL => t('All'),
+      SIGNUP_PROFILE_REQ => t('All that are required'),
+      SIGNUP_PROFILE_REQ_NREG => t('All that are required and not exposed on registration'),
+    ),
+    '#default_value' => variable_get('signup_profile_fields', SIGNUP_PROFILE_REQ_NREG),
+  );
+  // Allow a view to define which Signup nodes are elligible.
+  // Copied from signup.module.
+  $views = views_get_all_views();
+  $view_options[SIGNUP_PROFILE_NO_LIMIT] = t('--no view, do not limit--');
+  foreach ($views as $view) {
+    foreach (array_keys($view->display) as $display_id) {
+      if ($display_id != 'default' || 1) {
+        $key = $view->name .':'. $display_id;
+        $view_options[$key] = theme('signup_settings_view_label', $view, $display_id);
+      }
+    }
+  }
+  $form['signup_profile']['signup_profile_limit_view'] = array(
+    '#title' => t('View to use for limiting integration'),
+    '#type' => 'select',
+    '#options' => $view_options,
+    '#default_value' => variable_get('signup_profile_limit_view', SIGNUP_PROFILE_NO_LIMIT),
+    '#description' => t("Limit which Signup nodes profile fields should be integrated into, by default there is no limit."),
+  );
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function signup_profile_views_api() {
+  return array('api' => 2.0);
+}

@@ -1,0 +1,13 @@
+/* $Id: fusion-starter-style-rtl.css 7316 2010-05-12 21:40:39Z chris $ */
+
+/* Tab Menus
+/-------------------------------------------------------------- */
+#content-tabs ul.primary,
+#content-tabs ul.secondary {
+  float: right;
+}
+
+#content-tabs ul.primary li,
+#content-tabs ul.secondary li {
+  float: right;
+}

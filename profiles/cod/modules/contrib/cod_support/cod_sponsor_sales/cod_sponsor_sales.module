@@ -1,0 +1,39 @@
+<?php
+
+include_once('cod_sponsor_sales.features.inc');
+
+/*
+ * Implementation of hook_form_alter().
+ */
+function cod_sponsor_sales_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'uc_node_checkout_product_select_form') {
+    if ($form['type']['#value'] == 'sponsor') {
+      drupal_set_title(t('Purchase sponsorship'));
+      $form['product_nid']['#title'] = t('Choose sponsorship level');
+      $form['product_nid']['#description'] = '';
+    }
+  }
+}
+/*
+ * Implementation of hook_order().
+ */
+function cod_sponsor_sales_order($op, &$arg1, $arg2) {
+  global $user;
+  // When a payment is entered for an order that contains sponsorship products,
+  // update the sponsorship level of the corresponding sponsor.
+  if ($arg2 == uc_order_state_default('payment_received')) {
+    foreach ($arg1->products as $product) {
+      // We only care about sponsorship products.
+      $type = db_result(db_query("SELECT type FROM {node} WHERE nid = %d", $product->nid));
+      if ($type == 'sponsorship' && !empty($product->data['node_checkout_nid'])) {
+        $sponsorship = node_load($product->nid);
+        $sponsor = node_load($product->data['node_checkout_nid']);
+        // Set the sponsorship level of the sponsor to match that of the sponsorship node.
+        $sponsor->field_sponsorship_level[0]['value'] = $sponsorship->field_sponsorship_level[0]['value'];
+        node_save($sponsor);
+
+        uc_order_comment_save($arg1->order_id, $user->uid, t('Set sponsorship level of %title to %level.', array('%title' => $sponsor->title, '%level' => $sponsor->field_sponsorship_level[0]['value']))); 
+      }
+    }
+  }
+}

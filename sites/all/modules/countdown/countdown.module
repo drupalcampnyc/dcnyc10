@@ -1,0 +1,147 @@
+<?php
+// $Id: countdown.module,v 1.5 2008/05/12 13:36:55 deekayen Exp $
+
+/**
+ * Count to, or from, a specified date and display the output in a block
+ */
+
+/**
+ * Describe the module in the HTML frontend
+ *
+ * @param string $section
+ * @return string
+ */
+function countdown_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+    case 'admin/help#countdown':
+      $output = t("Don't forget to configure the event name and date in Administer/blocks/Countdown configure");
+      break;
+  }
+  return $output;
+}
+
+/**
+ * Do all the block stuff
+ *
+ * @param string $op
+ * @param integer $delta
+ * @return string or array
+ */
+function countdown_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+  case 'list':
+    $blocks[0]['info'] = 'Countdown';
+    return $blocks;
+    break;
+
+  case 'configure':
+    $form['countdown_event_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Event Name'),
+      '#default_value' => variable_get('countdown_event_name', ''),
+      '#size' => 30,
+      '#maxlength' => 200,
+      '#description' => t("Event name you're counting to or from."),
+      '#required' => true
+    );
+
+    $form['countdown_accuracy'] = array(
+      '#type' => 'radios',
+      '#title' => t('Accuracy'),
+      '#default_value' => variable_get('countdown_accuracy', 'd'),
+      '#options' => array('d' => t('days'), 'h' => t('hours'), 'm' => t('minutes'), 's' => 'seconds'),
+      '#description' => t('Select the smallest amount of detail to display. For example, selecting "days" will display only days, selecting "hours" will display the number of days and hours.')
+    );
+
+    $time = time();
+    $timestamp = variable_get('countdown_timestamp', $time);
+
+    $form['target_time'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Target date/time'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#description' => t('Select a date relative to the server time: %s', array('%s' => format_date($time)))
+    );
+
+    for ($years = array(), $i = 1970; $i < 2032; $years[$i] = $i, $i++);
+    $form['target_time']['year'] = array(
+      '#type' => 'select',
+      '#title' => t('Year'),
+      '#default_value' => (int)date('Y', $timestamp),
+      '#options' => $years
+    );
+    unset($years);
+
+    $form['target_time']['month'] = array(
+      '#type' => 'select',
+      '#title' => t('Month'),
+      '#default_value' => (int)date('n', $timestamp),
+      '#options' => array(1 => t('January'), 2 => t('February'), 3 => t('March'), 4 => t('April'),
+                          5 => t('May'), 6 => t('June'), 7 => t('July'), 8 => t('August'),
+                          9 => t('September'), 10 => t('October'), 11 => t('November'), 12 => t('December'))
+    );
+
+    for ($month_days = array(), $i = 1; $i < 32; $month_days[$i] = $i, $i++);
+    $form['target_time']['day'] = array(
+      '#type' => 'select',
+      '#title' => t('Day'),
+      '#default_value' => (int)date('j', $timestamp),
+      '#options' => $month_days
+    );
+    unset($month_days);
+
+    for ($hrs = array(), $i = 0; $i < 24; $hrs[] = $i, $i++);
+    $form['target_time']['hour'] = array(
+      '#type' => 'select',
+      '#title' => t('Hour'),
+      '#default_value' => (int)date('G', $timestamp),
+      '#options' => $hrs
+    );
+    unset($hrs);
+
+    for ($mins = array(), $i = 0; $i < 60; $mins[] = $i, $i++);
+    $form['target_time']['min'] = array(
+      '#type' => 'select',
+      '#title' => t('Minute'),
+      '#default_value' => (int)date('i', $timestamp),
+      '#options' => $mins
+    );
+    $form['target_time']['sec'] = array(
+      '#type' => 'select',
+      '#title' => t('Seconds'),
+      '#default_value' => (int)date('s', $timestamp),
+      '#options' => $mins
+    );
+
+    return $form;
+    break;
+
+  case 'save':
+    variable_set('countdown_event_name', $edit['countdown_event_name']);
+    variable_set('countdown_accuracy', $edit['countdown_accuracy']);
+    variable_set('countdown_timestamp', mktime((int)$edit['hour'], (int)$edit['min'], (int)$edit['sec'], (int)$edit['month'], (int)$edit['day'], (int)$edit['year']));
+
+  case 'view':
+    if (user_access('access content')) {
+      $block['subject'] = variable_get('countdown_block_title', t('Countdown'));
+      $block['content'] = theme('countdown');
+      return $block;
+    }
+    break;
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ *
+ * Theme function for similar block
+ */
+function countdown_theme() {
+  return array(
+    'countdown' => array(
+      'template'  => 'countdown',
+    )
+  );
+}

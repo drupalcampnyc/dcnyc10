@@ -1,0 +1,30 @@
+<?php
+/*
+ * Implementation of hook_enable().
+ */
+function cod_events_enable() {
+  cod_events_setup();
+}
+
+/*
+ * Create a signup-enabled Event content type and product class.
+ */
+function cod_events_setup() {
+  watchdog('cod_events', t('Performing COD Events setup.'));
+  // Create an event content type.
+  module_load_include('admin.inc', 'uc_product');
+  $form_state['values']['pcid'] = 'event';
+  $form_state['values']['name'] = 'Event';
+  $form_state['values']['description'] = 'Provides free and paid event registration on the Event content type.';
+  global $user;
+  $temp_user = $user;
+  session_save_session(FALSE);
+  $user = user_load(1);
+  drupal_execute('uc_product_class_form', $form_state);
+  $user = $temp_user;
+  session_save_session(TRUE);
+  // Rebuild features so that the event content type has the date field added.
+  features_rebuild(array('cod_events' => array('content')));
+  watchdog('cod_events', t('Finished COD Events setup.'));
+  drupal_set_message(t('Finished COD events setup.'));
+}

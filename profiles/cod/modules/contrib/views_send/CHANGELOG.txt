@@ -1,0 +1,24 @@
+
+Views Send x.x-x.x, xxxx-xx-xx
+------------------------------
+
+Views Send 6.x-1.x, xxxx-xx-xx
+------------------------------
+#1157616 by marktheshark: Changed Some spelling mistakes.
+#808518 by claudiu.cristea, sgabe: Added Split mail preparation from sending.
+#957126 by goose2000: Fixed Install error.
+#1075718 by claudiu.cristea: Added Small performance improvements.
+#916836 by roball, gabrielu: Fixed Fatal error: Call to a member function set_items_per_page() on a non-object.
+#964026 by ezra-g, abaddon | roball: Fixed 'Remember these values next time when you will send mass mail' ignored.
+#808058 by claudiu.cristea: Move all message processing before spooling.
+#827660 by claudiu.cristea | roball: Fixed Check for empty recipient name in previews.
+#822444 by claudiu.cristea | mule77: Fixed Integration with WYSIWYG module.
+#808060 by claudiu.cristea: Added Add PHP parsing for plain messages.
+#805720 by claudiu.cristea: Fixed Integrate Plain format in standard Drupal input formats.
+#804248 by claudiu.cristea: Added Add input formats to mesage body.
+#801586 by claudiu.cristea | eliosh: Fixed Error while validating recipient email address.
+#799308 by claudiu.cristea: Fixed Views main field has incorrect key.
+#801798 by claudiu.cristea | kevinwalsh: Fixed Conflict with Token Actions module.
+#796768 by claudiu.cristea: Added Remember message values based on a View > Display basis.
+#799296 by claudiu.cristea: Fixed Don't log all messages.
+#796980 by claudiu.cristea: Fixed Views fields IDs are not correct when using with relationship.

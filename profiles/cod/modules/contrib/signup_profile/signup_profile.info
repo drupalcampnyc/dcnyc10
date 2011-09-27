@@ -1,0 +1,13 @@
+name = "Signup Profile Integration"
+description = "Profile fields on the Signup form"
+package = "Signup"
+dependencies[] = signup
+dependencies[] = profile
+core = 6.x
+
+; Information added by drupal.org packaging script on 2011-07-06
+version = "6.x-1.0"
+core = "6.x"
+project = "signup_profile"
+datestamp = "1309989734"
+

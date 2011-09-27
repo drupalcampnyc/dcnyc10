@@ -1,0 +1,13 @@
+name = Typekit API
+description = @font-your-face provider with Typekit.com fonts.
+dependencies[] = fontyourface
+package = @font-your-face
+core = 6.x
+php = 5.2.0
+
+; Information added by drupal.org packaging script on 2011-07-17
+version = "6.x-2.8"
+core = "6.x"
+project = "fontyourface"
+datestamp = "1310930216"
+

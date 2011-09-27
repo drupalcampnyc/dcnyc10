@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implementation of hook_enable(). 
+ */
+function cod_sponsor_sales_enable() {
+  $result = db_fetch_object(db_query("SELECT * FROM {uc_node_checkout_types} WHERE node_type = 'sponsor'"));
+  // Associate sponsorship products with the sponsor content type.
+  if (empty($result->node_view) && !isset($result->product_nid)) {
+    db_query("INSERT INTO {uc_node_checkout_types} (node_type, product_nid, node_view) VALUES ('sponsor', 0, 'sponsorships|default')");
+    drupal_set_message(t('Configured uc_node_checkout module for use with automated sponsorship sales.'));
+  }
+}

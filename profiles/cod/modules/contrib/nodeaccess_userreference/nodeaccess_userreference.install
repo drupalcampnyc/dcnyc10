@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function nodeaccess_userreference_uninstall() {
+  variable_del('nodeaccess_userreference');
+
+  // Old vars.
+  variable_del('nodeaccess_userreference_priority');
+  variable_del('nodeaccess_userreference_author_view');
+  variable_del('nodeaccess_userreference_author_update');
+  variable_del('nodeaccess_userreference_author_delete');
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Unset author grants for updated installations.
+ *
+ * @see hook_update_N()
+ */
+function nodeaccess_userreference_update_6300() {
+  // Set author grants to 0, unless already set.
+  $view = variable_get('nodeaccess_userreference_author_view', 0);
+  $update = variable_get('nodeaccess_userreference_author_update', 0);
+  $delete = variable_get('nodeaccess_userreference_author_delete', 0);
+  variable_set('nodeaccess_userreference_author_view', $view);
+  variable_set('nodeaccess_userreference_author_update', $update);
+  variable_set('nodeaccess_userreference_author_delete', $delete);
+  drupal_set_message(
+    t(
+      'Node access user reference settings have changed.  Please check your User reference field settings.'
+    ),
+    'warning'
+  );
+  $ret[] = array(
+    'success' => TRUE,
+    'query' => 'Updating author grants.',
+  );
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Update settings storage.
+ *
+ * @see hook_update_N()
+ */
+function nodeaccess_userreference_update_6301() {
+  // Get all old settings and move them over to the new storage.
+  $data = array();
+  $result = db_query("SELECT * FROM {variable} WHERE name LIKE '%s%%'", array('nodeaccess_userreference_'));
+  while ($row = db_fetch_object($result)) {
+    $name = str_replace('nodeaccess_userreference_', '', $row->name);
+    $type_field = explode('_', $name);
+    $type = $type_field[0];
+    $field = $type_field[1];
+    $old_data = unserialize($row->data);
+    variable_del($row->name);
+    nodeaccess_userreference_field_settings($type, $field, $old_data);
+  }
+
+  // Move settings over and set passive defaults for upgraders.
+  $author_view = variable_get('nodeaccess_userreference_author_view', 0);
+  $author_update = variable_get('nodeaccess_userreference_author_update', 0);
+  $author_delete = variable_get('nodeaccess_userreference_author_delete', 0);
+  $priority = variable_get('nodeaccess_userreference_priority', 0);
+  $data = variable_get('nodeaccess_userreference', array());
+  foreach ($data as $type => $type_data) {
+    foreach ($type_data as $field => $field_data) {
+      $data[$type][$field]['author'] = array();
+      if ($author_view) {
+        $data[$type][$field]['author']['view'] = 'view';
+      }
+      if ($author_update) {
+        $data[$type][$field]['author']['update'] = 'update';
+      }
+      if ($author_delete) {
+        $data[$type][$field]['author']['delete'] = 'delete';
+      }
+      $data[$type][$field]['priority'] = $priority;
+      $view = $data[$type][$field]['view'];
+      $update = $data[$type][$field]['update'];
+      $delete = $data[$type][$field]['delete'];
+      unset($data[$type][$field]['view']);
+      unset($data[$type][$field]['update']);
+      unset($data[$type][$field]['delete']);
+      if ($view) {
+        $data[$type][$field]['referenced']['view'] = 'view';
+      }
+      if ($update) {
+        $data[$type][$field]['referenced']['update'] = 'update';
+      }
+      if ($delete) {
+        $data[$type][$field]['referenced']['delete'] = 'delete';
+      }
+      $data[$type][$field]['all'] = array();
+    }
+  }
+  variable_set('nodeaccess_userreference', $data);
+  variable_del('nodeaccess_userreference_author_view');
+  variable_del('nodeaccess_userreference_author_update');
+  variable_del('nodeaccess_userreference_author_delete');
+  variable_del('nodeaccess_userreference_priority');
+
+  $ret[] = array(
+    'success' => TRUE,
+    'query' => 'Updating settings storage.',
+  );
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Update settings to include the 'unused' setting.
+ *
+ * @see hook_update_N()
+ */
+function nodeaccess_userreference_update_6302() {
+  $data = variable_get('nodeaccess_userreference', array());
+  foreach ($data as $type => $type_data) {
+    foreach ($type_data as $field => $field_data) {
+      if (!isset($data[$type][$field]['unused'])) {
+        $data[$type][$field]['unused'] = 0;
+      }
+    }
+  }
+  variable_set('nodeaccess_userreference', $data);
+
+  $ret[] = array(
+    'success' => TRUE,
+    'query' => 'Updating settings.',
+  );
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Removed settings for deleted fields.
+ *
+ * @see hook_update_N()
+ */
+function nodeaccess_userreference_update_6303() {
+  $info = _content_type_info();
+  $settings = variable_get('nodeaccess_userreference', array());
+  foreach ($settings as $type => $fields) {
+    foreach ($fields as $field => $data) {
+       if (!isset($info['content types'][$type]['fields'][$field])) {
+          unset($settings[$type][$field]);
+       }
+    }
+    if (empty($settings[$type])) {
+      unset($settings[$type]);
+    }
+  }
+  variable_set('nodeaccess_userreference', $settings);
+
+  $ret[] = array(
+    'success' => TRUE,
+    'query' => 'Removed settings for deleted fields.',
+  );
+  return $ret;
+}
+

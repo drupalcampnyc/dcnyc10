@@ -1,0 +1,6 @@
+1. Copy the countdown module folder to the modules directory.
+2. Activate the module in Administer -> Site building -> Modules
+3. Configure the block in Administer -> Site building -> Blocks -> Countdown configure.
+   The block configuration is where to set the event name,
+   accuracy of the output, and the target date/time.
+4. Enable the block in Administer -> Site building -> Blocks

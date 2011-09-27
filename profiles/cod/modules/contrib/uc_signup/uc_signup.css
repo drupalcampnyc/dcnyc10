@@ -1,0 +1,19 @@
+.uc_signup_needs_account {
+  background-image: url(./images/blue-question.png);
+  background-repeat: no-repeat;
+  padding: 0px 0px 21px 20px;
+}
+
+.uc_signup_has_account {	
+  background-image: url(./images/green-check.png);
+  background-repeat: no-repeat;
+  padding: 0px 0px 21px 20px;
+}
+
+.uc_signup_next.form-submit {
+  margin-left: 30px;
+}
+
+span.uc_signup_closed_message {
+  display: block;
+}

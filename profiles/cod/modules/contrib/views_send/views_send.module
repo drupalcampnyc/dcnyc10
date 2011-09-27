@@ -1,0 +1,881 @@
+<?php
+
+/**
+ * @file
+ *   The Views Send module.
+ *
+ * Views Send allow sending mass mailing using Views Bulk Operations module.
+ *
+ * @ingroup views_send
+ */
+
+/**
+ * E-mail priorities.
+ */
+define('VIEWS_SEND_PRIORITY_NONE', 0);
+define('VIEWS_SEND_PRIORITY_HIGHEST', 1);
+define('VIEWS_SEND_PRIORITY_HIGH', 2);
+define('VIEWS_SEND_PRIORITY_NORMAL', 3);
+define('VIEWS_SEND_PRIORITY_LOW', 4);
+define('VIEWS_SEND_PRIORITY_LOWEST', 5);
+
+/**
+ * Plain message format value.
+ */
+define('VIEWS_SEND_FORMAT_PLAIN', 'plain');
+
+/**
+ * Capture PHP max_execution_time before drupal_cron_run().
+ * Workaround for Drupal 6.14. See http://drupal.org/node/584334
+ */
+define('VIEWS_SEND_MAX_EXECUTION_TIME', ini_get('max_execution_time'));
+
+/**
+ * Token rows pattern.
+ */
+define('VIEWS_SEND_TOKEN_PATTERN', '[views-send-%s]');
+
+/**
+ * Detect and store Mime Mail module presence.
+ */
+define('VIEWS_SEND_MIMEMAIL', module_exists('mimemail'));
+
+// === Action implementation ===================================================
+
+/**
+ * Implementation of hook_action_info()
+ *
+ * @see http://drupal.org/node/172152
+ */
+function views_send_action_info() {
+  return array(
+    'views_send_mail_action' => array(
+      'type' => 'system',
+      'description' => t('Send mass mail'),
+      'configurable' => TRUE,
+      'permissions' => array('mass mailing with views_send'),
+    ),
+  );
+}
+
+/**
+ * Configuration form for views_send_mail action.
+ *
+ * @see http://drupal.org/node/172152
+ */
+function views_send_mail_action_form($context) {
+  $display = $context['view']->name .':'. $context['view']->current_display;
+  $form = array();
+  $form['display'] = array(
+    '#type' => 'value',
+    '#value' => $display,
+  );
+  $form['from'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Sender'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['from']['views_send_from_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Sender\'s name'),
+    '#description' => t("Enter the sender's human readable name."),
+    '#default_value' => variable_get('views_send_from_name_'. $display, variable_get('site_name', '')),
+    '#maxlen' => 255,
+  );
+  $form['from']['views_send_from_mail'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Sender\'s e-mail'),
+    '#description' => t("Enter the sender's E-mail address."),
+    '#required' => TRUE,
+    '#default_value' => variable_get('views_send_from_mail_'. $display, variable_get('site_mail', ini_get('sendmail_from'))),
+    '#maxlen' => 255,
+  );
+
+  $fields = array();
+  $keys = array_keys((array)$context['view']->result[0]);
+
+  foreach ($context['view']->field as $field_name => $field) {
+    if (in_array($field->field_alias, $keys) && !isset($fields[$field->field_alias])) {
+      $field_text = $field->label() .' ('. $field->field_alias .')';
+      $fields[$field->field_alias] = $field_text;
+      $tokens['[views-send-'. $field->field_alias .']'] = $field_text;
+    }
+
+    /* TODO: Find a right way to obtain the right Label for aliases.
+    // Iterate also through aliases.
+    foreach ($field->aliases as $alias_key => $alias) {
+      if (in_array($alias, $keys) && !isset($fields[$alias])) {
+        $field_text = $field->options['label'] .' ('. $alias .')';
+        $fields[$alias] = $field_text;
+        $tokens['[views-send-'. $alias .']'] = $field_text;
+      }
+    }
+    */
+  }
+  $fields_options = array_merge(array('' => '<'. t('select') .'>'), $fields);
+
+  $form['views_send_tokens'] = array(
+    '#type' => 'value',
+    '#value' => $fields,
+  );
+
+  $form['to'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Recipients'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['to']['views_send_to_name'] = array(
+    '#type' => 'select',
+    '#title' => t('Field used for recipient\'s name'),
+    '#description' => t('Select which field from the current view will be used as recipient\'s name.'),
+    '#options' => $fields_options,
+    '#default_value' => variable_get('views_send_to_name_'. $display, ''),
+  );
+  $form['to']['views_send_to_mail'] = array(
+    '#type' => 'select',
+    '#title' => t('Field used for recipient\'s E-mail'),
+    '#description' => t('Select which field from the current view will be used as recipient\'s E-mail.'),
+    '#options' => $fields_options,
+    '#default_value' => variable_get('views_send_to_mail_'. $display, ''),
+    '#required' => TRUE,
+  );
+  $form['mail'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('E-mail content'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['mail']['views_send_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#description' => t('Enter the E-mail\'s subject line.'),
+    '#maxlen' => 255,
+    '#required' => TRUE,
+    '#default_value' => variable_get('views_send_subject_'. $display, ''),
+  );
+  $form['mail']['views_send_message'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Message'),
+    '#description' => t('Enter the body of the message. You can use the following token replacements.'),
+    '#required' => TRUE,
+    '#rows' => 10,
+    '#default_value' => variable_get('views_send_message_'. $display, ''),
+  );
+  $form['mail']['format'] = _views_send_filter_form(variable_get('views_send_message_format_'. $display, VIEWS_SEND_FORMAT_PLAIN));
+  $form['mail']['token'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Replacements'),
+    '#description' => t('You can use these token replacements in Subject or Message Body.'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['mail']['token']['tokens'] = array(
+    '#type' => 'markup',
+    '#value' => theme('views_send_token_help', $fields),
+  );
+
+  $form['additional'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Additional E-mail options'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['additional']['views_send_priority'] = array(
+    '#type' => 'select',
+    '#title' => t('Priority'),
+    '#options' => array(
+      VIEWS_SEND_PRIORITY_NONE => t('none'),
+      VIEWS_SEND_PRIORITY_HIGHEST => t('highest'),
+      VIEWS_SEND_PRIORITY_HIGH => t('high'),
+      VIEWS_SEND_PRIORITY_NORMAL => t('normal'),
+      VIEWS_SEND_PRIORITY_LOW => t('low'),
+      VIEWS_SEND_PRIORITY_LOWEST => t('lowest')
+    ),
+    '#description' => t('Note that email priority is ignored by a lot of email programs.'),
+    '#default_value' => variable_get('views_send_priority_'. $display, 0),
+  );
+  $form['additional']['views_send_receipt'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Request receipt'),
+    '#default_value' => variable_get('views_send_receipt_'. $display, 0),
+    '#description' => t('Request a Read Receipt from your E-mails. A lot of email programs ignore these so it is not a definitive indication of how many people have read your message.'),
+  );
+  $form['additional']['views_send_headers'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Additional headers'),
+    '#description' => t("Additional headers to be send with the message. You'll have to enter one per line. Example:<pre>Reply-To: noreply@example.com\nX-MyCustomHeader: Whatever</pre>"),
+    '#rows' => 4,
+    '#default_value' => variable_get('views_send_headers_'. $display, ''),
+  );
+
+  $form['views_send_remember'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Remember these values next time when you will send mass mail.'),
+    '#default_value' => variable_get('views_send_remember_'. $display, TRUE),
+  );
+  return $form;
+}
+
+/**
+ * Validation callback for views_send_mail action configuration form.
+ *
+ * @see http://drupal.org/node/172152
+ */
+function views_send_mail_action_validate($form, $form_state) {
+  $values =& $form_state['values'];
+
+  // Check if sender's E-mail is a valid one.
+  if (!valid_email_address($values['views_send_from_mail'])) {
+    form_set_error('from_mail', t('The sender\'s E-mail is not a valid E-mail name: %mail', array('%mail' => $values['views_send_from_mail'])));
+  }
+
+  // Check in the column selected as E-mail contain valid E-mail values.
+  if (!empty($values['views_send_to_mail'])) {
+    $wrong_addresses = 0;
+
+    /**
+     * "views_send_mail_action" was the only action configured and "Merge single
+     * action's form with node selection view" checkbox is checked. We are on
+     * first submit and the $form_state['storage'] is not populated yet.
+     */
+    if ($values['step'] == VIEWS_BULK_OPS_STEP_SINGLE) {
+      // Normalize selection.
+      _views_bulk_operations_adjust_selection($values['objects']['selection'], $values['objects']['select_all'], $values['exposed_input'], $values['arguments'], $form['#plugin']);
+      $records =& $values['objects']['selection'];
+    }
+    /**
+     * Common usage: "views_send_mail_action" isn't the only action configured
+     * or "Merge single action's form with node selection view" checkbox is
+     * checked. $form_state['storage'] is populated and we will use it.
+     */
+    else {
+      $records =& $form_state['storage'][1]['objects']['selection'];
+    }
+
+    foreach ($records as $record) {
+      $email = $record->{$values["views_send_to_mail"]};
+      if (!valid_email_address($email)) {
+        $wrong_addresses++;
+      }
+    }
+
+    if ($wrong_addresses) {
+      form_set_error('to_mail', t('The field used for recipient\'s E-mail %field contains @wrong invalid E-mail addresses from a total of @total selected. Choose other field to act as recipient\'s E-mail or narrow the selection to a subset containing only valid addresses.', array('%field' => $values['views_send_to_mail'], '@wrong' => $wrong_addresses, '@total' => count($records))));
+    }
+  }
+}
+
+/**
+ * Action configuration submission callback.
+ *
+ * @see http://drupal.org/node/172152
+ */
+function views_send_mail_action_submit($form, &$form_state) {
+  $display = $form['display']['#value'];
+  $values =& $form_state['values'];
+  $return = array(
+    // TODO: Do we need this?
+    'view' => &$form_state['storage'][1]['plugin']->view,
+    /**
+     * TODO: This is just a flag needed in hook_form_alter() to identify the
+     * form. Find other clever way to do that...
+     */
+    'views_send' => TRUE,
+    'views_send_tokens' => $values['views_send_tokens'],
+  );
+  foreach ($values as $key => $value) {
+    $key = ($key == 'format') ? 'views_send_message_format' : $key;
+    if (substr($key, 0, 11) == 'views_send_') {
+      if ($values['views_send_remember']) {
+        variable_set($key .'_'. $display, $value);
+      }
+      $return += array($key => $value);
+    }
+  }
+  $form_state['views_send'] = TRUE;
+  return $return;
+}
+
+/**
+ * Main action callback.
+ *
+ * @see http://drupal.org/node/172152
+ */
+function views_send_mail_action($object, $context) {
+  global $user;
+
+  // From: parts.
+  $from_mail = $context['views_send_from_mail'];
+  $from_name = $context['views_send_from_name'];
+
+  // To: parts.
+  $to_mail = $context['row']->{$context["views_send_to_mail"]};
+  $to_name = $context['views_send_to_name'] ? $context['row']->{$context["views_send_to_name"]} : '';
+
+  // Formatting using selected input format.
+  $subject = $context['views_send_subject'];
+  $body = ($context['views_send_message_format'] == VIEWS_SEND_FORMAT_PLAIN) ? $context['views_send_message'] : check_markup($context['views_send_message'], $context['views_send_message_format']);
+
+  // Populate row/context tokens.
+  $token_keys = $token_values = array();
+  foreach (array_keys($context['views_send_tokens']) as $field) {
+    $token_keys[] = sprintf(VIEWS_SEND_TOKEN_PATTERN, $field);
+    $token_values[] = $context['row']->{$field};
+  }
+  $subject = str_replace($token_keys, $token_values, $subject);
+  $body = str_replace($token_keys, $token_values, $body);
+
+  // Let Token module operate substitutions.
+  if (module_exists('token')) {
+    _views_send_normalize_context($context);
+    $subject = token_replace_multiple($subject, $context);
+    $body = token_replace_multiple($body, $context);
+  }
+
+  // Process PHP code when only plain format is available.
+  if (!VIEWS_SEND_MIMEMAIL && _views_send_allow_php() && ($context['views_send_message_format'] == VIEWS_SEND_FORMAT_PLAIN)) {
+    $body = drupal_eval($body);
+  }
+
+  // We transform receipt, priority in headers,
+  // merging them to the user defined headers.
+  $headers = _views_send_headers($context['views_send_receipt'], $context['views_send_priority'], $from_mail, $context['views_send_headers']);
+
+  // All tokens replacements, PHP processing and formatting were done.
+  // We are performing now all usual mail processing, altering and preparing.
+  _views_send_prepare_mail($from_name, $from_mail, $to_name, $to_mail, $subject, $body, $headers, $context['views_send_message_format']);
+
+  // Queue the message to the spool table.
+  db_query("INSERT INTO {views_send_spool} (uid, timestamp, from_name, from_mail, to_name, to_mail, subject, body, headers) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $user->uid, time(), $from_name, $from_mail, $to_name, $to_mail, $subject, $body, serialize($headers));
+}
+
+// === Hook implementations ====================================================
+
+/**
+ * Implementation of hook_menu().
+ *
+ * @see http://api.drupal.org/api/function/hook_menu/6
+ */
+function views_send_menu() {
+  $items = array();
+  $items['admin/settings/views_send'] = array(
+    'type' => MENU_NORMAL_ITEM,
+    'title' => 'Views Send',
+    'description' => 'Configure Views Send general options.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_send_settings'),
+    'access arguments' => array('administer views_send'),
+    'file' => 'views_send.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_perm().
+ *
+ * @see http://api.drupal.org/api/function/hook_perm/6
+ */
+function views_send_perm() {
+  return array(
+    'administer views_send',
+    'mass mailing with views_send'
+  );
+}
+
+/**
+ * Implementation of hook_theme().
+ *
+ * @see http://api.drupal.org/api/function/hook_theme/6
+ */
+function views_send_theme($existing, $type, $theme, $path) {
+  return array(
+    'views_send_token_help' => array(
+      'arguments' => array('tokens' => array()),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_alter()
+ * We want to alter the confirmation form, just before processing the action, so the the user can preview the whole message berore sending it.
+ *
+ * @see http://api.drupal.org/api/function/hook_form_alter/6
+ */
+function views_send_form_alter($form, $form_state, $form_id) {
+
+  // TODO: Is there a better way to pickup the right form?
+  if ($form_id == 'views_bulk_operations_form__1' && isset($form_state['storage']['operation_arguments']['views_send'])) {
+
+    drupal_set_title(t('Review and confirm the message that is about to be sent'));
+    drupal_add_css(drupal_get_path('module', 'views_send') .'/views_send.css');
+
+    $args =& $form_state['storage']['operation_arguments'];
+
+    // Drop the confirmation form warning message.
+    unset($form['description']);
+
+
+    $form['#attributes']['class'] .= ' views-send-preview';
+    $form['from'] = array(
+      '#type' => 'item',
+      '#title' => t('From'),
+      '#value' => '<div class="views-send-preview-value">'. (empty($args['views_send_from_name']) ? $args['views_send_from_mail'] : $args['views_send_from_name'] . check_plain(' <'. $args['views_send_from_mail'] .'>')) .'</div>',
+    );
+
+    $recipients = array();
+    foreach ($form_state['storage'][1]['objects']['selection'] as $oid => $row) {
+      $email = $row->{$form_state["storage"]["operation_arguments"]["views_send_to_mail"]};
+      $name = empty($form_state['storage']['operation_arguments']['views_send_to_name']) ? '' : $row->{$form_state["storage"]["operation_arguments"]["views_send_to_name"]};
+      $recipients[] = check_plain(empty($name) ? $email : $name .' <'. $email .'>');
+    }
+
+    $form['to'] = array(
+      '#type' => 'item',
+      '#title' => t('To'),
+      '#value' => '<div id="views-send-preview-to" class="views-send-preview-value">'. implode(', ', $recipients) .'</div>',
+    );
+    $form['subject'] = array(
+      '#type' => 'item',
+      '#title' => t('Subject'),
+      '#value' => '<div class="views-send-preview-value">'. $args['views_send_subject'] .'</div>',
+    );
+    $form['message'] = array(
+      '#type' => 'item',
+      '#title' => t('Message'),
+      '#value' => '<div id="views-send-preview-message" class="views-send-preview-value">'. $args['views_send_message'] .'</div>',
+    );
+
+    $headers = array();
+    foreach (_views_send_headers($args['views_send_receipt'], $args['views_send_priority'], $args['views_send_from_mail'], $args['views_send_headers']) as $key => $value) {
+      $headers[] = $key .': '. $value;
+    }
+
+    $form['headers'] = array(
+      '#type' => 'item',
+      '#title' => t('Headers'),
+      '#value' => '<div id="views-send-preview-headers" class="views-send-preview-value">'. implode('<br />', $headers) .'</div>',
+    );
+
+    $form['actions']['#weight'] = 100;
+  }
+}
+
+/**
+ * Implementation of hook_cron().
+ *
+ * @see http://api.drupal.org/api/function/hook_cron/6
+ */
+function views_send_cron() {
+  // Load cron functions.
+  module_load_include('cron.inc', 'views_send');
+
+  // Send pending messages from spool.
+  views_send_send_from_spool();
+
+  // Clear successful sent messages.
+  views_send_clear_spool();
+}
+
+/**
+ * Implementation of hook_mail().
+ *
+ * @see http://api.drupal.org/api/function/hook_mail/6
+ */
+function views_send_mail($key, &$message, $params) {
+
+  // This is a simple message send. User inputs the content directly.
+  if ($key == 'direct') {
+
+    // Set the subject.
+    $message['subject'] = $params['subject'];
+
+    // Set the body.
+    $message['body'] = $params['body'];
+
+    // Add additional headers.
+    $message['headers'] += $params['headers'];
+  }
+
+  // TODO: Implement node message parsing.
+  elseif ($key == 'node') {
+    // Translations, theming, etc...
+  }
+}
+
+// === Helper functions ========================================================
+
+/**
+ * This is a fork of filter_form() in order to allow adding the "Plain" option.
+ *
+ * @see http://api.drupal.org/api/function/filter_form/6
+ *
+ * @param
+ *   The ID of the format that is currently selected.
+ *
+ * @return
+ *   Form API array for the form element.
+ */
+function _views_send_filter_form($default_value) {
+  $form = array();
+  $parents = array('format');
+
+  // Format wrapper.
+  $form = array(
+    '#type' => 'fieldset',
+    '#title' => t('Message format'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#element_validate' => array('filter_form_validate'),
+  );
+
+  $guidelines = array();
+  $guidelines[] = VIEWS_SEND_MIMEMAIL ? t('Messages will be send in plain format.') : t('Only plain format is available. If you want to format the message as HTML, you\'ll have to install and enable <a href="http://drupal.org/project/mimemail">Mime Mail</a> module.');
+  if (!VIEWS_SEND_MIMEMAIL && _views_send_allow_php()) {
+    $guidelines[] = t('You may post PHP code. You should include &lt;?php ?&gt; tags.');
+  }
+  $guidelines = count($guidelines) == 1 ? '<p>'. $guidelines[0] .'</p>' : theme('item_list', $guidelines);
+
+  $form[VIEWS_SEND_FORMAT_PLAIN] = array(
+    '#type' => 'radio',
+    '#title' => t('Plain'),
+    '#default_value' => VIEWS_SEND_MIMEMAIL ? $default_value : VIEWS_SEND_FORMAT_PLAIN,
+    '#return_value' => VIEWS_SEND_FORMAT_PLAIN,
+    '#parents' => $parents,
+    '#description' => $guidelines,
+    '#id' => form_clean_id('edit-'. implode('-', array_merge($parents, array(VIEWS_SEND_FORMAT_PLAIN)))),
+  );
+
+  // If Mime Mail module is not present we allow only plain format.
+  if (!VIEWS_SEND_MIMEMAIL) {
+    return $form;
+  }
+
+  $formats = filter_formats();
+  $extra = theme('filter_tips_more_info');
+
+  // Multiple formats available: display radio buttons with tips.
+  foreach ($formats as $fid => $format) {
+    // Generate the parents as the autogenerator does, so we will have a
+    // unique id for each radio button.
+    $parents_for_id = array_merge($parents, array($format->format));
+    $form[$format->format] = array(
+      '#type' => 'radio',
+      '#title' => $format->name,
+      '#default_value' => $default_value,
+      '#return_value' => $format->format,
+      '#parents' => $parents,
+      '#description' => theme('filter_tips', _filter_tips($format->format, FALSE)),
+      '#id' => form_clean_id('edit-'. implode('-', $parents_for_id)),
+    );
+  }
+  $form[] = array('#value' => $extra);
+  return $form;
+}
+
+/**
+ * Build header array with priority and receipt confirmation settings.
+ *
+ * @param $receipt
+ *   Boolean: If a receipt is requested.
+ * @param $priority
+ *   Integer: The message priority.
+ * @param $from
+ *   String: The sender's E-mail address.
+ *
+ * @return Header array with priority and receipt confirmation info
+ */
+function _views_send_headers($receipt, $priority, $from, $additional_headers) {
+  $headers = array();
+
+  // If receipt is requested, add headers.
+  if ($receipt) {
+    $headers['Disposition-Notification-To'] = $from;
+    $headers['X-Confirm-Reading-To'] = $from;
+  }
+
+  // Add priority if set.
+  switch ($priority) {
+    case VIEWS_SEND_PRIORITY_HIGHEST:
+      $headers['Priority'] = 'High';
+      $headers['X-Priority'] = '1';
+      $headers['X-MSMail-Priority'] = 'Highest';
+      break;
+    case VIEWS_SEND_PRIORITY_HIGH:
+      $headers['Priority'] = 'urgent';
+      $headers['X-Priority'] = '2';
+      $headers['X-MSMail-Priority'] = 'High';
+      break;
+    case VIEWS_SEND_PRIORITY_NORMAL:
+      $headers['Priority'] = 'normal';
+      $headers['X-Priority'] = '3';
+      $headers['X-MSMail-Priority'] = 'Normal';
+      break;
+    case VIEWS_SEND_PRIORITY_LOW:
+      $headers['Priority'] = 'non-urgent';
+      $headers['X-Priority'] = '4';
+      $headers['X-MSMail-Priority'] = 'Low';
+      break;
+    case VIEWS_SEND_PRIORITY_LOWEST:
+      $headers['Priority'] = 'non-urgent';
+      $headers['X-Priority'] = '5';
+      $headers['X-MSMail-Priority'] = 'Lowest';
+      break;
+  }
+
+  // Add general headers.
+  $headers['Precedence'] = 'bulk';
+
+  // Add additional headers.
+  $additional_headers = trim($additional_headers);
+  $additional_headers = str_replace("\r", "\n", $additional_headers);
+  $additional_headers = explode("\n", $additional_headers);
+  foreach ($additional_headers as $header) {
+    $header = trim($header);
+    if (!empty($header)) {
+      list($key, $value) = explode(': ', $header, 2);
+      $headers[$key] = trim($value);
+    }
+  }
+
+  return $headers;
+}
+
+/**
+ * Build a formatted E-mail address.
+ */
+function _views_send_format_address($mail, $name, $encode = TRUE) {
+  $name = trim($name);
+
+  // Do not format addres on Windows based PHP systems or when $name is empty.
+  return ((substr(PHP_OS, 0, 3) == 'WIN') || empty($name)) ? $mail : '"'. ($encode ? mime_header_encode($name) : $name) .'" <'. $mail .'>';
+}
+
+/**
+ * Perform all alteration and preparation before spooling.
+ *
+ * @param $from_name
+ *   String holding the Sender's name.
+ * @param $from_mail
+ *   String holding the Sender's E-mail.
+ * @param $to_name
+ *   String holding the Recipient's name.
+ * @param $to_mail
+ *   String holding the Recipient's E-mail.
+ * @param $subject
+ *   String with the E-mail subject. This argument can be altered here.
+ * @param $body
+ *   Text with the E-mail body. This argument can be altered here.
+ * @param $headers
+ *   Associative array with E-mail headers. This argument can be altered here.
+ * @param $format
+ *   String with the E-mail format.
+ */
+function _views_send_prepare_mail($from_name, $from_mail, $to_name, $to_mail, &$subject, &$body, &$headers, $format) {
+  /**
+   * TODO: In the future, this module will be able to send an existing node.
+   * $key will have to make the difference. A value when we pickup a node, other
+   * when user inputs the subject & body of the message.
+   */
+  $key = 'direct';
+
+  // Build message parameters.
+  $params = array();
+
+  $params['from_name'] = $from_name;
+  $params['from_mail'] = $from_mail;
+  $params['from_formatted'] = _views_send_format_address($from_mail, $from_name);
+
+  $params['to_name'] = $to_name;
+  $params['to_mail'] = $to_mail;
+  $params['to_formatted'] = _views_send_format_address($to_mail, $to_name);
+
+  $params['subject'] = $subject;
+  $params['body'] = $body;
+  $params['headers'] = $headers;
+
+  // Call Drupal standard mail function, but without sending.
+  $mail = drupal_mail('views_send', $key, $params['to_formatted'], NULL, $params, $params['from_formatted'], FALSE);
+
+  // Add additional Mime Mail processing.
+  if (VIEWS_SEND_MIMEMAIL) {
+    $plain = ($format == VIEWS_SEND_FORMAT_PLAIN);
+    $plain_text = $plain ? $mail['body'] : _views_send_html_to_text($mail['body'], TRUE);
+
+    $mail = mimemail($mail['from'], $mail['to'], $mail['subject'], $mail['body'], $plain, $mail['headers'], $plain_text, array(), '', FALSE);
+
+    // From: header may be broken after mimemail_prepare().
+    $mail['headers']['From'] = _views_send_format_address($from_mail, $from_name);
+
+    // We want to spool the Subject decoded.
+    $mail['subject'] = mime_header_decode($mail['subject']);
+  }
+
+  $subject = $mail['subject'];
+  $body = $mail['body'];
+  $headers = $mail['headers'];
+}
+
+/**
+ * HTML to text conversion for HTML and special characters.
+ * Converts some special HTMLcharacters in addition to drupal_html_to_text().
+ * Inspired from Simplenews,
+ *
+ * @param $text
+ *   String: Source text with HTML and special characters.
+ *
+ * @return
+ *   String: Target text with HTML and special characters replaced.
+ */
+function _views_send_html_to_text($text) {
+  $pattern = '@<a[^>]+?href="([^"]*)"[^>]*?>(.+?)</a>@is';
+  $text = preg_replace_callback($pattern, '_views_send_absolute_mail_urls', $text);
+
+  // Replace some special characters before performing the drupal standard conversion.
+  $preg = _views_send_html_replace();
+  $text = preg_replace(array_keys($preg), array_values($preg), $text);
+
+  // Perform standard drupal html to text conversion.
+  return drupal_html_to_text($text);
+}
+
+/**
+ * Helper function for _views_send_html_to_text().
+ * Inspired from Simplenews.
+ *
+ * List of preg regular expression patterns to search for and replace with.
+ */
+function _views_send_html_replace() {
+    return array(
+        '/&quot;/i'  => '"',
+        '/&gt;/i'    => '>',
+        '/&lt;/i'    => '<',
+        '/&amp;/i'   => '&',
+        '/&copy;/i'  => '(c)',
+        '/&trade;/i' => '(tm)',
+        '/&#8220;/'  => '"',
+        '/&#8221;/'  => '"',
+        '/&#8211;/'  => '-',
+        '/&#8217;/'  => "'",
+        '/&#38;/'    => '&',
+        '/&#169;/'   => '(c)',
+        '/&#8482;/'  => '(tm)',
+        '/&#151;/'   => '--',
+        '/&#147;/'   => '"',
+        '/&#148;/'   => '"',
+        '/&#149;/'   => '*',
+        '/&reg;/i'   => '(R)',
+        '/&bull;/i'  => '*',
+        '/&euro;/i'  => 'Euro ',
+    );
+}
+
+/**
+ * Helper function for _views_send_html_to_text().
+ * Replaces URLs with abolute URLs.
+ *
+ * Inspired from Simplenews.
+ */
+function _views_send_absolute_mail_urls($match) {
+  global $base_url, $base_path;
+  static $regexp;
+  $url = $label = '';
+
+  if ($match) {
+    if (empty($regexp)) {
+      $regexp = '@^'. preg_quote($base_path, '@') .'@';
+    }
+    list(, $url, $label) = $match;
+    $url = strpos($url, '://') ? $url : preg_replace($regexp, $base_url .'/', $url);
+
+    // If the link is formed by Drupal's URL filter, we only return the URL.
+    // The URL filter generates a label out of the original URL.
+    if (strpos($label, '...') === strlen($label) - 3) {
+      // Remove ellipsis from end of label.
+      $label = substr($label, 0, strlen($label) - 3);
+    }
+    if (strpos($url, $label) !== FALSE) {
+      return $url;
+    }
+    return $label .' '. $url;
+  }
+}
+
+/**
+ * Normalizing the context. If token_action.module is not enabled we'll have to
+ * normalize here. Otherwise use token_normalize_context().
+ *
+ * @see http://drupalcontrib.org/api/function/token_normalize_context/6
+ */
+function _views_send_normalize_context(&$context) {
+  if (function_exists('token_normalize_context')) {
+    token_normalize_context($context);
+  }
+  else {
+    $context['global'] = NULL;
+    if (empty($context['user']) && !empty($context['node'])) {
+      $context['user'] = user_load(array('uid' => $context['node']->uid));
+    }
+    if (empty($context['node']) && !empty($context['comment']) && !empty($context['comment']->nid)) {
+      $context['node'] = node_load($context['comment']->nid);
+    }
+  }
+}
+
+/**
+ * Find out if the current user is allowed to use the PHP filter.
+ */
+function _views_send_allow_php() {
+  static $allow_php;
+  if (!isset($allow_php)) {
+    $allow_php = FALSE;
+    $result = db_query("SELECT format FROM {filters} WHERE module = 'php'");
+    while ($row = db_fetch_object($result)) {
+      if (filter_access($row->format)) {
+        $allow_php = TRUE;
+        break;
+      }
+    }
+  }
+  return $allow_php;
+}
+
+// === Theming functions =======================================================
+
+/**
+ * Theme the replacement tokens.
+ *
+ * @param $tokens:
+ *   Keyed array with tokens as keys and description as values.
+ *
+ * @return
+ *   A themed table wirh all tokens.
+ */
+function theme_views_send_token_help($fields) {
+  $headers = array(t('Token'), t('Replacement value'));
+  $rows = array();
+
+  $rows[] = array(array('data' => t('View row tokens'), 'class' => 'region', 'colspan' => 2));
+  foreach ($fields as $field => $title) {
+    $rows[] = array(sprintf(VIEWS_SEND_TOKEN_PATTERN, $field), $title);
+  }
+
+  if (module_exists('token')) {
+    token_include();
+    $full_list = token_get_list();
+
+    foreach ($full_list as $key => $category) {
+      $rows[] = array(array('data' => drupal_ucfirst($key) .' '. t('tokens'), 'class' => 'region', 'colspan' => 2));
+      foreach ($category as $token => $description) {
+        $row = array();
+        $row[] = '['. $token .']';
+        $row[] = $description;
+        $rows[] = $row;
+      }
+    }
+  }
+
+  $output = theme('table', $headers, $rows, array('class' => 'description'));
+  return $output;
+}

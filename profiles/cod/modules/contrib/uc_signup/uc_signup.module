@@ -1,0 +1,1315 @@
+<?php
+/*
+ * Implementation of hook_perm().
+ */
+function uc_signup_perm() {
+  return array('administer UC_Signup', 'purchase signups for other users');
+}
+
+/*
+ * Implementation of hook_menu().
+ */
+function uc_signup_menu() {
+  $items['uc_signup/attendees/emails'] = array(
+    'access callback' => 'uc_signup_attendees_form_access',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_signup_attendees_form', 2),
+    'title' => 'Attendee E-mail Addresses',
+    'type' => MENU_CALLBACK,
+  );
+  
+  $items['uc_signup/attendees/profiles'] = array(
+    'access callback' => 'uc_signup_attendees_form_access',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_signup_attendees_form', 2),
+    'title' => 'Attendee Contact Information',
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+function uc_signup_attendees_form_access() {
+  return TRUE;
+}
+
+/*
+ * Implementation of hook_theme().
+ */
+function uc_signup_theme() {
+  return array(
+    'uc_signup_user_events' => array(
+      'arguments' => array('events' => array(), 'nodes' => array()),
+    ),
+    'uc_signup_event_text' => array(
+      'arguments' => array('node' => (object)array(), ),
+    ),
+    'uc_signup_has_account' => array(
+      'arguments' => array('message' => '', ),
+    ),
+    'uc_signup_needs_account' => array(
+      'arguments' => array('message' => '', ),
+    ),
+    'uc_signup_restrict_qty_field' => array(
+      'arguments' => array('form' => NULL),
+    ),
+    'uc_signup_confirmed_signups_text' => array(
+      'arguments' => array('signups' => NULL),
+    ),
+  );
+}
+
+/*
+ * Implementation of hook_requirements().
+ */
+
+function uc_signup_requirements($phase) {
+  if ($phase == 'runtime') {
+    $requirements['uc_signup']['title'] = t('Signup Integration for Ubercart');
+    $profile_form = uc_signup_profile_form();
+    if (empty($profile_form)) {
+      $requirements['uc_signup']['description'] = t('You have no core user
+        profile fields that are configured to show on the user registration form.
+        UC_Signup requires that you make at !action',
+        array('!action' => l(t('set at least one profile field to appear on the registration form.'), 'admin/user/profile')));
+      $requirements['uc_signup']['severity'] = REQUIREMENT_WARNING;
+    }
+    else {
+      $requirements['uc_signup']['description'] = t('You have at least one core profile field set to show up on the user registration form.');
+      $requirements['uc_signup']['severity'] = REQUIREMENT_OK;
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Get the profile fields required for the uc_signup attendee information form.
+ * 
+ * @param $account
+ *   (optional) The account object for which we need the user profile form.
+ * @param $category_map
+ *   (optional) Return a tree structure of form categories and fields, rather 
+ *   than a complete form.
+ */
+function uc_signup_profile_form($account = array(), $category_map = FALSE) {
+  $form = array();
+  // Get all user profile fields, then unset the ones we don't want to display.
+  // Since we're going to call profile_form_profile() with $register
+  // set to FALSE, we need to explicitly request each profile field category.
+  $query = db_query("SELECT name, category FROM {profile_fields}");
+  while ($result = db_fetch_object($query)) {
+    $categories[] = $result->category;
+    $fields[$result->name] = $result->category;
+  }
+  // Add each category of fields to the form.
+  include_once(drupal_get_path('module', 'user') .'/user.pages.inc');
+  foreach ($categories as $category) {
+    $form += profile_form_profile($account, (object)$account, $category, FALSE);
+  }
+  // Then, remove the fields that aren't configured to display in the uc_signup
+  // attendee information form.
+  foreach ($fields as $key => $category) {
+    if (!empty($form[$category][$key]) && !uc_signup_profile_field_visibility($key)) {
+      unset($form[$category][$key]);
+    }
+  }
+  // Unset any empty category fieldsets.
+  foreach (element_children($form) as $category) {
+    $children = element_children($form[$category]);
+    if (empty($children)) {
+      unset($form[$category]);
+    }
+  }
+  if ($category_map) {
+    return $form;
+  }
+  // We add these fields as values so that they're processed later
+  // via drupal_execute(). 
+  foreach (array('name', 'mail', 'op', 'notify', 'pass', 'status') as $key) {
+    $form[$key]['#type'] = 'value';
+  }
+  $form['#submit'][] = 'user_register_submit';
+  $form['#submit'][] = 'uc_signup_save_profile';
+  $form['#validate'][] = 'user_register_validate';
+  return $form;
+}
+
+/**
+ * Save profile information for a newly created user. This is necessary because
+ * the core Profile module will only save the fields that show on the user
+ * registration form when creating a user, regardless of which fields
+ * are specified. uc_signup saves this information after the user is created
+ * because its weight is -1, and doing so before the core profile module
+ * would cause the non-registration fields to be deleted by
+ * profile_save_profile() when it saves the fields that do show on the user
+ * registration form.
+ */
+function uc_signup_save_profile($form, &$form_state) {
+  static $non_register_fields;
+  if (!isset($non_register_fields)) {
+    $non_register_fields = array();
+    $query = db_query("SELECT name, register FROM {profile_fields} WHERE register = 0");
+    while ($result = db_fetch_object($query)) {
+      $non_register_fields[$result->name] = $result->name;
+    }  
+  }
+  $non_register_values = array_intersect_key($form_state['values'], $non_register_fields);
+  // If there are no non_register values, then we don't need to save any data separately.
+  if (!empty($non_register_values)) {
+    $account = $form_state['user'];
+    $data = unserialize($account->data);
+    $category_map = uc_signup_profile_form(NULL, TRUE);
+    foreach ($category_map as $category => $category_fields) {
+      $values[$category] = array_intersect_key($form_state['values'], $category_fields);
+      // Don't save a category with no submitted values in that category.
+      if (!empty($values[$category])) {
+        // We need to re-submit the registration-only fields as well.
+        foreach ($values[$category] as $key => $value) {
+          // Unset these values from $account->data.
+          unset($data['$key']);
+        }
+        $account->data = serialize($data);
+        // We do one user_save() per profile category.
+        $account = user_save($account, $values[$category], $category);
+      }
+    }
+    $form_state['values']['user'] = $account;
+  }
+}
+function uc_signup_attendees_form_validate($form, &$form_state) {
+  if ($form_state['storage']['step'] == 'emails') {
+    global $user;
+    foreach ($form_state['values'] as $key => $value) {
+      if (is_numeric($key)) {
+        foreach ($form_state['values'][$key] as $num => $mail) {
+          if (!isset($prev_mails[$key])) {
+            $prev_mails[$key] = array();
+          }
+          if (in_array($mail, $prev_mails[$key])) {
+            form_set_error("$key][$num", t("Please enter a unique email address for each event's attendees."));
+          }
+          $prev_mails[$key][] = $mail;
+          if (!valid_email_address($mail)) {
+            form_set_error("$key][$num", t('Please enter a valid email address.'));
+          }
+          if (uc_signup_user_is_signed_up($mail, $key)) {
+            form_set_error("$key][$num", t('The attendee with email address @mail is already signed up for this event', array('@mail' => $mail)));
+          }
+          $message = uc_signup_invalid_mail($mail);
+          if (!empty($message)) {
+            form_set_error("$key][$num", $message);
+          }
+        }
+      }
+    }
+  }
+}
+
+function uc_signup_invalid_mail($mail) {
+  global $user;
+  if (!user_access('purchase signups for other users')) {
+    // Prevent authenticated users from loggin in other users.
+    if (user_is_logged_in() && $mail != $user->mail) {
+      return t('You are not authorized to register on behalf of other users.');
+    }
+    // Prevent anonymous users from registering for existing users.
+    if (user_is_anonymous()) {
+      $existing_account = user_load(array('mail' => $mail));
+      if (!empty($existing_account->uid)) {
+        return t('This email address corresponds to an existing account. If you wish to register using this account, please <a href="@login">log in.</a>', array('@login' => url('user', array('query' => drupal_get_destination()))));
+      }
+    }
+  }
+}
+function uc_signup_attendees_form_emails(&$form_state, $events) {
+  $form_state['storage']['step'] = 'emails';
+  global $user;
+
+  foreach ($events as $event) {
+    // TODO: This should call theme('uc_signup_event_text'
+    $node = node_load($event['nid']);
+    //  Prepare the formatted CCK Date field.
+    $date_formatted = '';
+    $date_field = signup_date_field($node->type);
+    if (!empty($date_field)) {
+      $date_field_name = $date_field['field_name'];
+      $this_date_field = $node->$date_field_name;
+      $date_formatted = ' - ' . strip_tags(content_format($date_field, $this_date_field[0]));
+    }
+
+    $form[$event['nid']] = array(
+      '#type' => 'fieldset',
+      '#title' => check_plain($node->title) . $date_formatted,
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#tree' => TRUE,
+    );
+
+    $num = 0;
+    $allow_multiple = user_access('purchase signups for other users');
+    // If user has permission to sign others up, allow them to sign
+    // up as many as the quantity is set to.
+    if ($allow_multiple) {
+      $form['instructions'] = array(
+        '#type' => 'markup',
+        '#value' => t("Please enter the email address of each attendee for this event. If an attendee does not have an account on this site, you'll be prompted to enter some information about that attendee."),
+      );
+      $max = $event['qty'];
+    }
+    // Otherwise, only show one email field.
+    else {
+      $max = 1;
+    }
+
+    while ($num < $max) {
+      // Provide a default value for the email address where appropriate.
+      $default = $form_state['values'][$event['nid']][$num];
+      if (empty($default)) {
+        $default = $_SESSION['uc_signup']['nids'][$event['nid']][$num];
+      }
+      // Prevent the system from setting a value that will fail validation
+      // when the user can't correct it. This can happen if the user enters
+      // an email address while anonymous, logs in with an account that
+      // does not have this email address, and returns to the
+      // uc_signup attendee emails form.
+      if ((empty($default) || uc_signup_invalid_mail($default)) && $num == 0) {
+        $account = $user;
+        if (user_is_logged_in() && !uc_signup_user_is_signed_up($account->mail, $event['nid'])) {
+          $default = $account->mail;
+        }
+      }
+      // Catch-all to avoid setting to a value that would fail validation.
+      if (!empty($validation_message)) {
+        $default = $account->mail;
+      }
+      // If default is empty, this is an anonymous user, so they
+      // must be allowed to enter an e-mail address.
+      if ($allow_multiple || empty($default) || user_is_anonymous()) {
+        $form[$event['nid']][$num] = array(
+          '#type' => 'textfield',
+          '#title' => t('Email Address of Attendee #%count', array('%count' => $num + 1)),
+          '#default_value' => $default,
+          '#required' => TRUE,
+        );
+      }
+      else {
+        // Display read-only e-mail address.
+        $_SESSION['uc_signup']['nids'][$event['nid']][0] = $user->mail;
+        $default = $user->mail;
+        $form[$event['nid']][$num] = array(
+          '#type' => 'value',
+          '#value' => $default,
+        );
+        $form[$event['nid']]['display'] = array(
+          '#type' => 'markup',
+          '#title' => '',
+          '#value' => t('E-mail address of attendee: @mail', array('@mail' => $default)),
+        );
+      }
+      $num ++;
+    }
+  }
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Next step'),
+  );
+  
+  return $form;
+}
+function uc_signup_attendees_form_submit($form, &$form_state) {
+
+  foreach ($form_state['values'] as $key => $value) {
+    if (is_numeric($key)) {
+      $form_state['storage']['uc_signup']['nids'][$key] = $value;
+    }
+    if ($key == 'profile') {
+      $form_state['storage']['uc_signup']['profile'] = $value;
+    }
+  }
+  // Store entered email addresses in the session in case the user navigates away from the form and returns.
+  $_SESSION['uc_signup'] = $form_state['storage']['uc_signup'];
+  if ($form_state['storage']['step'] == 'profiles') {
+    drupal_goto('cart/checkout');
+  }
+
+  if ($form_state['storage']['step'] == 'emails') {
+    unset($form_state['storage']); 
+    $form_state['redirect'] = 'uc_signup/attendees/profiles';
+  }
+}
+function uc_signup_attendees_form(&$form_state = NULL, $menu_path = NULL) {
+  // We have to disable page chaching so that this form works properly for anonymous users.
+  $_SERVER['REQUEST_METHOD'] = 'post';
+  $GLOBALS['config']['cache'] = FALSE;
+
+  $contents = uc_cart_get_contents();
+  foreach ($contents as $product) {
+    if (isset($product->data['uc_signup_enabled']) && $product->data['uc_signup_enabled'] == 1) {
+      $events[$product->nid]['title'] = $product->title;
+      $events[$product->nid]['nid'] = $product->nid;
+      $events[$product->nid]['qty'] = $events[$product->nid]['qty'] + $product->qty;
+    }
+  }
+  // Are there any signup enabled nodes in the cart?
+  if (empty($events)) {
+    // No. Nothing to do here.
+    drupal_goto('cart/checkout');
+  }
+
+  if (empty($form_state['storage']['uc_signup'])) {
+    $form_state['storage']['uc_signup'] = $_SESSION['uc_signup'];
+  }
+
+  // At this point, if the user requested the emails form, present it.
+  if (!empty($menu_path) && $menu_path == 'emails') {
+    return uc_signup_attendees_form_emails($form_state, $events);
+  }
+
+  // Is there a full list of emails for attendees attending each event that matches the event's quantity in the cart?
+  $emails_needed = 0;
+  foreach ($events as $event) {
+    $nid = $event['nid'];
+    if ($event['qty'] > count($form_state['storage']['uc_signup']['nids'][$nid])) {
+      $emails_needed ++;
+    }
+  }
+
+  // If not, redirect to the email address form.
+  if ($emails_needed > 0) {
+    drupal_goto('uc_signup/attendees/emails');
+  }
+
+   // Otherwise, the user is requesting the profiles form.
+   return uc_signup_attendees_form_profiles($form_state, $events);
+}
+
+function uc_signup_attendees_form_profiles(&$form_state, $events = array()) {
+  global $user;
+  $form_state['storage']['step'] = 'profiles';
+  $mails = array();
+  $nodes = array();
+  // Build an array keyed on email addresses
+  foreach ($form_state['storage']['uc_signup']['nids'] as $nid => $attendees) {
+    if (!in_array($nid, $nodes)) {
+      // Prepare node obejcts so we can display date information.
+      $nodes[$nid] = node_load($nid);
+    }
+    foreach ($attendees as $key => $mail) {
+      if (user_is_logged_in() && !user_access('purchase signups for other users')) {
+        $mail = $user->mail;
+        $_SESSION['uc_signup']['nids'][$nid][0] = $mail;
+      }
+      if (is_numeric($nid)) {
+        $mails[$mail][] = $nid;
+      }
+    }
+  }
+
+  $mail = '';
+  foreach ($mails as $mail => $events) {
+    $form[$mail] = array(
+      '#type' => 'fieldset',
+      '#title' => check_plain($mail),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+
+    $form[$mail]['events'] = array(
+      '#type' => 'markup',
+      '#value' => theme('uc_signup_user_events', $events, $nodes),
+    );
+
+    // Is there an account for this email address?
+    $account = user_load(array('mail' => $mail));
+    // Either there is no account, or the site is configured to have
+    // authenticated users fill out profile fields and the current user
+    // is signing herself up.
+    if (empty($account->uid) || (variable_get('uc_signup_auth_fields', 0) && $account->uid == $user->uid)) {
+      $profile_form = uc_signup_profile_form((array)$account);
+      if (!empty($profile_form)) {
+        $form[$mail]['profile'] = $profile_form;
+        foreach ($form[$mail]['profile'] as $group => $fields) {
+          foreach ($fields as $key => $value) {
+            $default = $form_state['values']['profile'][$key .'_'. $mail];
+            if (empty($default)) {
+              $default = $_SESSION['uc_signup']['profile'][$key .'_'. $mail];
+            }
+            if (empty($default)) {
+              $default = $profile_form[$group][$key]['#default_value'];
+            }
+            if ($key[0] != '#') {
+              $form[$mail]['profile'][$group][$key .'_'. $mail] = $value;
+              unset($form[$mail]['profile'][$group][$key]);
+              $form[$mail]['profile'][$group][$key .'_'. $mail]['#default_value'] = $default;
+              $form[$mail]['profile'][$group][$key .'_'. $mail]['#parents'] = array('profile', $key .'_'. $mail);
+            }
+          }
+        }
+        drupal_add_css(drupal_get_path('module', 'uc_signup') .'/uc_signup.css');
+        $form[$mail]['has_account'] = array(
+          '#type' => 'markup',
+          '#value' => theme('uc_signup_needs_account', t('Please enter additional information about this attendee.')),
+          '#weight' => -4,
+        );
+      }
+    }
+    else {
+      drupal_add_css(drupal_get_path('module', 'uc_signup') .'/uc_signup.css');
+      $form[$mail]['has_account'] = array(
+        '#type' => 'markup',
+        '#value' => theme('uc_signup_has_account', t('We already have contact information for this attendee in our system.')),
+        '#weight' => -4,
+      );
+    }
+  }
+
+  $form['back'] = array(
+    '#type' => 'markup',
+    '#value' => l(t("Previous step"), 'uc_signup/attendees/emails', array('attributes' => array('class' => 'uc_signup_previous'))),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Next step'),
+    '#attributes' => array('class' => 'uc_signup_next'),
+  );
+
+  return $form;
+}
+
+function theme_uc_signup_needs_account($message = '') {
+  return '<span class="uc_signup_needs_account">'. $message .'</span>';
+}
+
+function theme_uc_signup_has_account($message = '') {
+  return '<span class="uc_signup_has_account">'. $message .'</span>';
+}
+
+function theme_uc_signup_user_events($events = array(), $nodes = array()) {
+  foreach ($events as $key => $nid) {
+    $list[$nid] = theme('uc_signup_event_text', $nodes[$nid]);
+  }
+
+  $output .= '<div class="uc_signup_user_events">';
+  $output .= '<span class="uc_signup_attending">'. t('Attending:') .'</span>';
+  $output .= theme('item_list', $list);
+  $output .= '</div>';
+  return $output;
+}
+
+function theme_uc_signup_event_text($node = NULL) {
+  $date_field = signup_date_field($node->type);
+  if (!empty($date_field)) {
+    $date_field_name = $date_field['field_name'];
+    $this_date_field = $node->$date_field_name;
+    $date_formatted = ' - ' . content_format($date_field, $this_date_field[0]);
+
+  }
+  return check_plain($node->title) . $date_formatted;
+}
+
+function theme_uc_signup_restrict_qty_field($element = array()) {
+  return check_plain($element['#value']);
+}
+
+function theme_uc_signup_confirmed_signups_text($signups = NULL, $admin = FALSE) {
+  static $nodes;
+  $output = '';
+  if (!empty($signups)) {
+    if ($admin) {
+      $output .= t('The following signup ids where created:') . '<br />';
+    }
+    else {
+      $output .= t("Below are signup confirmation numbers for this order.<br /> Please note that these confirmation numbers are specific to each attendee. <br />");  
+    }
+        
+    foreach ($signups as $mail => $user_signups) {
+      $output .= '<p>'. t('@mail is attending:<br />', array('@mail' => $mail));
+      foreach ($user_signups as $signup) {
+        if (empty($nodes[$signup->nid])) {
+          $nodes[$signup->nid] = node_load($signup->nid);
+        }
+        $output .= theme('uc_signup_event_text', $nodes[$signup->nid]) . ' : ' . t('Confirmation #@sid', array('@sid' => $signup->sid)) . " <br />";  
+      }
+      $output .= '</p>';
+    }
+  }
+  return $output;
+}
+/*
+ * Implementation of hook_signup_suppress.
+ * Prevent the Signup from appearing on non-free signup-enabled nodes or all
+ * nodes when the 'Skip checkout for free events' setting is disabled. 
+ */
+function uc_signup_signup_suppress($node) {
+  if (uc_product_is_product($node) && (isset($node->sell_price) && $node->sell_price > 0 || !variable_get('uc_signup_skip_checkout_free', 1))) {
+    return TRUE;
+  }
+}
+
+/*
+ * Implementation of hook_nodeapi().
+ * Prevent the Signup from appearing on non-free signup-enabled nodes.
+ */
+function uc_signup_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'view':
+      if (uc_product_is_product($node) && (isset($node->sell_price) && $node->sell_price > 0 || !variable_get('uc_signup_skip_checkout_free', 1))) {
+        unset($node->content['signup']);
+      }
+  }
+}
+
+
+function uc_signup_profile_field_visibility($fid) {
+  if (!is_numeric($fid)) {
+    $fid = db_result(db_query("SELECT fid FROM {profile_fields} WHERE name = '%s'", $fid));
+  }
+  // First, check whether we've set this value already.
+  $uc_signup_field_visibility = variable_get('uc_signup_field_visibility', array());
+  if (isset($uc_signup_field_visibility[$fid]) && isset($uc_signup_field_visibility[$fid])) {
+    return $uc_signup_field_visibility[$fid];
+  }
+  // If not, default to the current user profile field visibility setting.
+  static $fields;
+  if (empty($fields[$fid])) {
+    $query = db_query("SELECT fid, visibility, register FROM {profile_fields}");
+    while ($result = db_fetch_array($query)) {
+      $fields[$result['fid']] = $result;
+    }
+  }
+  // Is this an admin-only field?
+  if ($fields[$fid]['visibility'] == 4) {
+    return 0;
+  }
+  // Default to the "Visible in user registration form" setting.
+  return $fields[$fid]['register'];
+}
+
+function uc_signup_profile_field_form_submit($form, &$form_state) {
+  uc_signup_set_profile_field_visibility($form_state['values']);
+}
+
+function uc_signup_set_profile_field_visibility($values) {
+  // The form is being submitted as the field is being created, so we
+  // don't have the fid in the $form_state['values'] yet.
+  if (empty($values['fid'])) {
+    $values['fid'] = db_result(db_query("SELECT fid FROM {profile_fields} WHERE name = '%s'", $values['name']));
+  }
+  if (isset($values['uc_signup_visibility'])) {
+    $uc_signup_field_visibility = variable_get('uc_signup_field_visibility', array());
+    $uc_signup_field_visibility[$values['fid']] = $values['uc_signup_visibility'];
+    variable_set('uc_signup_field_visibility', $uc_signup_field_visibility);
+  }
+}
+/*
+ * Implementation of hook_form_alter().
+ */
+function uc_signup_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'signup_settings_form') {
+    uc_signup_settings_form($form);
+  }
+  // Add the "Visible in uc_signup attendee information form" checkbox
+  // to core profile field settings.
+  if ($form_id == 'profile_field_form') {
+    $form['fields']['uc_signup_visibility'] = array(
+      '#type' => 'checkbox',
+      '#default_value' => uc_signup_profile_field_visibility($form['fields']['name']['#default_value']),
+      '#title' => t('Visible in uc_signup attendee information form.'),
+    );
+    $form['#submit'][] = 'uc_signup_profile_field_form_submit';
+  }
+  // Delete entries in the uc_signup_field_visibility variable when profile
+  // fields are deleted.
+  if ($form_id == 'profile_field_delete') {
+    $form['#submit'][] = 'uc_signup_profile_field_delete_submit';
+  }
+  if ($form_id == 'uc_cart_checkout_form') {
+    global $user;
+    if (!$user->uid && !empty($_SESSION['uc_signup']['nids'])) {
+      foreach ($_SESSION['uc_signup']['nids'] as $key => $attendees) {
+        $form['panes']['customer']['primary_email']['#default_value'] = $_SESSION['uc_signup']['nids'][$key][0];
+        break;
+      }
+    }
+  }
+  if (strpos($form_id, 'uc_product_add_to_cart_form') !== FALSE || strpos($form_id, 'uc_catalog_buy_it_now_form') !== FALSE) {
+    $node = $form['#parameters']['2'];
+    if (isset($node->signup) && $node->signup == 1) {
+      $form['#validate'][] = 'uc_signup_product_add_to_cart_form_validate';
+      if ($node->sell_price > 0 || !variable_get('uc_signup_skip_checkout_free', 1)) {
+        $add_cart_text = variable_get('uc_signup_add_cart_text', 'Sign up');
+        if ($add_cart_text != '') {
+          $form['submit']['#value'] = t($add_cart_text);
+          $node = $form['#parameters'][2];
+          _uc_signup_node_available($node, 0 , $message);
+          if ($message) {
+            drupal_add_css(drupal_get_path('module', 'uc_signup') .'/uc_signup.css');
+            $form['submit']['#suffix'] = '<span class="uc_signup_closed_message">' . $message . '</span>'; 
+            // Setting #disabled is sufficient here because even with DOM
+            // manipulation, uc_signup_product_add_to_cart_form_validate()
+            // enforces _uc_signup_node_available(). 
+            $form['submit']['#disabled'] = TRUE;
+            $form['qty']['#disabled'] = TRUE;
+          }
+          // Signup.module hasn't imposed any restrictions on signing up.
+          // Limit the product quantity to 1, if the user can't sign up others.
+          elseif (!user_access('purchase signups for other users')) {
+            $form['qty']['#value'] = 1;
+            $form['qty']['#access'] = FALSE;
+          }
+        }
+      }
+      // This is a free event, and we're skipping checkout for free events.
+      else {
+        $form['#access'] = FALSE;
+      }
+    }
+  }
+  if ($form_id == 'uc_cart_view_form') {
+    // Restrict quantity if the user can't sign up other users.
+    if (!user_access('purchase signups for other users')) {
+      $item_keys = element_children($form['items']);
+      if (!empty($item_keys)) {
+        foreach ($item_keys as $key) {
+          $data = unserialize($form['items'][$key]['data']['#value']);
+          if ($data['uc_signup_enabled']) {
+            $form['items'][$key]['qty']['#type'] = 'value';
+            $form['items'][$key]['qty']['#value'] = '1';
+            $form['items'][$key]['qty']['#theme'] = 'uc_signup_restrict_qty_field';
+          }
+        }
+      }
+    }
+    $form['#validate'][] = 'uc_signup_cart_view_form_validate';
+    $form['#submit'][] = 'uc_signup_cart_view_form_submit';
+  }
+  if ($form_id == 'uc_cart_checkout_review_form' && ($order_id = intval($_SESSION['cart_order'])) > 0) {
+    $order = uc_order_load($order_id);
+    if ($order->payment_method == 'paypal_wps') {
+      uc_signup_order_prepare($order);
+    }
+  }
+}
+
+
+/**
+ * Delete entries in the uc_signup_field_visibility variable when profile
+ * fields are deleted.
+ */
+function uc_signup_profile_field_delete_submit($form, &$form_state) {
+  if (!empty($form_state['values']['fid'])) {
+    $uc_signup_field_visibility = variable_get('uc_signup_field_visibility', array());
+    unset($uc_signup_field_visibility[$form_state['values']['fid']]);
+    variable_set('uc_signup_field_visibility', $uc_signup_field_visibility);
+  }
+}
+/**
+ * Implementation of hook_add_to_cart().
+ */
+function uc_signup_add_to_cart($nid, $qty, $data) {
+  // Enforce the 'purchase signups for other users' permission by only allowing
+  // one of a paritcular signup-enabled node in the cart at a time.
+  if ($data['uc_signup_enabled']) {
+    if (!user_access('purchase signups for other users')) {
+      foreach (uc_cart_get_contents() as $item) {
+        if ($item->nid == $nid) {
+          uc_cart_remove_item($nid, $item->cart_id, $item->data);
+        }
+      }
+    }
+  }
+}
+
+function uc_signup_cart_view_form_submit($form, &$form_state) {
+  // If quantity of any items has been decreased, unset the extra attendee 
+  // email addresses from $_SESSION['uc_signup']['nids'].
+if ($form_state['values']['op'] == t('Update cart') || $form_state['values']['op'] == t('Checkout')) {
+    foreach ($form_state['values']['items'] as $name => $item) {
+      if ($item['qty'] < count($_SESSION['uc_signup']['nids'][$item['nid']])) {
+        array_splice($_SESSION['uc_signup']['nids'][$item['nid']], $item['qty']);
+      }
+      if ($item['qty'] == 0) {
+        unset($_SESSION['uc_signup']['nids'][$item['nid']]);
+      }
+    }
+  }
+  // If a remove button was clicked, unset that nid entirely.
+  if (substr($form_state['clicked_button']['#name'], 0, 7) == 'remove-') {
+    $item_name = substr($form_state['clicked_button']['#name'], 7);
+    $item = $form_state['values']['items'][$item_name];
+    unset($_SESSION['uc_signup']['nids'][$item['nid']]);
+  }
+}
+
+function uc_signup_product_add_to_cart_form_validate($form, &$form_state) {
+  $node = node_load($form_state['values']['nid']);
+  _uc_signup_node_available($node, $form_state['values']['qty'], $message);
+  if ($message) {
+    form_set_error('qty', $message);
+  }
+}
+
+function uc_signup_cart_view_form_validate($form, $form_state) {
+  if (!empty($form_state['values']['items'])) {
+    foreach ($form_state['values']['items'] as $key => $item) {
+      $data = unserialize($item['data']);
+      if (!($form_state['values']['items'][$key]['remove'] == 1 || $form_state['values']['items'][$key]['qty'] == 0) && isset($data['uc_signup_enabled']) && $data['uc_signup_enabled'] == 1) {
+        $node = node_load($item['nid']);
+        _uc_signup_node_available($node, $item['qty'], $message);
+        if ($message) {
+          form_set_error("items][$key][qty", $message);
+        }
+      }
+    }
+  }
+}
+
+
+/*
+ * Implementation of hook_ca_predicate().
+ */
+function uc_signup_ca_predicate() {
+  $configurations['uc_signup_mark_paid'] = array(
+    '#title' => t('Change temporary signups to paid signups upon checkout when a payment clears the order balance.'),
+    '#description' => t('Change temporary signups to paid signups upon checkout when a payment clears the order balance.'),
+    '#class' => 'uc_signup',
+    '#trigger' => 'uc_payment_entered',
+    '#status' => 1,
+    '#conditions' => array(
+      '#operator' => 'AND',
+      '#conditions' => array(
+        array(
+          '#name' => 'uc_payment_condition_order_balance',
+          '#title' => t('If the balance is less than or equal to $0.00.'),
+          '#argument_map' => array(
+            'order' => 'order',
+          ),
+          '#settings' => array(
+            'negate' => FALSE,
+            'balance_comparison' => 'less_equal',
+          ),
+        ),
+      ),
+    ),
+    '#actions' => array(
+      array(
+        '#name' => 'uc_signup_mark_paid',
+        '#title' => t('Mark temporary signups created by UC_Signup as paid'),
+        '#argument_map' => array(
+           'order' => 'order',
+        ),
+        '#settings' => array(),
+      ),
+    ),
+  );
+
+  $configurations['uc_signup_cancel_signups'] = array(
+    '#title' => t('Cancel temporary signups created by UC_Signup when an order is cancelled'),
+    '#description' => t('Cancels temporary signups and removes the corresponding data from the and uc_signup_log table.'),
+    '#class' => 'uc_signup',
+    '#trigger' => 'uc_checkout_complete',
+    '#status' => 1,
+    '#conditions' => array(
+      '#operator' => 'AND',
+      '#name' => 'uc_order_status_condition',
+      '#title' => t('Check the order status'),
+      '#argument_map' => array(
+        'order' => 'updated_order',
+      ),
+      '#settings' => array(
+        'negate' => FALSE,
+        'order_status' => 'canceled',
+      ),
+    ),
+    '#actions' => array(
+      array(
+        '#name' => 'uc_signup_cancel_signups',
+        '#title' => t('Cancel temporary signups created by UC_Signup'),
+        '#argument_map' => array(
+          'order' => 'order',
+        ),
+        '#settings' => array(
+        ),
+      ),
+    ),
+  );
+  return $configurations;
+}
+
+/*
+ * Implementation of hook_ca_action().
+ */
+function uc_signup_ca_action() {
+  $order_arg = array(
+    '#entity' => 'uc_order',
+    '#title' => t('Order'),
+  );
+  $actions['uc_signup_cancel_signups'] = array(
+    '#title' => t('Cancel temporary signups for the current user'),
+    '#category' => t('uc_signup'),
+    '#callback' => 'uc_signup_cancel_temporary_signups',
+    '#arguments' => array(
+      'order' => $order_arg,
+     ),
+  );
+  $actions['uc_signup_mark_paid'] = array(
+   '#title' => t('Mark temporary signups as paid'),
+    '#category' => t('uc_signup'),
+    '#callback' => 'uc_signup_mark_paid',
+    '#arguments' => array(
+      'order' => $order_arg,
+    ),
+  );
+  return $actions;
+}
+
+/**
+ * Implementation of hook_checkout_pane().
+ */
+function uc_signup_checkout_pane() {
+  $panes[] = array(
+    'id' => 'uc_signup_attendees_pane',
+    'callback' => 'uc_signup_attendees_pane',
+    'title' => t('Attendee Signup Information'),
+    'desc' => t("Displays entered attendee information for events in the cart, or redirects to the form where that data is entered."),
+    'weight' => -10,
+    'enabled' => TRUE,
+    'process' => FALSE,
+  );
+  return $panes;
+}
+
+/**
+ * Callback for uc_signup_checkout_pane.
+ */
+function uc_signup_attendees_pane($op, $arg1, $arg2) {
+  
+  switch ($op) {
+    case 'view':
+      $contents = uc_cart_get_contents();
+      foreach ($contents as $product) {
+        if (isset($product->data['uc_signup_enabled']) && $product->data['uc_signup_enabled'] == 1) {
+          $signups = TRUE;
+        }
+        if ($signups && $product->data['uc_signup_enabled']) {
+          // TODO: make it impossible to rediret infinitely.
+          if (empty($_SESSION['uc_signup']['nids'][$product->nid]) || count($_SESSION['uc_signup']['nids'][$product->nid]) < $product->qty) {
+            // Skip the attendee email page if this is an authenticted user who
+            // cannot purchase signups for other users.
+            if (user_is_logged_in() && !user_access('purchase signups for other users')) {
+              global $user;
+              // There can only be one value here.
+              $_SESSION['uc_signup']['nids'][$product->nid][0] = $user->mail;  
+            }
+            else {
+              drupal_goto('uc_signup/attendees/emails');
+            }
+          }
+          else {
+            // Check to see if a profile has been submitted for each new
+            // attendee. If not, the profile page hasn't been completed yet.
+            foreach ($_SESSION['uc_signup']['nids'][$product->nid] as $attendee) {
+              $account = user_load(array('mail' => $attendee));
+              if (!$account->uid) {
+                if (empty($_SESSION['uc_signup']['profile']) || strpos(implode(' ', array_keys($_SESSION['uc_signup']['profile'])), $attendee) === FALSE) {
+                  drupal_goto('uc_signup/attendees/profiles');
+                }
+              }
+            }
+          }
+        }
+      }
+      $mails = array();
+      $nodes = array();
+      if (!empty($_SESSION['uc_signup']['nids'])) {
+        foreach ($_SESSION['uc_signup']['nids'] as $nid => $attendees) {
+          if (!in_array($nid, $nodes)) {
+            // Prepare node obejcts so we can display date information.
+            $nodes[$nid] = node_load($nid);
+          }
+          foreach ($attendees as $key => $mail) {
+            $mails[$mail][] = $nid;
+          }
+        }
+      
+        foreach ($mails as $mail => $events) {
+          $output .= "<div>";
+          $output .= $mail;
+          $output .= theme('uc_signup_user_events', $events, $nodes);
+          $output .= "</div>";
+        }
+        if (user_is_anonymous() || (user_access('purchase signups for other users') || variable_get('uc_signup_auth_fields', 0))) {
+          $output .= l(t('Edit signup information'), 'uc_signup/attendees/emails', array('attributes' => array('class' => 'uc_signup_edit_info')));
+        }
+        
+        $pane['uc_signup'] = array(
+          '#value' => $output,
+          '#weight' => variable_get('uc_pane_cart_field_cart_weight', 2),
+        );
+        return array('contents' => $pane, 'next-button' => FALSE);
+      }
+      return;
+  }
+}
+
+/**
+ * Implementation of hook_order_pane().
+ */
+function uc_signup_order_pane() {
+  $panes[] = array(
+    'id' => 'uc_signup_info',
+    'callback' => 'uc_signup_order_info_pane',
+    'title' => t('Event Signup Information'),
+    'desc' => t(""),
+    'class' => 'pos-left',
+    'weight' => 1,
+    'show' => array('customer', 'view'),
+  );
+  return $panes;
+}
+
+function uc_signup_order_info_pane($op, $arg1) {
+  if ($op == 'customer' || $op == 'view') {
+    $order = $arg1;
+    $signups = uc_signup_confirmed_signups($order->order_id);
+    if (!empty($signups)) {
+      $output = theme('uc_signup_confirmed_signups_text', $signups);
+      return $output;
+    }
+  }
+}
+/**
+ * Implementation of hook_order().
+ */
+function uc_signup_order($op, &$arg1, $arg2) {
+  switch ($op) {
+    case 'submit':
+      uc_signup_order_prepare($arg1);
+      break;
+    case 'delete':
+      uc_signup_delete_signups($arg1);
+      break;
+    case 'update':
+      if ( $arg2 == 'canceled' && $arg1->order_status != 'canceled') {
+        uc_signup_delete_signups($arg1);
+      }
+  }
+}
+
+function uc_signup_order_prepare(&$order) {
+  if (empty($order->products)) {
+    return;
+  }
+  foreach ($order->products as $product) {
+    if (isset($product->data['uc_signup_enabled']) && $product->data['uc_signup_enabled'] == 1) {
+      $events_to_signup[$product->nid] = $product;
+    }
+  }
+  if (!empty($events_to_signup)) {
+    // Clear any existing placeholder signups before proceeding.
+    uc_signup_cancel_temporary_signups($order);
+    foreach ($_SESSION['uc_signup']['nids'] as $nid => $attendees) {
+      // Don't create signups for products that may be in the session
+      // data but not in the cart.
+      if (!isset($events_to_signup[$nid])) {
+        continue;
+      }
+      foreach ($attendees as $key => $mail) {
+        $account = user_load(array('mail' => $mail));
+        // We must provide a default password
+        // or the form will fail to validate.
+        $random_password = user_password(8);
+        if (empty($account->uid)) {
+          $form_state['values']['mail'] = $mail;
+          $form_state['values']['name'] = uc_store_email_to_username($mail);
+          $form_state['values']['op'] = t('Create new account');
+          $form_state['values']['pass'] = $random_password;
+          $form_state['values']['notify'] = (bool)variable_get('uc_signup_account_notify', 1);
+          $form_state['values']['status'] = 1;
+          $profile_form =  uc_signup_profile_form();
+          uc_signup_normalize_values($form_state, $mail, $profile_form);
+          // We masquerade as user 1 in case there is captcha or other protection on the user_register form that could cause submission to fail.
+          global $user;
+          $temp_user = $user;
+          // Always set this to false in case the operation fails.
+          session_save_session(FALSE);
+          $user = user_load(1);
+          // We use drupal_execute to enforce form validation on required
+          // fields. See http://drupal.org/node/547242 for an example of
+          // why this is necessary.
+          drupal_execute('uc_signup_profile_form', $form_state);
+          $user = $temp_user;
+          session_save_session(TRUE);
+          $account = $form_state['user'];
+          if (!$account->uid) {
+            uc_signup_cancel_temporary_signups($order);
+            return array(array('pass' => FALSE, 'message' => t('There was an error saving attendee contact information. Please verify that you have entered all required fields at the '. l('Attendee profile contact information form', 'uc_signup/attendees/profiles'))));
+          }
+        }
+        // An existing user is saving account information with the 
+        // 'uc_signup_auth_fields' setting enabled.
+        elseif (variable_get('uc_signup_auth_fields', 0)) {
+          $form_state = array();
+          $profile_form = uc_signup_profile_form((array)$account);
+          uc_signup_normalize_values($form_state, $mail, $profile_form);
+          if (!empty($form_state)) {
+            user_save((object)$account, $form_state['values']);
+            // TODO: Add some visible confirmation to the user that
+            // that the information was saved?
+          }
+        }
+        $to_signup[$nid][] = $account->uid;
+      }
+    }
+    unset($nid);
+    if (!empty($to_signup)) {
+      foreach ($to_signup as $nid => $uids) {
+        // Perform the final verification that the node is available for signups in the desired quantity.
+        // Note that we do not pass the quantity in order to avoid our own placeholder signups from counting against the number of available spots.
+        $node = node_load($nid);
+        _uc_signup_node_available($node, 0, $message);
+        if ($message) {
+          uc_signup_cancel_temporary_signups($order);
+          return array(array('pass' => FALSE, 'message' => t($message)));
+        }
+        foreach ($uids as $key => $uid) {
+          uc_signup_create_placeholder_signup($nid, $uid, $order->order_id);
+        }
+      }
+    }
+  }
+}
+ /**
+ * Assemble form_state values with normal profile field keys from the data that
+ * is stored in the session with email address prefixed keys.
+ */
+function uc_signup_normalize_values(&$form_state, $mail, $profile_form) {
+  foreach ($profile_form as $group => $fields) {
+    foreach ($fields as $key => $value) {
+      $form_state['values'][$key] = $_SESSION['uc_signup']['profile'][$key .'_'. $mail];
+    }
+  }
+}
+
+/*
+ * Create a placeholder signup for a user.
+ */
+function uc_signup_create_placeholder_signup($nid, $uid, $oid) {
+  $mail = 'placeholder-' . rand(111111, 99999) . '@example.com';
+  $signup_form = array(
+    'uid' => 0,
+    'signup_anon_mail' => $mail,
+    'nid' => $nid,
+  );
+  $sid = signup_sign_up_user($signup_form, FALSE);
+  if (is_numeric($sid)) {
+    db_query("INSERT INTO {uc_signup_log} (oid, sid, type, uid) VALUES (%d, %d, %d, %d)", $oid, $sid, 0, $uid);
+  }
+}
+
+function uc_signup_mark_paid($order, $settings = array()) {
+  static $accounts = array();
+  $nodes = array();
+  // TODO: save this in the order.
+  $signups = _uc_signup_get_temporary_signups($order);
+  if (is_array($signups)) {
+    foreach ($signups as $signup) {
+      if (!isset($nodes[$signup->nid])) {
+        $nodes[$signup->nid] = node_load($signup->nid);
+      }
+      // Assign the signup to the appropriate account.
+      $signup->anon_mail = ''; 
+      // The uid is added to $signup by _uc_signup_get_temporary_signups() but has not been saved to signup_log.
+      signup_save_signup($signup);
+      // We haven't done a signup_load(), which populates $signup->mail, so we provide it here.
+      if (empty($accounts[$signup->uid])) {
+        $accounts[$signup->uid] = user_load($signup->uid);  
+      }
+      $signup->mail = $accounts[$signup->uid]->mail;
+      db_query("UPDATE {uc_signup_log} SET type = 1 WHERE sid = %d", $signup->sid);
+      if ($nodes[$signup->nid]->signup_send_confirmation) {
+        signup_send_confirmation_mail($signup, $nodes[$signup->nid]);
+      }
+      
+      // UC_Signup stores user information in profile fields instead of
+      // in $signup->form_data. However, if $signup->form_data is set, ensure
+      // it is an array.
+      if (isset($signup->form_data) && !is_array($signup->form_data)) {
+        $signup->form_data = unserialize($signup->form_data);
+      }
+      // Signup.module checks for $node->signup_forwarding_email for us.
+      signup_send_forwarding_mail($signup, $nodes[$signup->nid]);
+
+      // Invoke this hook again, as it was first
+      // invoked with the anonymous user. 
+      module_invoke_all('signup_sign_up', $nodes[$signup->nid], $accounts[$signup->uid]);
+      
+      unset($account);
+      unset($signup);
+    }
+  }
+  // Archive the finalized sids in the order in case they are deleted from the
+  // database.
+  $signups = uc_signup_confirmed_signups($order->order_id);
+  $message = theme('uc_signup_confirmed_signups_text', $signups, TRUE);
+  uc_order_comment_save($order->order_id, 0, $message); 
+  unset($_SESSION['uc_signup']);
+}
+
+function _uc_signup_node_available($node, $qty, &$message) {
+  $type_name = db_result(db_query("SELECT name from {node_type} WHERE type = '%s'", $node->type));
+  if (_signup_node_completed($node)) {
+    $message = t("We're sorry, but the @type %title has already passed.", array('@type' => $type_name, '%title' => $node->title));
+  }
+  if (!$node->signup_status) {
+    $message = t(variable_get('uc_signup_signups_closed_text', "Signups are closed for this event."));
+  }
+  if ($node->signup_close_signup_limit !=0) {
+    $spots_remaining = $node->signup_close_signup_limit - $node->signup_total;
+    if ($spots_remaining > 0) {
+      $only = 'only ';
+    }
+    if ($spots_remaining < $qty) {
+      $message = t("We're sorry, but there @is $only@available @spot left for the @type %title.", array(
+        '@is' => format_plural($spots_remaining, "is", "are"),
+        '@spot' => format_plural($spots_remaining, "spot", "spots"),
+        '@available' => $spots_remaining,
+        '@type' => $type_name,
+        '%title' => $node->title
+      ));
+    }
+  }
+}
+
+function uc_signup_settings_form(&$form) {
+  $form['uc_signup'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Signup integration for Ubercart (UC_Signup)'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#weight' => 0,
+  );
+  
+  $form['uc_signup']['uc_signup_add_cart_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Add to cart text'),
+    '#description' => t("The text to use to add the signup-enabled node to the cart. If left blank, Ubercart's default 'Add to cart' text will be used."),
+    '#default_value' => variable_get('uc_signup_add_cart_text', 'Sign up'),
+  );
+  $form['uc_signup']['uc_signup_signups_closed_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Signups closed text'),
+    '#description' => t("The signup/add to cart button will be disabled and display this text when signups are closed for a node. This text will be displayed when capacity is reached for an event."),
+    '#default_value' => variable_get('uc_signup_signups_closed_text', t("Signups are closed for this event.")),
+  );
+  $form['uc_signup']['uc_signup_skip_checkout_free'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Skip checkout for free signup-enabled products'),
+    '#description' => t('If checked, users can sign up for free events without passing through the checkout process by clicking the Signup button. If checked, the signup button is hidden and the user must pass through the checkout process, even for free events.'),
+    '#default_value' => variable_get('uc_signup_skip_checkout_free', 1),
+  );
+  $form['uc_signup']['uc_signup_account_notify'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Send account notification emails when accounts are created'),
+    '#description' => t("When enabled account activation emails will be sent when uc_signup automatically creates accounts."),
+    '#default_value' => variable_get('uc_signup_account_notify', 1),
+  );
+  $form['uc_signup']['uc_signup_auth_fields'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display user profile fields to authenticated users.'),
+    '#description' => t('When enabled and a single user signs herself up via uc_signup, she can enter new profile field values or change existing ones.'),
+    '#default_value' => variable_get('uc_signup_auth_fields', 0),
+  );
+
+}
+
+function uc_signup_user_is_signed_up($mail, $nid) {
+  $sid = db_result(db_query("SELECT sl.sid FROM {signup_log} sl INNER JOIN {users} u on u.uid = sl.uid WHERE u.mail = '%s' AND sl.nid = %d", $mail, $nid));
+  if (!is_numeric($sid)) {
+    return FALSE;
+  }
+  else {
+    return $sid;
+  }
+}
+
+function uc_signup_cancel_temporary_signups($order, $settings = array()) {
+  $signups = _uc_signup_get_temporary_signups($order);
+  if (!empty($signups)) {
+    foreach ($signups as $signup) {
+      signup_cancel_signup($signup);
+      db_query("DELETE FROM {uc_signup_log} WHERE sid = %d", $signup->sid);
+    }
+  }
+}
+
+/**
+ * Implementation of hook_token_list().
+ */
+function uc_signup_token_list($type = 'all') {
+  $tokens = array();
+  if ($type == 'order' || $type == 'ubercart' || $type == 'all') {
+    $tokens['order']['order-signups'] = t('Finalized signups associated with the order.');
+  }
+  return $tokens;
+}
+
+/**
+ * Implementation of hook_token_values().
+ */
+function uc_signup_token_values($type, $object = NULL) {
+  $values = array();
+  if ($type == 'order' || $type == 'ubercart' || $type == 'all') {
+    $order = $object;
+    $signups = uc_signup_confirmed_signups($order->order_id);
+    $values['order-signups'] = theme('uc_signup_confirmed_signups_text', $signups);
+  }
+  return $values;
+}
+
+function uc_signup_confirmed_signups($oid = 0) {
+  // TODO: Consider adding nid to the uc_signup_log table to reduce joins.
+  $query = db_query("SELECT ucl.oid, ucl.sid, ucl.uid, u.mail, sl.nid FROM {uc_signup_log} ucl INNER JOIN {users} u on ucl.uid = u.uid INNER JOIN {signup_log} sl ON sl.sid = ucl.sid WHERE oid = %d AND type = 1", $oid);
+  while ($result = db_fetch_object($query)) {
+    $signups[$result->mail][$result->nid] = $result;
+  }
+  return $signups;
+}
+function _uc_signup_get_temporary_signups($order) {
+  $query = db_query("SELECT sl.*, ucl.uid FROM {signup_log} sl INNER JOIN {uc_signup_log} ucl ON ucl.sid = sl.sid WHERE ucl.oid = %d AND ucl.type = 0", $order->order_id);
+  while ($result = db_fetch_object($query)) {
+    $signups[$result->sid] = $result;
+  }
+  return $signups;
+}
+
+/**
+ * Delete signups when orders are deleted.
+ */
+function uc_signup_delete_signups($order) {
+  $query = db_query("SELECT sl.*, ucl.uid FROM {signup_log} sl INNER JOIN {uc_signup_log} ucl ON ucl.sid = sl.sid WHERE ucl.oid = %d", $order->order_id);
+  while ($result = db_fetch_object($query)) {
+    $signups[$result->sid] = $result;
+  }
+  if (!empty($signups)) {
+    foreach ($signups as $signup) {
+      signup_cancel_signup($signup);
+      db_query("DELETE FROM {uc_signup_log} WHERE sid = %d", $signup->sid);
+    }
+  }
+}
+
+function uc_signup_add_to_cart_data($form_values) {
+  $node = node_load($form_values['nid']);
+  if ($node->signup == 1) {
+    return array('uc_signup_enabled' => 1);
+  }
+}
+
+function uc_signup_views_api() {
+  return array(
+    'api' => 2.0,
+    'path' => drupal_get_path('module', 'uc_signup') .'/views',
+  );
+}

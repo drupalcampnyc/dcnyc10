@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * The installation file for fasttoggle.module
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function fasttoggle_install() {
+  db_query("UPDATE {system} SET weight = 5 WHERE name = 'fasttoggle' AND type = 'module'");
+}

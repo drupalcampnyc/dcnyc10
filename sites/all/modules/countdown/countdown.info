@@ -1,0 +1,11 @@
+; $Id: countdown.info,v 1.2 2008/05/12 13:36:55 deekayen Exp $
+name = Countdown
+description = Adds a block to count the days, hours, minutes, and seconds since or until a specified event.
+package = "Event"
+core = 6.x
+; Information added by drupal.org packaging script on 2008-05-12
+version = "6.x-1.0"
+core = "6.x"
+project = "countdown"
+datestamp = "1210607105"
+

@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * Implementation of hook_schema().
+ */
+function mailchimp_schema() {
+  // A table of uids
+  // @todo If we decide to also do deletes in cron then we can add mail here?
+  $schema['mailchimp_user'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE, 'default' => 0),
+      'status' => array('type' => 'varchar', 'length' => 15)
+    ),
+    'primary key' => array('uid'),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function mailchimp_install() {
+  drupal_install_schema('mailchimp');
+ 
+  // adjust system weight
+  mailchimp_update_6205();
+}
+
+/**
+ * implementation of hook_update_N
+ */
+function mailchimp_update_6200(){
+  // clean up old variables
+  $ret = array();
+  $ret[] = update_sql("DELETE FROM {variable} WHERE name like 'mailchimp_list\_%'");
+  cache_clear_all();
+  return $ret;  
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Create a new table for the queue. 
+ *
+ * When going from no queue to queue, we have to import everyone to
+ * the queue for the first pass. After that we can start adding people
+ * as required.
+ */
+function mailchimp_update_6201() {
+  $ret = array();
+  
+  $schema = drupal_get_schema_unprocessed('mailchimp', 'mailchimp_user');
+  db_create_table($ret, 'mailchimp_user', $schema);
+
+  // Everybody goes in here (exclude status = 0 here?)
+  $ret[] = update_sql("INSERT INTO {mailchimp_user} (uid, status) SELECT uid, '". MAILCHIMP_USERSTATUS_PENDING ."' FROM {users} WHERE uid > 0");
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Takes the old username and password and changes it into an API key.
+ */
+function mailchimp_update_6202() {
+  $ret = array();
+  
+  module_load_include('php', 'mailchimp', 'MCAPI.class');
+
+  $q = new MCAPI(variable_get('mailchimp_username', ''), variable_get('mailchimp_password', ''));
+  // Set the timeout to something reasonsable to avoid taking down the site.
+  $q->setTimeout(60);
+  
+  if ($q->errorCode) {
+    watchdog('mailchimp', $q->errorMessage, NULL, WATCHDOG_ERROR);
+    $ret[] = array('success' => FALSE, 'query' => 'MailChimp returned error: ' . check_plain($q->errorMessage));
+    return $ret;
+  }
+  
+  // Save the API key.
+  variable_set('mailchimp_api_key', $q->api_key);
+  
+  // Clean up old variables.
+  variable_del('mailchimp_username');
+  variable_del('mailchimp_password');
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Convert 'mailchimp_lists' to a normal array.
+ */
+function mailchimp_update_6203() {
+  $ret = array();
+  
+  $var = variable_get('mailchimp_lists', array());
+  if (is_array($var)) {
+    $ret[] = array('success' => TRUE, 'query' => "The 'mailchimp_lists' variable has already been fixed.");
+  }
+  else {
+    $var = unserialize($var);
+    variable_set('mailchimp_lists', $var);
+    $ret[] = array('success' => TRUE, 'query' => "The 'mailchimp_lists' variable has been fixed.");
+  }
+  
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Remove unused unsubscribe message variable.
+ */
+function mailchimp_update_6204() {
+  $ret = array();
+  variable_del('mailchimp_unsubscription_success_message');
+  variable_del('mailchimp_unsubscription_failure_message');
+
+  $ret[] = array('success' => TRUE, 'query' => "The 'mailchimp_unsubscription' message variables have been removed.");
+  
+  return $ret;
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Bump up the module weight to ensure all merge fields are accounted for.
+ */
+function mailchimp_update_6205() {
+  $ret = array();  
+  $ret[] = update_sql("UPDATE {system} SET weight = 10 WHERE name = 'mailchimp' and type = 'module'");
+  return $ret;
+}
+
+/**
+ * Cache blocks with forms per-user.
+ */
+function mailchimp_update_6206() {
+  $return = array();
+
+  $return[] = update_sql("UPDATE {blocks} SET cache = " . BLOCK_CACHE_PER_USER . " WHERE module = 'mailchimp'");
+
+  return $return;
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function mailchimp_uninstall() {
+  variable_del('mailchimp_api_key');
+  variable_del('mailchimp_cron');
+  variable_del('mailchimp_interest_groups_user_forms');
+  variable_del('mailchimp_lists');
+  variable_del('mailchimp_subscription_failure_message');
+  variable_del('mailchimp_subscription_success_message');
+  variable_del('mailchimp_unsubscription_failure_message');
+  variable_del('mailchimp_unsubscription_success_message');
+  variable_del('mailchimp_user_edit');
+  variable_del('mailchimp_user_register');
+
+  drupal_uninstall_schema('mailchimp');
+}

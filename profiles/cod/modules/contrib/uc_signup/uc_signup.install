@@ -1,0 +1,102 @@
+<?php
+/*
+ * Implementation of hook_schema.
+ */
+function uc_signup_schema() {
+  $schema['uc_signup_log'] = array(
+    'description' => t(''),
+    'fields' => array(
+      'oid' => array(
+        'description' => t("The Order ID where the signup was purchased."),
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+      'sid' => array(
+        'description' => t("The Signup ID."),
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => t("The user associated with the signup."),
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'type' => array(
+        'description' => t("The Signup type. 0: pre-charge placeholder, 1: finalized signup."),
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install
+ */
+function uc_signup_install() {
+  drupal_install_schema('uc_signup');
+  db_query("UPDATE {system} SET weight = -1 WHERE name = 'uc_signup'");
+}
+
+/**
+ * Implementation of hook_uninstall
+ */
+function uc_signup_uninstall() {
+  drupal_uninstall_schema('uc_signup');
+}
+
+/**
+ * Ensure that uc_signup hooks are executed before payment modules.
+ */
+function uc_signup_update_6000() {
+  $ret = array();
+  $ret[] = update_sql("UPDATE {system} SET weight = -1 WHERE name = 'uc_signup'");
+  return $ret;
+}
+
+/**
+ * Add the UID column to {uc_signup_log} and update placeholder signups to the
+ * new format per http://drupal.org/node/839640.
+ */
+function uc_signup_update_6001() {
+  $ret = array();
+  $attributes = array(
+    'type' => 'int',
+    'size' => 'normal',
+    'not null' => TRUE,
+    'default' => 0,
+  );
+  db_add_field($ret, 'uc_signup_log', 'uid', $attributes);
+  // Preserve the association between placeholder signups and users.
+  $ret[] = update_sql("UPDATE {uc_signup_log} ucl INNER JOIN {signup_log} sl on sl.sid = ucl.sid SET ucl.uid = sl.uid");
+  // Assign placeholder signups to anonymous users.
+  // First, load all placeholder signups.
+  $query = db_query("SELECT sl.* FROM {signup_log} sl INNER JOIN {uc_signup_log} ucl ON ucl.sid = sl.sid WHERE ucl.type = 0");
+  while ($result = db_fetch_object($query)) {
+    $temp_signups[] = $result;
+  }
+  // Then, switch the signup to an anonymous (placeholder) user and save the signup.
+  if (!empty($temp_signups)) {
+    foreach ($temp_signups as $temp_signup) {
+      // Don't re-process placeholder signups that are already assigned to uid 0.
+      if (!empty($temp_signup->uid)) {
+        $temp_signup->uid = 0;
+        $temp_signup->anon_mail = 'placeholder-' . rand(111111, 99999) . '@example.com';
+        $temp_signup = (array)$temp_signup;
+        signup_save_signup($temp_signup);
+        $count ++;
+      }
+    }
+    if (!empty($count)) {
+      $ret[] = array('success' => TRUE, 'query' => t('Updated %count placeholder @signups to the new format per http://drupal.org/node/839640', array('%count' => $count, '@signups' => format_plural($count, 'signup', 'signups'))));
+    }
+  }
+
+  return $ret;
+}

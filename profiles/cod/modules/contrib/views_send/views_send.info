@@ -1,0 +1,14 @@
+name = "Views Send E-mail"
+descripion = "Implements a new action to be used with VBO in order to send E-mails to a list created with Views"
+dependencies[] = views_bulk_operations
+package = Views
+core = 6.x
+
+
+
+; Information added by drupal.org packaging script on 2011-06-03
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "views_send"
+datestamp = "1307062412"
+

@@ -1,0 +1,11 @@
+name = Common fonts
+description = @font-your-face provider of fonts usually already available in browsers, with fallbacks.
+dependencies[] = fontyourface
+package = @font-your-face
+core = 6.x
+; Information added by drupal.org packaging script on 2011-07-17
+version = "6.x-2.8"
+core = "6.x"
+project = "fontyourface"
+datestamp = "1310930216"
+

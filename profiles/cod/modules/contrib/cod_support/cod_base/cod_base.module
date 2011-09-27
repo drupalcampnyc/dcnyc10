@@ -1,0 +1,53 @@
+<?php
+
+include_once('cod_base.features.inc');
+
+/**
+ * Implementation of hook_theme().
+ */
+function cod_base_theme() {
+  return array(
+    'cod_base_formatter_user_full_name' => array(
+    	'arguments' => array('element' => NULL),
+    ),
+  );
+}
+
+/**
+ * 
+ * Helper function to generate a user's full name.
+ */
+function cod_base_full_name($account) {
+  return $account->profile_first . ' ' . $account->profile_last;
+}
+
+function theme_cod_base_formatter_user_full_name($element) {
+  $output = '';
+  if (!empty($element)) {
+    $names = array();
+    foreach($element as $key => $value) {
+      if (is_numeric($key) && is_numeric($element[$key]['#item']['uid'])) {
+        $uid = $element[$key]['#item']['uid'];
+        $account = user_load($uid);
+        $full_name = cod_base_full_name($account);
+        $names[] = l($full_name, 'user/'. $account->uid);
+      }
+    }
+    $output = implode(', ', $names);
+  }
+  return $output;
+}
+
+
+/**
+ * Implementation of hook_field_formatter_info(),.
+ */
+function cod_base_field_formatter_info() {
+  return array(
+    'user_full_name' => array(
+      'label' => t("Full name (First Last) of the user(s)"),
+      'field types' => array('userreference'),
+      'multiple values' => CONTENT_HANDLE_MODULE,
+    ),
+  );
+}

@@ -1,0 +1,11 @@
+name = Fasttoggle
+description = Enables fast toggling of binary settings.
+core = "6.x"
+package = Administration
+
+; Information added by drupal.org packaging script on 2011-05-13
+version = "6.x-1.4"
+core = "6.x"
+project = "fasttoggle"
+datestamp = "1305271916"
+

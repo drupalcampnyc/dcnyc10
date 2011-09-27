@@ -1,0 +1,12 @@
+name = Node Checkout
+description = Adds a product to the cart when a checkout node is created.
+dependencies[] = uc_cart
+package = Ubercart - extra
+core = 6.x
+
+; Information added by drupal.org packaging script on 2011-05-07
+version = "6.x-2.0-beta8"
+core = "6.x"
+project = "uc_node_checkout"
+datestamp = "1304747816"
+

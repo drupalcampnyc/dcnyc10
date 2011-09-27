@@ -1,0 +1,11 @@
+name = @font-your-face
+description = Administrative interface for managing fonts.
+package = @font-your-face
+dependencies[] = views
+core = 6.x
+; Information added by drupal.org packaging script on 2011-07-17
+version = "6.x-2.8"
+core = "6.x"
+project = "fontyourface"
+datestamp = "1310930216"
+
