@@ -8,3 +8,5 @@ sites/*/private
 #Mac specific files
 .DS_Store
 
+#Now that .htaccess is in the repo, ignore it so that local customizations don't get pushed back up.
+.htaccess
