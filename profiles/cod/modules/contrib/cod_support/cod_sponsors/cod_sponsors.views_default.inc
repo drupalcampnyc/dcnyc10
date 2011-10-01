@@ -130,7 +130,7 @@ function cod_sponsors_views_default_views() {
   $handler->override_option('style_options', array(
     'type' => 'ul',
   ));
-  $handler = $view->new_display('page', 'Platinum Sponsor Page', 'page_1');
+  $handler = $view->new_display('page', 'Our Sponsors', 'page_1');
   $handler->override_option('fields', array(
     'field_logo_fid' => array(
       'label' => '',
@@ -221,26 +221,6 @@ function cod_sponsors_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
-    'field_sponsorship_level_value_many_to_one' => array(
-      'operator' => 'or',
-      'value' => array(
-        'Platinum' => 'Platinum',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'field_sponsorship_level_value_many_to_one',
-      'table' => 'node_data_field_sponsorship_level',
-      'field' => 'field_sponsorship_level_value_many_to_one',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
-    ),
     'status' => array(
       'operator' => '=',
       'value' => '1',
@@ -259,17 +239,17 @@ function cod_sponsors_views_default_views() {
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('title', 'Sponsors');
+  $handler->override_option('title', 'Our Sponsors');
   $handler->override_option('header', '<h3>Platinum</h3>');
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
-  $handler->override_option('path', 'sponsors');
+  $handler->override_option('path', 'sponsors/our_sponsors');
   $handler->override_option('menu', array(
     'type' => 'normal',
-    'title' => 'Sponsors',
+    'title' => 'Our Sponsors',
     'description' => '',
     'weight' => '0',
-    'name' => 'primary-links',
+    'name' => 'secondary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',

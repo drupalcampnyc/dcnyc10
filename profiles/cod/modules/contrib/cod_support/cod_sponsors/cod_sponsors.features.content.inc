@@ -156,11 +156,9 @@ function cod_sponsors_content_default_fields() {
     'active' => '1',
     'text_processing' => '0',
     'max_length' => '',
-    'allowed_values' => 'Platinum
-Gold
-Silver
-Bronze
-Media',
+    'allowed_values' => 'first|Level 1
+second|Level 2
+',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(
