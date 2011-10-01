@@ -116,3 +116,8 @@ As a site administrator, feel free to choose either for your VBO content adminis
 
 - How can I edit fields created for the Content Profile module?
 Create a Node view and filter by the content types that are attached to Content Profile. Then use the "Modify node fields" action to edit those fields.
+
+KNOWN ISSUES
+------------
+- "Access denied" when selecting all (or many) rows
+This occurs because too much data is sent to the database server. For MySQL, increase max_allowed_packet (e.g. to 32M). See also: https://drupal.org/node/845618.

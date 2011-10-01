@@ -64,6 +64,5 @@ function views_bulk_operations_move_book_action($node, $context) {
 function views_bulk_operations_remove_book_action($node, $context) {
 	$node->book['module'] = 'book';
 	book_nodeapi($node, 'delete', $a3 = NULL, $a4 = NULL);
-	drupal_set_message(t('%node was removed from outline.', array('%node' => $node->title, '%mlid' => $node->book['mlid'])));				  
+	drupal_set_message(t('%node was removed from outline.', array('%node' => $node->title, '%mlid' => $node->book['mlid'])));
 }
-

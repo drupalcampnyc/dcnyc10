@@ -62,7 +62,8 @@ function views_bulk_operations_content_taxonomy_action_form($context) {
   if (isset($context['selection']) && isset($context['view'])) {
     $fields = array();
     $nids = array_map('_views_bulk_operations_get_oid', $context['selection'], array_fill(0, count($context['selection']), $context['view']->base_field));
-    $result = db_query("SELECT field_name, label, type FROM {node} n LEFT JOIN {content_node_field_instance} ci ON n.type=ci.type_name WHERE nid IN (%s) AND widget_module LIKE 'content_taxonomy_%' GROUP BY field_name", implode(',', $nids));
+    $placeholders = db_placeholders($nids);
+    $result = db_query("SELECT field_name, label, type FROM {node} n LEFT JOIN {content_node_field_instance} ci ON n.type=ci.type_name WHERE nid IN ($placeholders) AND widget_module LIKE 'content_taxonomy_%' GROUP BY field_name", implode(',', $nids));
     while ($f = db_fetch_object($result)) {
       $fields[$f->field_name] = array('label' => $f->label, 'type' => $f->type);
     }
@@ -107,4 +108,3 @@ function views_bulk_operations_content_taxonomy_action_submit($form, $form_state
     'fields' => $form_state['values']['fields'],
   );
 }
-

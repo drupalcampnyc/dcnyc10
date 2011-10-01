@@ -83,4 +83,3 @@ function views_bulk_operations_fields_rules_action_submit(&$settings, $form, &$f
   $submit = views_bulk_operations_fields_action_submit($form, $form_state);
   $settings = array_merge($settings, $submit);
 }
-

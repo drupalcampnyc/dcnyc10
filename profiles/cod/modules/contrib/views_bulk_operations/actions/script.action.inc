@@ -90,4 +90,3 @@ function _views_bulk_operations_script_action_error_type($type) {
   }
   return t($types[$type]);
 }
-

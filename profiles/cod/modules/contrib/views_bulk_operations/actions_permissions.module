@@ -46,7 +46,7 @@ function actions_permissions_get_perm($label, $callback) {
 function rt($string) {
   global $language;
   $langcode = $language->language;
-  
+
   // 1. Lookup custom strings.
   static $custom_strings;
   if (!isset($custom_strings[$langcode])) {
@@ -74,4 +74,3 @@ function rt($string) {
     return $source ? $source : $string;
   }
 }
-

@@ -31,11 +31,11 @@ function views_bulk_operations_drush_command() {
       'argument:value ...' => 'Parameter to be passed as view argument.',
     ),
     'examples' => array(
-      '$ drush vbo-execute admin_content node_publish_action' => 
+      '$ drush vbo-execute admin_content node_publish_action' =>
         'Publish nodes returned by view admin_content.',
-      '$ drush vbo-execute 44 node_assign_owner_action operation:owner_uid=3' => 
+      '$ drush vbo-execute 44 node_assign_owner_action operation:owner_uid=3' =>
         'Change node ownership on nodes returned by view #44, passing argument owner_uid=3 to the action.',
-      '$ drush vbo-execute admin_content node_unpublish_action input:type=expense argument:3' => 
+      '$ drush vbo-execute admin_content node_unpublish_action input:type=expense argument:3' =>
         'Unpublish nodes returned by view admin_content, filtering results of type expense and passing value 3 as first view argument.',
     ),
   );
@@ -77,7 +77,7 @@ function drush_views_bulk_operations_list() {
 
 /**
  * Implementation of 'vbo-execute' command.
- */ 
+ */
 function drush_views_bulk_operations_execute($vid = NULL, $operation = NULL) {
   // Parse arguments.
   if (is_null($vid)) {
@@ -122,4 +122,3 @@ function drush_views_bulk_operations_execute($vid = NULL, $operation = NULL) {
   // Execute the VBO.
   views_bulk_operations_execute($vid, $operation, $operation_arguments, $view_exposed_input, $view_arguments);
 }
-

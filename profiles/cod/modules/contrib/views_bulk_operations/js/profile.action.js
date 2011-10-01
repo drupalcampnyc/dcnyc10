@@ -28,4 +28,3 @@ Drupal.behaviors.vbo_profileAction = function(context) {
 
 // END jQuery
 })(jQuery);
-

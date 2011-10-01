@@ -722,4 +722,3 @@ function views_bulk_operations_views_default_views() {
 
   return $views;
 }
-

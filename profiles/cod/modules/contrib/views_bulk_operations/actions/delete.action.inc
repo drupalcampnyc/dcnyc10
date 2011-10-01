@@ -46,4 +46,3 @@ function views_bulk_operations_delete_comment_action($comment) {
 function views_bulk_operations_delete_term_action($term) {
   taxonomy_del_term($term->tid);
 }
-
