@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * Implementation of hook_uuid_features_default_content().
+ */
+function cod_sponsors_uuid_features_default_content() {
+  $nodes = array();
+
+  $nodes[] = array(
+  'type' => 'page',
+  'language' => '',
+  'uid' => '4',
+  'status' => '1',
+  'created' => '1317516555',
+  'changed' => '1317516749',
+  'comment' => '2',
+  'promote' => '0',
+  'moderate' => '0',
+  'sticky' => '0',
+  'tnid' => '0',
+  'translate' => '0',
+  'revision_uid' => '4',
+  'title' => 'How to Sponsor',
+  'body' => 'This is a stub waiting for content.',
+  'teaser' => 'This is a stub waiting for content.',
+  'log' => '',
+  'revision_timestamp' => '1317516749',
+  'format' => '1',
+  'name' => 'FatherShawn',
+  'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
+  'data' => 'a:4:{s:13:"form_build_id";s:37:"form-6952dea8017db635329ec02e56008264";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
+  'path' => 'content/how-sponsor',
+  'signup' => 0,
+  'last_comment_timestamp' => '1317516555',
+  'last_comment_name' => NULL,
+  'comment_count' => '0',
+  'taxonomy' => array(),
+  'uuid' => '5a192ee0-ec90-11e0-9f00-3d6a5b8caab1',
+  'revision_uuid' => '5a193372-ec90-11e0-9f00-3d6a5b8caab1',
+  'pathauto_perform_alias' => FALSE,
+  'date' => '2011-10-01 20:49:15 -0400',
+);
+  $nodes[] = array(
+  'type' => 'page',
+  'language' => '',
+  'uid' => '4',
+  'status' => '1',
+  'created' => '1317516696',
+  'changed' => '1317516696',
+  'comment' => '2',
+  'promote' => '0',
+  'moderate' => '0',
+  'sticky' => '0',
+  'tnid' => '0',
+  'translate' => '0',
+  'revision_uid' => '4',
+  'title' => 'Sponsors',
+  'body' => 'This is a stub waiting for content',
+  'teaser' => 'This is a stub waiting for content',
+  'log' => '',
+  'revision_timestamp' => '1317516696',
+  'format' => '1',
+  'name' => 'FatherShawn',
+  'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
+  'data' => 'a:4:{s:13:"form_build_id";s:37:"form-6952dea8017db635329ec02e56008264";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
+  'path' => 'content/sponsors',
+  'signup' => 0,
+  'last_comment_timestamp' => '1317516696',
+  'last_comment_name' => NULL,
+  'comment_count' => '0',
+  'taxonomy' => array(),
+  'uuid' => 'ae84b0a8-ec90-11e0-9f00-3d6a5b8caab1',
+  'revision_uuid' => 'ae84b490-ec90-11e0-9f00-3d6a5b8caab1',
+  'pathauto_perform_alias' => FALSE,
+  'date' => '2011-10-01 20:51:36 -0400',
+);
+  return $nodes;
+}
