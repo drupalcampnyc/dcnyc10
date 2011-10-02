@@ -398,7 +398,6 @@ function cod_session_strongarm() {
   $strongarm->name = 'node_options_room';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_room'] = $strongarm;
 
@@ -408,7 +407,6 @@ function cod_session_strongarm() {
   $strongarm->name = 'node_options_schedule_item';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_schedule_item'] = $strongarm;
 
@@ -428,7 +426,6 @@ function cod_session_strongarm() {
   $strongarm->name = 'node_options_time_slot';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_time_slot'] = $strongarm;
 

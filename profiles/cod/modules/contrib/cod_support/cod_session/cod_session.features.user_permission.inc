@@ -158,16 +158,6 @@ function cod_session_user_default_permissions() {
     ),
   );
 
-  // Exported permission: edit field_speakers
-  $permissions['edit field_speakers'] = array(
-    'name' => 'edit field_speakers',
-    'roles' => array(
-      '0' => 'authenticated user',
-      '1' => 'session organizer',
-      '2' => 'site administrator',
-    ),
-  );
-
   // Exported permission: edit field_session_room
   $permissions['edit field_session_room'] = array(
     'name' => 'edit field_session_room',
@@ -203,6 +193,16 @@ function cod_session_user_default_permissions() {
     'roles' => array(
       '0' => 'session organizer',
       '1' => 'site administrator',
+    ),
+  );
+
+  // Exported permission: edit field_speakers
+  $permissions['edit field_speakers'] = array(
+    'name' => 'edit field_speakers',
+    'roles' => array(
+      '0' => 'authenticated user',
+      '1' => 'session organizer',
+      '2' => 'site administrator',
     ),
   );
 
@@ -287,16 +287,6 @@ function cod_session_user_default_permissions() {
     ),
   );
 
-  // Exported permission: view field_speakers
-  $permissions['view field_speakers'] = array(
-    'name' => 'view field_speakers',
-    'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
-      '2' => 'site administrator',
-    ),
-  );
-
   // Exported permission: view field_session_room
   $permissions['view field_session_room'] = array(
     'name' => 'view field_session_room',
@@ -337,6 +327,16 @@ function cod_session_user_default_permissions() {
       '1' => 'authenticated user',
       '2' => 'session organizer',
       '3' => 'site administrator',
+    ),
+  );
+
+  // Exported permission: view field_speakers
+  $permissions['view field_speakers'] = array(
+    'name' => 'view field_speakers',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+      '2' => 'site administrator',
     ),
   );
 
