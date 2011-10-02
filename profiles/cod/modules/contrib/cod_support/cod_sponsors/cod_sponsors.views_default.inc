@@ -242,7 +242,7 @@ function cod_sponsors_views_default_views() {
   $handler->override_option('title', 'Our Sponsors');
   $handler->override_option('header_format', '1');
   $handler->override_option('header_empty', 0);
-  $handler->override_option('path', 'our_sponsors');
+  $handler->override_option('path', 'our-sponsors');
   $handler->override_option('menu', array(
     'type' => 'normal',
     'title' => 'Our Sponsors',

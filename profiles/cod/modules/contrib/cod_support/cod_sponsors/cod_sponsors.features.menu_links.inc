@@ -39,7 +39,7 @@ function cod_sponsors_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-50',
     'parent_path' => 'node/14',
     'parent_uuid' => 'ae84b0a8-ec90-11e0-9f00-3d6a5b8caab1',
     'uuid' => '5a192ee0-ec90-11e0-9f00-3d6a5b8caab1',
