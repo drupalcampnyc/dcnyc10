@@ -8,5 +8,9 @@ sites/*/private
 #Mac specific files
 .DS_Store
 
+# Ignore tmp files
+tmp
+sites/all/themes/drupalcampnyc10/.sass-cache
+
 #Now that .htaccess is in the repo, ignore it so that local customizations don't get pushed back up.
 .htaccess
