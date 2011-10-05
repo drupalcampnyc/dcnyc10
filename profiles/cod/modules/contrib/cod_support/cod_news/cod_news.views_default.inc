@@ -205,7 +205,7 @@ function cod_news_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Blog');
+  $handler->override_option('title', 'News');
   $handler->override_option('header_format', '1');
   $handler->override_option('header_empty', 0);
   $handler->override_option('empty', 'No news items have been published.');
@@ -219,13 +219,13 @@ function cod_news_views_default_views() {
     'comments' => 0,
   ));
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'blog');
+  $handler->override_option('path', 'news');
   $handler->override_option('menu', array(
     'type' => 'normal',
-    'title' => 'Blog',
+    'title' => 'News',
     'description' => 'Updates and news about the event',
     'weight' => '0',
-    'name' => 'menu-footer-menu-community',
+    'name' => 'admin',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',

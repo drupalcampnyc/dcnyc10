@@ -508,67 +508,6 @@ advanced|Advanced',
     ),
   );
 
-  // Exported field: field_speakers
-  $fields['session-field_speakers'] = array(
-    'field_name' => 'field_speakers',
-    'type_name' => 'session',
-    'display_settings' => array(
-      'weight' => '-3',
-      'parent' => '',
-      'label' => array(
-        'format' => 'above',
-      ),
-      'teaser' => array(
-        'format' => 'user_full_name',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'user_full_name',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'userreference',
-    'required' => '0',
-    'multiple' => '1',
-    'module' => 'userreference',
-    'active' => '1',
-    'referenceable_roles' => array(
-      '2' => 0,
-      '4' => 0,
-      '3' => 0,
-      '5' => 0,
-    ),
-    'referenceable_status' => '1',
-    'advanced_view' => '',
-    'advanced_view_args' => '',
-    'widget' => array(
-      'autocomplete_match' => 'contains',
-      'size' => '40',
-      'reverse_link' => 1,
-      'default_value' => array(
-        '0' => array(
-          'uid' => NULL,
-          '_error_element' => 'default_value_widget][field_speakers][0][uid][uid',
-        ),
-      ),
-      'default_value_php' => NULL,
-      'label' => 'Speaker(s)',
-      'weight' => '-3',
-      'description' => 'Add your username and optionally 1-5 additional speaker usernames.',
-      'type' => 'userreference_autocomplete',
-      'module' => 'userreference',
-    ),
-  );
-
   // Exported field: field_session_room
   $fields['session-field_session_room'] = array(
     'field_name' => 'field_session_room',
@@ -771,6 +710,67 @@ advanced|Advanced',
     ),
   );
 
+  // Exported field: field_speakers
+  $fields['session-field_speakers'] = array(
+    'field_name' => 'field_speakers',
+    'type_name' => 'session',
+    'display_settings' => array(
+      'weight' => '-3',
+      'parent' => '',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'user_full_name',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'user_full_name',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'userreference',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'userreference',
+    'active' => '1',
+    'referenceable_roles' => array(
+      '2' => 0,
+      '4' => 0,
+      '3' => 0,
+      '5' => 0,
+    ),
+    'referenceable_status' => '1',
+    'advanced_view' => '',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => '40',
+      'reverse_link' => 1,
+      'default_value' => array(
+        '0' => array(
+          'uid' => NULL,
+          '_error_element' => 'default_value_widget][field_speakers][0][uid][uid',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Speaker(s)',
+      'weight' => '-3',
+      'description' => 'Add your username and optionally 1-5 additional speaker usernames.',
+      'type' => 'userreference_autocomplete',
+      'module' => 'userreference',
+    ),
+  );
+
   // Exported field: field_track
   $fields['session-field_track'] = array(
     'field_name' => 'field_track',
@@ -903,10 +903,10 @@ Track 3',
   t('Date and time');
   t('Experience level');
   t('Photo');
-  t('Speaker(s)');
   t('Room');
   t('Session capacity');
   t('Slides');
+  t('Speaker(s)');
   t('Status');
   t('Time slot');
   t('Track');
