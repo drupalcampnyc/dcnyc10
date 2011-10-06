@@ -22,7 +22,7 @@ function about_dcny_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'parent_path' => 'node/15',
+    'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => '1c38f6f2-ed33-11e0-9f00-3d6a5b8caab1',
   );
@@ -42,7 +42,7 @@ function about_dcny_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'parent_path' => 'node/15',
+    'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => '66450c18-ed33-11e0-9f00-3d6a5b8caab1',
   );
@@ -62,7 +62,7 @@ function about_dcny_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-48',
-    'parent_path' => 'node/15',
+    'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => '8393c46c-ed33-11e0-9f00-3d6a5b8caab1',
   );
@@ -100,7 +100,7 @@ function about_dcny_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-46',
-    'parent_path' => 'node/15',
+    'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => 'c1e1c142-ed33-11e0-9f00-3d6a5b8caab1',
   );
@@ -121,7 +121,7 @@ function about_dcny_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-47',
-    'parent_path' => 'node/15',
+    'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
   );
   // Translatables

@@ -10,7 +10,7 @@ function about_dcny_user_default_permissions() {
   $permissions['create faq content'] = array(
     'name' => 'create faq content',
     'roles' => array(
-      '0' => 'content manager',
+      '0' => 'volunteer',
     ),
   );
 
