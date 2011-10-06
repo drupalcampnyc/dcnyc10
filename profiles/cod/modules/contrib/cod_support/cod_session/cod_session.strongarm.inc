@@ -108,7 +108,7 @@ function cod_session_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_page';
-  $strongarm->value = '4';
+  $strongarm->value = '1';
   $export['comment_default_mode_page'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -164,7 +164,7 @@ function cod_session_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_session';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_default_order_session'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -248,7 +248,7 @@ function cod_session_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_page';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_page'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -348,6 +348,23 @@ function cod_session_strongarm() {
   $strongarm->name = 'comment_time_slot';
   $strongarm->value = '0';
   $export['comment_time_slot'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'content_extra_weights_page';
+  $strongarm->value = array(
+    'title' => '-5',
+    'body_field' => '0',
+    'revision_information' => '20',
+    'author' => '20',
+    'options' => '25',
+    'comment_settings' => '30',
+    'menu' => '-2',
+    'path' => '30',
+    'path_redirect' => '30',
+  );
+  $export['content_extra_weights_page'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
