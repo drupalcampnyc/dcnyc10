@@ -79,6 +79,7 @@ function cod_session_uuid_features_default_content() {
   'revision_uuid' => '8b783c86-0e1c-11e0-98a9-d1fb755a60d4',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-01-24 17:45:43 -0400',
+  'field_illustration' => array(),
 );
   return $nodes;
 }

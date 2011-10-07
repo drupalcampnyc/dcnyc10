@@ -57,6 +57,7 @@ function about_dcny_uuid_features_default_content() {
   'revision_uuid' => '1c38ff12-ed33-11e0-9f00-3d6a5b8caab1',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-02 16:14:19 -0400',
+  'field_illustration' => array(),
 );
   $nodes[] = array(
   'type' => 'page',
@@ -91,6 +92,7 @@ function about_dcny_uuid_features_default_content() {
   'revision_uuid' => '6645149c-ed33-11e0-9f00-3d6a5b8caab1',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-02 16:16:23 -0400',
+  'field_illustration' => array(),
 );
   $nodes[] = array(
   'type' => 'page',
@@ -125,6 +127,7 @@ function about_dcny_uuid_features_default_content() {
   'revision_uuid' => '8393cc6e-ed33-11e0-9f00-3d6a5b8caab1',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-02 16:17:12 -0400',
+  'field_illustration' => array(),
 );
   $nodes[] = array(
   'type' => 'page',
@@ -149,6 +152,7 @@ function about_dcny_uuid_features_default_content() {
   'name' => 'Amy Cham',
   'picture' => '',
   'data' => 'a:5:{s:6:"signup";a:1:{i:5;i:1;}s:13:"form_build_id";s:37:"form-95351b7365a0fe5fe1c86ea51cc8e52e";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
+  'data' => 'a:5:{s:6:"signup";a:1:{i:5;i:1;}s:13:"form_build_id";s:37:"form-ee349b50b69f7c304a8a9c4705b4e8fb";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
   'path' => 'about',
   'signup' => 0,
   'last_comment_timestamp' => '1317586305',
@@ -159,6 +163,7 @@ function about_dcny_uuid_features_default_content() {
   'revision_uuid' => 'c0f20126-ed32-11e0-9f00-3d6a5b8caab1',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-02 16:11:45 -0400',
+  'field_illustration' => array(),
 );
   $nodes[] = array(
   'type' => 'page',
@@ -216,6 +221,7 @@ As a center for commerce, non-profit, and higher education, NYC offers a plethor
   'revision_uuid' => 'c1e1c8ea-ed33-11e0-9f00-3d6a5b8caab1',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-02 16:18:57 -0400',
+  'field_illustration' => array(),
 );
   return $nodes;
 }
