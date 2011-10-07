@@ -873,9 +873,11 @@ advanced|Advanced',
     'active' => '1',
     'text_processing' => '0',
     'max_length' => '',
-    'allowed_values' => 'Track 1
-Track 2
-Track 3',
+    'allowed_values' => 'sites|Site Building
+development|Development
+front_end|Presentation
+business|Business & end users
+sysadmin|Sysadmin & performance',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(
