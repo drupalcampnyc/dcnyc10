@@ -19,7 +19,7 @@ function about_dcny_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '6',
+  'revision_uid' => '4',
   'title' => 'The Camp',
   'body' => '<p>DrupalCamp NYC has a long history of bringing together New York City-area Drupalistas of all stripes.  Our 10th camp continues that tradition, striving to engage and educate across the spectrum of Drupal professionals.</p>
 <p>Who does this spectrum include?</p>
@@ -152,7 +152,6 @@ function about_dcny_uuid_features_default_content() {
   'name' => 'Amy Cham',
   'picture' => '',
   'data' => 'a:5:{s:6:"signup";a:1:{i:5;i:1;}s:13:"form_build_id";s:37:"form-95351b7365a0fe5fe1c86ea51cc8e52e";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
-  'data' => 'a:5:{s:6:"signup";a:1:{i:5;i:1;}s:13:"form_build_id";s:37:"form-ee349b50b69f7c304a8a9c4705b4e8fb";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
   'path' => 'about',
   'signup' => 0,
   'last_comment_timestamp' => '1317586305',
@@ -178,7 +177,7 @@ function about_dcny_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '6',
+  'revision_uid' => '4',
   'title' => 'Drupal in NYC',
   'body' => '<p>As befits a city with one of the (if not <em>the</em>) most heterogeneous populaces in the world, the New York City Drupal community consists of Drupal professionals from a vast array of sectors, interests, and experience levels.</p>
 As a center for commerce, non-profit, and higher education, NYC offers a plethora of opportunities for growth in terms of both implementations and talent. Drupal can be found in use at:
