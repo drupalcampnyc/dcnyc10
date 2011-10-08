@@ -17,7 +17,9 @@ function cod_base_user_default_permissions() {
   // Exported permission: access site reports
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'site administrator',
+    ),
   );
 
   // Exported permission: access user profiles
@@ -65,9 +67,12 @@ function cod_base_user_default_permissions() {
   $permissions['use admin toolbar'] = array(
     'name' => 'use admin toolbar',
     'roles' => array(
-      '0' => 'session organizer',
-      '1' => 'site administrator',
-      '2' => 'sponsor organizer',
+      '0' => 'attendee manager',
+      '1' => 'content manager',
+      '2' => 'session organizer',
+      '3' => 'site administrator',
+      '4' => 'sponsor organizer',
+      '5' => 'volunteer',
     ),
   );
 
