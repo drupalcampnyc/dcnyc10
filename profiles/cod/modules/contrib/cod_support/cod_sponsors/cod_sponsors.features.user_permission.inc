@@ -12,6 +12,15 @@ function cod_sponsors_user_default_permissions() {
     'roles' => array(
       '0' => 'authenticated user',
       '1' => 'sponsor organizer',
+      '2' => 'volunteer',
+    ),
+  );
+
+  // Exported permission: create supporter content
+  $permissions['create supporter content'] = array(
+    'name' => 'create supporter content',
+    'roles' => array(
+      '0' => 'authenticated user',
     ),
   );
 
@@ -23,9 +32,32 @@ function cod_sponsors_user_default_permissions() {
     ),
   );
 
+  // Exported permission: delete any supporter content
+  $permissions['delete any supporter content'] = array(
+    'name' => 'delete any supporter content',
+    'roles' => array(
+      '0' => 'sponsor organizer',
+    ),
+  );
+
+  // Exported permission: delete own supporter content
+  $permissions['delete own supporter content'] = array(
+    'name' => 'delete own supporter content',
+    'roles' => array(),
+  );
+
   // Exported permission: edit any sponsor content
   $permissions['edit any sponsor content'] = array(
     'name' => 'edit any sponsor content',
+    'roles' => array(
+      '0' => 'content manager',
+      '1' => 'sponsor organizer',
+    ),
+  );
+
+  // Exported permission: edit any supporter content
+  $permissions['edit any supporter content'] = array(
+    'name' => 'edit any supporter content',
     'roles' => array(
       '0' => 'sponsor organizer',
     ),
@@ -40,12 +72,28 @@ function cod_sponsors_user_default_permissions() {
     ),
   );
 
+  // Exported permission: edit field_logo_high
+  $permissions['edit field_logo_high'] = array(
+    'name' => 'edit field_logo_high',
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
+  );
+
   // Exported permission: edit field_related_attendees
   $permissions['edit field_related_attendees'] = array(
     'name' => 'edit field_related_attendees',
     'roles' => array(
       '0' => 'authenticated user',
       '1' => 'sponsor organizer',
+    ),
+  );
+
+  // Exported permission: edit field_supporter_display
+  $permissions['edit field_supporter_display'] = array(
+    'name' => 'edit field_supporter_display',
+    'roles' => array(
+      '0' => 'authenticated user',
     ),
   );
 
@@ -58,9 +106,26 @@ function cod_sponsors_user_default_permissions() {
     ),
   );
 
+  // Exported permission: edit own supporter content
+  $permissions['edit own supporter content'] = array(
+    'name' => 'edit own supporter content',
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
+  );
+
   // Exported permission: view field_logo
   $permissions['view field_logo'] = array(
     'name' => 'view field_logo',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: view field_logo_high
+  $permissions['view field_logo_high'] = array(
+    'name' => 'view field_logo_high',
     'roles' => array(
       '0' => 'anonymous user',
       '1' => 'authenticated user',
@@ -83,6 +148,12 @@ function cod_sponsors_user_default_permissions() {
       '0' => 'anonymous user',
       '1' => 'authenticated user',
     ),
+  );
+
+  // Exported permission: view field_supporter_display
+  $permissions['view field_supporter_display'] = array(
+    'name' => 'view field_supporter_display',
+    'roles' => array(),
   );
 
   // Exported permission: view field_url

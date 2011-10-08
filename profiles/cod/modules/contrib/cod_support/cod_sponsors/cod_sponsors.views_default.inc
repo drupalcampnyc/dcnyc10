@@ -18,47 +18,6 @@ function cod_sponsors_views_default_views() {
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
-    'field_logo_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'label_type' => 'none',
-      'format' => 'sponsor_logo_callout_linked',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_logo_fid',
-      'table' => 'node_data_field_logo',
-      'field' => 'field_logo_fid',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
     'title' => array(
       'label' => '',
       'alter' => array(
@@ -92,11 +51,9 @@ function cod_sponsors_views_default_views() {
   ));
   $handler->override_option('sorts', array(
     'random' => array(
-      'order' => 'ASC',
       'id' => 'random',
       'table' => 'views',
       'field' => 'random',
-      'relationship' => 'none',
     ),
   ));
   $handler->override_option('filters', array(
@@ -123,6 +80,8 @@ function cod_sponsors_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('header_format', '1');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('empty', 'No sponsors have been announced.');
   $handler->override_option('empty_format', '1');
   $handler->override_option('items_per_page', 0);
@@ -187,7 +146,7 @@ function cod_sponsors_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 1,
       'label_type' => 'none',
-      'format' => 'sponsor_logo_platinum_linked',
+      'format' => 'image_nodelink',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
@@ -240,8 +199,6 @@ function cod_sponsors_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Our Sponsors');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('path', 'our-sponsors');
   $handler->override_option('menu', array(
     'type' => 'normal',
@@ -388,7 +345,6 @@ function cod_sponsors_views_default_views() {
   ));
   $handler->override_option('header', '<h3>Gold</h3>');
   $handler->override_option('header_format', '2');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('block', 'Silver Sponsor Block', 'block_2');
@@ -522,7 +478,6 @@ function cod_sponsors_views_default_views() {
   ));
   $handler->override_option('header', '<h3>Silver</h3>');
   $handler->override_option('header_format', '2');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('block', 'Bronze Sponsor Block', 'block_3');
@@ -656,10 +611,9 @@ function cod_sponsors_views_default_views() {
   ));
   $handler->override_option('header', '<h3>Bronze</h3>');
   $handler->override_option('header_format', '2');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
-  $handler = $view->new_display('block', 'Home Page Platinum Featured', 'block_4');
+  $handler = $view->new_display('block', 'Home Page Premium', 'block_4');
   $handler->override_option('fields', array(
     'field_logo_fid' => array(
       'label' => '',
@@ -686,7 +640,7 @@ function cod_sponsors_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 1,
       'label_type' => 'none',
-      'format' => 'sponsor_logo_callout_linked',
+      'format' => 'product_linked',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
@@ -753,7 +707,7 @@ function cod_sponsors_views_default_views() {
     'field_sponsorship_level_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        'Platinum' => 'Platinum',
+        'premium' => 'premium',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -788,7 +742,10 @@ function cod_sponsors_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('title', 'Premium Sponsor');
   $handler->override_option('items_per_page', 1);
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array());
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('block', 'Home Page Gold Featured', 'block_5');
@@ -968,6 +925,275 @@ function cod_sponsors_views_default_views() {
   $handler->override_option('items_per_page', 1);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
+  $handler = $view->new_display('attachment', 'Supporters Attachment', 'attachment_1');
+  $handler->override_option('fields', array(
+    'value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 0,
+      'id' => 'value',
+      'table' => 'profile_values_profile_org',
+      'field' => 'value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'value' => array(
+      'id' => 'value',
+      'table' => 'profile_values_profile_org',
+      'field' => 'value',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'supporter' => 'supporter',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'field_supporter_display_value_many_to_one' => array(
+      'operator' => 'or',
+      'value' => array(
+        'organization' => 'organization',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'field_supporter_display_value_many_to_one',
+      'table' => 'node_data_field_supporter_display',
+      'field' => 'field_supporter_display_value_many_to_one',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
+  $handler->override_option('title', 'Supporters');
+  $handler->override_option('header', '<p class="supporter org-supporter">Additional Support for DrupalCampNYC was given by the following Organizations</p>');
+  $handler->override_option('empty', '');
+  $handler->override_option('attachment_position', 'after');
+  $handler->override_option('inherit_arguments', TRUE);
+  $handler->override_option('inherit_exposed_filters', FALSE);
+  $handler->override_option('inherit_pager', FALSE);
+  $handler->override_option('render_pager', TRUE);
+  $handler->override_option('displays', array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+    'block_3' => 0,
+    'block_4' => 0,
+    'block_5' => 0,
+    'block_6' => 0,
+    'block_7' => 0,
+  ));
+  $handler = $view->new_display('attachment', 'Supporters Attachment', 'attachment_2');
+  $handler->override_option('fields', array(
+    'value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 0,
+      'id' => 'value',
+      'table' => 'profile_values_profile_first',
+      'field' => 'value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'value_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 0,
+      'id' => 'value_1',
+      'table' => 'profile_values_profile_last',
+      'field' => 'value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'value' => array(
+      'order' => 'ASC',
+      'id' => 'value',
+      'table' => 'profile_values_profile_last',
+      'field' => 'value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'value_1' => array(
+      'id' => 'value_1',
+      'table' => 'profile_values_profile_first',
+      'field' => 'value',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'supporter' => 'supporter',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('header', '<p class="supporter org-supporter">Additional Support for DrupalCampNYC was given by the following Individuals</p>');
+  $handler->override_option('row_options', array(
+    'inline' => array(
+      'value' => 'value',
+      'value_1' => 'value_1',
+    ),
+    'separator' => ' ',
+    'hide_empty' => 0,
+  ));
+  $handler->override_option('attachment_position', 'after');
+  $handler->override_option('inherit_arguments', TRUE);
+  $handler->override_option('inherit_exposed_filters', FALSE);
+  $handler->override_option('inherit_pager', FALSE);
+  $handler->override_option('render_pager', 0);
+  $handler->override_option('displays', array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+    'block_3' => 0,
+    'block_4' => 0,
+    'block_5' => 0,
+    'block_6' => 0,
+    'block_7' => 0,
+  ));
 
   $views[$view->name] = $view;
 
