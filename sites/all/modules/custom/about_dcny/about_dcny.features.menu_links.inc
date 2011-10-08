@@ -66,6 +66,26 @@ function about_dcny_menu_default_menu_links() {
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => '8393c46c-ed33-11e0-9f00-3d6a5b8caab1',
   );
+  // Exported menu link: primary-links:about/faq
+  $menu_links['primary-links:about/faq'] = array(
+    'menu_name' => 'primary-links',
+    'link_path' => 'about/faq',
+    'router_path' => 'about/faq',
+    'link_title' => 'FAQ',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Frequently asked questions about DrupalCampNYC',
+      ),
+    ),
+    'module' => 'system',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+    'parent_path' => 'node/17',
+    'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
+  );
   // Exported menu link: primary-links:c0f1f910-ed32-11e0-9f00-3d6a5b8caab1
   $menu_links['primary-links:c0f1f910-ed32-11e0-9f00-3d6a5b8caab1'] = array(
     'menu_name' => 'primary-links',
@@ -103,26 +123,6 @@ function about_dcny_menu_default_menu_links() {
     'parent_path' => 'node/17',
     'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
     'uuid' => 'c1e1c142-ed33-11e0-9f00-3d6a5b8caab1',
-  );
-  // Exported menu link: primary-links:faq
-  $menu_links['primary-links:faq'] = array(
-    'menu_name' => 'primary-links',
-    'link_path' => 'faq',
-    'router_path' => 'faq',
-    'link_title' => 'FAQ',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Frequently asked questions about DrupalCampNYC',
-      ),
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/17',
-    'parent_uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
   );
   // Translatables
   // Included for use with string extractors like potx.
