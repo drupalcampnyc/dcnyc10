@@ -457,6 +457,26 @@ function cod_sponsors_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'field_supporter_display_value_many_to_one' => array(
+      'operator' => 'or',
+      'value' => array(
+        'name' => 'name',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'field_supporter_display_value_many_to_one',
+      'table' => 'node_data_field_supporter_display',
+      'field' => 'field_supporter_display_value_many_to_one',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('header', '<p class="supporter org-supporter">Additional Support for DrupalCampNYC was given by the following Individuals</p>');
   $handler->override_option('empty', '');
