@@ -10,7 +10,7 @@ function cod_session_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'context_program';
-  $context->description = '';
+  $context->description = 'Provide for program sub-menu block on program section pages';
   $context->tag = '';
   $context->conditions = array(
     'path' => array(
@@ -32,6 +32,10 @@ function cod_session_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Provide for program sub-menu block on program section pages');
   $export['context_program'] = $context;
 
   return $export;
