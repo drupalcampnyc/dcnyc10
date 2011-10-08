@@ -80,7 +80,7 @@ function about_dcny_menu_default_menu_links() {
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
-    'expanded' => '0',
+    'expanded' => '1',
     'weight' => '3',
     'uuid' => 'c0f1f910-ed32-11e0-9f00-3d6a5b8caab1',
   );
