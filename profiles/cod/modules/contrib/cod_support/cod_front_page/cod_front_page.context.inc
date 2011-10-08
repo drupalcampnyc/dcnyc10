@@ -17,47 +17,22 @@ function cod_front_page_context_default_contexts() {
       'values' => array(
         '<front>' => '<front>',
       ),
-      'options' => array(),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-Sponsors-block_4' => array(
+        'views-sponsors_front_page-block_1' => array(
           'module' => 'views',
-          'delta' => 'Sponsors-block_4',
-          'weight' => 19,
-          'region' => 'right',
-          'status' => '0',
-          'label' => 'Sponsors: Home Page Platinum Featured',
-          'type' => 'context_ui',
-        ),
-        'views-attendees-block_1' => array(
-          'module' => 'views',
-          'delta' => 'attendees-block_1',
-          'weight' => 20,
-          'region' => 'right',
-          'status' => '0',
-          'label' => 'Attendee block',
-          'type' => 'context_ui',
-        ),
-        'views-featured_sessions-block_1' => array(
-          'module' => 'views',
-          'delta' => 'featured_sessions-block_1',
-          'weight' => 19,
-          'region' => 'content',
-          'status' => '0',
-          'label' => 'featured_sessions: Featured Sessions',
-          'type' => 'context_ui',
+          'delta' => 'sponsors_front_page-block_1',
+          'region' => 'sidebar_first',
+          'weight' => 0,
         ),
         'views-news-block_1' => array(
           'module' => 'views',
           'delta' => 'news-block_1',
-          'weight' => 20,
           'region' => 'content',
-          'status' => '0',
-          'label' => 'news: Single news item block',
-          'type' => 'context_ui',
+          'weight' => 0,
         ),
       ),
     ),
