@@ -171,6 +171,8 @@ COD is the Conference Organizing Distribution, used for building conference and 
   'uuid' => '79f090a8-755e-102e-a8fe-4040db1cdced',
   'revision_uuid' => '79f12ce8-755e-102e-a8fe-4040db1cdced',
   'pathauto_perform_alias' => FALSE,
+  'date' => '2011-01-19 16:54:23 -0400',
+  'field_illustration' => array(),
 );
   return $nodes;
 }

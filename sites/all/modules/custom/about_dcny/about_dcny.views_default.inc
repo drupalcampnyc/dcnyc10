@@ -94,7 +94,7 @@ function about_dcny_views_default_views() {
     'type' => 'ul',
   ));
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'faq');
+  $handler->override_option('path', 'about/faq');
   $handler->override_option('menu', array(
     'type' => 'normal',
     'title' => 'FAQ',

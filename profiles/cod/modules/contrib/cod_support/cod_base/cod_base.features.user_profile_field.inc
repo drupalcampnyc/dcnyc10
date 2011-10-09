@@ -6,6 +6,24 @@
 function cod_base_user_default_profile_fields() {
   $profile_fields = array();
 
+  $profile_fields['profile_diet'] = array(
+  'title' => 'Do you have any dietary requirements?',
+  'name' => 'profile_diet',
+  'explanation' => '',
+  'category' => 'Personal information',
+  'page' => '',
+  'type' => 'selection',
+  'weight' => '0',
+  'required' => '0',
+  'register' => '0',
+  'visibility' => '2',
+  'autocomplete' => '0',
+  'options' => 'None
+Vegan
+Vegetarian
+Kosher / Hallal
+Gluten Free',
+);
   $profile_fields['profile_first'] = array(
   'title' => 'First name',
   'name' => 'profile_first',
@@ -75,6 +93,24 @@ function cod_base_user_default_profile_fields() {
   'visibility' => '3',
   'autocomplete' => '0',
   'options' => '',
+);
+  $profile_fields['profile_shirt'] = array(
+  'title' => 'T-Shirt',
+  'name' => 'profile_shirt',
+  'explanation' => '',
+  'category' => 'Personal information',
+  'page' => '',
+  'type' => 'selection',
+  'weight' => '0',
+  'required' => '1',
+  'register' => '0',
+  'visibility' => '2',
+  'autocomplete' => '0',
+  'options' => 'No thanks!
+Small
+Medium
+Large
+X-Large',
 );
 return $profile_fields;
 }

@@ -1,4 +1,5 @@
 core = "6.x"
+datestamp = "1313163415"
 dependencies[] = "content_permissions"
 dependencies[] = "features"
 dependencies[] = "imagefield"
@@ -37,9 +38,5 @@ features[views][] = "sponsorships"
 features[views_api][] = "api:2"
 name = "COD Sponsorship Sales"
 package = "COD"
-; Information added by drupal.org packaging script on 2011-08-12
-version = "6.x-1.0-beta2"
-core = "6.x"
 project = "cod_support"
-datestamp = "1313163415"
-
+version = "6.x-1.0-beta2"

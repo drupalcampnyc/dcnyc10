@@ -11,5 +11,10 @@ function cod_session_user_default_roles() {
     'name' => 'session organizer',
   );
 
+  // Exported role: volunteer
+  $roles['volunteer'] = array(
+    'name' => 'volunteer',
+  );
+
   return $roles;
 }

@@ -40,7 +40,7 @@ function cod_sponsors_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'parent_path' => 'node/14',
+    'parent_path' => 'node/13',
     'parent_uuid' => 'ae84b0a8-ec90-11e0-9f00-3d6a5b8caab1',
     'uuid' => '5a192ee0-ec90-11e0-9f00-3d6a5b8caab1',
   );
@@ -58,34 +58,13 @@ function cod_sponsors_menu_default_menu_links() {
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
-    'expanded' => '0',
+    'expanded' => '1',
     'weight' => '0',
     'uuid' => 'ae84b0a8-ec90-11e0-9f00-3d6a5b8caab1',
-  );
-  // Exported menu link: primary-links:our_sponsors
-  $menu_links['primary-links:our_sponsors'] = array(
-    'menu_name' => 'primary-links',
-    'link_path' => 'our_sponsors',
-    'router_path' => 'our_sponsors',
-    'link_title' => 'Our Sponsors',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'A listing of Sponsor profiles',
-      ),
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/14',
-    'parent_uuid' => 'ae84b0a8-ec90-11e0-9f00-3d6a5b8caab1',
   );
   // Translatables
   // Included for use with string extractors like potx.
   t('How to Sponsor');
-  t('Our Sponsors');
   t('Sponsor moderation');
   t('Sponsors');
 
