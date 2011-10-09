@@ -10,7 +10,7 @@ function cod_sponsors_user_default_permissions() {
   $permissions['create sponsor content'] = array(
     'name' => 'create sponsor content',
     'roles' => array(
-      '0' => 'authenticated user',
+      '0' => 'sponsor',
       '1' => 'sponsor organizer',
       '2' => 'volunteer',
     ),

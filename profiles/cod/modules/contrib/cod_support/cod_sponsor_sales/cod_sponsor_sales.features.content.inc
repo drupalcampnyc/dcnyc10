@@ -35,17 +35,15 @@ function cod_sponsor_sales_content_default_fields() {
     ),
     'widget_active' => '1',
     'type' => 'text',
-    'required' => '0',
+    'required' => '1',
     'multiple' => '0',
     'module' => 'text',
     'active' => '1',
     'text_processing' => '0',
     'max_length' => '',
-    'allowed_values' => 'Platinum
-Gold
-Silver
-Bronze
-Media',
+    'allowed_values' => 'premium|Premium Sponsor
+sponsor|Sponsor
+',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(
