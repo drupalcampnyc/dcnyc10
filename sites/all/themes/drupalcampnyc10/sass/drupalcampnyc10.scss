@@ -1,0 +1,972 @@
+@import "compass/reset";
+@import "compass/typography";
+@import "compass/css3";
+@import "compass/css3/pie";
+@import "partials/_typography";
+@import "partials/_base";
+//@import "partials/_media_queries";
+
+// Variables 
+
+$page-background:#80746b;
+$page-background-image: url('../images/background_retaining_wall5.png');
+$page-background-image2: url('../images/side_piece.png');
+//$page-background-image:  '';
+//$page-background-image2: '';
+
+$menu-top-background-gradient:rgba(81,73,67,.5);
+$menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
+$menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
+$content-area-background:adjust-lightness(rgba(81,73,67,.66), 5);
+
+$heading-link-color:#1950af;
+$heading-link-color-over: saturate($heading-link-color, 10%);
+$heading-link-color-visited: desaturate($heading-link-color, 20%);
+
+$menu-link-color:#e5aa20;
+$menu-active-link-color:#eee;
+$menu-link-color-over: saturate($menu-link-color, 10%);
+$menu-link-color-visited: desaturate($menu-link-color, 20%);
+
+$heading-color-1:rgba(#a0aab5, 1);
+$heading-color-2:rgba(#708090, 1);
+$heading-color-3:rgba(#1e2327, .9);
+$heading-color-4:rgba(#708090, 1);
+$heading-color-5:rgba(#a0aab5, 1);
+
+$link-color:#e5aa20;
+$link-color-over: saturate($link-color, 10%);
+$link-color-visited: desaturate($link-color, 20%);
+
+
+$light-text-color: #eee;
+$light-text-color-hover: #fff;
+
+$image-corners:8px;
+$heading-font:'LeagueGothicRegular',Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+$maintext-font:'DroidSerif';
+
+$header-light-gradient-color: #80746b;
+$header-dark-gradient-color: #23201e;
+
+
+// Mixins
+@mixin reg-text-shadow {
+  @include text-shadow(1px 1px 2px rgba(0,0,0,.75), 0px -1px 2px rgba(0,0,25,.25));
+}
+@mixin menu-text-shadow {
+  @include text-shadow(-1px -1px 0px rgba(0,0,0,.66),  1px 1px 1px rgba(205,205,205,.25)); 
+}
+@mixin rgba-background($color, $opacity) {
+  position: relative;
+  background: $color;
+  background: rgba($color, $opacity);
+  -pie-background: rgba($color, $opacity);
+  @include PIE;
+}
+
+@mixin suckerfish-menu-corners {
+  @include border-bottom-radius($image-corners); 
+}
+@mixin content-group-corners {
+  @include border-radius($image-corners * 1); 
+}
+@mixin menu-corners {
+  @include border-top-radius($image-corners * 2); 
+  @include border-bottom-radius(($image-corners * 5) ($image-corners * 10)); 
+}
+@mixin tab-corners {
+  //@include border-bottom-radius($image-corners * 2); 
+  @include border-top-radius(($image-corners * 5) ($image-corners * 10)); 
+}
+@mixin menu-box-shadow {
+  @include box-shadow(4px 4px 10px rgba(0,0,0,.5));
+}
+// Landing page Styles
+
+body {
+  background:$page-background;
+  background-image:$page-background-image;
+  @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 15%, rgba($header-dark-gradient-color,.15) 30%, rgba($header-light-gradient-color,.15) 50%, rgba($header-light-gradient-color,.0) 95%), $page-background-image2, $page-background-image);
+  background-position: top center,90% 0,top center;
+  background-repeat:no-repeat, repeat-y, repeat; 
+  font-family: $maintext-font;
+}
+a, a:link {
+	color:$link-color;
+	text-decoration:none;   
+}       
+a:visited {  
+  color:$link-color-visited;
+  text-decoration:none;
+}
+/* Hover/active link styles. Don't forget :focus for accessibility */
+a:hover,
+a:focus,
+a:active { 
+  color:$link-color-over;
+  text-decoration:underline;
+}
+strong {
+  font-weight:bold;
+}
+em {
+  font-style:italic;
+}
+
+
+// make directive here  
+h1.title .word1 {
+  color:$heading-color-1;
+}
+h1.title .word2 {
+  color:$heading-color-2;
+}
+h1.title .word3 {
+  color:$heading-color-1;
+}
+
+//Header site name
+h1#site-name {
+  opacity:1;
+  font-size:10em;
+  font-family: $heading-font;
+  line-height:.95em;
+  @include reg-text-shadow;
+  a {
+    
+  }
+}
+#header-site-info.block {
+  margin:0;
+}
+// Header site name kerning
+#site-name .char1 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name .char2 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name .char3 {
+	margin-left: 0.006em;
+	color:$heading-color-1;
+}
+#site-name .char4 {
+	margin-left: -0.022em;
+	color:$heading-color-1;
+}
+#site-name .char5 {
+	margin-left: -0.011em;
+	color:$heading-color-1;
+}
+#site-name .char6 {
+	margin-left: -0.022em;
+	color:$heading-color-1;
+}
+#site-name .char7 {
+	margin-left: -0.017em;
+	color:$heading-color-2;
+}
+#site-name .char8 {
+	margin-left: 0em;
+	color:$heading-color-2;
+}
+#site-name .char9 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+#site-name .char10 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+#site-name .char11 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name .char12 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name .char13 {
+	margin-left: -0.033em;
+	color:$heading-color-1;
+}
+#site-name .char14 {
+	margin-left: -0.033em;
+	color:$heading-color-1;
+}
+#site-name .char15 {
+	margin-left: -0.033em;
+	color:$heading-color-2;
+}
+#site-name .char16 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+
+#block-countdown-0 {
+  color:$heading-color-4;
+  @include reg-text-shadow;
+  font-family: $heading-font;
+  font-size:1em;
+  line-height:1em;
+  margin:-8px 0 0 0; 
+  height:160px;
+  em {
+    font-size:14em;
+    margin: 0 0 -40px 0;
+    font-style:normal;
+    line-height:1em;
+  }
+  span {
+    position:relative;
+    top:-160px;
+    left:120px;  
+    width:120px;
+    display:block;
+    font-size:5.5em;
+    line-height:1.125em;  
+  }
+}
+h1.title {
+  font-family: $heading-font;
+  font-size:6.5em;
+  line-height:1.2em;
+  color:$heading-color-5;
+  @include reg-text-shadow;
+  margin:0 0 .125em 0;
+}
+
+// kerning h1 Title
+.front h1.title .char1,
+.front h1.title .char2,
+.front h1.title .char3,
+.front h1.title .char4,
+.front h1.title .char5,
+.front h1.title .char6,
+.front h1.title .char7,
+.front h1.title .char8,
+.front h1.title .char9,
+.front h1.title .char10,
+.front h1.title .char11,
+.front h1.title .char18,
+.front h1.title .char19,
+.front h1.title .char20,
+.front h1.title .char21,
+.front h1.title .char26,
+.front h1.title .char27 {
+  color:$heading-color-5;
+}
+
+
+
+.front h1.title .char13 {
+	margin-left: -0.013em;
+}
+.front h1.title .char15 {
+	margin-left: -0.013em;
+}
+.front h1.title .char17 {
+	margin-left: -0.026em;
+}
+.front h1.title .char19 {
+	margin-left: 0em;
+}
+.front h1.title .char20 {
+	margin-left: -0.013em;
+}
+.front h1.title .char21 {
+	margin-left: -0.013em;
+}
+.front h1.title .char22 {
+	margin-left: -0.013em;
+}
+.front h1.title .char23 {
+	margin-left: -0.013em;
+}
+.front h1.title .char24 {
+	margin-left: -0.026em;
+}
+.front h1.title .char25 {
+	margin-left: 0em;
+}
+.front h1.title .char26 {
+	margin-left: -0.026em;
+}
+.front h1.title .char27 {
+	margin-left: 0em; 
+}
+.float-right {
+  float:right;
+  width:350px;
+}
+.front .node-type-page {
+  color:$light-text-color;
+  @include reg-text-shadow;
+  font-size:1.4em;
+  line-height:1.4em;
+  float:left;
+  width:350px;
+}
+#block-mailing_list-1, #block-block-5 {
+  h2 {
+    color:$heading-color-5;
+    @include reg-text-shadow;
+    font-family: $heading-font;
+    font-size:4.65em;
+    line-height:1em;
+    margin:8px 0 0 0; 
+   }
+  label {
+    margin:0 0 0 6px ;
+    color:$light-text-color;
+    @include reg-text-shadow;
+    font-size:1.5em;
+    line-height:1.5em;
+    letter-spacing:.06em;
+  }
+  #mc_embed_signup input {
+    width:212px;
+    line-height:1.25em;
+    font-size:1.5em;
+    @include border-radius(8px);
+    border:none;
+    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
+  }
+  #mc_embed_signup input.button {
+    width:136px;
+    height: 52px;
+    font-size:3em;
+    @include box-shadow;
+  }
+  input[type="submit"] {
+    font-family: $heading-font;
+    background:$heading-color-5;
+    color:$heading-color-3;
+    text-transform:uppercase;
+    line-height:1.25em;
+    font-size:3em;
+    @include border-radius(8px);
+    border:none;
+    padding:5px 10px 0px 10px;
+    @include box-shadow;
+    float:right;
+  }
+  input[type="text"]{
+    width:240px;
+    line-height:1.25em;
+    font-size:2em;
+    @include border-radius(8px);
+    border:none;
+    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95)); 
+    padding: 2px 5px 2px 5px;
+  }
+}
+#sidebar-last {
+  margin:-3px 0 0 0;  
+}
+#block-block-1 {
+  margin:0;
+  color:$heading-color-4;
+  @include reg-text-shadow;
+  font-family: $heading-font;
+  font-size:1em;  
+  h3 {
+    font-size:7.5em;
+    line-height:1em;
+    margin:0;
+  }
+  p {
+    color:$heading-color-5;
+    text-align:justify;
+    font-size:5.7em;
+    line-height:1em;
+    margin:0;
+  }
+  &.block {
+    margin:0;
+  }
+}
+#block-block-2 {
+  margin:0;
+  color:$heading-color-5;
+  @include reg-text-shadow;
+  font-family: $heading-font;
+  font-size:1em;  
+  h3 {
+    font-size:8.25em;
+    line-height:.9em;
+    margin:0;
+  }
+  p {
+    color:$heading-color-4;
+    text-align:justify;
+    font-size:3.75em;
+    line-height:1em;
+    margin:10px 0 0 0;
+    span {
+      font-size:1.6em;
+      line-height:.9em;  
+    }
+  }
+  &.block {
+    margin:0;
+  }
+}
+#block-block-3 {
+  margin:0;
+  font-size:1em;  
+  h2 {
+    color:$heading-color-5;
+    @include reg-text-shadow;
+    font-family: $heading-font;
+    font-size:4.65em;
+    line-height:1em;
+    margin:4px 0 0 0;
+  }
+  &.block {
+    margin:0;
+  }
+  ul {
+    height:42px;
+    display:block;
+    margin:10px 0 0 0;
+   li {
+     float:left;
+     list-style:none;
+     a { 
+      text-indent:-1000em;
+       width:45px;
+       height:42px;
+       display:block;
+       float:left;
+       margin:0 8px 0 0 ;
+       em {
+         width:45px;
+         height:42px;        
+         background:url('../images/social-media-icons.png');
+         background-position: 0 0px;       
+       }
+     }
+     &.twitter em {
+     background-position: 0px 0px;  
+     }
+     &.gdo em {
+     background-position: 45px 0px;  
+     }     
+   }
+  }
+}
+#block-block-4 {
+  float:right;
+  width:350px;
+}
+// replace background images
+.replace {
+position:relative;
+/* Start Mac IE5 filter \*/
+overflow:hidden;
+/* End Mac IE5 filter */
+padding:0;
+margin:0;
+}
+.replace em {
+display: block;
+position: absolute;
+top: 0px; left: 0px;
+z-index:1; /*for Opera 5 and 6*/
+}
+
+#footer-message {
+  color:$light-text-color;
+  @include reg-text-shadow;
+  font-size:1.1em;
+}
+
+
+//Main Menu and Dropdowns
+
+#primary-menu {
+    @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+    @include menu-corners;
+    @include menu-box-shadow;
+  ul {
+    margin:0;
+    padding:0 0 0 2em;
+    font-size:2em;
+    @include menu-text-shadow;
+    li {
+      margin:0;
+      padding:0 .5em;
+      letter-spacing:.10em;
+      font-variant:small-caps;
+      a {
+        margin:0;
+        padding: .5em;
+        &.active, &:hover {
+          color:$menu-active-link-color;
+          @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+        }
+      }
+    }
+    ul {
+      margin:1px 0 0 0;
+      padding:0;
+      font-size:1em; 
+      @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+      @include suckerfish-menu-corners;
+      border-right:dotted 1px rgba(25,25,25 ,.5);
+      border-left:dotted 1px rgba(25,25,25 ,.5);
+      @include menu-box-shadow;
+      li {
+        margin:0;
+        padding:0 0;
+        border-bottom:dotted 1px darken(rgba(25,25,25 ,.25), 20);
+        @include suckerfish-menu-corners; 
+        line-height:1.2em;         
+          &:last-child {     
+          } a {
+          &:hover {
+            @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+          }
+        }
+      } 
+    }
+  }
+}
+
+// Content Area
+#content-group {
+  font-size:1.33em;
+  line-height:1.5em;  
+  #content-inner {
+    width:95%;
+    padding:2%;
+    @include content-group-corners;
+    @include menu-box-shadow;
+    background: $content-area-background;
+    #content-inner-inner {
+      margin:0;
+      padding:1em;
+      border: 1px rgba(0,0,0,.3) dashed;
+      outline: 1px rgba($heading-color-2,.5) dashed;
+
+    } 
+  }
+}
+
+// Content Tabs
+#content-tabs {
+  &.block {
+    margin:0;
+  }
+  .primary {
+    border:none; 
+    display:inline;
+    li {
+      letter-spacing:.15em;
+      font-variant:small-caps;
+      background:none;
+      border:none;
+      display:block;
+      float:left;
+      margin:0;
+      @include menu-text-shadow;
+      &.active, &:hover {   
+        a {
+         color:$menu-active-link-color; 
+@include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 25%, $menu-bottom-background-gradient 85%));
+        }
+      }
+      a {
+        @include tab-corners;
+        display:block;
+        background:none;
+        border:none;
+        @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+        padding:.5em 2em;
+        line-height:1.1em;
+        
+      }
+    
+    }
+    
+  }
+}
+
+// Forms Elements
+//Buttons and Links styled like buttons
+input[type="submit"], 
+.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a {
+  @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
+  padding: 0.5em 1.5em !important;   
+}
+a.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a, {
+  color:#111;
+  font-family: 'Lucida Grande';
+  font-weight: bold;
+  &:hover {
+    text-decoration:none !important;
+  }
+}
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue  {
+  @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+}
+input[type="submit"]#edit-items-0-remove {
+  @include sassy-button("matte", 25px, 14px, #f33737, #c71e1e, #111, "inset");
+}
+
+// Text inputs
+input[type="text"],
+input[type="password"]  {
+  padding:.25em  0 .25em .5em;
+  line-height:1.25em;
+  font-size:1.1em;
+  @include border-radius(8px);
+  border:none;
+  @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95)); 
+  margin:0em 0 .5em 0;
+}
+label {
+  font-family: 'Lucida Grande';
+  color:$light-text-color;
+  @include reg-text-shadow;
+  font-size:1.1em;
+  margin:1em 0 .25em .25em;  
+}
+.description {
+  color:#ccc;
+}
+
+fieldset {
+  margin:0em 0 .5em 0;  
+}
+fieldset legend {
+  font-size:20px;
+  line-height:1.25em;
+  padding:0em 0 1em 0;
+  font-family: 'Lucida Grande';
+  a {
+    padding:0;
+    font-size:20px;
+    background-image:none;
+    margin:0em .5em .25em .5em;
+  }  
+}
+//Ubercart 
+#cart-form-products {
+  font-family: 'Lucida Grande';
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  padding:1em;
+  thead th {
+    font-size:1.2em;
+    padding: .5em 1em;
+    border:none;
+    color:#aaa;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+  }
+  tr.even, tr.odd {
+   background:none;
+   border:none; 
+   td {
+     padding:.5em 1em .5em .5em; 
+   }
+
+  }
+  tbody .desc, tbody .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+    color:#ccc;
+  }
+  tbody .subtotal {
+   color:#999; 
+  }
+  tbody td.image {
+    
+  }
+  #edit-items-0-qty {
+    font-size:1em;
+    line-height:1.5em;
+    text-align:center;
+  }
+}
+// DrupalCamp tickets
+#product-group {
+  
+  .product-image {
+      float: right;
+      margin:0 0 1em 0;
+  }  
+}
+#product-details {
+  margin:2em 0 0 0;
+  .uc-price-display {
+    //float:none;
+    color:$heading-color-1;
+    font-size:3em;
+    margin:0 1em 0 0;
+    font-family: $heading-font;
+    line-height:.95em;
+    @include reg-text-shadow;
+  }
+  .product-image {
+      float: right;
+      
+  }
+}
+
+#uc-signup-attendees-form {
+  font-family: 'Lucida Grande';
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  width:460px;
+  padding:10px 10px 60px 10px;
+  #edit-submit {  
+    float:right;
+    clear:both;
+    margin:2em 0 .5em 0;
+  }
+  .uc_signup_previous {
+    margin:2em 0 .5em 0;
+  }
+  fieldset {
+    margin:0em 0 .5em 0;  
+  }
+  fieldset legend {
+    font-size:20px;
+    margin:0em .5em .25em .5em;
+    a {
+      padding:0;
+      font-size:20px;
+      background-image:none;
+    }  
+  } 
+  input[type="text"] {
+   width:95%;
+   font-size:1.2em;
+  }
+  .uc_signup_needs_account {
+    padding:0;
+    background-image:none;
+  }
+ }
+#uc-cart-checkout-form {
+  font-family: 'Lucida Grande';
+  #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
+     @include content-group-corners;
+     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+     color:$light-text-color;
+     width:260px;
+     padding:10px;
+     margin:0px 12px 20px 0px;
+     float:left;
+     .uc_signup_user_events {
+       color:#aaa;
+     }
+     .uc_signup_edit_info {
+       float:none;
+     }
+   } 
+   fieldset {
+     margin:0em 0 2.5em 0;  
+   }
+   fieldset legend {
+     font-size:20px;
+     margin:0em .5em .5em 0em;
+     padding:0em .5em .5em 0em;
+     a {
+       padding:0;
+       font-size:20px;
+       background-image:none;
+       margin:0em .5em .5em 0em;
+     }
+   }
+   .field-label {
+     color:$light-text-color;
+     @include reg-text-shadow;
+     font-size:1.1em;    
+     padding:.3em;
+     vertical-align:top; 
+   }
+   select {
+      font-size: 1em;
+      padding: 0.4em 0;
+   }  
+   #billing-pane select { 
+     width: 320px;
+   }
+   input[type="text"] {
+    font-size:1.2em;
+   }
+   .description {
+     margin:0em 0 1em 0;
+   }
+   #line-items-div {
+     font-size:1.2em;
+     padding: .5em 1em;
+     color:#aaa;
+     letter-spacing: .05em;
+     @include menu-text-shadow;
+     border:none !important;
+     @include content-group-corners;
+     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+   } 
+   table.cart-review {
+     @include content-group-corners;
+     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+     margin: 0em 0 1em 0;
+     font-size:.8em;
+   }
+   thead th {
+     font-size:1.2em;
+     padding: .5em 1em;
+     border:none;
+     color:#aaa;
+     letter-spacing: .05em;
+     @include menu-text-shadow;
+   }
+   tbody {
+     margin: .5em 1em;
+   }
+   tr.even, tr.odd {
+    background:none;
+    border:none; 
+    td {
+      padding:.5em 1em .5em .5em;
+      font-size:1.2em; 
+    }
+    .products, .qty {
+      color:$light-text-color;
+    }
+   }
+   tbody .desc, tbody .uc-price {
+     font-size:1.2em;
+     letter-spacing: .05em;
+     color:#ccc;
+   }
+   tbody .subtotal {
+    color:#999; 
+   }
+   .uc-price {
+     font-size:1.2em;
+     letter-spacing: .05em;
+     color:#ccc; 
+   }
+   .solid-border {
+     border:none;
+   }
+} 
+
+#pid-cart-checkout-review {
+  
+  #content-content > p {
+    width:480px;
+    font-family: 'Lucida Grande';
+  }  
+} 
+.order-review-table  {
+  width:480px;
+  margin: 0em 0 1em 0;
+  padding:10px;
+  border:none;
+  font-family: 'Lucida Grande';
+  font-size: 1.2em;
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  td {
+     padding:.5em 1em .5em .5em;
+     vertical-align:top;
+     &.title-col {
+       color:#aaa;  
+       font-weight: bold;
+       padding-left: 1em;
+       text-align: right;
+    }
+    &.data-col {
+      color:$light-text-color;  
+    } 
+  }
+  .pane-title-row {
+    border:none;
+    background:none;
+    color:#ccc; 
+  }
+  .row-border-top {
+    border:none;  
+  } 
+  .review-button-row {
+    border:none;
+    background:none;
+    #edit-submit {
+      float:right;
+    }    
+  }
+}
+#pid-cart-checkout-complete {
+  #content-content > p {
+    width:480px;
+    font-family: 'Lucida Grande';
+  }
+}
+
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  padding:10px;
+  font-family: 'Lucida Grande';
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  border:none;
+  color:$light-text-color;
+  line-height:1.5em;
+}
+.order-pane {
+  border:none;
+  img {
+    display:none;
+  }
+  thead {
+    border:none;
+    background:none;
+    th {
+      border:none;
+      background:none;
+    }
+  }
+  tr, tr.even, tr.odd {
+   background:none;
+   border:none; 
+   td {
+     padding:.5em 1em .5em .5em; 
+   }
+ }
+}
+.order-pane-title {
+  color:#aaa;  
+}
+#order-pane-uc_signup_info {
+  width:460px;
+}
+#order-pane-products,
+#order-pane-line_items {
+  padding:10px;
+  margin:0;
+  font-family: 'Lucida Grande';
+  border:none;
+  color:$light-text-color;
+  line-height:1.5em; 
+  thead {
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
+  }
+}
