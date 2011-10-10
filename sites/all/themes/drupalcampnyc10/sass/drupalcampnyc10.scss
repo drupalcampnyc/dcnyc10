@@ -20,7 +20,7 @@ $menu-top-background-gradient:rgba(81,73,67,.5);
 $menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
 $menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
 
-$content-area-background:adjust-lightness(rgba(81,73,67,.6  ), 15);
+$content-area-background:adjust-lightness(rgba(81,73,67,.7), 20);
 
 $heading-link-color:#1950af;
 $heading-link-color-over: saturate($heading-link-color, 10%);
@@ -131,7 +131,21 @@ h1.title .word2 {
 h1.title .word3 {
   color:$heading-color-2;
 }
-
+h1.title .word4 {
+  color:$heading-color-1;
+}
+h1.title .word5 {
+  color:$heading-color-2;
+}
+h1.title .word6 {
+  color:$heading-color-1;
+}
+h1.title .word7 {
+  color:$heading-color-2;
+}
+h1.title .word8 {
+  color:$heading-color-1;
+}
 //Header site name
 h1#site-name {
   opacity:1;
@@ -498,10 +512,7 @@ z-index:1; /*for Opera 5 and 6*/
   background-image:$menu-background-image;
   background-position:-5px 146px;
   background-repeat:no-repeat;
-  z-index:1;
-  position:relative;
   padding :0 0 0 100px 0;
-  top:0;
 }
 #primary-menu {
   @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
@@ -576,16 +587,14 @@ z-index:1; /*for Opera 5 and 6*/
       border-bottom:dotted 1px darken(rgba(25,25,25 ,.25), 20);
       padding: .25em .25em;
       &:last-child {     
-        border-bottom:dotted 0px darken(rgba(25,25,25 ,.25), 20);
-      
+        border-bottom:dotted 0px darken(rgba(25,25,25 ,.25), 20); 
       }
       a {
         margin:0;
-       
+        display:block;
         &.active, &:hover {
           color:$menu-active-link-color;
           text-decoration:none;
- 
         }
       } 
     }

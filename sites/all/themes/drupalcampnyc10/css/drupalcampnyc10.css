@@ -236,7 +236,32 @@ h1.title .word3 {
   color: #708090;
 }
 
-/* line 136, ../sass/drupalcampnyc10.scss */
+/* line 134, ../sass/drupalcampnyc10.scss */
+h1.title .word4 {
+  color: #a0aab5;
+}
+
+/* line 137, ../sass/drupalcampnyc10.scss */
+h1.title .word5 {
+  color: #708090;
+}
+
+/* line 140, ../sass/drupalcampnyc10.scss */
+h1.title .word6 {
+  color: #a0aab5;
+}
+
+/* line 143, ../sass/drupalcampnyc10.scss */
+h1.title .word7 {
+  color: #708090;
+}
+
+/* line 146, ../sass/drupalcampnyc10.scss */
+h1.title .word8 {
+  color: #a0aab5;
+}
+
+/* line 150, ../sass/drupalcampnyc10.scss */
 h1#site-name {
   opacity: 1;
   font-size: 15.80em;
@@ -246,108 +271,108 @@ h1#site-name {
   margin: 0 0 .22em 0;
 }
 
-/* line 147, ../sass/drupalcampnyc10.scss */
+/* line 161, ../sass/drupalcampnyc10.scss */
 #header-site-info.block {
   margin: 0;
 }
 
-/* line 151, ../sass/drupalcampnyc10.scss */
+/* line 165, ../sass/drupalcampnyc10.scss */
 #site-name .char1 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 155, ../sass/drupalcampnyc10.scss */
+/* line 169, ../sass/drupalcampnyc10.scss */
 #site-name .char2 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 159, ../sass/drupalcampnyc10.scss */
+/* line 173, ../sass/drupalcampnyc10.scss */
 #site-name .char3 {
   margin-left: 0.006em;
   color: #a0aab5;
 }
 
-/* line 163, ../sass/drupalcampnyc10.scss */
+/* line 177, ../sass/drupalcampnyc10.scss */
 #site-name .char4 {
   margin-left: -0.022em;
   color: #a0aab5;
 }
 
-/* line 167, ../sass/drupalcampnyc10.scss */
+/* line 181, ../sass/drupalcampnyc10.scss */
 #site-name .char5 {
   margin-left: -0.011em;
   color: #a0aab5;
 }
 
-/* line 171, ../sass/drupalcampnyc10.scss */
+/* line 185, ../sass/drupalcampnyc10.scss */
 #site-name .char6 {
   margin-left: -0.022em;
   color: #a0aab5;
 }
 
-/* line 175, ../sass/drupalcampnyc10.scss */
+/* line 189, ../sass/drupalcampnyc10.scss */
 #site-name .char7 {
   margin-left: -0.017em;
   color: #708090;
 }
 
-/* line 179, ../sass/drupalcampnyc10.scss */
+/* line 193, ../sass/drupalcampnyc10.scss */
 #site-name .char8 {
   margin-left: 0em;
   color: #708090;
 }
 
-/* line 183, ../sass/drupalcampnyc10.scss */
+/* line 197, ../sass/drupalcampnyc10.scss */
 #site-name .char9 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 187, ../sass/drupalcampnyc10.scss */
+/* line 201, ../sass/drupalcampnyc10.scss */
 #site-name .char10 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 191, ../sass/drupalcampnyc10.scss */
+/* line 205, ../sass/drupalcampnyc10.scss */
 #site-name .char11 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 195, ../sass/drupalcampnyc10.scss */
+/* line 209, ../sass/drupalcampnyc10.scss */
 #site-name .char12 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 199, ../sass/drupalcampnyc10.scss */
+/* line 213, ../sass/drupalcampnyc10.scss */
 #site-name .char13 {
   margin-left: -0.033em;
   color: #a0aab5;
 }
 
-/* line 203, ../sass/drupalcampnyc10.scss */
+/* line 217, ../sass/drupalcampnyc10.scss */
 #site-name .char14 {
   margin-left: -0.033em;
   color: #a0aab5;
 }
 
-/* line 207, ../sass/drupalcampnyc10.scss */
+/* line 221, ../sass/drupalcampnyc10.scss */
 #site-name .char15 {
   margin-left: -0.033em;
   color: #708090;
 }
 
-/* line 211, ../sass/drupalcampnyc10.scss */
+/* line 225, ../sass/drupalcampnyc10.scss */
 #site-name .char16 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 216, ../sass/drupalcampnyc10.scss */
+/* line 230, ../sass/drupalcampnyc10.scss */
 #block-countdown-0 {
   color: #708090;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
@@ -357,14 +382,14 @@ h1#site-name {
   margin: -8px 0 0 0;
   height: 160px;
 }
-/* line 224, ../sass/drupalcampnyc10.scss */
+/* line 238, ../sass/drupalcampnyc10.scss */
 #block-countdown-0 em {
   font-size: 14em;
   margin: 0 0 -40px 0;
   font-style: normal;
   line-height: 1em;
 }
-/* line 230, ../sass/drupalcampnyc10.scss */
+/* line 244, ../sass/drupalcampnyc10.scss */
 #block-countdown-0 span {
   position: relative;
   top: -160px;
@@ -375,7 +400,7 @@ h1#site-name {
   line-height: 1.125em;
 }
 
-/* line 240, ../sass/drupalcampnyc10.scss */
+/* line 254, ../sass/drupalcampnyc10.scss */
 h1.title {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 5em;
@@ -385,7 +410,7 @@ h1.title {
   margin: 0 0 .125em 0;
 }
 
-/* line 266, ../sass/drupalcampnyc10.scss */
+/* line 280, ../sass/drupalcampnyc10.scss */
 .front h1.title .char1,
 .front h1.title .char2,
 .front h1.title .char3,
@@ -406,73 +431,73 @@ h1.title {
   color: #a0aab5;
 }
 
-/* line 272, ../sass/drupalcampnyc10.scss */
+/* line 286, ../sass/drupalcampnyc10.scss */
 .front h1.title .char13 {
   margin-left: -0.013em;
 }
 
-/* line 275, ../sass/drupalcampnyc10.scss */
+/* line 289, ../sass/drupalcampnyc10.scss */
 .front h1.title .char15 {
   margin-left: -0.013em;
 }
 
-/* line 278, ../sass/drupalcampnyc10.scss */
+/* line 292, ../sass/drupalcampnyc10.scss */
 .front h1.title .char17 {
   margin-left: -0.026em;
 }
 
-/* line 281, ../sass/drupalcampnyc10.scss */
+/* line 295, ../sass/drupalcampnyc10.scss */
 .front h1.title .char19 {
   margin-left: 0em;
 }
 
-/* line 284, ../sass/drupalcampnyc10.scss */
+/* line 298, ../sass/drupalcampnyc10.scss */
 .front h1.title .char20 {
   margin-left: -0.013em;
 }
 
-/* line 287, ../sass/drupalcampnyc10.scss */
+/* line 301, ../sass/drupalcampnyc10.scss */
 .front h1.title .char21 {
   margin-left: -0.013em;
 }
 
-/* line 290, ../sass/drupalcampnyc10.scss */
+/* line 304, ../sass/drupalcampnyc10.scss */
 .front h1.title .char22 {
   margin-left: -0.013em;
 }
 
-/* line 293, ../sass/drupalcampnyc10.scss */
+/* line 307, ../sass/drupalcampnyc10.scss */
 .front h1.title .char23 {
   margin-left: -0.013em;
 }
 
-/* line 296, ../sass/drupalcampnyc10.scss */
+/* line 310, ../sass/drupalcampnyc10.scss */
 .front h1.title .char24 {
   margin-left: -0.026em;
 }
 
-/* line 299, ../sass/drupalcampnyc10.scss */
+/* line 313, ../sass/drupalcampnyc10.scss */
 .front h1.title .char25 {
   margin-left: 0em;
 }
 
-/* line 302, ../sass/drupalcampnyc10.scss */
+/* line 316, ../sass/drupalcampnyc10.scss */
 .front h1.title .char26 {
   margin-left: -0.026em;
 }
 
-/* line 305, ../sass/drupalcampnyc10.scss */
+/* line 319, ../sass/drupalcampnyc10.scss */
 .front h1.title .char27 {
   margin-left: 0em;
 }
 
-/* line 308, ../sass/drupalcampnyc10.scss */
+/* line 322, ../sass/drupalcampnyc10.scss */
 .float-right {
   float: right;
   width: 350px;
 }
 
-/* line 312, ../sass/drupalcampnyc10.scss */
+/* line 326, ../sass/drupalcampnyc10.scss */
 .front .node-type-page {
   color: #eeeeee;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
@@ -482,7 +507,7 @@ h1.title {
   width: 350px;
 }
 
-/* line 321, ../sass/drupalcampnyc10.scss */
+/* line 335, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 h2, #block-block-5 h2 {
   color: #a0aab5;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
@@ -491,7 +516,7 @@ h1.title {
   line-height: 1em;
   margin: 8px 0 0 0;
 }
-/* line 329, ../sass/drupalcampnyc10.scss */
+/* line 343, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 label, #block-block-5 label {
   margin: 0 0 0 6px;
   color: #eeeeee;
@@ -500,7 +525,7 @@ h1.title {
   line-height: 1.5em;
   letter-spacing: .06em;
 }
-/* line 337, ../sass/drupalcampnyc10.scss */
+/* line 351, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
   width: 212px;
   line-height: 1.25em;
@@ -517,7 +542,7 @@ h1.title {
   -o-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.95);
   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.95);
 }
-/* line 345, ../sass/drupalcampnyc10.scss */
+/* line 359, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   width: 136px;
   height: 52px;
@@ -527,7 +552,7 @@ h1.title {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 351, ../sass/drupalcampnyc10.scss */
+/* line 365, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   background: #a0aab5;
@@ -549,7 +574,7 @@ h1.title {
   box-shadow: 0px 0px 5px #333333;
   float: right;
 }
-/* line 364, ../sass/drupalcampnyc10.scss */
+/* line 378, ../sass/drupalcampnyc10.scss */
 #block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
   width: 240px;
   line-height: 1.25em;
@@ -568,12 +593,12 @@ h1.title {
   padding: 2px 5px 2px 5px;
 }
 
-/* line 374, ../sass/drupalcampnyc10.scss */
+/* line 388, ../sass/drupalcampnyc10.scss */
 #sidebar-last {
   margin: -3px 0 0 0;
 }
 
-/* line 377, ../sass/drupalcampnyc10.scss */
+/* line 391, ../sass/drupalcampnyc10.scss */
 #block-block-1 {
   margin: 0;
   color: #708090;
@@ -581,13 +606,13 @@ h1.title {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 1em;
 }
-/* line 383, ../sass/drupalcampnyc10.scss */
+/* line 397, ../sass/drupalcampnyc10.scss */
 #block-block-1 h3 {
   font-size: 7.5em;
   line-height: 1em;
   margin: 0;
 }
-/* line 388, ../sass/drupalcampnyc10.scss */
+/* line 402, ../sass/drupalcampnyc10.scss */
 #block-block-1 p {
   color: #a0aab5;
   text-align: justify;
@@ -595,12 +620,12 @@ h1.title {
   line-height: 1em;
   margin: 0;
 }
-/* line 395, ../sass/drupalcampnyc10.scss */
+/* line 409, ../sass/drupalcampnyc10.scss */
 #block-block-1.block {
   margin: 0;
 }
 
-/* line 399, ../sass/drupalcampnyc10.scss */
+/* line 413, ../sass/drupalcampnyc10.scss */
 #block-block-2 {
   margin: 0;
   color: #a0aab5;
@@ -608,13 +633,13 @@ h1.title {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 1em;
 }
-/* line 405, ../sass/drupalcampnyc10.scss */
+/* line 419, ../sass/drupalcampnyc10.scss */
 #block-block-2 h3 {
   font-size: 8.25em;
   line-height: .9em;
   margin: 0;
 }
-/* line 410, ../sass/drupalcampnyc10.scss */
+/* line 424, ../sass/drupalcampnyc10.scss */
 #block-block-2 p {
   color: #708090;
   text-align: justify;
@@ -622,22 +647,22 @@ h1.title {
   line-height: 1em;
   margin: 10px 0 0 0;
 }
-/* line 416, ../sass/drupalcampnyc10.scss */
+/* line 430, ../sass/drupalcampnyc10.scss */
 #block-block-2 p span {
   font-size: 1.6em;
   line-height: .9em;
 }
-/* line 421, ../sass/drupalcampnyc10.scss */
+/* line 435, ../sass/drupalcampnyc10.scss */
 #block-block-2.block {
   margin: 0;
 }
 
-/* line 425, ../sass/drupalcampnyc10.scss */
+/* line 439, ../sass/drupalcampnyc10.scss */
 #block-block-3 {
   margin: 0;
   font-size: 1em;
 }
-/* line 428, ../sass/drupalcampnyc10.scss */
+/* line 442, ../sass/drupalcampnyc10.scss */
 #block-block-3 h2 {
   color: #a0aab5;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
@@ -646,22 +671,22 @@ h1.title {
   line-height: 1em;
   margin: 4px 0 0 0;
 }
-/* line 436, ../sass/drupalcampnyc10.scss */
+/* line 450, ../sass/drupalcampnyc10.scss */
 #block-block-3.block {
   margin: 0;
 }
-/* line 439, ../sass/drupalcampnyc10.scss */
+/* line 453, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul {
   height: 42px;
   display: block;
   margin: 10px 0 0 0;
 }
-/* line 443, ../sass/drupalcampnyc10.scss */
+/* line 457, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul li {
   float: left;
   list-style: none;
 }
-/* line 446, ../sass/drupalcampnyc10.scss */
+/* line 460, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul li a {
   text-indent: -1000em;
   width: 45px;
@@ -670,29 +695,29 @@ h1.title {
   float: left;
   margin: 0 8px 0 0;
 }
-/* line 453, ../sass/drupalcampnyc10.scss */
+/* line 467, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
   background: url("../images/social-media-icons.png");
   background-position: 0 0px;
 }
-/* line 460, ../sass/drupalcampnyc10.scss */
+/* line 474, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul li.twitter em {
   background-position: 0px 0px;
 }
-/* line 463, ../sass/drupalcampnyc10.scss */
+/* line 477, ../sass/drupalcampnyc10.scss */
 #block-block-3 ul li.gdo em {
   background-position: 45px 0px;
 }
 
-/* line 469, ../sass/drupalcampnyc10.scss */
+/* line 483, ../sass/drupalcampnyc10.scss */
 #block-block-4 {
   float: right;
   width: 350px;
 }
 
-/* line 474, ../sass/drupalcampnyc10.scss */
+/* line 488, ../sass/drupalcampnyc10.scss */
 .replace {
   position: relative;
   /* Start Mac IE5 filter \*/
@@ -702,7 +727,7 @@ h1.title {
   margin: 0;
 }
 
-/* line 482, ../sass/drupalcampnyc10.scss */
+/* line 496, ../sass/drupalcampnyc10.scss */
 .replace em {
   display: block;
   position: absolute;
@@ -712,25 +737,22 @@ h1.title {
   /*for Opera 5 and 6*/
 }
 
-/* line 489, ../sass/drupalcampnyc10.scss */
+/* line 503, ../sass/drupalcampnyc10.scss */
 #footer-message {
   color: #eeeeee;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   font-size: 1.1em;
 }
 
-/* line 497, ../sass/drupalcampnyc10.scss */
+/* line 511, ../sass/drupalcampnyc10.scss */
 #header-group {
   background-image: url("../images/birds-on-a-wire.png");
   background-position: -5px 146px;
   background-repeat: no-repeat;
-  z-index: 1;
-  position: relative;
   padding: 0 0 0 100px 0;
-  top: 0;
 }
 
-/* line 506, ../sass/drupalcampnyc10.scss */
+/* line 517, ../sass/drupalcampnyc10.scss */
 #primary-menu {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(81, 73, 67, 0.5)), color-stop(65%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
   background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
@@ -767,30 +789,30 @@ h1.title {
   -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 510, ../sass/drupalcampnyc10.scss */
+/* line 521, ../sass/drupalcampnyc10.scss */
 #primary-menu ul {
   margin: 0;
   padding: 0 0 0 2em;
   font-size: 2em;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
 }
-/* line 515, ../sass/drupalcampnyc10.scss */
+/* line 526, ../sass/drupalcampnyc10.scss */
 #primary-menu ul li {
   margin: 0;
   padding: 0 .5em;
   letter-spacing: .10em;
   font-variant: small-caps;
 }
-/* line 520, ../sass/drupalcampnyc10.scss */
+/* line 531, ../sass/drupalcampnyc10.scss */
 #primary-menu ul li a {
   margin: 0;
   padding: .5em;
 }
-/* line 523, ../sass/drupalcampnyc10.scss */
+/* line 534, ../sass/drupalcampnyc10.scss */
 #primary-menu ul li a.active, #primary-menu ul li a:hover {
   color: #eeeeee;
 }
-/* line 528, ../sass/drupalcampnyc10.scss */
+/* line 539, ../sass/drupalcampnyc10.scss */
 #primary-menu ul ul {
   margin: 1px 0 0 0;
   padding: 0;
@@ -820,7 +842,7 @@ h1.title {
   -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 537, ../sass/drupalcampnyc10.scss */
+/* line 548, ../sass/drupalcampnyc10.scss */
 #primary-menu ul ul li {
   margin: 0;
   padding: 0 0;
@@ -839,7 +861,7 @@ h1.title {
   border-bottom-right-radius: 8px;
   line-height: 1.2em;
 }
-/* line 545, ../sass/drupalcampnyc10.scss */
+/* line 556, ../sass/drupalcampnyc10.scss */
 #primary-menu ul ul li a:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
   background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
@@ -849,11 +871,11 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 555, ../sass/drupalcampnyc10.scss */
+/* line 566, ../sass/drupalcampnyc10.scss */
 .block-menu_block {
   margin: 2em 1em 0  0;
 }
-/* line 557, ../sass/drupalcampnyc10.scss */
+/* line 568, ../sass/drupalcampnyc10.scss */
 .block-menu_block .inner.clearfix {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -874,18 +896,18 @@ h1.title {
   padding: 10px;
   margin: 0 20px 10px 20px;
 }
-/* line 564, ../sass/drupalcampnyc10.scss */
+/* line 575, ../sass/drupalcampnyc10.scss */
 .block-menu_block.block {
   margin: 0;
 }
-/* line 567, ../sass/drupalcampnyc10.scss */
+/* line 578, ../sass/drupalcampnyc10.scss */
 .block-menu_block ul.menu {
   font-size: 1.66em;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
   padding: .25em 0;
   margin: 0;
 }
-/* line 572, ../sass/drupalcampnyc10.scss */
+/* line 583, ../sass/drupalcampnyc10.scss */
 .block-menu_block ul.menu li.leaf {
   letter-spacing: .05em;
   font-variant: small-caps;
@@ -893,26 +915,27 @@ h1.title {
   border-bottom: dotted 1px rgba(0, 0, 0, 0.25);
   padding: .25em .25em;
 }
-/* line 578, ../sass/drupalcampnyc10.scss */
+/* line 589, ../sass/drupalcampnyc10.scss */
 .block-menu_block ul.menu li.leaf:last-child {
   border-bottom: dotted 0px rgba(0, 0, 0, 0.25);
 }
-/* line 582, ../sass/drupalcampnyc10.scss */
+/* line 592, ../sass/drupalcampnyc10.scss */
 .block-menu_block ul.menu li.leaf a {
   margin: 0;
+  display: block;
 }
-/* line 585, ../sass/drupalcampnyc10.scss */
+/* line 595, ../sass/drupalcampnyc10.scss */
 .block-menu_block ul.menu li.leaf a.active, .block-menu_block ul.menu li.leaf a:hover {
   color: #eeeeee;
   text-decoration: none;
 }
 
-/* line 596, ../sass/drupalcampnyc10.scss */
+/* line 605, ../sass/drupalcampnyc10.scss */
 #content-group {
   font-size: 1.33em;
   line-height: 1.5em;
 }
-/* line 599, ../sass/drupalcampnyc10.scss */
+/* line 608, ../sass/drupalcampnyc10.scss */
 #content-group #content-inner {
   width: 95%;
   padding: 2%;
@@ -926,9 +949,9 @@ h1.title {
   -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-  background: rgba(123, 111, 102, 0.6);
+  background: rgba(137, 123, 113, 0.7);
 }
-/* line 605, ../sass/drupalcampnyc10.scss */
+/* line 614, ../sass/drupalcampnyc10.scss */
 #content-group #content-inner #content-inner-inner {
   margin: 0;
   padding: .25em 1em;
@@ -936,17 +959,17 @@ h1.title {
   outline: 1px rgba(112, 128, 144, 0.5) dashed;
 }
 
-/* line 616, ../sass/drupalcampnyc10.scss */
+/* line 625, ../sass/drupalcampnyc10.scss */
 #content-tabs.block {
   margin: 0;
   padding: 1em 0 0 0;
 }
-/* line 620, ../sass/drupalcampnyc10.scss */
+/* line 629, ../sass/drupalcampnyc10.scss */
 #content-tabs .primary {
   border: none;
   display: inline;
 }
-/* line 623, ../sass/drupalcampnyc10.scss */
+/* line 632, ../sass/drupalcampnyc10.scss */
 #content-tabs .primary li {
   letter-spacing: .15em;
   font-variant: small-caps;
@@ -957,12 +980,12 @@ h1.title {
   margin: 0;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
 }
-/* line 633, ../sass/drupalcampnyc10.scss */
+/* line 642, ../sass/drupalcampnyc10.scss */
 #content-tabs .primary li.active a, #content-tabs .primary li:hover a {
   color: #eeeeee;
-  background: rgba(123, 111, 102, 0.6);
+  background: rgba(137, 123, 113, 0.7);
 }
-/* line 639, ../sass/drupalcampnyc10.scss */
+/* line 648, ../sass/drupalcampnyc10.scss */
 #content-tabs .primary li a {
   -moz-border-radius-topleft: 40px 80px;
   -webkit-border-top-left-radius: 40px 80px;
@@ -993,7 +1016,7 @@ h1.title {
   line-height: 1.1em;
 }
 
-/* line 662, ../sass/drupalcampnyc10.scss */
+/* line 671, ../sass/drupalcampnyc10.scss */
 input[type="submit"],
 .uc_signup_previous,
 #continue-shopping-link a,
@@ -1042,7 +1065,7 @@ a.uc_signup_edit_info:hover,
   background: linear-gradient(#f6f7f8, #aeb7c0 3%, #7e8d9b 75%);
 }
 
-/* line 669, ../sass/drupalcampnyc10.scss */
+/* line 678, ../sass/drupalcampnyc10.scss */
 a.uc_signup_previous,
 #continue-shopping-link a,
 a.uc_signup_edit_info,
@@ -1051,7 +1074,7 @@ a.uc_signup_edit_info,
   font-family: 'Lucida Grande';
   font-weight: bold;
 }
-/* line 673, ../sass/drupalcampnyc10.scss */
+/* line 682, ../sass/drupalcampnyc10.scss */
 a.uc_signup_previous:hover,
 #continue-shopping-link a:hover,
 a.uc_signup_edit_info:hover,
@@ -1059,7 +1082,7 @@ a.uc_signup_edit_info:hover,
   text-decoration: none !important;
 }
 
-/* line 677, ../sass/drupalcampnyc10.scss */
+/* line 686, ../sass/drupalcampnyc10.scss */
 input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue {
   display: inline-block;
   width: auto;
@@ -1099,7 +1122,7 @@ input[type="submit"]#edit-submit:hover, #edit-submit-5:hover, #edit-checkout:hov
   background: linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
 }
 
-/* line 680, ../sass/drupalcampnyc10.scss */
+/* line 689, ../sass/drupalcampnyc10.scss */
 input[type="submit"]#edit-items-0-remove {
   display: inline-block;
   width: auto;
@@ -1139,7 +1162,7 @@ input[type="submit"]#edit-items-0-remove:hover {
   background: linear-gradient(#fcc7c7, #f44f4f 3%, #dd2121 75%);
 }
 
-/* line 686, ../sass/drupalcampnyc10.scss */
+/* line 695, ../sass/drupalcampnyc10.scss */
 input[type="text"],
 input[type="password"] {
   padding: .25em  0 .25em .5em;
@@ -1159,7 +1182,7 @@ input[type="password"] {
   margin: 0em 0 .5em 0;
 }
 
-/* line 695, ../sass/drupalcampnyc10.scss */
+/* line 704, ../sass/drupalcampnyc10.scss */
 label {
   font-family: 'Lucida Grande';
   color: #eeeeee;
@@ -1168,24 +1191,24 @@ label {
   margin: 1em 0 .25em .25em;
 }
 
-/* line 702, ../sass/drupalcampnyc10.scss */
+/* line 711, ../sass/drupalcampnyc10.scss */
 .description {
   color: #ccc;
 }
 
-/* line 706, ../sass/drupalcampnyc10.scss */
+/* line 715, ../sass/drupalcampnyc10.scss */
 fieldset {
   margin: 0em 0 .5em 0;
 }
 
-/* line 709, ../sass/drupalcampnyc10.scss */
+/* line 718, ../sass/drupalcampnyc10.scss */
 fieldset legend {
   font-size: 20px;
   line-height: 1.25em;
   padding: 0em 0 1em 0;
   font-family: 'Lucida Grande';
 }
-/* line 714, ../sass/drupalcampnyc10.scss */
+/* line 723, ../sass/drupalcampnyc10.scss */
 fieldset legend a {
   padding: 0;
   font-size: 20px;
@@ -1193,7 +1216,7 @@ fieldset legend a {
   margin: 0em .5em .25em .5em;
 }
 
-/* line 722, ../sass/drupalcampnyc10.scss */
+/* line 731, ../sass/drupalcampnyc10.scss */
 #cart-form-products {
   font-family: 'Lucida Grande';
   -moz-border-radius: 8px;
@@ -1210,7 +1233,7 @@ fieldset legend a {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   padding: 1em;
 }
-/* line 727, ../sass/drupalcampnyc10.scss */
+/* line 736, ../sass/drupalcampnyc10.scss */
 #cart-form-products thead th {
   font-size: 1.2em;
   padding: .5em 1em;
@@ -1219,43 +1242,43 @@ fieldset legend a {
   letter-spacing: .05em;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
 }
-/* line 735, ../sass/drupalcampnyc10.scss */
+/* line 744, ../sass/drupalcampnyc10.scss */
 #cart-form-products tr.even, #cart-form-products tr.odd {
   background: none;
   border: none;
 }
-/* line 738, ../sass/drupalcampnyc10.scss */
+/* line 747, ../sass/drupalcampnyc10.scss */
 #cart-form-products tr.even td, #cart-form-products tr.odd td {
   padding: .5em 1em .5em .5em;
 }
-/* line 743, ../sass/drupalcampnyc10.scss */
+/* line 752, ../sass/drupalcampnyc10.scss */
 #cart-form-products tbody .desc, #cart-form-products tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 748, ../sass/drupalcampnyc10.scss */
+/* line 757, ../sass/drupalcampnyc10.scss */
 #cart-form-products tbody .subtotal {
   color: #999;
 }
-/* line 754, ../sass/drupalcampnyc10.scss */
+/* line 763, ../sass/drupalcampnyc10.scss */
 #cart-form-products #edit-items-0-qty {
   font-size: 1em;
   line-height: 1.5em;
   text-align: center;
 }
 
-/* line 763, ../sass/drupalcampnyc10.scss */
+/* line 772, ../sass/drupalcampnyc10.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 768, ../sass/drupalcampnyc10.scss */
+/* line 777, ../sass/drupalcampnyc10.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 770, ../sass/drupalcampnyc10.scss */
+/* line 779, ../sass/drupalcampnyc10.scss */
 #product-details .uc-price-display {
   color: #a0aab5;
   font-size: 3em;
@@ -1264,12 +1287,12 @@ fieldset legend a {
   line-height: .95em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
 }
-/* line 779, ../sass/drupalcampnyc10.scss */
+/* line 788, ../sass/drupalcampnyc10.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 785, ../sass/drupalcampnyc10.scss */
+/* line 794, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form {
   font-family: 'Lucida Grande';
   -moz-border-radius: 8px;
@@ -1287,47 +1310,47 @@ fieldset legend a {
   width: 460px;
   padding: 10px 10px 60px 10px;
 }
-/* line 791, ../sass/drupalcampnyc10.scss */
+/* line 800, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form #edit-submit {
   float: right;
   clear: both;
   margin: 2em 0 .5em 0;
 }
-/* line 796, ../sass/drupalcampnyc10.scss */
+/* line 805, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   margin: 2em 0 .5em 0;
 }
-/* line 799, ../sass/drupalcampnyc10.scss */
+/* line 808, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form fieldset {
   margin: 0em 0 .5em 0;
 }
-/* line 802, ../sass/drupalcampnyc10.scss */
+/* line 811, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form fieldset legend {
   font-size: 20px;
   margin: 0em .5em .25em .5em;
 }
-/* line 805, ../sass/drupalcampnyc10.scss */
+/* line 814, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form fieldset legend a {
   padding: 0;
   font-size: 20px;
   background-image: none;
 }
-/* line 811, ../sass/drupalcampnyc10.scss */
+/* line 820, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
-/* line 815, ../sass/drupalcampnyc10.scss */
+/* line 824, ../sass/drupalcampnyc10.scss */
 #uc-signup-attendees-form .uc_signup_needs_account {
   padding: 0;
   background-image: none;
 }
 
-/* line 820, ../sass/drupalcampnyc10.scss */
+/* line 829, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form {
   font-family: 'Lucida Grande';
 }
-/* line 822, ../sass/drupalcampnyc10.scss */
+/* line 831, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -1347,32 +1370,32 @@ fieldset legend a {
   margin: 0px 12px 20px 0px;
   float: left;
 }
-/* line 830, ../sass/drupalcampnyc10.scss */
+/* line 839, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_user_events {
   color: #aaa;
 }
-/* line 833, ../sass/drupalcampnyc10.scss */
+/* line 842, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 837, ../sass/drupalcampnyc10.scss */
+/* line 846, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form fieldset {
   margin: 0em 0 2.5em 0;
 }
-/* line 840, ../sass/drupalcampnyc10.scss */
+/* line 849, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form fieldset legend {
   font-size: 20px;
   margin: 0em .5em .5em 0em;
   padding: 0em .5em .5em 0em;
 }
-/* line 844, ../sass/drupalcampnyc10.scss */
+/* line 853, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form fieldset legend a {
   padding: 0;
   font-size: 20px;
   background-image: none;
   margin: 0em .5em .5em 0em;
 }
-/* line 851, ../sass/drupalcampnyc10.scss */
+/* line 860, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form .field-label {
   color: #eeeeee;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
@@ -1380,24 +1403,24 @@ fieldset legend a {
   padding: .3em;
   vertical-align: top;
 }
-/* line 858, ../sass/drupalcampnyc10.scss */
+/* line 867, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form select {
   font-size: 1em;
   padding: 0.4em 0;
 }
-/* line 862, ../sass/drupalcampnyc10.scss */
+/* line 871, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 865, ../sass/drupalcampnyc10.scss */
+/* line 874, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 868, ../sass/drupalcampnyc10.scss */
+/* line 877, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form .description {
   margin: 0em 0 1em 0;
 }
-/* line 871, ../sass/drupalcampnyc10.scss */
+/* line 880, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form #line-items-div {
   font-size: 1.2em;
   padding: .5em 1em;
@@ -1418,7 +1441,7 @@ fieldset legend a {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 881, ../sass/drupalcampnyc10.scss */
+/* line 890, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form table.cart-review {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -1435,7 +1458,7 @@ fieldset legend a {
   margin: 0em 0 1em 0;
   font-size: .8em;
 }
-/* line 887, ../sass/drupalcampnyc10.scss */
+/* line 896, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form thead th {
   font-size: 1.2em;
   padding: .5em 1em;
@@ -1444,52 +1467,52 @@ fieldset legend a {
   letter-spacing: .05em;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
 }
-/* line 895, ../sass/drupalcampnyc10.scss */
+/* line 904, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tbody {
   margin: .5em 1em;
 }
-/* line 898, ../sass/drupalcampnyc10.scss */
+/* line 907, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tr.even, #uc-cart-checkout-form tr.odd {
   background: none;
   border: none;
 }
-/* line 901, ../sass/drupalcampnyc10.scss */
+/* line 910, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tr.even td, #uc-cart-checkout-form tr.odd td {
   padding: .5em 1em .5em .5em;
   font-size: 1.2em;
 }
-/* line 905, ../sass/drupalcampnyc10.scss */
+/* line 914, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tr.even .products, #uc-cart-checkout-form tr.even .qty, #uc-cart-checkout-form tr.odd .products, #uc-cart-checkout-form tr.odd .qty {
   color: #eeeeee;
 }
-/* line 909, ../sass/drupalcampnyc10.scss */
+/* line 918, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 914, ../sass/drupalcampnyc10.scss */
+/* line 923, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form tbody .subtotal {
   color: #999;
 }
-/* line 917, ../sass/drupalcampnyc10.scss */
+/* line 926, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 922, ../sass/drupalcampnyc10.scss */
+/* line 931, ../sass/drupalcampnyc10.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 929, ../sass/drupalcampnyc10.scss */
+/* line 938, ../sass/drupalcampnyc10.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
   font-family: 'Lucida Grande';
 }
 
-/* line 934, ../sass/drupalcampnyc10.scss */
+/* line 943, ../sass/drupalcampnyc10.scss */
 .order-review-table {
   width: 480px;
   margin: 0em 0 1em 0;
@@ -1510,49 +1533,49 @@ fieldset legend a {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 943, ../sass/drupalcampnyc10.scss */
+/* line 952, ../sass/drupalcampnyc10.scss */
 .order-review-table td {
   padding: .5em 1em .5em .5em;
   vertical-align: top;
 }
-/* line 946, ../sass/drupalcampnyc10.scss */
+/* line 955, ../sass/drupalcampnyc10.scss */
 .order-review-table td.title-col {
   color: #aaa;
   font-weight: bold;
   padding-left: 1em;
   text-align: right;
 }
-/* line 952, ../sass/drupalcampnyc10.scss */
+/* line 961, ../sass/drupalcampnyc10.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 956, ../sass/drupalcampnyc10.scss */
+/* line 965, ../sass/drupalcampnyc10.scss */
 .order-review-table .pane-title-row {
   border: none;
   background: none;
   color: #ccc;
 }
-/* line 961, ../sass/drupalcampnyc10.scss */
+/* line 970, ../sass/drupalcampnyc10.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 964, ../sass/drupalcampnyc10.scss */
+/* line 973, ../sass/drupalcampnyc10.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 967, ../sass/drupalcampnyc10.scss */
+/* line 976, ../sass/drupalcampnyc10.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 973, ../sass/drupalcampnyc10.scss */
+/* line 982, ../sass/drupalcampnyc10.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: 'Lucida Grande';
 }
 
-/* line 982, ../sass/drupalcampnyc10.scss */
+/* line 991, ../sass/drupalcampnyc10.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -1576,45 +1599,45 @@ fieldset legend a {
   line-height: 1.5em;
 }
 
-/* line 991, ../sass/drupalcampnyc10.scss */
+/* line 1000, ../sass/drupalcampnyc10.scss */
 .order-pane {
   border: none;
 }
-/* line 993, ../sass/drupalcampnyc10.scss */
+/* line 1002, ../sass/drupalcampnyc10.scss */
 .order-pane img {
   display: none;
 }
-/* line 996, ../sass/drupalcampnyc10.scss */
+/* line 1005, ../sass/drupalcampnyc10.scss */
 .order-pane thead {
   border: none;
   background: none;
 }
-/* line 999, ../sass/drupalcampnyc10.scss */
+/* line 1008, ../sass/drupalcampnyc10.scss */
 .order-pane thead th {
   border: none;
   background: none;
 }
-/* line 1004, ../sass/drupalcampnyc10.scss */
+/* line 1013, ../sass/drupalcampnyc10.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
-/* line 1007, ../sass/drupalcampnyc10.scss */
+/* line 1016, ../sass/drupalcampnyc10.scss */
 .order-pane tr td, .order-pane tr.even td, .order-pane tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 1012, ../sass/drupalcampnyc10.scss */
+/* line 1021, ../sass/drupalcampnyc10.scss */
 .order-pane-title {
   color: #aaa;
 }
 
-/* line 1015, ../sass/drupalcampnyc10.scss */
+/* line 1024, ../sass/drupalcampnyc10.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 1019, ../sass/drupalcampnyc10.scss */
+/* line 1028, ../sass/drupalcampnyc10.scss */
 #order-pane-products,
 #order-pane-line_items {
   padding: 10px;
@@ -1624,7 +1647,7 @@ fieldset legend a {
   color: #eeeeee;
   line-height: 1.5em;
 }
-/* line 1026, ../sass/drupalcampnyc10.scss */
+/* line 1035, ../sass/drupalcampnyc10.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
