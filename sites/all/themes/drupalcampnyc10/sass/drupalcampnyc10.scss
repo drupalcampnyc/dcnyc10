@@ -14,10 +14,13 @@ $page-background-image2: url('../images/side_piece.png');
 //$page-background-image:  '';
 //$page-background-image2: '';
 
+$menu-background-image: url('../images/birds-on-a-wire.png');
+
 $menu-top-background-gradient:rgba(81,73,67,.5);
 $menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
 $menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
-$content-area-background:adjust-lightness(rgba(81,73,67,.66), 5);
+
+$content-area-background:adjust-lightness(rgba(81,73,67,.6  ), 15);
 
 $heading-link-color:#1950af;
 $heading-link-color-over: saturate($heading-link-color, 10%);
@@ -76,11 +79,14 @@ $header-dark-gradient-color: #23201e;
   @include border-bottom-radius(($image-corners * 5) ($image-corners * 10)); 
 }
 @mixin tab-corners {
-  //@include border-bottom-radius($image-corners * 2); 
+
   @include border-top-radius(($image-corners * 5) ($image-corners * 10)); 
 }
 @mixin menu-box-shadow {
   @include box-shadow(4px 4px 10px rgba(0,0,0,.5));
+}
+@mixin tab-shadow {
+  @include box-shadow(0px 0px 5px rgba(0,0,0,.5));
 }
 // Landing page Styles
 
@@ -117,22 +123,23 @@ em {
 
 // make directive here  
 h1.title .word1 {
-  color:$heading-color-1;
-}
-h1.title .word2 {
   color:$heading-color-2;
 }
-h1.title .word3 {
+h1.title .word2 {
   color:$heading-color-1;
+}
+h1.title .word3 {
+  color:$heading-color-2;
 }
 
 //Header site name
 h1#site-name {
   opacity:1;
-  font-size:10em;
+  font-size: 15.80em;
   font-family: $heading-font;
   line-height:.95em;
   @include reg-text-shadow;
+  margin:0 0 .22em 0;
   a {
     
   }
@@ -232,8 +239,8 @@ h1#site-name {
 }
 h1.title {
   font-family: $heading-font;
-  font-size:6.5em;
-  line-height:1.2em;
+  font-size: 5em;
+  line-height: 1em;
   color:$heading-color-5;
   @include reg-text-shadow;
   margin:0 0 .125em 0;
@@ -487,11 +494,19 @@ z-index:1; /*for Opera 5 and 6*/
 
 
 //Main Menu and Dropdowns
-
+#header-group {
+  background-image:$menu-background-image;
+  background-position:-5px 146px;
+  background-repeat:no-repeat;
+  z-index:1;
+  position:relative;
+  padding :0 0 0 100px 0;
+  top:0;
+}
 #primary-menu {
-    @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
-    @include menu-corners;
-    @include menu-box-shadow;
+  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+  @include menu-corners;
+  @include menu-box-shadow;
   ul {
     margin:0;
     padding:0 0 0 2em;
@@ -507,7 +522,6 @@ z-index:1; /*for Opera 5 and 6*/
         padding: .5em;
         &.active, &:hover {
           color:$menu-active-link-color;
-          @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
         }
       }
     }
@@ -537,6 +551,47 @@ z-index:1; /*for Opera 5 and 6*/
   }
 }
 
+// Submenus
+.block-menu_block {
+  margin:2em 1em 0  0;
+  .inner.clearfix {
+    @include content-group-corners;
+    @include menu-box-shadow;
+    @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+    padding:10px;
+    margin:0 20px 10px 20px;
+  }
+  &.block  {
+    margin:0;
+  } 
+  ul.menu {
+    font-size:1.66em;
+    @include menu-text-shadow;
+    padding:.25em 0;
+    margin:0;
+    li.leaf {
+      letter-spacing:.05em;
+      font-variant:small-caps;
+      list-style:none;
+      border-bottom:dotted 1px darken(rgba(25,25,25 ,.25), 20);
+      padding: .25em .25em;
+      &:last-child {     
+        border-bottom:dotted 0px darken(rgba(25,25,25 ,.25), 20);
+      
+      }
+      a {
+        margin:0;
+       
+        &.active, &:hover {
+          color:$menu-active-link-color;
+          text-decoration:none;
+ 
+        }
+      } 
+    }
+  } 
+}
+
 // Content Area
 #content-group {
   font-size:1.33em;
@@ -546,13 +601,12 @@ z-index:1; /*for Opera 5 and 6*/
     padding:2%;
     @include content-group-corners;
     @include menu-box-shadow;
-    background: $content-area-background;
+    background: desaturate(lighten($content-area-background, 0),0);
     #content-inner-inner {
       margin:0;
-      padding:1em;
+      padding:.25em 1em;
       border: 1px rgba(0,0,0,.3) dashed;
       outline: 1px rgba($heading-color-2,.5) dashed;
-
     } 
   }
 }
@@ -561,6 +615,7 @@ z-index:1; /*for Opera 5 and 6*/
 #content-tabs {
   &.block {
     margin:0;
+    padding:1em 0 0 0;
   }
   .primary {
     border:none; 
@@ -577,11 +632,13 @@ z-index:1; /*for Opera 5 and 6*/
       &.active, &:hover {   
         a {
          color:$menu-active-link-color; 
-@include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 25%, $menu-bottom-background-gradient 85%));
+         background: $content-area-background;
+         
         }
       }
       a {
         @include tab-corners;
+        @include tab-shadow;
         display:block;
         background:none;
         border:none;
