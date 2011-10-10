@@ -148,14 +148,14 @@ h1.title .word8 {
 }
 //Header site name
 h1#site-name {
-  opacity:1;
   font-size: 15.80em;
-  font-family: $heading-font;
-  line-height:.95em;
-  @include reg-text-shadow;
-  margin:0 0 .22em 0;
+  margin:0 0 .22em 0; 
   a {
-    
+    color:$heading-color-1;  
+    opacity:1;
+    font-family: $heading-font;
+    line-height:.95em;
+    @include reg-text-shadow;
   }
 }
 #header-site-info.block {

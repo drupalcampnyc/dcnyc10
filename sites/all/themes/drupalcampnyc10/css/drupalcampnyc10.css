@@ -263,12 +263,16 @@ h1.title .word8 {
 
 /* line 150, ../sass/drupalcampnyc10.scss */
 h1#site-name {
-  opacity: 1;
   font-size: 15.80em;
+  margin: 0 0 .22em 0;
+}
+/* line 153, ../sass/drupalcampnyc10.scss */
+h1#site-name a {
+  color: #a0aab5;
+  opacity: 1;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   line-height: .95em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
-  margin: 0 0 .22em 0;
 }
 
 /* line 161, ../sass/drupalcampnyc10.scss */
