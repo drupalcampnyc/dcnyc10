@@ -59,7 +59,7 @@ function cod_sponsor_sales_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_sponsorship';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_sponsorship'] = $strongarm;
 
   $strongarm = new stdClass;
