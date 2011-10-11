@@ -1656,6 +1656,7 @@ function cod_session_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('title', 'Sessions at DrupalCampNYC');
   $handler->override_option('style_plugin', 'rss');
   $handler->override_option('style_options', array(
     'mission_description' => FALSE,
@@ -1683,11 +1684,12 @@ function cod_session_views_default_views() {
   ));
   $handler->override_option('displays', array(
     'page_1' => 'page_1',
+    'page_2' => 'page_2',
     'default' => 0,
-    'page_2' => 0,
     'block_1' => 0,
+    'block_2' => 0,
   ));
-  $handler->override_option('sitename_title', FALSE);
+  $handler->override_option('sitename_title', 0);
   $handler = $view->new_display('block', 'Block: Session Details', 'block_1');
   $handler->override_option('relationships', array(
     'field_session_slot_nid' => array(
