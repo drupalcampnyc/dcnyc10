@@ -11,6 +11,7 @@ function cod_events_user_default_permissions() {
     'name' => 'administer UC_Signup',
     'roles' => array(
       '0' => 'attendee manager',
+      '1' => 'site administrator',
     ),
   );
 
