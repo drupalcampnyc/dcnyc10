@@ -1,0 +1,14 @@
+; $Id: uc_conditional_payment.info,v 1.2 2009/09/25 17:30:26 longwave Exp $
+name = Conditional payments
+description = Integrate Conditional Actions with payment methods so restrictions can be added.
+dependencies[] = uc_payment
+dependencies[] = ca
+package = Ubercart - payment
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-03-12
+version = "6.x-1.0"
+core = "6.x"
+project = "uc_conditional_payment"
+datestamp = "1268400615"
+
