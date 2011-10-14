@@ -38,5 +38,37 @@ function about_dcny_context_default_contexts() {
   t('Provide for about sub-menu block on about section pages');
   $export['context_about'] = $context;
 
+  $context = new stdClass;
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'sitewide';
+  $context->description = 'A sitewide context to activate the shopping cart block and anything else we need site wide';
+  $context->tag = '';
+  $context->conditions = array(
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'uc_cart-0' => array(
+          'module' => 'uc_cart',
+          'delta' => 0,
+          'region' => 'sidebar_first',
+          'weight' => 0,
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('A sitewide context to activate the shopping cart block and anything else we need site wide');
+  $export['sitewide'] = $context;
+
   return $export;
 }
