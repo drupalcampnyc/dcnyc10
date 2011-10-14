@@ -63,7 +63,7 @@ function about_dcny_context_default_contexts() {
           'module' => 'uc_cart',
           'delta' => 0,
           'region' => 'sidebar_first',
-          'weight' => 0,
+          'weight' => 25,
         ),
       ),
     ),
