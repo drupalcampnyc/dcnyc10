@@ -111,7 +111,7 @@ function cod_sponsors_node_info() {
     'supporter' => array(
       'name' => t('Supporter'),
       'module' => 'features',
-      'description' => t('Those who donate less that $250 will be listed as Supporters on the DCNYC10 web site'),
+      'description' => t('Who should we thank for your support?'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'has_body' => '0',

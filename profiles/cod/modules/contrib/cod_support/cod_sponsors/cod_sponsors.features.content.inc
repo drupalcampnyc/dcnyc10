@@ -223,8 +223,7 @@ function cod_sponsors_content_default_fields() {
     'text_processing' => '0',
     'max_length' => '',
     'allowed_values' => 'premium|Premium Sponsor
-sponsor|Sponsor
-',
+sponsor|Sponsor',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(

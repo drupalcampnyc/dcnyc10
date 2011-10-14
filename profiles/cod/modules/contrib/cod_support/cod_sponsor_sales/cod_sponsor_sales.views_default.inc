@@ -85,6 +85,38 @@ function cod_sponsor_sales_views_default_views() {
       'field' => 'title',
       'relationship' => 'none',
     ),
+    'body' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 1,
+      'empty_zero' => 0,
+      'exclude' => 0,
+      'id' => 'body',
+      'table' => 'node_revisions',
+      'field' => 'body',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
     'addtocartlink' => array(
       'label' => '',
       'alter' => array(
@@ -119,12 +151,10 @@ function cod_sponsor_sales_views_default_views() {
     ),
   ));
   $handler->override_option('sorts', array(
-    'sell_price' => array(
-      'order' => 'DESC',
-      'id' => 'sell_price',
+    'model' => array(
+      'id' => 'model',
       'table' => 'uc_products',
-      'field' => 'sell_price',
-      'relationship' => 'none',
+      'field' => 'model',
     ),
   ));
   $handler->override_option('filters', array(
