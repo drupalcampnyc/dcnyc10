@@ -42,12 +42,17 @@ function about_dcny_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'sitewide';
-  $context->description = 'A sitewide context to activate the shopping cart block and anything else we need site wide';
+  $context->description = 'A sitewide-authenticated user context to activate the shopping cart block and anything else we need site wide for users';
   $context->tag = '';
   $context->conditions = array(
     'sitewide' => array(
       'values' => array(
         1 => 1,
+      ),
+    ),
+    'user' => array(
+      'values' => array(
+        'authenticated user' => 'authenticated user',
       ),
     ),
   );
@@ -63,11 +68,11 @@ function about_dcny_context_default_contexts() {
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('A sitewide context to activate the shopping cart block and anything else we need site wide');
+  t('A sitewide-authenticated user context to activate the shopping cart block and anything else we need site wide for users');
   $export['sitewide'] = $context;
 
   return $export;
