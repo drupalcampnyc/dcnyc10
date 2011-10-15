@@ -596,6 +596,7 @@ function cod_session_views_default_views() {
   $handler->override_option('access', array(
     'type' => 'role',
     'role' => array(
+      '5' => 5,
       '3' => 3,
     ),
   ));
