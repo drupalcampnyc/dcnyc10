@@ -1,2 +1,94 @@
+@import "compass/typography";
+@import "compass/css3";
+@import "compass/css3/pie";
 //@import "compass_twitter_bootstrap";
-@import "sassy-buttons"
+@import "sassy-buttons";
+// Variables 
+
+$page-background-color: #80746b;
+$page-background-image-1280: url('../images/background_retaining_wall-1280.png');
+$page-background-image-480: url('../images/background_retaining_wall-480.png');
+$page-background-image2: url('../images/side_piece.png');
+
+$menu-background-image: url('../images/birds-transparent.png');
+
+$menu-top-background-gradient:rgba(81,73,67,.5);
+$menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
+$menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
+
+$content-area-background:adjust-lightness(rgba(81,73,67,.7), 20);
+
+$heading-link-color: #1950af;
+$heading-link-color-over: saturate($heading-link-color, 10%);
+$heading-link-color-visited: desaturate($heading-link-color, 20%);
+
+$menu-link-color: #e5aa20;
+$menu-active-link-color: #eee;
+$menu-link-color-over: saturate($menu-link-color, 10%);
+$menu-link-color-visited: desaturate($menu-link-color, 20%);
+
+$heading-color-1:rgba(#a0aab5, 1);
+$heading-color-2:rgba(#708090, 1);
+$button-color-3:rgba(#1e2327, .9);
+
+$link-color: #e5a100;
+$link-color-over: saturate($link-color, 10%);
+$link-color-visited: desaturate($link-color, 20%);
+
+$light-text-color: #eee;
+$light-text-color-hover: #fff;
+
+$image-corners:8px;
+$heading-font:'LeagueGothicRegular', Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+$maintext-font:"Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif;
+$form-font:"Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; 
+
+$header-light-gradient-color: #80746b;
+$header-dark-gradient-color: #23201e;
+
+// Mixins
+@mixin border-background-reset {
+  background:none;
+  border:none;
+}
+@mixin reg-text-shadow {
+  @include text-shadow(1px 1px 2px rgba(0,0,0,.75), 0px -1px 2px rgba(0,0,25,.25));
+}
+@mixin menu-text-shadow {
+  @include text-shadow(-1px -1px 0px rgba(0,0,0,.66),  1px 1px 1px rgba(205,205,205,.25)); 
+}
+@mixin maintext-text-shadow {
+  @include text-shadow( 0px 1px 1px rgba(205,205,205,.5)); 
+}
+@mixin maintext-link-shadow {
+  @include text-shadow(-1px -1px 1px rgba(0,0,0,.25), 0px 1px 1px rgba(205,205,205,.25)); 
+}
+@mixin rgba-background($color, $opacity) {
+  position: relative;
+  background: $color;
+  background: rgba($color, $opacity);
+  -pie-background: rgba($color, $opacity);
+  @include PIE;
+}
+@mixin PIE {
+  behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+@mixin suckerfish-menu-corners {
+  @include border-bottom-radius($image-corners); 
+}
+@mixin content-group-corners {
+  @include border-radius($image-corners * 1); 
+}
+@mixin menu-corners {
+  @include border-top-radius($image-corners * 2); 
+  @include border-bottom-radius(($image-corners * 5) ($image-corners * 10)); 
+}
+@mixin tab-corners {
+  @include border-top-radius(($image-corners * 5) ($image-corners * 10)); 
+}
+@mixin menu-box-shadow {
+  @include box-shadow(4px 4px 10px rgba(0,0,0,.5));
+}
+@mixin tab-shadow {
+  @include box-shadow(2px -2px 4px rgba(0,0,0,.5));
+}

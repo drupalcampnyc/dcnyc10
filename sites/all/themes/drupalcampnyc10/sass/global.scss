@@ -1,0 +1,832 @@
+@import "partials/_typography";
+@import "partials/_base";
+@import "partials/_kerning";
+//@import "partials/_media_queries";
+
+// variables and mixins are in @import "partials/_base";
+
+// Default Page styles 
+body {
+  background:$page-background-color;
+  font-family: $maintext-font;
+}
+a, a:link {
+	text-decoration:none;   
+	color:$link-color;
+}       
+a:visited {  
+  text-decoration:none;
+  color:$link-color-visited;
+}
+/* Hover/active link styles. Don't forget :focus for accessibility */
+a:hover,
+a:focus,
+a:active {
+  text-decoration:underline; 
+  color:$link-color-over;
+}
+strong {
+  font-weight:bold;
+}
+em {
+  font-style:italic;
+}
+
+//Header site name
+h1#site-name {
+  margin:0 0 .22em 0;
+  font-family: $heading-font;
+  line-height:.95em;
+  @include reg-text-shadow;      
+  a {
+    color:$heading-color-1;  
+  }
+}
+#header-site-info.block {
+  margin:0;
+}
+
+
+// Page Headline
+h1.title {
+  margin:0 0 .125em 0;
+  font-family: $heading-font;
+  line-height: 1em;
+  @include reg-text-shadow;
+  color:$heading-color-1;
+}
+
+// Front page
+.front .node-type-page {
+
+}
+
+
+// Footer
+#footer-message {
+  font-size:1.1em;
+  @include reg-text-shadow;
+  color:$light-text-color;
+}
+
+//Main Menu and Dropdowns
+#header-group {
+}
+#primary-menu {
+  @include menu-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+  @include menu-box-shadow;
+  ul {
+    margin:0;
+    padding:0 0 0 2em;
+    font-size:2em;
+    @include menu-text-shadow;
+    li {
+      margin:0;
+      padding:0 .5em;
+      font-variant:small-caps;
+      letter-spacing:.10em;
+      a {
+        margin:0;
+        padding: .5em;
+        &.active, &:hover {
+          color:$menu-active-link-color;
+        }
+      }
+    }
+    ul {
+      margin:1px 0 0 0;
+      padding:0;
+      @include suckerfish-menu-corners;
+      border-right:dotted 1px rgba(25,25,25 ,.5);
+      border-left:dotted 1px rgba(25,25,25 ,.5);
+      font-size:1em; 
+      @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+      @include menu-box-shadow;
+      li {
+        margin:0;
+        padding:0;
+        @include suckerfish-menu-corners;
+        border-bottom:dotted 1px darken(rgba(25,25,25 ,.25), 20);
+        line-height:1.2em;         
+          &:last-child {     
+          } a {
+          &:hover {
+            @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+          }
+        }
+      } 
+    }
+  }
+}
+
+// Submenus
+.block-menu_block {
+  margin:2em 1em 0  0;
+  .inner.clearfix {
+    padding:10px;
+    margin:0 20px 10px 20px;
+    @include content-group-corners;
+    @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+    @include menu-box-shadow;
+  }
+  &.block  {
+    margin:0;
+  } 
+  ul.menu {
+    padding:.25em 0;
+    margin:0;
+    font-size:1.66em;
+    @include menu-text-shadow;
+    li.leaf {
+      padding: .25em .25em;
+      border-bottom:dotted 1px darken(rgba(25,25,25 ,.25), 20);
+      list-style:none;
+      font-variant:small-caps;
+      letter-spacing:.05em;
+      &:last-child {     
+        border-bottom:dotted 0px darken(rgba(25,25,25 ,.25), 20); 
+      }
+      a {
+        display:block;
+        margin:0;
+        &.active, &:hover {
+          text-decoration:none;
+          color:$menu-active-link-color;
+        }
+      } 
+    }
+  } 
+}
+
+// Content Area
+#content-group {
+  @include maintext-text-shadow;
+  letter-spacing:.066em;
+  color:#292929;
+  a { 
+    @include maintext-link-shadow; 
+  }
+  font-size:1.33em;
+  line-height:1.5em;  
+  #content-inner {
+    width:95%;
+    padding:2%;
+    @include content-group-corners;
+    background: desaturate(lighten($content-area-background, 0),0);
+    @include menu-box-shadow;
+    #content-inner-inner {
+      margin:0;
+      padding:.25em 1em;
+      border: 1px rgba(0,0,0,.3) dashed;
+      outline: 1px rgba($heading-color-2,.5) dashed;
+    } 
+  }
+}
+
+// Content Tabs
+#content-tabs {
+  &.block {
+    margin:0;
+    padding:1em 0 0 0;
+  }
+  .primary { 
+    display:inline;
+    border:none;
+    li {
+      display:block;
+      float:left;
+      margin:0;
+      letter-spacing:.15em;
+      font-variant:small-caps;
+      @include menu-text-shadow;
+      &.active, &:hover {   
+        a {
+         color:$menu-active-link-color; 
+         background: darken($content-area-background,10);      
+        }
+      }
+      a {
+        display:block;
+        padding:.5em 2em;
+        @include tab-corners;
+        @include border-background-reset;
+        @include tab-shadow;
+        line-height:1.1em; 
+        background: darken($content-area-background,20);
+      }
+    }   
+  }
+  .secondary {
+    clear:both;
+    margin:0 10px 0 0;
+    padding:10px 0 0 0;
+    @include border-background-reset;
+    background: darken($content-area-background,10); 
+    li {
+      padding:0;
+      @include border-background-reset;
+      &.active, &:hover {
+        color:$menu-active-link-color;  
+      }
+      a {
+        padding:.5em 2em;
+        @include tab-corners;
+        line-height:1.1em;     
+        letter-spacing:.15em;
+        @include menu-text-shadow;
+        &.active, &:hover { 
+          border:none;
+          color:$menu-active-link-color;
+          background: darken($content-area-background,0);  
+        }
+      }
+    }
+  }
+}
+
+// Forms And Buttons
+
+//Buttons and Links styled like buttons
+// Default Style Silver
+input[type="submit"], 
+.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a {
+  @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
+  padding: 0.5em 1.5em !important;   
+}
+a.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a, {
+  font-family: $form-font;
+  font-weight: bold;
+  color:#111;
+  &:hover {
+    text-decoration:none !important;
+  }
+}
+// Forms Elements
+// Primary Style  Green
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue  {
+  @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+}
+// Remove Items Style RED
+input[type="submit"]#edit-items-0-remove {
+  @include sassy-button("matte", 25px, 14px, #f33737, #c71e1e, #111, "inset");
+}
+
+
+// Text inputs
+input[type="text"],
+input[type="password"] {  
+ margin:0em 0 .5em 0;
+  padding:.25em  0 .25em .5em;
+  border:none;
+  @include border-radius(8px);
+  @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
+  line-height:1.25em;
+  font-size:1.1em;
+}
+label {
+  margin:1em 0 .25em .25em;
+  font-family: $form-font;
+  font-size:1.1em;
+  @include reg-text-shadow;
+  color:$light-text-color; 
+}
+.description {
+  color:#ccc;
+}
+
+fieldset {
+  margin:0em 0 .5em 0;  
+}
+fieldset legend {
+  padding:0em 0 1em 0;
+  font-family: ' Lucida Grande';
+  font-size:20px;
+  line-height:1.25em;
+  a {
+    margin:0em .5em .25em .5em;
+    padding:0;
+    font-size:20px;
+    background-image:none;
+  }  
+}
+
+table.sticky-header {
+  @include border-background-reset;
+}
+tr.even, tr.odd {
+  @include border-background-reset;
+}
+
+// General Items
+.float-right {
+  float:right;
+}
+// replace background images
+.replace {
+  position:relative;
+  overflow:hidden;
+  margin:0;
+  padding:0;
+}
+.replace em {
+  display: block;
+  position: absolute;
+  top: 0px; 
+  left: 0px;
+  z-index:1;
+}
+
+// Front 
+#block-countdown-0 {
+  margin:-8px 0 0 0; 
+  font-family: $heading-font;
+  line-height:1em;
+  @include reg-text-shadow;
+  color:$heading-color-2;
+  em {
+    margin: 0 0 -40px 0;
+    font-style:normal;
+    line-height:1em;
+  }
+  span {
+    display:block;
+    position:relative;
+    top:-160px;
+    left:120px;  
+    width:120px;
+    line-height:1.125em;  
+  }
+}
+#sidebar-last {
+  margin:-3px 0 0 0;  
+}
+
+#block-block-1 {
+  margin:0;
+  font-family: $heading-font;
+  @include reg-text-shadow;
+  color:$heading-color-2;  
+  h3 {
+    margin:0;
+    line-height:1em;
+  }
+  p {
+    margin:0;
+    line-height:1em;
+    text-align:justify;
+    color:$heading-color-1;
+  }
+  &.block {
+    margin:0;
+  }
+}
+#block-block-2 {
+  margin:0;
+  font-family: $heading-font;
+  @include reg-text-shadow;
+  color:$heading-color-1;
+  h3 {
+    margin:0;
+    line-height:.9em;
+  }
+  p {
+    margin:10px 0 0 0;
+    line-height:1em;
+    text-align:justify;
+    color:$heading-color-2;
+    span {
+      line-height:.9em;  
+    }
+  }
+  &.block {
+    margin:0;
+  }
+}
+#block-block-3 {
+  margin:0;
+  h2 {
+    margin:4px 0 0 0;
+    font-family: $heading-font;
+    line-height:1em;
+    @include reg-text-shadow;
+    color:$heading-color-1;
+  }
+  &.block {
+    margin:0;
+  }
+  ul {
+    display:block;
+    margin:10px 0 0 0;
+   li {
+     list-style:none;
+     a { 
+       display:block;
+       margin:0 8px 0 0 ;
+       text-indent:-1000em;
+       em {
+         width:45px;
+         height:42px;        
+         background:url('../images/social-media-icons.png');
+         background-position: 0 0;       
+       }
+     }
+     &.twitter em {
+     background-position: 0 0;  
+     }
+     &.gdo em {
+     background-position: 45px 0;  
+     }     
+   }
+  }
+}
+#block-block-4 {
+  float:right;
+  width:350px;
+}
+#block-mailing_list-1, #block-block-5 {
+  h2 {
+    margin:8px 0 0 0;
+    font-family: $heading-font;
+    line-height:1em; 
+    color:$heading-color-1;
+    @include reg-text-shadow;
+   }
+  label {
+    margin:0 0 0 6px ;
+    line-height:1.5em;
+    letter-spacing:.06em;
+    @include reg-text-shadow;
+    color:$light-text-color;
+  }
+  #mc_embed_signup input {
+    @include border-radius(8px);
+    @include border-background-reset;
+    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
+    line-height:1.25em;
+  }
+  #mc_embed_signup input.button {
+    @include box-shadow;
+  }
+  input[type="submit"] {
+    border:none;
+    @include border-radius(8px);
+    @include box-shadow;
+    font-family: $heading-font;
+    text-transform:uppercase;
+    line-height:1.25em;
+    color:$button-color-3;
+    background:$heading-color-1;
+  }
+  input[type="text"]{
+    border:none;
+    @include border-radius(8px);
+    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
+    line-height:1.25em;
+  }
+}
+
+
+//Ubercart 
+#cart-form-products {
+  padding:1em;
+  font-family: $form-font;
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  thead th {
+    padding: .5em 1em;
+    font-size:1.2em;
+    @include border-background-reset;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+    color:#aaa;
+  }
+  td {
+    padding:.5em 1em .5em .5em; 
+  }
+  tbody .desc, tbody .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+    color:#ccc;
+  }
+  tbody .subtotal {
+   color:#999; 
+  }
+  tbody td.image {
+  }
+  #edit-items-0-qty {
+    font-size:1em;
+    line-height:1.5em;
+    text-align:center;
+  }
+}
+// DrupalCamp tickets
+#product-group {
+  .product-image {
+    float: right;
+    margin:0 0 1em 0;
+  }  
+}
+#product-details {
+  margin:2em 0 0 0;
+  .uc-price-display {
+    margin:0 1em 0 0;
+    font-family: $heading-font;
+    font-size:3em;
+    line-height:.95em;
+    @include reg-text-shadow;
+    color:$heading-color-1;
+  }
+  .product-image {
+    float: right;    
+  }
+}
+
+#uc-signup-attendees-form {
+  clear:both;
+  width:460px;
+  padding:10px 10px 10px 10px;
+  font-family: $form-font;
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  .submit-button {
+    text-align:right;
+  }
+  #edit-submit {
+  }
+  .uc_signup_previous {
+    float:left;
+    margin:2px 0 0 0;
+  }
+  fieldset {
+    margin:0em 0 .5em 0;  
+  }
+  fieldset legend {
+    margin:0em .5em .25em .5em;
+    font-size:20px;
+    a {
+      padding:0;
+      font-size:20px;
+      background-image:none;
+    }  
+  } 
+  input[type="text"] {
+    width:95%;
+    font-size:1.2em;
+  }
+  .uc_signup_needs_account {
+    padding:0;
+    @include border-background-reset;
+  }
+ }
+#uc-cart-checkout-form {
+  font-family: $form-font;
+  #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
+    float:left;
+    width:260px;
+    margin:0px 12px 20px 0px;
+    padding:10px;
+    @include content-group-corners;
+    color:$light-text-color;
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+    .uc_signup_user_events {
+      color:#aaa;
+    }
+    .uc_signup_edit_info {
+      float:none;
+    }
+  } 
+  fieldset {
+    margin:0em 0 2.5em 0;  
+  }
+  fieldset legend {
+    margin:0em .5em .5em 0em;
+    padding:0em .5em .5em 0em;
+    font-size:20px;
+    a {
+      margin:0em .5em .5em 0em;
+      padding:0;
+      font-size:20px;
+      background-image:none;
+    }
+  }
+  .field-label {
+    padding:.3em;
+    vertical-align:top; 
+    font-size:1.1em;    
+    @include reg-text-shadow;
+    color:$light-text-color;
+  }
+  select {
+    padding: 0.4em 0;
+    font-size: 1em;
+  }  
+  #billing-pane select { 
+    width: 320px;
+  }
+  input[type="text"] {
+    font-size:1.2em;
+  }
+  .description {
+    margin:0em 0 1em 0;
+  }
+  #line-items-div {
+    padding: .5em 1em;
+    border:none !important;
+    @include content-group-corners;
+    font-size:1.2em;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+    color:#aaa;
+  } 
+  table.cart-review {
+    margin: 0em 0 1em 0;
+    @include content-group-corners;
+    font-size:.8em;
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  }
+  thead th {
+    padding: .5em 1em;
+    border:none;
+    font-size:1.2em;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+    color:#aaa;
+  }
+  tbody {
+    margin: .5em 1em;
+  }
+  tr.even, tr.odd {  
+    td {
+      padding:.5em 1em .5em .5em;
+      font-size:1.2em; 
+    }
+    .products, .qty {
+      
+      color:$light-text-color;
+    }
+  }
+  tbody .desc, tbody .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+    color:#ccc;
+  }
+  tbody .subtotal {
+    color:#999; 
+  }
+  .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+    color:#ccc; 
+  }
+  .solid-border {
+    border:none;
+  }
+} 
+
+#pid-cart-checkout-review {
+  #content-content > p {
+    width:480px;
+    font-family: $form-font;
+  }  
+} 
+.order-review-table  {
+  width:480px;
+  margin: 0em 0 1em 0;
+  padding:10px;
+  border:none;
+  font-family: $form-font;
+  font-size: 1.2em;
+  @include content-group-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  td {
+    padding:.5em 1em .5em .5em;
+    vertical-align:top;
+    &.title-col {
+      color:#aaa;
+      padding-left: 1em;
+      font-weight: bold;
+      text-align: right;
+    }
+    &.data-col {
+      color:$light-text-color;  
+    } 
+  }
+  .pane-title-row {
+    border:none;
+    background:none;
+    color:#ccc; 
+  }
+  .row-border-top {
+    border:none;  
+  } 
+  .review-button-row {
+    border:none;
+    background:none;
+    #edit-submit {
+      float:right;
+    }    
+  }
+}
+#pid-cart-checkout-complete {
+  #content-content > p {
+    width:480px;
+    font-family: $form-font;
+  }
+}
+
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  padding:10px;
+  border:none;
+  @include content-group-corners;
+  font-family: $form-font;
+  line-height:1.5em;
+  color:$light-text-color;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  }
+.order-pane {
+  border:none;
+  img {  
+  }
+  thead {
+    @include border-background-reset;
+    th {
+      @include border-background-reset;
+    }
+  }
+  tr, tr.even, tr.odd {
+    @include border-background-reset;
+    td {
+      padding:.5em 1em .5em .5em; 
+    }
+  }
+}
+.order-pane-title {
+  color:#aaa;  
+}
+#order-pane-uc_signup_info {
+  width:460px;
+}
+#order-pane-products,
+#order-pane-line_items {
+  margin:0;
+  padding:10px;
+  border:none;
+  font-family: $form-font;
+  line-height:1.5em; 
+  color:$light-text-color;
+  thead {
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
+  }
+}
+.buy-tickets {
+  
+}
+@media only screen and (min-width : 240px) and (max-width : 767px) {
+  body {
+    background-image:$page-background-image-480;
+    @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 100px, rgba($header-dark-gradient-color,.15) 250px, rgba($header-light-gradient-color,.15) 400px, rgba($header-light-gradient-color,.0) 95%),$page-background-image-480);
+    background-position: top center,top center;
+    background-repeat:no-repeat, repeat;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) and (max-width : 480px) {
+  h1#site-name {
+    font-size: 7.2em;
+  }
+  #sidebar-first {
+    border:solid;
+    &.nested {
+      float:none;
+    }
+    .grid-3 {
+      width:100% !important;
+    }
+    
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+  h1#site-name {
+    font-size: 5em;
+  }
+}
+

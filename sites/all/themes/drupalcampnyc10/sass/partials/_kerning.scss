@@ -1,0 +1,152 @@
+$heading-color-1:rgba(#a0aab5, 1);
+$heading-color-2:rgba(#708090, 1);
+
+
+// make directive here  
+h1.title .word1 {
+  color:$heading-color-2;
+}
+h1.title .word2 {
+  color:$heading-color-1;
+}
+h1.title .word3 {
+  color:$heading-color-2;
+}
+h1.title .word4 {
+  color:$heading-color-1;
+}
+h1.title .word5 {
+  color:$heading-color-2;
+}
+h1.title .word6 {
+  color:$heading-color-1;
+}
+h1.title .word7 {
+  color:$heading-color-2;
+}
+h1.title .word8 {
+  color:$heading-color-1;
+}
+// Header site name kerning
+#site-name a .char1 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name a .char2 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name a .char3 {
+	margin-left: 0.006em;
+	color:$heading-color-1;
+}
+#site-name a .char4 {
+	margin-left: -0.022em;
+	color:$heading-color-1;
+}
+#site-name a .char5 {
+	margin-left: -0.011em;
+	color:$heading-color-1;
+}
+#site-name a .char6 {
+	margin-left: -0.022em;
+	color:$heading-color-1;
+}
+#site-name a .char7 {
+	margin-left: -0.017em;
+	color:$heading-color-2;
+}
+#site-name a .char8 {
+	margin-left: 0em;
+	color:$heading-color-2;
+}
+#site-name a .char9 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+#site-name a .char10 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+#site-name a .char11 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name a .char12 {
+	margin-left: -0.017em;
+	color:$heading-color-1;
+}
+#site-name a .char13 {
+	margin-left: -0.033em;
+	color:$heading-color-1;
+}
+#site-name a .char14 {
+	margin-left: -0.033em;
+	color:$heading-color-1;
+}
+#site-name a .char15 {
+	margin-left: -0.033em;
+	color:$heading-color-2;
+}
+#site-name a .char16 {
+	margin-left: -0.011em;
+	color:$heading-color-2;
+}
+
+// kerning h1 Title
+.front h1.title .char1,
+.front h1.title .char2,
+.front h1.title .char3,
+.front h1.title .char4,
+.front h1.title .char5,
+.front h1.title .char6,
+.front h1.title .char7,
+.front h1.title .char8,
+.front h1.title .char9,
+.front h1.title .char10,
+.front h1.title .char11,
+.front h1.title .char18,
+.front h1.title .char19,
+.front h1.title .char20,
+.front h1.title .char21,
+.front h1.title .char26,
+.front h1.title .char27 {
+  color:$heading-color-1;
+}
+
+.front h1.title .char13 {
+	margin-left: -0.013em;
+}
+.front h1.title .char15 {
+	margin-left: -0.013em;
+}
+.front h1.title .char17 {
+	margin-left: -0.026em;
+}
+.front h1.title .char19 {
+	margin-left: 0em;
+}
+.front h1.title .char20 {
+	margin-left: -0.013em;
+}
+.front h1.title .char21 {
+	margin-left: -0.013em;
+}
+.front h1.title .char22 {
+	margin-left: -0.013em;
+}
+.front h1.title .char23 {
+	margin-left: -0.013em;
+}
+.front h1.title .char24 {
+	margin-left: -0.026em;
+}
+.front h1.title .char25 {
+	margin-left: 0em;
+}
+.front h1.title .char26 {
+	margin-left: -0.026em;
+}
+.front h1.title .char27 {
+	margin-left: 0em; 
+}

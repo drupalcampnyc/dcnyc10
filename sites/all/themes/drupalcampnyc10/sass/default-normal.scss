@@ -1,0 +1,391 @@
+@import "compass/reset";
+@import "partials/_base";
+// Import the Fusion grid only with a media query so that it's responsive
+@import "partials/_grid12-fluid";
+// Variables and mixins are in @import "partials/_base";
+
+body {
+  background-image:$page-background-image-1280;
+  @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 100px, rgba($header-dark-gradient-color,.15) 250px, rgba($header-light-gradient-color,.15) 400px, rgba($header-light-gradient-color,.0) 95%), $page-background-image2, $page-background-image-1280);
+  background-position: top center,90% 0,top center;
+  background-repeat:no-repeat, repeat-y, repeat; 
+}
+
+//Header site name
+#site-name-wrapper {
+
+} 
+h1#site-name {
+  font-size: 12.3em;
+}
+
+#header-group {
+  padding: 0 0 0px 0;
+  background-image:$menu-background-image;
+  background-position:-138px 100px;
+  background-repeat:repeat-x;
+}
+
+// Content Area
+#content-group {
+  font-size:1.33em;
+  line-height:1.5em;  
+  #content-inner {
+    width:95%;
+    padding:2%;
+  }
+}
+
+// Content Tabs
+#content-tabs {
+  &.block {
+    margin:0;
+    padding:1em 0 0 0;
+  }
+  .primary { 
+    display:inline;
+    border:none;
+    li {
+      display:block;
+      float:left;
+      margin:0;
+      a {
+        display:block;
+        padding:.5em 2em;
+        line-height:1.1em; 
+      }
+    }   
+  }
+  .secondary {
+    clear:both;
+    margin:0 10px 0 0;
+    padding:10px 0 0 0;
+    li {
+      padding:0;
+      @include border-background-reset;
+      a {
+        padding:.5em 2em;
+        line-height:1.1em;     
+        letter-spacing:.15em;
+      }
+    }
+  }
+}
+
+#footer-message {
+  font-size:1.1em;
+}
+
+//Main Menu and Dropdowns
+#primary-menu {
+  @include menu-corners;
+  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+  @include menu-box-shadow;
+  ul {
+    font-size:2em;
+    
+    ul {
+      font-size:1em; 
+    }
+  }
+}
+
+// Submenus
+.block-menu_block {
+  .inner.clearfix {
+  }
+  ul.menu {
+    font-size:1.66em;
+  } 
+}
+
+// Forms Elements
+
+//Buttons and Links styled like buttons
+input[type="submit"], 
+.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a {
+  padding: 0.5em 1.5em !important;   
+}
+
+#block-countdown-0 {
+  margin:-8px 0 0 0; 
+  height:160px;
+  font-size:1em;
+  em {
+    font-size:14em;
+    line-height:1em;
+  }
+  span {
+    top:-160px;
+    left:120px;  
+    width:120px;
+    font-size:5.5em;
+  }
+}
+h1.title {
+  font-size: 5em;
+}
+
+// Front page 
+
+.float-right {
+  float:right;
+  width:350px;
+}
+.front .node-type-page {
+  float:left;
+  width:350px;
+}
+#block-mailing_list-1, #block-block-5 {
+  h2 {
+    font-size:4.65em;
+   }
+  label {
+    font-size:1.5em;
+  }
+  #mc_embed_signup input {
+    width:212px;
+    font-size:1.5em;
+  }
+  #mc_embed_signup input.button {
+    width:136px;
+    height: 52px;
+    font-size:3em;
+  }
+  input[type="submit"] {
+    float:right;
+    font-size:3em;
+  }
+  input[type="text"]{
+    width:240px; 
+    font-size:2em;
+  }
+}
+
+#block-block-1 {
+  font-size:1em;
+  h3 {
+    font-size:7.5em;
+  }
+  p {
+    font-size:5.7em;
+  }
+}
+#block-block-2 {
+  font-size:1em;
+  h3 {
+    font-size:8.25em;
+  }
+  p {
+    font-size:3.75em;
+    span {
+      font-size:1.6em;
+      line-height:.9em;  
+    }
+  }
+}
+#block-block-3 {
+  font-size:1em;  
+  h2 {
+    font-family: $heading-font;
+    font-size:4.65em;
+  }
+  ul {
+    display:block;
+    height:42px;
+   li {
+     float:left;
+     a { 
+       display:block;
+       float:left;
+       width:45px;
+       height:42px;
+       em {
+         width:45px;
+         height:42px;        
+       }
+     }
+   }
+  }
+}
+#block-block-4 {
+  float:right;
+  width:350px;
+}
+
+
+//Ubercart 
+#cart-form-products {
+  thead th {
+    font-size:1.2em;
+  }
+  tr.even, tr.odd {
+    @include border-background-reset; 
+    td {
+      padding:.5em 1em .5em .5em; 
+    }
+  }
+}
+
+// DrupalCamp tickets
+#product-group {
+  .product-image {
+    float: right;
+    margin:0 0 1em 0;
+  }  
+}
+#product-details {
+  margin:2em 0 0 0;
+  .uc-price-display {
+    margin:0 1em 0 0;
+    font-size:3em;
+  }
+  .product-image {
+    float: right;    
+  }
+}
+
+#uc-signup-attendees-form {
+  clear:both;
+  width:460px;
+  .submit-button {
+    text-align:right;
+  }
+  .uc_signup_previous {
+    float:left;
+  }  
+  input[type="text"] {
+    width:95%;
+    font-size:1.2em;
+  }
+}
+#uc-cart-checkout-form {
+  #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
+    float:left;
+    width:260px;
+    word-wrap: break-word;
+    .uc_signup_user_events {
+    }
+    .uc_signup_edit_info {
+      float:none;
+    }
+  }
+  .field-label {
+    padding:.3em;
+    font-size:1.1em;    
+    @include reg-text-shadow;
+    color:$light-text-color;
+  }
+  select {
+    padding: 0.4em 0;
+    font-size: 1em;
+  }  
+  #billing-pane select { 
+    width: 320px;
+  }
+  input[type="text"] {
+    font-size:1.2em;
+  }
+  #line-items-div {
+    font-size:1.2em;
+  } 
+  table.cart-review {
+    font-size:.8em;
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  }
+  thead th {
+    font-size:1.2em;
+  }
+  td {
+    font-size:1.2em; 
+  }
+
+  tbody .desc, tbody .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+  }
+  .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+  }
+  .solid-border {
+    border:none;
+  }
+} 
+
+#pid-cart-checkout-review {
+  #content-content > p {
+    width:480px;
+  }  
+} 
+.order-review-table  {
+  width:480px;
+  font-size: 1.2em;
+  td {
+    &.title-col {
+      text-align: right;
+    }
+    &.data-col {
+      color:$light-text-color;  
+    } 
+  }
+  .pane-title-row {
+    
+  }
+  .row-border-top {
+    border:none;  
+  } 
+  .review-button-row {
+    border:none;
+    background:none;
+    #edit-submit {
+      float:right;
+    }    
+  }
+}
+#pid-cart-checkout-complete {
+  #content-content > p {
+    width:480px;
+    font-family: $form-font;
+  }
+}
+
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  padding:10px;
+  border:none;
+  @include content-group-corners;
+  font-family: $form-font;
+  line-height:1.5em;
+  color:$light-text-color;
+  @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+  }
+.order-pane { 
+  @include border-background-reset;
+  thead {
+    @include border-background-reset;
+    th {
+      @include border-background-reset;
+    }
+  }
+  tr, tr.even, tr.odd {
+    @include border-background-reset;
+  }
+}
+#order-pane-uc_signup_info {
+  width:460px;
+}
+#order-pane-products,
+#order-pane-line_items {
+  thead {
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
+  }
+}
+.buy-tickets {
+  
+}

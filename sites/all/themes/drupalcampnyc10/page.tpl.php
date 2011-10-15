@@ -25,7 +25,20 @@
     <div id="skip">
       <a href="#main-content-area"><?php print t('Skip to Main Content Area'); ?></a>
     </div>
-
+    <?php if ($userbar_first || $userbar_last): ?>
+      <div id="userbar" class="page">   
+      <?php if ($userbar_first): ?>
+        <div id="userbar-first" class="userbar-first row nested <?php print $userbar_first_width; ?>">
+          <?php print $userbar_first; ?>
+        </div> 
+      <?php endif; ?>
+      <?php if ($userbar_last): ?>
+        <div id="userbar-last" class="userbar-last row nested <?php print $userbar_last_width; ?>">
+          <?php print $userbar_last; ?>
+        </div> 
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>        
     <div id="header-group" class="header-group row clearfix <?php print $grid_width; ?>">
       <?php print theme('grid_block', theme('links', $secondary_links), 'secondary-menu'); ?>
       <?php print theme('grid_block', $search_box, 'search-box'); ?>
