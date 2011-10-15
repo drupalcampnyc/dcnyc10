@@ -211,62 +211,66 @@ h1#site-name {
 }
 /* line 35, ../sass/default-normal.scss */
 #content-group p {
-  max-width: 45em;
+  max-width: 38em;
 }
 /* line 37, ../sass/default-normal.scss */
 #content-group ul {
   list-style: disc;
-  max-width: 40em;
-  line-height: 1.667em;
+  max-width: 33em;
+  line-height: 1.334em;
+}
+/* line 41, ../sass/default-normal.scss */
+#content-group ul li {
+  margin: 0 0 .66em 0;
 }
 
-/* line 46, ../sass/default-normal.scss */
+/* line 49, ../sass/default-normal.scss */
 #content-tabs.block {
   margin: 0;
   padding: 1em 0 0 0;
 }
-/* line 50, ../sass/default-normal.scss */
+/* line 53, ../sass/default-normal.scss */
 #content-tabs .primary {
   display: inline;
   border: none;
 }
-/* line 53, ../sass/default-normal.scss */
+/* line 56, ../sass/default-normal.scss */
 #content-tabs .primary li {
   display: block;
   float: left;
   margin: 0;
 }
-/* line 57, ../sass/default-normal.scss */
+/* line 60, ../sass/default-normal.scss */
 #content-tabs .primary li a {
   display: block;
   padding: .5em 2em;
   line-height: 1.1em;
 }
-/* line 64, ../sass/default-normal.scss */
+/* line 67, ../sass/default-normal.scss */
 #content-tabs .secondary {
   clear: both;
   margin: 0 10px 0 0;
   padding: 10px 0 0 0;
 }
-/* line 68, ../sass/default-normal.scss */
+/* line 71, ../sass/default-normal.scss */
 #content-tabs .secondary li {
   padding: 0;
   background: none;
   border: none;
 }
-/* line 71, ../sass/default-normal.scss */
+/* line 74, ../sass/default-normal.scss */
 #content-tabs .secondary li a {
   padding: .5em 2em;
   line-height: 1.1em;
   letter-spacing: .15em;
 }
 
-/* line 80, ../sass/default-normal.scss */
+/* line 83, ../sass/default-normal.scss */
 #footer-message {
   font-size: 1.1em;
 }
 
-/* line 85, ../sass/default-normal.scss */
+/* line 88, ../sass/default-normal.scss */
 #primary-menu {
   -moz-border-radius-topleft: 16px;
   -webkit-border-top-left-radius: 16px;
@@ -303,21 +307,21 @@ h1#site-name {
   -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 89, ../sass/default-normal.scss */
+/* line 92, ../sass/default-normal.scss */
 #primary-menu ul {
   font-size: 2em;
 }
-/* line 92, ../sass/default-normal.scss */
+/* line 95, ../sass/default-normal.scss */
 #primary-menu ul ul {
   font-size: 1em;
 }
 
-/* line 102, ../sass/default-normal.scss */
+/* line 105, ../sass/default-normal.scss */
 .block-menu_block ul.menu {
   font-size: 1.66em;
 }
 
-/* line 114, ../sass/default-normal.scss */
+/* line 117, ../sass/default-normal.scss */
 input[type="submit"],
 .uc_signup_previous,
 #continue-shopping-link a,
@@ -326,18 +330,18 @@ a.uc_signup_edit_info,
   padding: 0.5em 1.5em !important;
 }
 
-/* line 118, ../sass/default-normal.scss */
+/* line 121, ../sass/default-normal.scss */
 #block-countdown-0 {
   margin: -8px 0 0 0;
   height: 160px;
   font-size: 1em;
 }
-/* line 122, ../sass/default-normal.scss */
+/* line 125, ../sass/default-normal.scss */
 #block-countdown-0 em {
   font-size: 14em;
   line-height: 1em;
 }
-/* line 126, ../sass/default-normal.scss */
+/* line 129, ../sass/default-normal.scss */
 #block-countdown-0 span {
   top: -160px;
   left: 120px;
@@ -345,209 +349,209 @@ a.uc_signup_edit_info,
   font-size: 5.5em;
 }
 
-/* line 133, ../sass/default-normal.scss */
+/* line 136, ../sass/default-normal.scss */
 h1.title {
   font-size: 5em;
 }
 
-/* line 139, ../sass/default-normal.scss */
+/* line 142, ../sass/default-normal.scss */
 .float-right {
   float: right;
   width: 350px;
 }
 
-/* line 143, ../sass/default-normal.scss */
+/* line 146, ../sass/default-normal.scss */
 .front .node-type-page {
   float: left;
   width: 350px;
 }
 
-/* line 148, ../sass/default-normal.scss */
+/* line 151, ../sass/default-normal.scss */
 #block-mailing_list-1 h2, #block-block-5 h2 {
   font-size: 4.65em;
 }
-/* line 151, ../sass/default-normal.scss */
+/* line 154, ../sass/default-normal.scss */
 #block-mailing_list-1 label, #block-block-5 label {
   font-size: 1.5em;
 }
-/* line 154, ../sass/default-normal.scss */
+/* line 157, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
   width: 212px;
   font-size: 1.5em;
 }
-/* line 158, ../sass/default-normal.scss */
+/* line 161, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   width: 136px;
   height: 52px;
   font-size: 3em;
 }
-/* line 163, ../sass/default-normal.scss */
+/* line 166, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
   float: right;
   font-size: 3em;
 }
-/* line 167, ../sass/default-normal.scss */
+/* line 170, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
   width: 240px;
   font-size: 2em;
 }
 
-/* line 173, ../sass/default-normal.scss */
+/* line 176, ../sass/default-normal.scss */
 #block-block-1 {
   font-size: 1em;
 }
-/* line 175, ../sass/default-normal.scss */
+/* line 178, ../sass/default-normal.scss */
 #block-block-1 h3 {
   font-size: 7.5em;
 }
-/* line 178, ../sass/default-normal.scss */
+/* line 181, ../sass/default-normal.scss */
 #block-block-1 p {
   font-size: 5.7em;
 }
 
-/* line 182, ../sass/default-normal.scss */
+/* line 185, ../sass/default-normal.scss */
 #block-block-2 {
   font-size: 1em;
 }
-/* line 184, ../sass/default-normal.scss */
+/* line 187, ../sass/default-normal.scss */
 #block-block-2 h3 {
   font-size: 8.25em;
 }
-/* line 187, ../sass/default-normal.scss */
+/* line 190, ../sass/default-normal.scss */
 #block-block-2 p {
   font-size: 3.75em;
 }
-/* line 189, ../sass/default-normal.scss */
+/* line 192, ../sass/default-normal.scss */
 #block-block-2 p span {
   font-size: 1.6em;
   line-height: .9em;
 }
 
-/* line 195, ../sass/default-normal.scss */
+/* line 198, ../sass/default-normal.scss */
 #block-block-3 {
   font-size: 1em;
 }
-/* line 197, ../sass/default-normal.scss */
+/* line 200, ../sass/default-normal.scss */
 #block-block-3 h2 {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 4.65em;
 }
-/* line 201, ../sass/default-normal.scss */
+/* line 204, ../sass/default-normal.scss */
 #block-block-3 ul {
   display: block;
   height: 42px;
 }
-/* line 204, ../sass/default-normal.scss */
+/* line 207, ../sass/default-normal.scss */
 #block-block-3 ul li {
   float: left;
 }
-/* line 206, ../sass/default-normal.scss */
+/* line 209, ../sass/default-normal.scss */
 #block-block-3 ul li a {
   display: block;
   float: left;
   width: 45px;
   height: 42px;
 }
-/* line 211, ../sass/default-normal.scss */
+/* line 214, ../sass/default-normal.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
 }
 
-/* line 219, ../sass/default-normal.scss */
+/* line 222, ../sass/default-normal.scss */
 #block-block-4 {
   float: right;
   width: 350px;
 }
 
-/* line 227, ../sass/default-normal.scss */
+/* line 230, ../sass/default-normal.scss */
 #cart-form-products thead th {
   font-size: 1.2em;
 }
-/* line 230, ../sass/default-normal.scss */
+/* line 233, ../sass/default-normal.scss */
 #cart-form-products tr.even, #cart-form-products tr.odd {
   background: none;
   border: none;
 }
-/* line 232, ../sass/default-normal.scss */
+/* line 235, ../sass/default-normal.scss */
 #cart-form-products tr.even td, #cart-form-products tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 240, ../sass/default-normal.scss */
+/* line 243, ../sass/default-normal.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 245, ../sass/default-normal.scss */
+/* line 248, ../sass/default-normal.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 247, ../sass/default-normal.scss */
+/* line 250, ../sass/default-normal.scss */
 #product-details .uc-price-display {
   margin: 0 1em 0 0;
   font-size: 3em;
 }
-/* line 251, ../sass/default-normal.scss */
+/* line 254, ../sass/default-normal.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 256, ../sass/default-normal.scss */
+/* line 259, ../sass/default-normal.scss */
 #uc-signup-attendees-form {
   clear: both;
   width: 460px;
 }
-/* line 259, ../sass/default-normal.scss */
+/* line 262, ../sass/default-normal.scss */
 #uc-signup-attendees-form .submit-button {
   text-align: right;
 }
-/* line 262, ../sass/default-normal.scss */
+/* line 265, ../sass/default-normal.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   float: left;
 }
-/* line 265, ../sass/default-normal.scss */
+/* line 268, ../sass/default-normal.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
 
-/* line 271, ../sass/default-normal.scss */
+/* line 274, ../sass/default-normal.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   float: left;
   width: 260px;
   word-wrap: break-word;
 }
-/* line 277, ../sass/default-normal.scss */
+/* line 280, ../sass/default-normal.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 281, ../sass/default-normal.scss */
+/* line 284, ../sass/default-normal.scss */
 #uc-cart-checkout-form .field-label {
   padding: .3em;
   font-size: 1.1em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 287, ../sass/default-normal.scss */
+/* line 290, ../sass/default-normal.scss */
 #uc-cart-checkout-form select {
   padding: 0.4em 0;
   font-size: 1em;
 }
-/* line 291, ../sass/default-normal.scss */
+/* line 294, ../sass/default-normal.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 294, ../sass/default-normal.scss */
+/* line 297, ../sass/default-normal.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 297, ../sass/default-normal.scss */
+/* line 300, ../sass/default-normal.scss */
 #uc-cart-checkout-form #line-items-div {
   font-size: 1.2em;
 }
-/* line 300, ../sass/default-normal.scss */
+/* line 303, ../sass/default-normal.scss */
 #uc-cart-checkout-form table.cart-review {
   font-size: .8em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -557,68 +561,68 @@ h1.title {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 304, ../sass/default-normal.scss */
+/* line 307, ../sass/default-normal.scss */
 #uc-cart-checkout-form thead th {
   font-size: 1.2em;
 }
-/* line 307, ../sass/default-normal.scss */
+/* line 310, ../sass/default-normal.scss */
 #uc-cart-checkout-form td {
   font-size: 1.2em;
 }
-/* line 311, ../sass/default-normal.scss */
+/* line 314, ../sass/default-normal.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 315, ../sass/default-normal.scss */
+/* line 318, ../sass/default-normal.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 319, ../sass/default-normal.scss */
+/* line 322, ../sass/default-normal.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 325, ../sass/default-normal.scss */
+/* line 328, ../sass/default-normal.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
 }
 
-/* line 329, ../sass/default-normal.scss */
+/* line 332, ../sass/default-normal.scss */
 .order-review-table {
   width: 480px;
   font-size: 1.2em;
 }
-/* line 333, ../sass/default-normal.scss */
+/* line 336, ../sass/default-normal.scss */
 .order-review-table td.title-col {
   text-align: right;
 }
-/* line 336, ../sass/default-normal.scss */
+/* line 339, ../sass/default-normal.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 343, ../sass/default-normal.scss */
+/* line 346, ../sass/default-normal.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 346, ../sass/default-normal.scss */
+/* line 349, ../sass/default-normal.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 349, ../sass/default-normal.scss */
+/* line 352, ../sass/default-normal.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 355, ../sass/default-normal.scss */
+/* line 358, ../sass/default-normal.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 364, ../sass/default-normal.scss */
+/* line 367, ../sass/default-normal.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -642,33 +646,33 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 373, ../sass/default-normal.scss */
+/* line 376, ../sass/default-normal.scss */
 .order-pane {
   background: none;
   border: none;
 }
-/* line 375, ../sass/default-normal.scss */
+/* line 378, ../sass/default-normal.scss */
 .order-pane thead {
   background: none;
   border: none;
 }
-/* line 377, ../sass/default-normal.scss */
+/* line 380, ../sass/default-normal.scss */
 .order-pane thead th {
   background: none;
   border: none;
 }
-/* line 381, ../sass/default-normal.scss */
+/* line 384, ../sass/default-normal.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
 
-/* line 385, ../sass/default-normal.scss */
+/* line 388, ../sass/default-normal.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 390, ../sass/default-normal.scss */
+/* line 393, ../sass/default-normal.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
