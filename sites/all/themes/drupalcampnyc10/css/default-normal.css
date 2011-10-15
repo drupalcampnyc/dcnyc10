@@ -360,145 +360,139 @@ h1.title {
   width: 350px;
 }
 
-/* line 146, ../sass/default-normal.scss */
-.front .node-type-page {
-  float: left;
-  width: 350px;
-}
-
-/* line 151, ../sass/default-normal.scss */
+/* line 150, ../sass/default-normal.scss */
 #block-mailing_list-1 h2, #block-block-5 h2 {
   font-size: 4.65em;
 }
-/* line 154, ../sass/default-normal.scss */
+/* line 153, ../sass/default-normal.scss */
 #block-mailing_list-1 label, #block-block-5 label {
   font-size: 1.5em;
 }
-/* line 157, ../sass/default-normal.scss */
+/* line 156, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
   width: 212px;
   font-size: 1.5em;
 }
-/* line 161, ../sass/default-normal.scss */
+/* line 160, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   width: 136px;
   height: 52px;
   font-size: 3em;
 }
-/* line 166, ../sass/default-normal.scss */
+/* line 165, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
   float: right;
   font-size: 3em;
 }
-/* line 170, ../sass/default-normal.scss */
+/* line 169, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
   width: 240px;
   font-size: 2em;
 }
 
-/* line 176, ../sass/default-normal.scss */
+/* line 175, ../sass/default-normal.scss */
 #block-block-1 {
   font-size: 1em;
 }
-/* line 178, ../sass/default-normal.scss */
+/* line 177, ../sass/default-normal.scss */
 #block-block-1 h3 {
   font-size: 7.5em;
 }
-/* line 181, ../sass/default-normal.scss */
+/* line 180, ../sass/default-normal.scss */
 #block-block-1 p {
   font-size: 5.7em;
 }
 
-/* line 185, ../sass/default-normal.scss */
+/* line 184, ../sass/default-normal.scss */
 #block-block-2 {
   font-size: 1em;
 }
-/* line 187, ../sass/default-normal.scss */
+/* line 186, ../sass/default-normal.scss */
 #block-block-2 h3 {
   font-size: 8.25em;
 }
-/* line 190, ../sass/default-normal.scss */
+/* line 189, ../sass/default-normal.scss */
 #block-block-2 p {
   font-size: 3.75em;
 }
-/* line 192, ../sass/default-normal.scss */
+/* line 191, ../sass/default-normal.scss */
 #block-block-2 p span {
   font-size: 1.6em;
   line-height: .9em;
 }
 
-/* line 198, ../sass/default-normal.scss */
+/* line 197, ../sass/default-normal.scss */
 #block-block-3 {
   font-size: 1em;
 }
-/* line 200, ../sass/default-normal.scss */
+/* line 199, ../sass/default-normal.scss */
 #block-block-3 h2 {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 4.65em;
 }
-/* line 204, ../sass/default-normal.scss */
+/* line 203, ../sass/default-normal.scss */
 #block-block-3 ul {
   display: block;
   height: 42px;
 }
-/* line 207, ../sass/default-normal.scss */
+/* line 206, ../sass/default-normal.scss */
 #block-block-3 ul li {
   float: left;
 }
-/* line 209, ../sass/default-normal.scss */
+/* line 208, ../sass/default-normal.scss */
 #block-block-3 ul li a {
   display: block;
   float: left;
   width: 45px;
   height: 42px;
 }
-/* line 214, ../sass/default-normal.scss */
+/* line 213, ../sass/default-normal.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
 }
 
-/* line 222, ../sass/default-normal.scss */
+/* line 221, ../sass/default-normal.scss */
 #block-block-4 {
   float: right;
   width: 350px;
 }
 
-/* line 230, ../sass/default-normal.scss */
+/* line 229, ../sass/default-normal.scss */
 #cart-form-products thead th {
   font-size: 1.2em;
 }
-/* line 233, ../sass/default-normal.scss */
+/* line 232, ../sass/default-normal.scss */
 #cart-form-products tr.even, #cart-form-products tr.odd {
   background: none;
   border: none;
 }
-/* line 235, ../sass/default-normal.scss */
+/* line 234, ../sass/default-normal.scss */
 #cart-form-products tr.even td, #cart-form-products tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 243, ../sass/default-normal.scss */
+/* line 242, ../sass/default-normal.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 248, ../sass/default-normal.scss */
+/* line 247, ../sass/default-normal.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 250, ../sass/default-normal.scss */
+/* line 249, ../sass/default-normal.scss */
 #product-details .uc-price-display {
   margin: 0 1em 0 0;
   font-size: 3em;
 }
-/* line 254, ../sass/default-normal.scss */
+/* line 253, ../sass/default-normal.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 259, ../sass/default-normal.scss */
+/* line 258, ../sass/default-normal.scss */
 #uc-signup-attendees-form {
   clear: both;
   width: 460px;
@@ -681,4 +675,32 @@ h1.title {
   background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+}
+
+/* line 399, ../sass/default-normal.scss */
+#view-id-sessions-page_1 thead tr {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 403, ../sass/default-normal.scss */
+#view-id-sessions-page_1 thead th {
+  font-size: 1.334em;
+  background: none;
+  border: none;
+  padding: 0.5em;
+}
+/* line 410, ../sass/default-normal.scss */
+#view-id-sessions-page_1 tbody td {
+  padding: 0.5em;
+  vertical-align: top;
 }

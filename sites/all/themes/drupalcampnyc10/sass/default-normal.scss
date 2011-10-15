@@ -144,8 +144,7 @@ h1.title {
   width:350px;
 }
 .front .node-type-page {
-  float:left;
-  width:350px;
+
 }
 #block-mailing_list-1, #block-block-5 {
   h2 {
@@ -258,6 +257,7 @@ h1.title {
 
 #uc-signup-attendees-form {
   clear:both;
+  
   width:460px;
   .submit-button {
     text-align:right;
@@ -394,6 +394,26 @@ h1.title {
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
   }
 }
+#view-id-sessions-page_1 {
+  thead {
+    tr {
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+    @include content-group-corners;
+  }
+    th {
+      font-size:1.334em;
+      @include border-background-reset;
+      padding:0.5em;
+    }
+  }
+  tbody {
+    td {
+       padding:0.5em;
+       vertical-align:top;
+    }
+  }
+}
+ 
 .buy-tickets {
   
 }
