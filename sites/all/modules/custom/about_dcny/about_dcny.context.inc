@@ -45,9 +45,9 @@ function about_dcny_context_default_contexts() {
   $context->description = 'A sitewide-authenticated user context to activate the shopping cart block and anything else we need site wide for users';
   $context->tag = '';
   $context->conditions = array(
-    'sitewide' => array(
+    'path' => array(
       'values' => array(
-        1 => 1,
+        '~<front>' => '~<front>',
       ),
     ),
     'user' => array(
@@ -63,7 +63,7 @@ function about_dcny_context_default_contexts() {
           'module' => 'uc_cart',
           'delta' => 0,
           'region' => 'sidebar_first',
-          'weight' => 25,
+          'weight' => 50,
         ),
       ),
     ),
