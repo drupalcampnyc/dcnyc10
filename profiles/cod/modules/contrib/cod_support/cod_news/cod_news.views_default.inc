@@ -296,6 +296,22 @@ function cod_news_views_default_views() {
     'block_2' => 0,
   ));
   $handler->override_option('sitename_title', 0);
+  $handler = $view->new_display('page', 'Page', 'page_2');
+  $handler->override_option('path', 'news/mobile');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
 
   $views[$view->name] = $view;
 

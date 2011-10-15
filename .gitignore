@@ -9,6 +9,9 @@ sites/*/private
 #Mac specific files
 .DS_Store
 
+#Ignore developer specific files
+sites/all/modules/devel*
+
 # Ignore tmp files
 tmp
 sites/all/themes/drupalcampnyc10/.sass-cache
