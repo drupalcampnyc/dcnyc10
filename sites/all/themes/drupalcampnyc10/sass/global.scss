@@ -1,3 +1,4 @@
+@import "compass/reset";
 @import "partials/_typography";
 @import "partials/_base";
 @import "partials/_kerning";
@@ -170,7 +171,7 @@ h1.title {
   font-size:1.33em;
   line-height:1.5em;  
   #content-inner {
-    width:95%;
+    
     padding:2%;
     @include content-group-corners;
     background: desaturate(lighten($content-area-background, 0),0);

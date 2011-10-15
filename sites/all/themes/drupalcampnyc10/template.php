@@ -6,8 +6,8 @@ function drupalcampnyc10_preprocess_page(&$vars, $hook) {
   $headscript = '<script type="text/javascript">fbg.hideFOUT("asap", 400);</script>';
   //$vars['head'] .= $googlemeta;
   $vars['scripts'] .= $headscript;
+  // Remove the 
   unset($vars['setting_styles']);
-
   $vars['styles'] = drupal_get_css($vars['css']);
 }
 
