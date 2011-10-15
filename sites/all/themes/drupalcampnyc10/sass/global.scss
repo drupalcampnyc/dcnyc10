@@ -550,6 +550,9 @@ tr.even, tr.odd {
 }
 
 #uc-signup-attendees-form {
+  @include text-shadow(none);
+  letter-spacing:0em;
+  color:#000;
   clear:both;
   width:460px;
   padding:10px 10px 10px 10px;
@@ -566,9 +569,11 @@ tr.even, tr.odd {
     margin:2px 0 0 0;
   }
   fieldset {
+   
     margin:0em 0 .5em 0;  
   }
   fieldset legend {
+    font-family: $form-font;
     margin:0em .5em .25em .5em;
     font-size:20px;
     a {

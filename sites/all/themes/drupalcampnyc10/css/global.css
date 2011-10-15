@@ -1,4 +1,4 @@
-/* line 17, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, /Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -71,13 +71,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 */
 /* `Basic HTML
 ----------------------------------------------------------------------------------------------------*/
-/* line 16, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 16, ../sass/partials/_typography.scss */
 pre,
 code {
   font-family: 'DejaVu Sans Mono', Monaco, Consolas, monospace;
 }
 
-/* line 20, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 20, ../sass/partials/_typography.scss */
 hr {
   border: 0 #ccc solid;
   border-top-width: 1px;
@@ -87,37 +87,37 @@ hr {
 
 /* `Headings
 ----------------------------------------------------------------------------------------------------*/
-/* line 30, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 30, ../sass/partials/_typography.scss */
 h1 {
   font-size: 1.714em;
   /* 24px */
 }
 
-/* line 34, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 34, ../sass/partials/_typography.scss */
 h2 {
   font-size: 1.571em;
   /* 22px */
 }
 
-/* line 38, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 38, ../sass/partials/_typography.scss */
 h3 {
   font-size: 1.429em;
   /* 20px */
 }
 
-/* line 42, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 42, ../sass/partials/_typography.scss */
 h4 {
   font-size: 1.286em;
   /* 18px */
 }
 
-/* line 46, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 46, ../sass/partials/_typography.scss */
 h5 {
   font-size: 1.143em;
   /* 16px */
 }
 
-/* line 50, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 50, ../sass/partials/_typography.scss */
 h6 {
   font-size: 1.071em;
   /* 15px */
@@ -125,22 +125,22 @@ h6 {
 
 /* `Spacing
 ----------------------------------------------------------------------------------------------------*/
-/* line 57, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 57, ../sass/partials/_typography.scss */
 ol {
   list-style: decimal;
 }
 
-/* line 61, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 61, ../sass/partials/_typography.scss */
 ul {
   list-style: disc;
 }
 
-/* line 65, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 65, ../sass/partials/_typography.scss */
 li {
   margin-left: 30px;
 }
 
-/* line 84, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 84, ../sass/partials/_typography.scss */
 p,
 dl,
 hr,
@@ -160,153 +160,153 @@ figure {
   margin-bottom: 20px;
 }
 
-/* line 87, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 87, ../sass/partials/_typography.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 90, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_typography.scss */
+/* line 90, ../sass/partials/_typography.scss */
 em {
   font-style: italic;
 }
 
-/* line 6, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 6, ../sass/partials/_kerning.scss */
 h1.title .word1 {
   color: #708090;
 }
 
-/* line 9, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 9, ../sass/partials/_kerning.scss */
 h1.title .word2 {
   color: #a0aab5;
 }
 
-/* line 12, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 12, ../sass/partials/_kerning.scss */
 h1.title .word3 {
   color: #708090;
 }
 
-/* line 15, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 15, ../sass/partials/_kerning.scss */
 h1.title .word4 {
   color: #a0aab5;
 }
 
-/* line 18, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 18, ../sass/partials/_kerning.scss */
 h1.title .word5 {
   color: #708090;
 }
 
-/* line 21, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 21, ../sass/partials/_kerning.scss */
 h1.title .word6 {
   color: #a0aab5;
 }
 
-/* line 24, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 24, ../sass/partials/_kerning.scss */
 h1.title .word7 {
   color: #708090;
 }
 
-/* line 27, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 27, ../sass/partials/_kerning.scss */
 h1.title .word8 {
   color: #a0aab5;
 }
 
-/* line 31, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 31, ../sass/partials/_kerning.scss */
 #site-name a .char1 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 35, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 35, ../sass/partials/_kerning.scss */
 #site-name a .char2 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 39, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 39, ../sass/partials/_kerning.scss */
 #site-name a .char3 {
   margin-left: 0.006em;
   color: #a0aab5;
 }
 
-/* line 43, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 43, ../sass/partials/_kerning.scss */
 #site-name a .char4 {
   margin-left: -0.022em;
   color: #a0aab5;
 }
 
-/* line 47, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 47, ../sass/partials/_kerning.scss */
 #site-name a .char5 {
   margin-left: -0.011em;
   color: #a0aab5;
 }
 
-/* line 51, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 51, ../sass/partials/_kerning.scss */
 #site-name a .char6 {
   margin-left: -0.022em;
   color: #a0aab5;
 }
 
-/* line 55, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 55, ../sass/partials/_kerning.scss */
 #site-name a .char7 {
   margin-left: -0.017em;
   color: #708090;
 }
 
-/* line 59, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 59, ../sass/partials/_kerning.scss */
 #site-name a .char8 {
   margin-left: 0em;
   color: #708090;
 }
 
-/* line 63, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 63, ../sass/partials/_kerning.scss */
 #site-name a .char9 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 67, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 67, ../sass/partials/_kerning.scss */
 #site-name a .char10 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 71, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 71, ../sass/partials/_kerning.scss */
 #site-name a .char11 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 75, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 75, ../sass/partials/_kerning.scss */
 #site-name a .char12 {
   margin-left: -0.017em;
   color: #a0aab5;
 }
 
-/* line 79, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 79, ../sass/partials/_kerning.scss */
 #site-name a .char13 {
   margin-left: -0.033em;
   color: #a0aab5;
 }
 
-/* line 83, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 83, ../sass/partials/_kerning.scss */
 #site-name a .char14 {
   margin-left: -0.033em;
   color: #a0aab5;
 }
 
-/* line 87, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 87, ../sass/partials/_kerning.scss */
 #site-name a .char15 {
   margin-left: -0.033em;
   color: #708090;
 }
 
-/* line 91, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 91, ../sass/partials/_kerning.scss */
 #site-name a .char16 {
   margin-left: -0.011em;
   color: #708090;
 }
 
-/* line 113, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 113, ../sass/partials/_kerning.scss */
 .front h1.title .char1,
 .front h1.title .char2,
 .front h1.title .char3,
@@ -327,62 +327,62 @@ h1.title .word8 {
   color: #a0aab5;
 }
 
-/* line 117, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 117, ../sass/partials/_kerning.scss */
 .front h1.title .char13 {
   margin-left: -0.013em;
 }
 
-/* line 120, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 120, ../sass/partials/_kerning.scss */
 .front h1.title .char15 {
   margin-left: -0.013em;
 }
 
-/* line 123, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 123, ../sass/partials/_kerning.scss */
 .front h1.title .char17 {
   margin-left: -0.026em;
 }
 
-/* line 126, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 126, ../sass/partials/_kerning.scss */
 .front h1.title .char19 {
   margin-left: 0em;
 }
 
-/* line 129, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 129, ../sass/partials/_kerning.scss */
 .front h1.title .char20 {
   margin-left: -0.013em;
 }
 
-/* line 132, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 132, ../sass/partials/_kerning.scss */
 .front h1.title .char21 {
   margin-left: -0.013em;
 }
 
-/* line 135, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 135, ../sass/partials/_kerning.scss */
 .front h1.title .char22 {
   margin-left: -0.013em;
 }
 
-/* line 138, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 138, ../sass/partials/_kerning.scss */
 .front h1.title .char23 {
   margin-left: -0.013em;
 }
 
-/* line 141, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 141, ../sass/partials/_kerning.scss */
 .front h1.title .char24 {
   margin-left: -0.026em;
 }
 
-/* line 144, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 144, ../sass/partials/_kerning.scss */
 .front h1.title .char25 {
   margin-left: 0em;
 }
 
-/* line 147, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 147, ../sass/partials/_kerning.scss */
 .front h1.title .char26 {
   margin-left: -0.026em;
 }
 
-/* line 150, /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/partials/_kerning.scss */
+/* line 150, ../sass/partials/_kerning.scss */
 .front h1.title .char27 {
   margin-left: 0em;
 }
@@ -798,7 +798,7 @@ a.uc_signup_edit_info,
   text-shadow: #c1c8cf 0 1px 0;
   padding: 0.5em 1.5em !important;
 }
-/* line 11, /Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+/* line 11, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
 input[type="submit"]:hover,
 .uc_signup_previous:hover,
 #continue-shopping-link a:hover,
@@ -859,7 +859,7 @@ input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue
   color: #111111;
   text-shadow: #b2f0a4 0 1px 0;
 }
-/* line 11, /Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+/* line 11, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
 input[type="submit"]#edit-submit:hover, #edit-submit-5:hover, #edit-checkout:hover, #edit-continue:hover {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cef5c5), color-stop(3%, #71e457), color-stop(75%, #31a116));
   background: -webkit-linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
@@ -899,7 +899,7 @@ input[type="submit"]#edit-items-0-remove {
   color: #111111;
   text-shadow: #f66e6e 0 1px 0;
 }
-/* line 11, /Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+/* line 11, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
 input[type="submit"]#edit-items-0-remove:hover {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcc7c7), color-stop(3%, #f44f4f), color-stop(75%, #dd2121));
   background: -webkit-linear-gradient(#fcc7c7, #f44f4f 3%, #dd2121 75%);
@@ -1280,6 +1280,9 @@ tr.even, tr.odd {
 
 /* line 552, ../sass/global.scss */
 #uc-signup-attendees-form {
+  text-shadow: none;
+  letter-spacing: 0em;
+  color: #000;
   clear: both;
   width: 460px;
   padding: 10px 10px 10px 10px;
@@ -1297,47 +1300,48 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 559, ../sass/global.scss */
+/* line 562, ../sass/global.scss */
 #uc-signup-attendees-form .submit-button {
   text-align: right;
 }
-/* line 564, ../sass/global.scss */
+/* line 567, ../sass/global.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   float: left;
   margin: 2px 0 0 0;
 }
-/* line 568, ../sass/global.scss */
+/* line 571, ../sass/global.scss */
 #uc-signup-attendees-form fieldset {
   margin: 0em 0 .5em 0;
 }
-/* line 571, ../sass/global.scss */
+/* line 575, ../sass/global.scss */
 #uc-signup-attendees-form fieldset legend {
+  font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 0em .5em .25em .5em;
   font-size: 20px;
 }
-/* line 574, ../sass/global.scss */
+/* line 579, ../sass/global.scss */
 #uc-signup-attendees-form fieldset legend a {
   padding: 0;
   font-size: 20px;
   background-image: none;
 }
-/* line 580, ../sass/global.scss */
+/* line 585, ../sass/global.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
-/* line 584, ../sass/global.scss */
+/* line 589, ../sass/global.scss */
 #uc-signup-attendees-form .uc_signup_needs_account {
   padding: 0;
   background: none;
   border: none;
 }
 
-/* line 589, ../sass/global.scss */
+/* line 594, ../sass/global.scss */
 #uc-cart-checkout-form {
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-/* line 591, ../sass/global.scss */
+/* line 596, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   float: left;
   width: 260px;
@@ -1357,32 +1361,32 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 599, ../sass/global.scss */
+/* line 604, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_user_events {
   color: #aaa;
 }
-/* line 602, ../sass/global.scss */
+/* line 607, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 606, ../sass/global.scss */
+/* line 611, ../sass/global.scss */
 #uc-cart-checkout-form fieldset {
   margin: 0em 0 2.5em 0;
 }
-/* line 609, ../sass/global.scss */
+/* line 614, ../sass/global.scss */
 #uc-cart-checkout-form fieldset legend {
   margin: 0em .5em .5em 0em;
   padding: 0em .5em .5em 0em;
   font-size: 20px;
 }
-/* line 613, ../sass/global.scss */
+/* line 618, ../sass/global.scss */
 #uc-cart-checkout-form fieldset legend a {
   margin: 0em .5em .5em 0em;
   padding: 0;
   font-size: 20px;
   background-image: none;
 }
-/* line 620, ../sass/global.scss */
+/* line 625, ../sass/global.scss */
 #uc-cart-checkout-form .field-label {
   padding: .3em;
   vertical-align: top;
@@ -1390,24 +1394,24 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 627, ../sass/global.scss */
+/* line 632, ../sass/global.scss */
 #uc-cart-checkout-form select {
   padding: 0.4em 0;
   font-size: 1em;
 }
-/* line 631, ../sass/global.scss */
+/* line 636, ../sass/global.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 634, ../sass/global.scss */
+/* line 639, ../sass/global.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 637, ../sass/global.scss */
+/* line 642, ../sass/global.scss */
 #uc-cart-checkout-form .description {
   margin: 0em 0 1em 0;
 }
-/* line 640, ../sass/global.scss */
+/* line 645, ../sass/global.scss */
 #uc-cart-checkout-form #line-items-div {
   padding: .5em 1em;
   border: none !important;
@@ -1428,7 +1432,7 @@ tr.even, tr.odd {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   color: #aaa;
 }
-/* line 650, ../sass/global.scss */
+/* line 655, ../sass/global.scss */
 #uc-cart-checkout-form table.cart-review {
   margin: 0em 0 1em 0;
   -moz-border-radius: 8px;
@@ -1445,7 +1449,7 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 656, ../sass/global.scss */
+/* line 661, ../sass/global.scss */
 #uc-cart-checkout-form thead th {
   padding: .5em 1em;
   border: none;
@@ -1454,47 +1458,47 @@ tr.even, tr.odd {
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
   color: #aaa;
 }
-/* line 664, ../sass/global.scss */
+/* line 669, ../sass/global.scss */
 #uc-cart-checkout-form tbody {
   margin: .5em 1em;
 }
-/* line 668, ../sass/global.scss */
+/* line 673, ../sass/global.scss */
 #uc-cart-checkout-form tr.even td, #uc-cart-checkout-form tr.odd td {
   padding: .5em 1em .5em .5em;
   font-size: 1.2em;
 }
-/* line 672, ../sass/global.scss */
+/* line 677, ../sass/global.scss */
 #uc-cart-checkout-form tr.even .products, #uc-cart-checkout-form tr.even .qty, #uc-cart-checkout-form tr.odd .products, #uc-cart-checkout-form tr.odd .qty {
   color: #eeeeee;
 }
-/* line 677, ../sass/global.scss */
+/* line 682, ../sass/global.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 682, ../sass/global.scss */
+/* line 687, ../sass/global.scss */
 #uc-cart-checkout-form tbody .subtotal {
   color: #999;
 }
-/* line 685, ../sass/global.scss */
+/* line 690, ../sass/global.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 690, ../sass/global.scss */
+/* line 695, ../sass/global.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 696, ../sass/global.scss */
+/* line 701, ../sass/global.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 701, ../sass/global.scss */
+/* line 706, ../sass/global.scss */
 .order-review-table {
   width: 480px;
   margin: 0em 0 1em 0;
@@ -1515,49 +1519,49 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 710, ../sass/global.scss */
+/* line 715, ../sass/global.scss */
 .order-review-table td {
   padding: .5em 1em .5em .5em;
   vertical-align: top;
 }
-/* line 713, ../sass/global.scss */
+/* line 718, ../sass/global.scss */
 .order-review-table td.title-col {
   color: #aaa;
   padding-left: 1em;
   font-weight: bold;
   text-align: right;
 }
-/* line 719, ../sass/global.scss */
+/* line 724, ../sass/global.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 723, ../sass/global.scss */
+/* line 728, ../sass/global.scss */
 .order-review-table .pane-title-row {
   border: none;
   background: none;
   color: #ccc;
 }
-/* line 728, ../sass/global.scss */
+/* line 733, ../sass/global.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 731, ../sass/global.scss */
+/* line 736, ../sass/global.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 734, ../sass/global.scss */
+/* line 739, ../sass/global.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 740, ../sass/global.scss */
+/* line 745, ../sass/global.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 749, ../sass/global.scss */
+/* line 754, ../sass/global.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -1581,41 +1585,41 @@ tr.even, tr.odd {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 758, ../sass/global.scss */
+/* line 763, ../sass/global.scss */
 .order-pane {
   border: none;
 }
-/* line 762, ../sass/global.scss */
+/* line 767, ../sass/global.scss */
 .order-pane thead {
   background: none;
   border: none;
 }
-/* line 764, ../sass/global.scss */
+/* line 769, ../sass/global.scss */
 .order-pane thead th {
   background: none;
   border: none;
 }
-/* line 768, ../sass/global.scss */
+/* line 773, ../sass/global.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
-/* line 770, ../sass/global.scss */
+/* line 775, ../sass/global.scss */
 .order-pane tr td, .order-pane tr.even td, .order-pane tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 775, ../sass/global.scss */
+/* line 780, ../sass/global.scss */
 .order-pane-title {
   color: #aaa;
 }
 
-/* line 778, ../sass/global.scss */
+/* line 783, ../sass/global.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 782, ../sass/global.scss */
+/* line 787, ../sass/global.scss */
 #order-pane-products,
 #order-pane-line_items {
   margin: 0;
@@ -1625,7 +1629,7 @@ tr.even, tr.odd {
   line-height: 1.5em;
   color: #eeeeee;
 }
-/* line 789, ../sass/global.scss */
+/* line 794, ../sass/global.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -1637,7 +1641,7 @@ tr.even, tr.odd {
 }
 
 @media only screen and (min-width : 240px) and (max-width : 767px) {
-  /* line 797, ../sass/global.scss */
+  /* line 802, ../sass/global.scss */
   body {
     background-image: url("../images/background_retaining_wall-480.png");
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(100px, rgba(35, 32, 30, 0.75)), color-stop(250px, rgba(35, 32, 30, 0.15)), color-stop(400px, rgba(128, 116, 107, 0.15)), color-stop(95%, rgba(128, 116, 107, 0))), url("../images/background_retaining_wall-480.png");
@@ -1653,27 +1657,27 @@ tr.even, tr.odd {
 /* Smartphones (portrait and landscape) ----------- */
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width : 480px) {
-  /* line 812, ../sass/global.scss */
+  /* line 817, ../sass/global.scss */
   h1#site-name {
     font-size: 7.2em;
   }
 
-  /* line 815, ../sass/global.scss */
+  /* line 820, ../sass/global.scss */
   #sidebar-first {
     border: solid;
   }
-  /* line 817, ../sass/global.scss */
+  /* line 822, ../sass/global.scss */
   #sidebar-first.nested {
     float: none;
   }
-  /* line 820, ../sass/global.scss */
+  /* line 825, ../sass/global.scss */
   #sidebar-first .grid-3 {
     width: 100% !important;
   }
 }
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-  /* line 829, ../sass/global.scss */
+  /* line 834, ../sass/global.scss */
   h1#site-name {
     font-size: 5em;
   }
