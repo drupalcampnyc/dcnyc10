@@ -160,6 +160,34 @@ h1.title {
   } 
 }
 
+
+// Userbar Last
+#userbar-last {
+
+  #block-menu-menu-quick-links {
+  @include suckerfish-menu-corners;
+  @include background-image(linear-gradient(rgba(0,0,0,.75) 20%, rgba(0,0,0,.5) 65%, rgba(0,0,0,.35) 85%));
+    .menu {
+      display:inline;
+      margin:0;
+      padding:.5em 0;
+      li {
+        display:block;
+        float:left;
+        padding:.5em;
+        font-size:1.2em;
+        line-height:1.5em;
+        list-style:none;
+        a {
+        &.active, &:hover {
+          
+          color:$menu-active-link-color;
+          }
+        }
+      }      
+    }
+  }
+}
 // Content Area
 #content-group {
   @include maintext-text-shadow;

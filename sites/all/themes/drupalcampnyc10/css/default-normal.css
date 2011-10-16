@@ -704,3 +704,22 @@ h1.title {
   padding: 0.5em;
   vertical-align: top;
 }
+
+/* line 422, ../sass/default-normal.scss */
+#view-id-cod_schedule-page_1 th {
+  font-size: 1.334em;
+  background: none;
+  border: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  padding: 0.5em;
+}
+/* line 429, ../sass/default-normal.scss */
+#view-id-cod_schedule-page_1 tbody td {
+  padding: 0.5em;
+  vertical-align: top;
+}

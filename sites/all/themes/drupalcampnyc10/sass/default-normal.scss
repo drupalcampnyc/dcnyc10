@@ -413,7 +413,25 @@ h1.title {
     }
   }
 }
- 
+#view-id-cod_schedule-page_1 { 
+  thead {
+    tr {
+      
+    } 
+  }
+  th {
+    font-size:1.334em;
+    @include border-background-reset;
+    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+    padding:0.5em;
+  }
+  tbody {
+    td {
+       padding:0.5em;
+       vertical-align:top;
+    }
+  }
+} 
 .buy-tickets {
   
 }
