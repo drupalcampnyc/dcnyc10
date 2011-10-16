@@ -14,6 +14,10 @@
  * Implementation of hook_menu().
  */
 function dcny_uc_forms_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form);
+//dpm($form_state);
+//dpm($form_id);
+
   switch ($form_id) {
     case 'uc_signup_attendees_form':
       $form['5']['#title'] = 'DrupalCampNYC 10';
@@ -27,7 +31,9 @@ function dcny_uc_forms_form_alter(&$form, &$form_state, $form_id) {
       $form['instructions']['#value'] = '<p>'. $copy . '</p>';
       
       break;
-    
+    case 'search_block_form';
+      unset($form['search_block_form']['#title']);
+      //$form['search_block_form']['#value'] = t('search');  
     default:
       # code...
       break;

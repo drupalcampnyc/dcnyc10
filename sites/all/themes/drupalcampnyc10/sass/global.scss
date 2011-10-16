@@ -274,6 +274,9 @@ h1.title {
     }
   }
 }
+#block-search-0 {
+  float:right;
+}
 
 // Forms And Buttons
 
@@ -319,7 +322,7 @@ input[type="password"] {
   border:none;
   @include border-radius(8px);
   @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
-  line-height:1.25em;
+  line-height:1.5em;
   font-size:1.1em;
 }
 label {
