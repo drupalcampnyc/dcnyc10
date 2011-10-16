@@ -723,3 +723,8 @@ h1.title {
   padding: 0.5em;
   vertical-align: top;
 }
+
+/* line 435, ../sass/default-normal.scss */
+.uc_signup_edit_info {
+  text-shadow: none;
+}

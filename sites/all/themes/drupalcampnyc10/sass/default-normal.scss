@@ -431,7 +431,10 @@ h1.title {
        vertical-align:top;
     }
   }
-} 
+}
+.uc_signup_edit_info {
+ @include text-shadow(none); 
+ }
 .buy-tickets {
   
 }

@@ -284,6 +284,7 @@ input[type="submit"],
 #continue-shopping-link a,
 a.uc_signup_edit_info,
 .order-pane a {
+  @include text-shadow(none);
   @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
   padding: 0.5em 1.5em !important;   
 }
@@ -291,6 +292,7 @@ a.uc_signup_previous,
 #continue-shopping-link a,
 a.uc_signup_edit_info,
 .order-pane a, {
+  @include text-shadow(none);
   font-family: $form-font;
   font-weight: bold;
   color:#111;
@@ -300,7 +302,7 @@ a.uc_signup_edit_info,
 }
 // Forms Elements
 // Primary Style  Green
-input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue  {
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44  {
   @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
 }
 // Remove Items Style RED
@@ -340,6 +342,10 @@ textarea {
   padding:.5em .5em;
   max-width:38em !important;
   margin:.5em 0 1em 0;
+}
+
+fieldset.collapsible .resizable-textarea .grippie {
+ max-width:39em !important;
 }
 select, option {
   font-family: $form-font;
