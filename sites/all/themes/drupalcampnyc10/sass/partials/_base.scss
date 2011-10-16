@@ -24,7 +24,7 @@ $heading-link-color-visited: desaturate($heading-link-color, 20%);
 
 $menu-link-color: #e5aa20;
 $menu-active-link-color: #eee;
-$menu-link-color-over: saturate($menu-link-color, 10%);
+$menu-link-color-over: lighten($menu-link-color, 20%);
 $menu-link-color-visited: desaturate($menu-link-color, 20%);
 
 $heading-color-1:rgba(#a0aab5, 1);
@@ -61,7 +61,7 @@ $header-dark-gradient-color: #23201e;
   @include text-shadow( 0px 1px 1px rgba(205,205,205,.5)); 
 }
 @mixin maintext-link-shadow {
-  @include text-shadow(-1px -1px 1px rgba(0,0,0,.25), 0px 1px 1px rgba(205,205,205,.25)); 
+  @include text-shadow(-1px -1px 0px rgba(0,0,0,.25)); 
 }
 @mixin rgba-background($color, $opacity) {
   position: relative;

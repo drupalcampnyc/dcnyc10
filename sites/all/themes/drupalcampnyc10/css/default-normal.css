@@ -195,7 +195,7 @@ h1#site-name {
 #header-group {
   padding: 0 0 0px 0;
   background-image: url("../images/birds-transparent.png");
-  background-position: -138px 100px;
+  background-position: left bottom;
   background-repeat: repeat-x;
 }
 
