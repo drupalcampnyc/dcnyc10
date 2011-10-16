@@ -386,6 +386,26 @@ tr.even, tr.odd {
 .float-right {
   float:right;
 }
+
+// User page
+
+.password-strength, 
+.password-confirm {
+  margin:0em .5em .25em .5em;
+  .ok, .error {
+    @include reg-text-shadow; 
+  }
+}
+.profile dt {
+ width:50%;
+ margin:1em 0 1em 0;
+}
+
+.profile h3 {
+  margin:1em 0 1em 0;
+  clear:left;
+  @include border-background-reset;
+}
 // replace background images
 .replace {
   position:relative;
@@ -858,13 +878,78 @@ tr.even, tr.odd {
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
   }
 }
-.buy-tickets {
-  
+
+#content-group a.buy-tickets { 
+  font-size: 2em;
+  letter-spacing:.05em;
+  display: inline-block;
+  position:relative;
+  padding: .7em;
+  padding-left: 1.75em;
+  margin: 0 .5em .5em 1.5em;
+  background: #6ba135;
+  color: rgba(255,255,255,.8);
+  text-decoration:none;
+  font-family: $heading-font;
+  &:hover {  
+    background:#b30;
+    color: rgba(255,255,255,.8);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index:1;
+
+      //@include background-image(radial-gradient(.6em .6em, white .55em, rgba(255,255,255,0) .6em) -.6em -.6em,
+      //radial-gradient(1em 50%, white .35em, rgba(255,255,255,0) .4em), 
+      //radial-gradient(1em 47%,  rgba(0,0,0,.4) .4em, rgba(255,255,255,0)  .43em));
+      background: -moz-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -moz-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+                  -moz-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
+      background: -o-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -o-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+                  -o-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
+      background: -ms-radial-gradient(.6em .6em, circle,$page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -ms-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+                  -ms-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .3em, transparent .33em);
+      background: -webkit-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -webkit-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+                  -webkit-radial-gradient(1em 48%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
+    }
+  &:after {
+    content: '';
+    position:absolute;
+    top:.25em;
+    right:.25em;
+    bottom:.25em;
+    left:.25em;
+    border: 1px rgba(0,0,0,.3) dashed;
+    outline: 1px rgba(255,255,255,.5) dashed;
+  }
 }
+.homepage-tickets {
+  background: url('../images/drupigeon-no-number.png');
+  background-repeat:no-repeat;
+  float:right;
+  padding:214px 0 0 0;
+  margin:0 10px 0 0;
+  width:280px;
+  z-index:2;
+  display: block;
+  position:relative;
+  top: 0px; 
+  left: 0px;
+}
+
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
     background-image:$page-background-image-480;
-    @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 100px, rgba($header-dark-gradient-color,.15) 250px, rgba($header-light-gradient-color,.15) 400px, rgba($header-light-gradient-color,.0) 95%),$page-background-image-480);
+    @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 100px, rgba($header-dark-gradient-color,.15) 250px, rgba($header-light-gradient-color,.15) 400px, rgba($header-light-gradient-color,.0) 95%), $page-background-image-480);
     background-position: top center,top center;
     background-repeat:no-repeat, repeat;
   }
@@ -881,7 +966,6 @@ tr.even, tr.odd {
     font-size: 7.2em;
   }
   #sidebar-first {
-    border:solid;
     &.nested {
       float:none;
     }

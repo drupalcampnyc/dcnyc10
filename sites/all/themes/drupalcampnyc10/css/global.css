@@ -1090,7 +1090,33 @@ tr.even, tr.odd {
   float: right;
 }
 
-/* line 390, ../sass/global.scss */
+/* line 393, ../sass/global.scss */
+.password-strength,
+.password-confirm {
+  margin: 0em .5em .25em .5em;
+}
+/* line 395, ../sass/global.scss */
+.password-strength .ok, .password-strength .error,
+.password-confirm .ok,
+.password-confirm .error {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
+}
+
+/* line 399, ../sass/global.scss */
+.profile dt {
+  width: 50%;
+  margin: 1em 0 1em 0;
+}
+
+/* line 404, ../sass/global.scss */
+.profile h3 {
+  margin: 1em 0 1em 0;
+  clear: left;
+  background: none;
+  border: none;
+}
+
+/* line 410, ../sass/global.scss */
 .replace {
   position: relative;
   overflow: hidden;
@@ -1098,7 +1124,7 @@ tr.even, tr.odd {
   padding: 0;
 }
 
-/* line 396, ../sass/global.scss */
+/* line 416, ../sass/global.scss */
 .replace em {
   display: block;
   position: absolute;
@@ -1107,7 +1133,7 @@ tr.even, tr.odd {
   z-index: 1;
 }
 
-/* line 405, ../sass/global.scss */
+/* line 425, ../sass/global.scss */
 #block-countdown-0 {
   margin: -8px 0 0 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -1115,13 +1141,13 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #708090;
 }
-/* line 411, ../sass/global.scss */
+/* line 431, ../sass/global.scss */
 #block-countdown-0 em {
   margin: 0 0 -40px 0;
   font-style: normal;
   line-height: 1em;
 }
-/* line 416, ../sass/global.scss */
+/* line 436, ../sass/global.scss */
 #block-countdown-0 span {
   display: block;
   position: relative;
@@ -1131,76 +1157,76 @@ tr.even, tr.odd {
   line-height: 1.125em;
 }
 
-/* line 425, ../sass/global.scss */
+/* line 445, ../sass/global.scss */
 #sidebar-last {
   margin: -3px 0 0 0;
 }
 
-/* line 429, ../sass/global.scss */
+/* line 449, ../sass/global.scss */
 #block-block-1 {
   margin: 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #708090;
 }
-/* line 434, ../sass/global.scss */
+/* line 454, ../sass/global.scss */
 #block-block-1 h3 {
   margin: 0;
   line-height: 1em;
 }
-/* line 438, ../sass/global.scss */
+/* line 458, ../sass/global.scss */
 #block-block-1 p {
   margin: 0;
   line-height: 1em;
   text-align: justify;
   color: #a0aab5;
 }
-/* line 444, ../sass/global.scss */
+/* line 464, ../sass/global.scss */
 #block-block-1.block {
   margin: 0;
 }
 
-/* line 448, ../sass/global.scss */
+/* line 468, ../sass/global.scss */
 #block-block-2 {
   margin: 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #a0aab5;
 }
-/* line 453, ../sass/global.scss */
+/* line 473, ../sass/global.scss */
 #block-block-2 h3 {
   margin: 0;
   line-height: .9em;
 }
-/* line 456, ../sass/global.scss */
+/* line 476, ../sass/global.scss */
 #block-block-2 h3 a {
   color: #a0aab5;
 }
-/* line 460, ../sass/global.scss */
+/* line 480, ../sass/global.scss */
 #block-block-2 p {
   margin: 10px 0 0 0;
   line-height: 1em;
   text-align: justify;
   color: #708090;
 }
-/* line 465, ../sass/global.scss */
+/* line 485, ../sass/global.scss */
 #block-block-2 p span {
   line-height: .9em;
 }
-/* line 468, ../sass/global.scss */
+/* line 488, ../sass/global.scss */
 #block-block-2 p a {
   color: #708090;
 }
-/* line 472, ../sass/global.scss */
+/* line 492, ../sass/global.scss */
 #block-block-2.block {
   margin: 0;
 }
 
-/* line 476, ../sass/global.scss */
+/* line 496, ../sass/global.scss */
 #block-block-3 {
   margin: 0;
 }
-/* line 478, ../sass/global.scss */
+/* line 498, ../sass/global.scss */
 #block-block-3 h2 {
   margin: 4px 0 0 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -1208,48 +1234,48 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #a0aab5;
 }
-/* line 485, ../sass/global.scss */
+/* line 505, ../sass/global.scss */
 #block-block-3.block {
   margin: 0;
 }
-/* line 488, ../sass/global.scss */
+/* line 508, ../sass/global.scss */
 #block-block-3 ul {
   display: block;
   margin: 10px 0 0 0;
 }
-/* line 491, ../sass/global.scss */
+/* line 511, ../sass/global.scss */
 #block-block-3 ul li {
   list-style: none;
 }
-/* line 493, ../sass/global.scss */
+/* line 513, ../sass/global.scss */
 #block-block-3 ul li a {
   display: block;
   margin: 0 8px 0 0;
   text-indent: -1000em;
 }
-/* line 497, ../sass/global.scss */
+/* line 517, ../sass/global.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
   background: url("../images/social-media-icons.png");
   background-position: 0 0;
 }
-/* line 504, ../sass/global.scss */
+/* line 524, ../sass/global.scss */
 #block-block-3 ul li.twitter em {
   background-position: 0 0;
 }
-/* line 507, ../sass/global.scss */
+/* line 527, ../sass/global.scss */
 #block-block-3 ul li.gdo em {
   background-position: 45px 0;
 }
 
-/* line 513, ../sass/global.scss */
+/* line 533, ../sass/global.scss */
 #block-block-4 {
   float: right;
   width: 350px;
 }
 
-/* line 518, ../sass/global.scss */
+/* line 538, ../sass/global.scss */
 #block-mailing_list-1 h2, #block-block-5 h2 {
   margin: 8px 0 0 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -1257,7 +1283,7 @@ tr.even, tr.odd {
   color: #a0aab5;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
 }
-/* line 525, ../sass/global.scss */
+/* line 545, ../sass/global.scss */
 #block-mailing_list-1 label, #block-block-5 label {
   margin: 0 0 0 6px;
   line-height: 1.5em;
@@ -1265,7 +1291,7 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 532, ../sass/global.scss */
+/* line 552, ../sass/global.scss */
 #block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -1281,14 +1307,14 @@ tr.even, tr.odd {
   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.95);
   line-height: 1.25em;
 }
-/* line 538, ../sass/global.scss */
+/* line 558, ../sass/global.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   -moz-box-shadow: 0px 0px 5px #333333;
   -webkit-box-shadow: 0px 0px 5px #333333;
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 541, ../sass/global.scss */
+/* line 561, ../sass/global.scss */
 #block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
   border: none;
   -moz-border-radius: 8px;
@@ -1307,7 +1333,7 @@ tr.even, tr.odd {
   color: rgba(30, 35, 39, 0.9);
   background: #a0aab5;
 }
-/* line 551, ../sass/global.scss */
+/* line 571, ../sass/global.scss */
 #block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
   border: none;
   -moz-border-radius: 8px;
@@ -1323,7 +1349,7 @@ tr.even, tr.odd {
   line-height: 1.25em;
 }
 
-/* line 561, ../sass/global.scss */
+/* line 581, ../sass/global.scss */
 #cart-form-products {
   padding: 1em;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -1340,7 +1366,7 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 566, ../sass/global.scss */
+/* line 586, ../sass/global.scss */
 #cart-form-products thead th {
   padding: .5em 1em;
   font-size: 1.2em;
@@ -1350,38 +1376,38 @@ tr.even, tr.odd {
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
   color: #aaa;
 }
-/* line 574, ../sass/global.scss */
+/* line 594, ../sass/global.scss */
 #cart-form-products td {
   padding: .5em 1em .5em .5em;
 }
-/* line 577, ../sass/global.scss */
+/* line 597, ../sass/global.scss */
 #cart-form-products tbody .desc, #cart-form-products tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 582, ../sass/global.scss */
+/* line 602, ../sass/global.scss */
 #cart-form-products tbody .subtotal {
   color: #999;
 }
-/* line 587, ../sass/global.scss */
+/* line 607, ../sass/global.scss */
 #cart-form-products #edit-items-0-qty {
   font-size: 1em;
   line-height: 1.5em;
   text-align: center;
 }
 
-/* line 595, ../sass/global.scss */
+/* line 615, ../sass/global.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 600, ../sass/global.scss */
+/* line 620, ../sass/global.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 602, ../sass/global.scss */
+/* line 622, ../sass/global.scss */
 #product-details .uc-price-display {
   margin: 0 1em 0 0;
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -1390,12 +1416,12 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #a0aab5;
 }
-/* line 610, ../sass/global.scss */
+/* line 630, ../sass/global.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 615, ../sass/global.scss */
+/* line 635, ../sass/global.scss */
 #uc-signup-attendees-form {
   text-shadow: none;
   letter-spacing: 0em;
@@ -1417,48 +1443,48 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 625, ../sass/global.scss */
+/* line 645, ../sass/global.scss */
 #uc-signup-attendees-form .submit-button {
   text-align: right;
 }
-/* line 630, ../sass/global.scss */
+/* line 650, ../sass/global.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   float: left;
   margin: 2px 0 0 0;
 }
-/* line 634, ../sass/global.scss */
+/* line 654, ../sass/global.scss */
 #uc-signup-attendees-form fieldset {
   margin: 0em 0 .5em 0;
 }
-/* line 638, ../sass/global.scss */
+/* line 658, ../sass/global.scss */
 #uc-signup-attendees-form fieldset legend {
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 0em .5em .25em .5em;
   font-size: 20px;
 }
-/* line 642, ../sass/global.scss */
+/* line 662, ../sass/global.scss */
 #uc-signup-attendees-form fieldset legend a {
   padding: 0;
   font-size: 20px;
   background-image: none;
 }
-/* line 648, ../sass/global.scss */
+/* line 668, ../sass/global.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
-/* line 652, ../sass/global.scss */
+/* line 672, ../sass/global.scss */
 #uc-signup-attendees-form .uc_signup_needs_account {
   padding: 0;
   background: none;
   border: none;
 }
 
-/* line 657, ../sass/global.scss */
+/* line 677, ../sass/global.scss */
 #uc-cart-checkout-form {
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-/* line 659, ../sass/global.scss */
+/* line 679, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   float: left;
   width: 260px;
@@ -1478,32 +1504,32 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 667, ../sass/global.scss */
+/* line 687, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_user_events {
   color: #aaa;
 }
-/* line 670, ../sass/global.scss */
+/* line 690, ../sass/global.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 674, ../sass/global.scss */
+/* line 694, ../sass/global.scss */
 #uc-cart-checkout-form fieldset {
   margin: 0em 0 2.5em 0;
 }
-/* line 677, ../sass/global.scss */
+/* line 697, ../sass/global.scss */
 #uc-cart-checkout-form fieldset legend {
   margin: 0em .5em .5em 0em;
   padding: 0em .5em .5em 0em;
   font-size: 20px;
 }
-/* line 681, ../sass/global.scss */
+/* line 701, ../sass/global.scss */
 #uc-cart-checkout-form fieldset legend a {
   margin: 0em .5em .5em 0em;
   padding: 0;
   font-size: 20px;
   background-image: none;
 }
-/* line 688, ../sass/global.scss */
+/* line 708, ../sass/global.scss */
 #uc-cart-checkout-form .field-label {
   padding: .3em;
   vertical-align: top;
@@ -1511,24 +1537,24 @@ tr.even, tr.odd {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 695, ../sass/global.scss */
+/* line 715, ../sass/global.scss */
 #uc-cart-checkout-form select {
   padding: 0.4em 0;
   font-size: 1em;
 }
-/* line 699, ../sass/global.scss */
+/* line 719, ../sass/global.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 702, ../sass/global.scss */
+/* line 722, ../sass/global.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 705, ../sass/global.scss */
+/* line 725, ../sass/global.scss */
 #uc-cart-checkout-form .description {
   margin: 0em 0 1em 0;
 }
-/* line 708, ../sass/global.scss */
+/* line 728, ../sass/global.scss */
 #uc-cart-checkout-form #line-items-div {
   padding: .5em 1em;
   border: none !important;
@@ -1549,7 +1575,7 @@ tr.even, tr.odd {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   color: #aaa;
 }
-/* line 718, ../sass/global.scss */
+/* line 738, ../sass/global.scss */
 #uc-cart-checkout-form table.cart-review {
   margin: 0em 0 1em 0;
   -moz-border-radius: 8px;
@@ -1566,7 +1592,7 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 724, ../sass/global.scss */
+/* line 744, ../sass/global.scss */
 #uc-cart-checkout-form thead th {
   padding: .5em 1em;
   border: none;
@@ -1575,47 +1601,47 @@ tr.even, tr.odd {
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
   color: #aaa;
 }
-/* line 732, ../sass/global.scss */
+/* line 752, ../sass/global.scss */
 #uc-cart-checkout-form tbody {
   margin: .5em 1em;
 }
-/* line 736, ../sass/global.scss */
+/* line 756, ../sass/global.scss */
 #uc-cart-checkout-form tr.even td, #uc-cart-checkout-form tr.odd td {
   padding: .5em 1em .5em .5em;
   font-size: 1.2em;
 }
-/* line 740, ../sass/global.scss */
+/* line 760, ../sass/global.scss */
 #uc-cart-checkout-form tr.even .products, #uc-cart-checkout-form tr.even .qty, #uc-cart-checkout-form tr.odd .products, #uc-cart-checkout-form tr.odd .qty {
   color: #eeeeee;
 }
-/* line 745, ../sass/global.scss */
+/* line 765, ../sass/global.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 750, ../sass/global.scss */
+/* line 770, ../sass/global.scss */
 #uc-cart-checkout-form tbody .subtotal {
   color: #999;
 }
-/* line 753, ../sass/global.scss */
+/* line 773, ../sass/global.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 758, ../sass/global.scss */
+/* line 778, ../sass/global.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 764, ../sass/global.scss */
+/* line 784, ../sass/global.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 769, ../sass/global.scss */
+/* line 789, ../sass/global.scss */
 .order-review-table {
   width: 480px;
   margin: 0em 0 1em 0;
@@ -1636,49 +1662,49 @@ tr.even, tr.odd {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 778, ../sass/global.scss */
+/* line 798, ../sass/global.scss */
 .order-review-table td {
   padding: .5em 1em .5em .5em;
   vertical-align: top;
 }
-/* line 781, ../sass/global.scss */
+/* line 801, ../sass/global.scss */
 .order-review-table td.title-col {
   color: #aaa;
   padding-left: 1em;
   font-weight: bold;
   text-align: right;
 }
-/* line 787, ../sass/global.scss */
+/* line 807, ../sass/global.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 791, ../sass/global.scss */
+/* line 811, ../sass/global.scss */
 .order-review-table .pane-title-row {
   border: none;
   background: none;
   color: #ccc;
 }
-/* line 796, ../sass/global.scss */
+/* line 816, ../sass/global.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 799, ../sass/global.scss */
+/* line 819, ../sass/global.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 802, ../sass/global.scss */
+/* line 822, ../sass/global.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 808, ../sass/global.scss */
+/* line 828, ../sass/global.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 817, ../sass/global.scss */
+/* line 837, ../sass/global.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -1702,41 +1728,41 @@ tr.even, tr.odd {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 826, ../sass/global.scss */
+/* line 846, ../sass/global.scss */
 .order-pane {
   border: none;
 }
-/* line 830, ../sass/global.scss */
+/* line 850, ../sass/global.scss */
 .order-pane thead {
   background: none;
   border: none;
 }
-/* line 832, ../sass/global.scss */
+/* line 852, ../sass/global.scss */
 .order-pane thead th {
   background: none;
   border: none;
 }
-/* line 836, ../sass/global.scss */
+/* line 856, ../sass/global.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
-/* line 838, ../sass/global.scss */
+/* line 858, ../sass/global.scss */
 .order-pane tr td, .order-pane tr.even td, .order-pane tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 843, ../sass/global.scss */
+/* line 863, ../sass/global.scss */
 .order-pane-title {
   color: #aaa;
 }
 
-/* line 846, ../sass/global.scss */
+/* line 866, ../sass/global.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 850, ../sass/global.scss */
+/* line 870, ../sass/global.scss */
 #order-pane-products,
 #order-pane-line_items {
   margin: 0;
@@ -1746,7 +1772,7 @@ tr.even, tr.odd {
   line-height: 1.5em;
   color: #eeeeee;
 }
-/* line 857, ../sass/global.scss */
+/* line 877, ../sass/global.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -1757,8 +1783,68 @@ tr.even, tr.odd {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
+/* line 882, ../sass/global.scss */
+#content-group a.buy-tickets {
+  font-size: 2em;
+  letter-spacing: .05em;
+  display: inline-block;
+  position: relative;
+  padding: .7em;
+  padding-left: 1.75em;
+  margin: 0 .5em .5em 1.5em;
+  background: #6ba135;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+/* line 894, ../sass/global.scss */
+#content-group a.buy-tickets:hover {
+  background: #b30;
+  color: rgba(255, 255, 255, 0.8);
+}
+/* line 898, ../sass/global.scss */
+#content-group a.buy-tickets:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: -moz-radial-gradient(0.6em 0.6em, circle, #80746b 0.59em, rgba(255, 255, 255, 0) 0.6em) -0.6em -0.6em, -moz-radial-gradient(1em 50%, circle, #80746b 0.35em, rgba(255, 255, 255, 0.1) 0.3em), -moz-radial-gradient(1em 47%, circle, rgba(0, 0, 0, 0.4) 0.4em, transparent 0.43em);
+  background: -o-radial-gradient(0.6em 0.6em, circle, #80746b 0.59em, rgba(255, 255, 255, 0) 0.6em) -0.6em -0.6em, -o-radial-gradient(1em 50%, circle, #80746b 0.35em, rgba(255, 255, 255, 0.1) 0.3em), -o-radial-gradient(1em 47%, circle, rgba(0, 0, 0, 0.4) 0.4em, transparent 0.43em);
+  background: -ms-radial-gradient(0.6em 0.6em, circle, #80746b 0.59em, rgba(255, 255, 255, 0) 0.6em) -0.6em -0.6em, -ms-radial-gradient(1em 50%, circle, #80746b 0.35em, rgba(255, 255, 255, 0.1) 0.3em), -ms-radial-gradient(1em 47%, circle, rgba(0, 0, 0, 0.4) 0.3em, transparent 0.33em);
+  background: -webkit-radial-gradient(0.6em 0.6em, circle, #80746b 0.59em, rgba(255, 255, 255, 0) 0.6em) -0.6em -0.6em, -webkit-radial-gradient(1em 50%, circle, #80746b 0.35em, rgba(255, 255, 255, 0.1) 0.3em), -webkit-radial-gradient(1em 48%, circle, rgba(0, 0, 0, 0.4) 0.4em, transparent 0.43em);
+}
+/* line 923, ../sass/global.scss */
+#content-group a.buy-tickets:after {
+  content: '';
+  position: absolute;
+  top: .25em;
+  right: .25em;
+  bottom: .25em;
+  left: .25em;
+  border: 1px rgba(0, 0, 0, 0.3) dashed;
+  outline: 1px rgba(255, 255, 255, 0.5) dashed;
+}
+
+/* line 934, ../sass/global.scss */
+.homepage-tickets {
+  background: url("../images/drupigeon-no-number.png");
+  background-repeat: no-repeat;
+  float: right;
+  padding: 214px 0 0 0;
+  margin: 0 10px 0 0;
+  width: 280px;
+  z-index: 2;
+  display: block;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
-  /* line 865, ../sass/global.scss */
+  /* line 950, ../sass/global.scss */
   body {
     background-image: url("../images/background_retaining_wall-480.png");
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(100px, rgba(35, 32, 30, 0.75)), color-stop(250px, rgba(35, 32, 30, 0.15)), color-stop(400px, rgba(128, 116, 107, 0.15)), color-stop(95%, rgba(128, 116, 107, 0))), url("../images/background_retaining_wall-480.png");
@@ -1774,27 +1860,23 @@ tr.even, tr.odd {
 /* Smartphones (portrait and landscape) ----------- */
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width : 480px) {
-  /* line 880, ../sass/global.scss */
+  /* line 965, ../sass/global.scss */
   h1#site-name {
     font-size: 7.2em;
   }
 
-  /* line 883, ../sass/global.scss */
-  #sidebar-first {
-    border: solid;
-  }
-  /* line 885, ../sass/global.scss */
+  /* line 969, ../sass/global.scss */
   #sidebar-first.nested {
     float: none;
   }
-  /* line 888, ../sass/global.scss */
+  /* line 972, ../sass/global.scss */
   #sidebar-first .grid-3 {
     width: 100% !important;
   }
 }
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-  /* line 897, ../sass/global.scss */
+  /* line 981, ../sass/global.scss */
   h1#site-name {
     font-size: 5em;
   }
