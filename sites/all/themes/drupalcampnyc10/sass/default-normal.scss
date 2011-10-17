@@ -58,23 +58,15 @@ h1#site-name {
       float:left;
       margin:0;
       a {
-        display:block;
-        padding:.5em 2em;
-        line-height:1.1em; 
       }
     }   
   }
   .secondary {
-    clear:both;
-    margin:0 10px 0 0;
-    padding:10px 0 0 0;
+
     li {
-      padding:0;
+      
       @include border-background-reset;
       a {
-        padding:.5em 2em;
-        line-height:1.1em;     
-        letter-spacing:.15em;
       }
     }
   }

@@ -202,8 +202,11 @@ h1.title {
   @include maintext-text-shadow;
   letter-spacing:.066em;
   color:#111;
+  
   a { 
     @include maintext-link-shadow;
+    font-weight:500;
+    -webkit-font-smoothing: subpixel-antialiased;
   }
   font-size:1.33em;
   line-height:1.5em;  
@@ -240,11 +243,13 @@ h1.title {
       @include menu-text-shadow;
       &.active, &:hover {   
         a {
+          
          color:$menu-active-link-color; 
          background: darken($content-area-background,10);      
         }
       }
       a {
+        @include menu-text-shadow;
         display:block;
         padding:.5em 2em;
         @include tab-corners;
@@ -259,6 +264,7 @@ h1.title {
     clear:both;
     margin:0 10px 0 0;
     padding:10px 0 0 0;
+    max-width: 100%;
     @include border-background-reset;
     background: darken($content-area-background,10); 
     li {
@@ -270,7 +276,7 @@ h1.title {
       a {
         padding:.5em 2em;
         @include tab-corners;
-        line-height:1.1em;     
+        line-height:1.5em;     
         letter-spacing:.15em;
         @include menu-text-shadow;
         &.active, &:hover { 
@@ -291,7 +297,8 @@ input[type="submit"],
 .uc_signup_previous, 
 #continue-shopping-link a,
 a.uc_signup_edit_info,
-.order-pane a {
+.order-pane a,
+.comment_add a {
   @include text-shadow(none);
   @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
   padding: 0.5em 1.5em !important;   
@@ -299,8 +306,9 @@ a.uc_signup_edit_info,
 a.uc_signup_previous, 
 #continue-shopping-link a,
 a.uc_signup_edit_info,
-.order-pane a, {
-  @include text-shadow(none);
+.order-pane a,
+.comment_add a {
+  text-shadow: #C1C8CF 0 1px 0 !important;
   font-family: $form-font;
   font-weight: bold;
   color:#111;
@@ -603,6 +611,33 @@ tr.even, tr.odd {
   }
 }
 //Ubercart 
+#uc-order-history {
+  thead th {
+    padding: .5em 1em;
+    font-size:1.2em;
+    @include border-background-reset;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+    color:#aaa;
+  }
+  tr, tr.even, tr.odd {
+    @include border-background-reset;
+    
+  }
+
+}
+td, td.active  {
+  padding:.5em 1em .5em .5em;
+  @include border-background-reset; 
+}
+thead th, th.active  {
+  padding: .5em 1em;
+  font-size:1.2em;
+  @include border-background-reset;
+  letter-spacing: .05em;
+  @include menu-text-shadow;
+  color:#aaa; 
+}
 #cart-form-products {
   padding:1em;
   font-family: $form-font;
@@ -961,7 +996,7 @@ tr.even, tr.odd {
   //background: url('../images/drupigeon-no-number.png');
   //background-repeat:no-repeat;
   float:right;
-  margin:0 10px 0 0;
+  margin:0 0 0 10px;
   width:280px;
   img {
     position:relative;
