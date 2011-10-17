@@ -894,7 +894,7 @@ tr.even, tr.odd {
   position:relative;
   padding: .7em;
   padding-left: 1.75em;
-  margin: 0 .5em .5em 1.5em;
+  margin: -60px .5em .5em 1.5em;
   background: #6ba135;
   color: rgba(255,255,255,.8);
   text-decoration:none;
@@ -938,19 +938,20 @@ tr.even, tr.odd {
     border: 1px rgba(0,0,0,.3) dashed;
     outline: 1px rgba(255,255,255,.5) dashed;
   }
+  
 }
 .homepage-tickets {
-  background: url('../images/drupigeon-no-number.png');
-  background-repeat:no-repeat;
+  //background: url('../images/drupigeon-no-number.png');
+  //background-repeat:no-repeat;
   float:right;
-  padding:214px 0 0 0;
   margin:0 10px 0 0;
   width:280px;
-  z-index:2;
-  display: block;
-  position:relative;
-  top: 0px; 
-  left: 0px;
+  img {
+    position:relative;
+    top:6px;
+    right:0;
+    z-index:10;
+  }
 }
 
 
@@ -965,13 +966,19 @@ tr.even, tr.odd {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
+  h1#site-name {
+    margin:.25em;
+  }
+  #header-site-info.block {
+    margin:0;
+  }
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width : 480px) {
   h1#site-name {
     font-size: 7.2em;
+    margin:.25em;
   }
   #sidebar-first {
     &.nested {
@@ -980,14 +987,183 @@ tr.even, tr.odd {
     .grid-3 {
       width:100% !important;
     }
-    
   }
-}
+    #primary-menu {
+      @include content-group-corners;
+      ul {
+        margin:0;
+        padding:0;
+        
+        li {
+          a {
+            margin:0;
+            padding: .5em;
+            &.active, &:hover {
+              color:$menu-active-link-color;
+            }
+          }
+        }
+        ul {
+          display:none;
+          li {
+           display:none;   
+             a {
+              display:none;
+            }
+          } 
+        }
+      }
+    }
+    #sidebar-last {
+      &.nested {
+        float:none;
+      }
+      .grid-3 {
+        width:100% !important;
+      }
+    }
+    #content-group {
+      &.nested {
+        float:none;
+        overflow: visible;
+        margin:0 0 0 2% ;
+        width:93% !important;
+      } 
+      ul {
+        margin:1em 0;
+      }
+    }
+    h1.title {
+      font-size: 3em;
+    }
+    #edit-search-block-form-1 {
+      width:338px;
+      margin:0 5px 0 5px;
+    }
+  }
+
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
   h1#site-name {
+    margin: .1em ;
     font-size: 5em;
   }
+  #primary-menu {
+    @include content-group-corners;
+    ul {
+      margin:0;
+      padding:0;
+      font-size:1.5em;
+      li {
+        a {
+          margin:0;
+          padding: .5em;
+          &.active, &:hover {
+            color:$menu-active-link-color;
+          }
+        }
+      }
+      ul {
+        display:none;
+        li {
+         display:none;   
+           a {
+            display:none;
+          }
+        } 
+      }
+    }
+  }
+  #sidebar-last {
+    &.nested {
+      float:none;
+      width:100% !important;
+      padding:1em;
+    }
+    .grid-3 {
+      width:100% !important;
+    }
+  }
+  #content-group {
+    &.nested {
+      float:none;
+      overflow: visible;
+      margin:0 0 0 2% ;
+      width:93% !important;
+    } 
+    ul {
+      margin:0;
+    }
+  }
+  #block-countdown-0 {
+    margin:-8px 0 0 0; 
+    height:160px;
+    font-size:1em;
+    em {
+      font-size:14em;
+      line-height:1em;
+    }
+    span {
+      top:-160px;
+      left:120px;  
+      width:120px;
+      font-size:5.5em;
+    }
+  }
+  #block-block-1 {
+    font-size:1em;
+    h3 {
+      font-size:7.5em;
+    }
+    p {
+      font-size:5.7em;
+    }
+  }
+  #block-block-2 {
+    font-size:1em;
+    h3 {
+      font-size:8.25em;
+    }
+    p {
+      font-size:3.75em;
+      span {
+        font-size:1.6em;
+        line-height:.9em;  
+      }
+    }
+  }
+  #block-block-3 {
+    font-size:1em;  
+    h2 {
+      font-family: $heading-font;
+      font-size:4.65em;
+    }
+    ul {
+      display:block;
+      height:42px;
+     li {
+       float:left;
+       a { 
+         display:block;
+         float:left;
+         width:45px;
+         height:42px;
+         em {
+           width:45px;
+           height:42px;        
+         }
+       }
+     }
+    }
+  }
+  h1.title {
+    font-size: 3em;
+  }
+  #edit-search-block-form-1 {
+    width:188px;
+    margin:0 5px 0 5px;
+  }
+  
 }
 
