@@ -6,11 +6,6 @@
 function cod_sponsors_user_default_roles() {
   $roles = array();
 
-  // Exported role: sponsor
-  $roles['sponsor'] = array(
-    'name' => 'sponsor',
-  );
-
   // Exported role: sponsor organizer
   $roles['sponsor organizer'] = array(
     'name' => 'sponsor organizer',
