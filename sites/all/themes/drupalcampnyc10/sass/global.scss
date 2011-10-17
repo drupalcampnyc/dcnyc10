@@ -401,14 +401,6 @@ tr.even, tr.odd {
     padding:1%;
     height:300px;
   }
-  .picture {
-    margin:10px 0;
-    img {padding:10px;
-    @include background-image(linear-gradient(rgba(240,235,245,.75) 20%, rgba(225,215,225,.5) 65%, rgba(235,225,225,.95) 85%));
-    @include speakers-corners;
-    @include menu-box-shadow;
-    }
-  }
   span {
     display:block;
     font-size:.8em;
@@ -445,7 +437,18 @@ tr.even, tr.odd {
  width:50%;
  margin:1em 0 1em 0;
 }
-
+.picture {
+  margin:10px 0;
+  img {
+    padding:10px;
+    @include background-image(linear-gradient(rgba(240,235,245,.75) 20%, rgba(225,215,225,.5) 65%, rgba(235,225,225,.95) 85%));
+    @include speakers-corners;
+    @include menu-box-shadow;
+  }
+}
+.profile .picture {
+  float:none;
+}
 .profile h3 {
   margin:1em 0 1em 0;
   clear:left;
@@ -1022,8 +1025,6 @@ thead th, th.active  {
   
 }
 .homepage-tickets {
-  //background: url('../images/drupigeon-no-number.png');
-  //background-repeat:no-repeat;
   float:right;
   margin:0 0 0 10px;
   width:280px;
