@@ -252,8 +252,10 @@ function cod_session_views_default_views() {
   ));
   $handler->override_option('title', 'Speakers');
   $handler->override_option('distinct', 0);
+  $handler->override_option('style_plugin', 'list');
   $handler->override_option('style_options', array(
     'grouping' => 'uid',
+    'type' => 'ul',
   ));
   $handler->override_option('row_options', array(
     'inline' => array(

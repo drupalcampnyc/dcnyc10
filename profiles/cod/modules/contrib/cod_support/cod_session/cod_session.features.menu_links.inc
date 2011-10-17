@@ -22,7 +22,7 @@ function cod_session_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-47',
   );
   // Exported menu link: primary-links:program/session-schedule
   $menu_links['primary-links:program/session-schedule'] = array(
@@ -38,7 +38,7 @@ function cod_session_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-50',
     'parent_path' => 'node/2',
-    'parent_uuid' => FALSE,
+    'parent_uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
   );
   // Exported menu link: primary-links:program/sessions
   $menu_links['primary-links:program/sessions'] = array(
@@ -54,7 +54,7 @@ function cod_session_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-49',
     'parent_path' => 'node/2',
-    'parent_uuid' => FALSE,
+    'parent_uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
   );
   // Exported menu link: primary-links:program/speakers
   $menu_links['primary-links:program/speakers'] = array(
@@ -74,7 +74,7 @@ function cod_session_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-48',
     'parent_path' => 'node/2',
-    'parent_uuid' => FALSE,
+    'parent_uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
   );
   // Translatables
   // Included for use with string extractors like potx.
