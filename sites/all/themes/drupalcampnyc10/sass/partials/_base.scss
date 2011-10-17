@@ -76,6 +76,9 @@ $header-dark-gradient-color: #23201e;
 @mixin suckerfish-menu-corners {
   @include border-bottom-radius($image-corners); 
 }
+@mixin speakers-corners {
+  @include border-radius(($image-corners / 4) ($image-corners / 3) ($image-corners / 2)); 
+}
 @mixin content-group-corners {
   @include border-radius($image-corners * 1); 
 }

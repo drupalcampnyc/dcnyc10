@@ -205,8 +205,6 @@ h1.title {
   
   a { 
     @include maintext-link-shadow;
-    font-weight:500;
-    -webkit-font-smoothing: subpixel-antialiased;
   }
   font-size:1.33em;
   line-height:1.5em;  
@@ -368,11 +366,8 @@ fieldset.collapsible .resizable-textarea .grippie {
 }
 select, option {
   font-family: $form-font;
-  font-size:1.1em;
-  line-height:1.5em;
-  padding:.5em .5em;
+  font-size:1em;
   border:none;
-  @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
 }
 
 fieldset {
@@ -396,6 +391,40 @@ table.sticky-header {
 }
 tr.even, tr.odd {
   @include border-background-reset;
+}
+
+// Speakers View
+#view-id-Speakers-page_1 {
+  .item-list {
+    float:left;
+    width:31%;
+    padding:1%;
+    height:300px;
+  }
+  .picture {
+    margin:10px 0;
+    img {padding:10px;
+    @include background-image(linear-gradient(rgba(240,235,245,.75) 20%, rgba(225,215,225,.5) 65%, rgba(235,225,225,.95) 85%));
+    @include speakers-corners;
+    @include menu-box-shadow;
+    }
+  }
+  span {
+    display:block;
+    font-size:.8em;
+  }
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    li {
+        list-style:none;
+        margin:0;
+        padding:0;
+        font-size:1.4em;
+        line-height:1.1em;
+    }
+  }
 }
 
 // General Items
