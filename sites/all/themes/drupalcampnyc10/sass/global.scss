@@ -192,10 +192,9 @@ h1.title {
 #content-group {
   @include maintext-text-shadow;
   letter-spacing:.066em;
-  color:#292929;
+  color:#111;
   a { 
     @include maintext-link-shadow;
-     
   }
   font-size:1.33em;
   line-height:1.5em;  
@@ -575,7 +574,9 @@ tr.even, tr.odd {
     line-height:1.25em;
   }
 }
-
+#block-views-sponsors_front_page-block_1 {
+  margin:8px 0 0 0;
+}
 
 //Ubercart 
 #cart-form-products {
