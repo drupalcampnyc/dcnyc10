@@ -78,6 +78,20 @@ function about_dcny_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'status_extra' => array(
+      'operator' => '=',
+      'value' => '',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status_extra',
+      'table' => 'node',
+      'field' => 'status_extra',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
@@ -88,10 +102,13 @@ function about_dcny_views_default_views() {
   $handler->override_option('title', 'Frequently Asked Questions');
   $handler->override_option('items_per_page', 25);
   $handler->override_option('use_pager', '1');
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
+  $handler->override_option('style_options', NULL);
+  $handler->override_option('row_plugin', 'node');
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'full',
+    'links' => 0,
+    'comments' => 0,
   ));
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'about/faq');
