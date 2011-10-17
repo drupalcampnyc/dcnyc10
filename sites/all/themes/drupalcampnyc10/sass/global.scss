@@ -576,6 +576,13 @@ tr.even, tr.odd {
 }
 #block-views-sponsors_front_page-block_1 {
   margin:8px 0 0 0;
+  h2 {
+    font-family: $heading-font;
+    font-size:3.75em;
+    line-height:1em; 
+    color:$heading-color-1;
+    @include reg-text-shadow; 
+  }
 }
 
 //Ubercart 
