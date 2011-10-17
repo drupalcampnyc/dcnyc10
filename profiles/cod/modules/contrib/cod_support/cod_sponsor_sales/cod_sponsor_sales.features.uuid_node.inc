@@ -12,7 +12,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'uid' => '4',
   'status' => '1',
   'created' => '1318518920',
-  'changed' => '1318518920',
+  'changed' => '1318727903',
   'comment' => '0',
   'promote' => '1',
   'moderate' => '0',
@@ -21,7 +21,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'translate' => '0',
   'revision_uid' => '4',
   'title' => 'Upgrade Sponsor',
-  'body' => 'Carryover sponsorships can also be upgraded to the Premium level for an additional commitment of $250 or more.  As a Premium sponsor, you receive the additional benefits of:
+  'body' => 'Sponsorships can also be upgraded to the Premium level for an additional commitment of $250 or more.  As a Premium sponsor, you receive the additional benefits of:
 <ul>
 <li>Company logo on the poster boards and easels to be located on every floor.</li> <li>Premium sponsor logos will be larger and in a section called “Premium Sponsors” on the top section of the signage.</li>
 <li>Logo displayed in a spotlight section of the web site’s home page, as well as in the sponsor section.</li>
@@ -29,13 +29,13 @@ function cod_sponsor_sales_uuid_features_default_content() {
 <li>Two Camp tickets for use by your staff.</li>
 <li>Option to place SWAG on the SWAG table at registration.</li>
 </ul>',
-  'teaser' => 'Carryover sponsorships can also be upgraded to the Premium level for an additional commitment of $250 or more.  As a Premium sponsor, you receive the additional benefits of:
+  'teaser' => 'Sponsorships can also be upgraded to the Premium level for an additional commitment of $250 or more.  As a Premium sponsor, you receive the additional benefits of:
 <ul>
 <li>Company logo on the poster boards and easels to be located on every floor.</li> <li>Premium sponsor logos will be larger and in a section called “Premium Sponsors” on the top section of the signage.</li>
 <li>Logo displayed in a spotlight section of the web site’s home page, as well as in the sponsor section.</li>
 <li>Logos projected in the opening ‘Thank You’ slides in the plenary session.</li>',
   'log' => '',
-  'revision_timestamp' => '1318518920',
+  'revision_timestamp' => '1318727903',
   'format' => '1',
   'name' => 'FatherShawn',
   'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
@@ -85,7 +85,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '4',
+  'revision_uid' => '0',
   'title' => 'Premium Sponsor',
   'body' => '<em>Benefits:</em>
 <ul>
@@ -147,9 +147,9 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'uid' => '4',
   'status' => '1',
   'created' => '1318518644',
-  'changed' => '1318518663',
+  'changed' => '1318728454',
   'comment' => '0',
-  'promote' => '1',
+  'promote' => '0',
   'moderate' => '0',
   'sticky' => '0',
   'tnid' => '0',
@@ -169,7 +169,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
 <li>One Camp ticket for use by your staff</li>
 <li>Option to place SWAG on the SWAG table at registration.</li></ul>',
   'log' => '',
-  'revision_timestamp' => '1318518663',
+  'revision_timestamp' => '1318728454',
   'format' => '1',
   'name' => 'FatherShawn',
   'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
@@ -219,7 +219,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '4',
+  'revision_uid' => '0',
   'title' => 'General Sponsor',
   'body' => '<em>Benefits:</em>
 <ul><li>Company logo displayed on the general sponsor page of the web site.</li>
@@ -284,7 +284,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '4',
+  'revision_uid' => '0',
   'title' => 'Support',
   'body' => 'Supporters make a donation to DrupalCampNYC that is less than $250. ',
   'teaser' => 'Supporters make a donation to DrupalCampNYC that is less than $250. ',
@@ -318,7 +318,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'comment_count' => '0',
   'taxonomy' => array(),
   'uuid' => 'c008ea64-f5ab-11e0-a4e0-46138b83f027',
-  'revision_uuid' => 'c0090cce-f5ab-11e0-a4e0-46138b83f027',
+  'revision_uuid' => 'bbb3ac9e-f667-11e0-8817-0016e3f4e63e',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-10-12 16:55:46 -0400',
 );

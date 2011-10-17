@@ -195,13 +195,23 @@ function cod_sponsor_sales_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('header', 'First off, we thank you for considering a sponsorship of DrupalCampNYC 10 (DCNYC10).
+
+Without its community, Drupal would be some code project Dries Buytaert and his friends worked on in college. Without Drupal, NYC would be...well, we don\'t like to think about that.
+
+The NYC Drupal community has run DrupalCamps since 2006. These Camps are valued within the community as an opportunity to learn new skills, share knowledge, brainstorm ideas, network, and continue enrichment of the Drupal platform. By sponsoring this event you are helping our local group to foster the community bonds, talent growth, and technical innovations that create successful projects and propel Drupal forward.
+
+There are two levels of sponsorship offered for this Camp: General and Premium.');
+  $handler->override_option('header_format', '1');
+  $handler->override_option('header_empty', 1);
   $handler->override_option('empty', 'No sponsorships are currently available.');
   $handler->override_option('empty_format', '1');
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'sponsors/become-sponsor');
+  $handler->override_option('title', 'How to Sponsor');
+  $handler->override_option('path', 'become-sponsor');
   $handler->override_option('menu', array(
     'type' => 'normal',
-    'title' => 'Become a sponsor',
+    'title' => 'How to Sponsor',
     'description' => 'Become a sponsor',
     'weight' => '1',
     'name' => 'primary-links',
