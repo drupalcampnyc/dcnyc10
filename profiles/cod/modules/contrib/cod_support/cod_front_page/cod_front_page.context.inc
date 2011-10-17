@@ -22,11 +22,35 @@ function cod_front_page_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'block-1' => array(
+          'module' => 'block',
+          'delta' => 1,
+          'region' => 'sidebar_last',
+          'weight' => 0,
+        ),
+        'block-2' => array(
+          'module' => 'block',
+          'delta' => 2,
+          'region' => 'sidebar_last',
+          'weight' => 1,
+        ),
+        'countdown-0' => array(
+          'module' => 'countdown',
+          'delta' => 0,
+          'region' => 'sidebar_last',
+          'weight' => 2,
+        ),
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => 3,
+          'region' => 'sidebar_last',
+          'weight' => 3,
+        ),
         'views-sponsors_front_page-block_1' => array(
           'module' => 'views',
           'delta' => 'sponsors_front_page-block_1',
-          'region' => 'sidebar_first',
-          'weight' => 0,
+          'region' => 'sidebar_last',
+          'weight' => 4,
         ),
         'views-news-block_1' => array(
           'module' => 'views',
