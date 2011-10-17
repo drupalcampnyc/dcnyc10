@@ -164,6 +164,7 @@ COD is the Conference Organizing Distribution, used for building conference and 
   'data' => NULL,
   'path' => 'content/cod-help',
   'signup' => 0,
+  'uc_order_product_id' => FALSE,
   'last_comment_timestamp' => '1295735036',
   'last_comment_name' => NULL,
   'comment_count' => '0',
