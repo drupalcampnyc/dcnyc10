@@ -56,7 +56,7 @@ function cod_sponsor_sales_user_default_permissions() {
   $permissions['edit own sponsor content'] = array(
     'name' => 'edit own sponsor content',
     'roles' => array(
-      '0' => 'sponsor',
+      '0' => 'authenticated user',
     ),
   );
 
