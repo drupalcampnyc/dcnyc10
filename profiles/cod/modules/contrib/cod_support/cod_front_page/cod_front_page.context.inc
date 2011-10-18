@@ -55,7 +55,7 @@ function cod_front_page_context_default_contexts() {
         'views-sponsors_front_page-block_1' => array(
           'module' => 'views',
           'delta' => 'sponsors_front_page-block_1',
-          'region' => 'footer',
+          'region' => 'sponsors',
           'weight' => 0,
         ),
       ),
