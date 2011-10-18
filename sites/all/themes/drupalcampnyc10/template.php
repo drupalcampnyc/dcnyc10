@@ -16,9 +16,9 @@ function drupalcampnyc10_preprocess_page(&$vars, $hook) {
   $vars['ie6_styles_append'] = $vars['ie6_styles'];
   unset($vars['ie8_styles'], $vars['ie7_styles'], $vars['ie6_styles']);
    
-  $vars['ie8_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/global.css\" />\r" . $vars['ie8_styles_append'];
-  $vars['ie7_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/global.css\" />\r" . $vars['ie7_styles_append'];
-  $vars['ie6_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/global.css\" />\r" . $vars['ie6_styles_append'];
+  $vars['ie8_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie8_styles_append'];
+  $vars['ie7_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie7_styles_append'];
+  $vars['ie6_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie6_styles_append'];
   
   
   // Add Meta Viewport tag for mobile
