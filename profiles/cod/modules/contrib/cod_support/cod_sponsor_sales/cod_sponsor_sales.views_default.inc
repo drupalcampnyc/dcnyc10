@@ -59,7 +59,7 @@ function cod_sponsor_sales_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '[title] - [sell_price]',
+        'text' => '<h3>[title] - [sell_price]</h3>',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -84,6 +84,9 @@ function cod_sponsor_sales_views_default_views() {
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'body' => array(
       'label' => '',

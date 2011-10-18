@@ -171,6 +171,7 @@ function cod_sponsor_sales_strongarm() {
   $strongarm->name = 'uc_node_checkout_sponsor_restrictions';
   $strongarm->value = array(
     0 => 'field_sponsorship_level',
+    1 => 'preview',
   );
   $export['uc_node_checkout_sponsor_restrictions'] = $strongarm;
 
