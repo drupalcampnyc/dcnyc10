@@ -144,7 +144,7 @@ function cod_front_page_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'sponsor_logo_platinum_linked',
+      'format' => 'product_linked',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
