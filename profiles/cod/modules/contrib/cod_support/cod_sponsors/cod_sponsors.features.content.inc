@@ -11,7 +11,7 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_logo',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '4',
+      'weight' => 0,
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -48,7 +48,7 @@ function cod_sponsors_content_default_fields() {
       'progress_indicator' => 'bar',
       'max_filesize_per_file' => '',
       'max_filesize_per_node' => '',
-      'max_resolution' => '150x200',
+      'max_resolution' => '300x400',
       'min_resolution' => '0',
       'alt' => '',
       'custom_alt' => 0,
@@ -59,7 +59,7 @@ function cod_sponsors_content_default_fields() {
       'use_default_image' => 0,
       'label' => 'Logo (Low Resolution)',
       'weight' => 0,
-      'description' => 'This field is limited to 150px (width) by 200px (height)',
+      'description' => 'This field is limited to 300px (width) by 400px (height)',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
     ),
@@ -70,16 +70,17 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_logo_high',
     'type_name' => 'sponsor',
     'display_settings' => array(
+      'weight' => '1',
+      'parent' => '',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'image_plain',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'image_plain',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       '4' => array(
@@ -136,7 +137,7 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_related_attendees',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '-2',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -192,7 +193,7 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_sponsorship_level',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -245,7 +246,7 @@ sponsor|Sponsor',
     'field_name' => 'field_url',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '3',
+      'weight' => '-1',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
