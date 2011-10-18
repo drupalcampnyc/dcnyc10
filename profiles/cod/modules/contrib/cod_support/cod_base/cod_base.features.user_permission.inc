@@ -10,7 +10,9 @@ function cod_base_user_default_permissions() {
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
     'roles' => array(
-      '0' => 'site administrator',
+      '0' => 'content manager',
+      '1' => 'site administrator',
+      '2' => 'sponsor organizer',
     ),
   );
 
