@@ -193,7 +193,7 @@ h1#site-name {
 
 /* line 21, ../sass/default-normal.scss */
 #header-group {
-  padding: 0 0 0px 0;
+  padding: 0;
   background-image: url("../images/birds-transparent.png");
   background-position: left bottom;
   background-repeat: repeat-x;
@@ -251,58 +251,21 @@ h1#site-name {
   font-size: 1.1em;
 }
 
-/* line 80, ../sass/default-normal.scss */
-#primary-menu {
-  -moz-border-radius-topleft: 16px;
-  -webkit-border-top-left-radius: 16px;
-  -o-border-top-left-radius: 16px;
-  -ms-border-top-left-radius: 16px;
-  -khtml-border-top-left-radius: 16px;
-  border-top-left-radius: 16px;
-  -moz-border-radius-topright: 16px;
-  -webkit-border-top-right-radius: 16px;
-  -o-border-top-right-radius: 16px;
-  -ms-border-top-right-radius: 16px;
-  -khtml-border-top-right-radius: 16px;
-  border-top-right-radius: 16px;
-  -moz-border-radius-bottomleft: 40px 80px;
-  -webkit-border-bottom-left-radius: 40px 80px;
-  -o-border-bottom-left-radius: 40px 80px;
-  -ms-border-bottom-left-radius: 40px 80px;
-  -khtml-border-bottom-left-radius: 40px 80px;
-  border-bottom-left-radius: 40px 80px;
-  -moz-border-radius-bottomright: 40px 80px;
-  -webkit-border-bottom-right-radius: 40px 80px;
-  -o-border-bottom-right-radius: 40px 80px;
-  -ms-border-bottom-right-radius: 40px 80px;
-  -khtml-border-bottom-right-radius: 40px 80px;
-  border-bottom-right-radius: 40px 80px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(81, 73, 67, 0.5)), color-stop(65%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
-  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
-  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
-  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
-  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
-  background-image: linear-gradient(rgba(81, 73, 67, 0.5), rgba(53, 48, 44, 0.5) 65%, rgba(39, 35, 32, 0.5) 85%);
-  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-}
-/* line 84, ../sass/default-normal.scss */
+/* line 82, ../sass/default-normal.scss */
 #primary-menu ul {
   font-size: 2em;
 }
-/* line 87, ../sass/default-normal.scss */
+/* line 85, ../sass/default-normal.scss */
 #primary-menu ul ul {
   font-size: 1em;
 }
 
-/* line 97, ../sass/default-normal.scss */
+/* line 95, ../sass/default-normal.scss */
 .block-menu_block ul.menu {
   font-size: 1.66em;
 }
 
-/* line 109, ../sass/default-normal.scss */
+/* line 107, ../sass/default-normal.scss */
 input[type="submit"],
 .uc_signup_previous,
 #continue-shopping-link a,
@@ -311,18 +274,18 @@ a.uc_signup_edit_info,
   padding: 0.5em 1.5em !important;
 }
 
-/* line 113, ../sass/default-normal.scss */
+/* line 111, ../sass/default-normal.scss */
 #block-countdown-0 {
   margin: -8px 0 0 0;
   height: 160px;
   font-size: 1em;
 }
-/* line 117, ../sass/default-normal.scss */
+/* line 115, ../sass/default-normal.scss */
 #block-countdown-0 em {
   font-size: 14em;
   line-height: 1em;
 }
-/* line 121, ../sass/default-normal.scss */
+/* line 119, ../sass/default-normal.scss */
 #block-countdown-0 span {
   top: -160px;
   left: 120px;
@@ -330,203 +293,203 @@ a.uc_signup_edit_info,
   font-size: 5.5em;
 }
 
-/* line 128, ../sass/default-normal.scss */
+/* line 126, ../sass/default-normal.scss */
 h1.title {
   font-size: 5em;
 }
 
-/* line 134, ../sass/default-normal.scss */
+/* line 132, ../sass/default-normal.scss */
 .float-right {
   float: right;
   width: 350px;
 }
 
-/* line 142, ../sass/default-normal.scss */
+/* line 140, ../sass/default-normal.scss */
 #block-mailing_list-1 h2, #block-block-5 h2 {
   font-size: 4.65em;
 }
-/* line 145, ../sass/default-normal.scss */
+/* line 143, ../sass/default-normal.scss */
 #block-mailing_list-1 label, #block-block-5 label {
   font-size: 1.5em;
 }
-/* line 148, ../sass/default-normal.scss */
+/* line 146, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
   width: 212px;
   font-size: 1.5em;
 }
-/* line 152, ../sass/default-normal.scss */
+/* line 150, ../sass/default-normal.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   width: 136px;
   height: 52px;
   font-size: 3em;
 }
-/* line 157, ../sass/default-normal.scss */
+/* line 155, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
   float: right;
   font-size: 3em;
 }
-/* line 161, ../sass/default-normal.scss */
+/* line 159, ../sass/default-normal.scss */
 #block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
   width: 240px;
   font-size: 2em;
 }
 
-/* line 167, ../sass/default-normal.scss */
+/* line 165, ../sass/default-normal.scss */
 #block-block-1 {
   font-size: 1em;
 }
-/* line 169, ../sass/default-normal.scss */
+/* line 167, ../sass/default-normal.scss */
 #block-block-1 h3 {
   font-size: 7.5em;
 }
-/* line 172, ../sass/default-normal.scss */
+/* line 170, ../sass/default-normal.scss */
 #block-block-1 p {
   font-size: 5.7em;
 }
 
-/* line 176, ../sass/default-normal.scss */
+/* line 174, ../sass/default-normal.scss */
 #block-block-2 {
   font-size: 1em;
 }
-/* line 178, ../sass/default-normal.scss */
+/* line 176, ../sass/default-normal.scss */
 #block-block-2 h3 {
   font-size: 8.25em;
 }
-/* line 181, ../sass/default-normal.scss */
+/* line 179, ../sass/default-normal.scss */
 #block-block-2 p {
   font-size: 3.75em;
 }
-/* line 183, ../sass/default-normal.scss */
+/* line 181, ../sass/default-normal.scss */
 #block-block-2 p span {
   font-size: 1.6em;
   line-height: .9em;
 }
 
-/* line 189, ../sass/default-normal.scss */
+/* line 187, ../sass/default-normal.scss */
 #block-block-3 {
   font-size: 1em;
 }
-/* line 191, ../sass/default-normal.scss */
+/* line 189, ../sass/default-normal.scss */
 #block-block-3 h2 {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 4.65em;
 }
-/* line 195, ../sass/default-normal.scss */
+/* line 193, ../sass/default-normal.scss */
 #block-block-3 ul {
   display: block;
   height: 42px;
 }
-/* line 198, ../sass/default-normal.scss */
+/* line 196, ../sass/default-normal.scss */
 #block-block-3 ul li {
   float: left;
 }
-/* line 200, ../sass/default-normal.scss */
+/* line 198, ../sass/default-normal.scss */
 #block-block-3 ul li a {
   display: block;
   float: left;
   width: 45px;
   height: 42px;
 }
-/* line 205, ../sass/default-normal.scss */
+/* line 203, ../sass/default-normal.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
 }
 
-/* line 213, ../sass/default-normal.scss */
+/* line 211, ../sass/default-normal.scss */
 #block-block-4 {
   float: right;
   width: 350px;
 }
 
-/* line 221, ../sass/default-normal.scss */
+/* line 219, ../sass/default-normal.scss */
 #cart-form-products thead th {
   font-size: 1.2em;
 }
-/* line 224, ../sass/default-normal.scss */
+/* line 222, ../sass/default-normal.scss */
 #cart-form-products tr.even, #cart-form-products tr.odd {
   background: none;
   border: none;
 }
-/* line 226, ../sass/default-normal.scss */
+/* line 224, ../sass/default-normal.scss */
 #cart-form-products tr.even td, #cart-form-products tr.odd td {
   padding: .5em 1em .5em .5em;
 }
 
-/* line 234, ../sass/default-normal.scss */
+/* line 232, ../sass/default-normal.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 239, ../sass/default-normal.scss */
+/* line 237, ../sass/default-normal.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 241, ../sass/default-normal.scss */
+/* line 239, ../sass/default-normal.scss */
 #product-details .uc-price-display {
   margin: 0 1em 0 0;
   font-size: 3em;
 }
-/* line 245, ../sass/default-normal.scss */
+/* line 243, ../sass/default-normal.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 250, ../sass/default-normal.scss */
+/* line 248, ../sass/default-normal.scss */
 #uc-signup-attendees-form {
   clear: both;
   width: 460px;
 }
-/* line 254, ../sass/default-normal.scss */
+/* line 252, ../sass/default-normal.scss */
 #uc-signup-attendees-form .submit-button {
   text-align: right;
 }
-/* line 257, ../sass/default-normal.scss */
+/* line 255, ../sass/default-normal.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   float: left;
 }
-/* line 260, ../sass/default-normal.scss */
+/* line 258, ../sass/default-normal.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
 
-/* line 266, ../sass/default-normal.scss */
+/* line 264, ../sass/default-normal.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   float: left;
   width: 260px;
   word-wrap: break-word;
 }
-/* line 272, ../sass/default-normal.scss */
+/* line 270, ../sass/default-normal.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 276, ../sass/default-normal.scss */
+/* line 274, ../sass/default-normal.scss */
 #uc-cart-checkout-form .field-label {
   padding: .3em;
   font-size: 1.1em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 282, ../sass/default-normal.scss */
+/* line 280, ../sass/default-normal.scss */
 #uc-cart-checkout-form select {
   padding: 0.4em 0;
   font-size: 1em;
 }
-/* line 286, ../sass/default-normal.scss */
+/* line 284, ../sass/default-normal.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 289, ../sass/default-normal.scss */
+/* line 287, ../sass/default-normal.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 292, ../sass/default-normal.scss */
+/* line 290, ../sass/default-normal.scss */
 #uc-cart-checkout-form #line-items-div {
   font-size: 1.2em;
 }
-/* line 295, ../sass/default-normal.scss */
+/* line 293, ../sass/default-normal.scss */
 #uc-cart-checkout-form table.cart-review {
   font-size: .8em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -536,68 +499,68 @@ h1.title {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 299, ../sass/default-normal.scss */
+/* line 297, ../sass/default-normal.scss */
 #uc-cart-checkout-form thead th {
   font-size: 1.2em;
 }
-/* line 302, ../sass/default-normal.scss */
+/* line 300, ../sass/default-normal.scss */
 #uc-cart-checkout-form td {
   font-size: 1.2em;
 }
-/* line 306, ../sass/default-normal.scss */
+/* line 304, ../sass/default-normal.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 310, ../sass/default-normal.scss */
+/* line 308, ../sass/default-normal.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 314, ../sass/default-normal.scss */
+/* line 312, ../sass/default-normal.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 320, ../sass/default-normal.scss */
+/* line 318, ../sass/default-normal.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
 }
 
-/* line 324, ../sass/default-normal.scss */
+/* line 322, ../sass/default-normal.scss */
 .order-review-table {
   width: 480px;
   font-size: 1.2em;
 }
-/* line 328, ../sass/default-normal.scss */
+/* line 326, ../sass/default-normal.scss */
 .order-review-table td.title-col {
   text-align: right;
 }
-/* line 331, ../sass/default-normal.scss */
+/* line 329, ../sass/default-normal.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 338, ../sass/default-normal.scss */
+/* line 336, ../sass/default-normal.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 341, ../sass/default-normal.scss */
+/* line 339, ../sass/default-normal.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 344, ../sass/default-normal.scss */
+/* line 342, ../sass/default-normal.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 350, ../sass/default-normal.scss */
+/* line 348, ../sass/default-normal.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 359, ../sass/default-normal.scss */
+/* line 357, ../sass/default-normal.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -621,33 +584,33 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 368, ../sass/default-normal.scss */
+/* line 366, ../sass/default-normal.scss */
 .order-pane {
   background: none;
   border: none;
 }
-/* line 370, ../sass/default-normal.scss */
+/* line 368, ../sass/default-normal.scss */
 .order-pane thead {
   background: none;
   border: none;
 }
-/* line 372, ../sass/default-normal.scss */
+/* line 370, ../sass/default-normal.scss */
 .order-pane thead th {
   background: none;
   border: none;
 }
-/* line 376, ../sass/default-normal.scss */
+/* line 374, ../sass/default-normal.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
 
-/* line 380, ../sass/default-normal.scss */
+/* line 378, ../sass/default-normal.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 385, ../sass/default-normal.scss */
+/* line 383, ../sass/default-normal.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -658,7 +621,7 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 391, ../sass/default-normal.scss */
+/* line 389, ../sass/default-normal.scss */
 #view-id-sessions-page_1 thead tr {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
   background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
@@ -673,20 +636,20 @@ h1.title {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 395, ../sass/default-normal.scss */
+/* line 393, ../sass/default-normal.scss */
 #view-id-sessions-page_1 thead th {
   font-size: 1.334em;
   background: none;
   border: none;
   padding: 0.5em;
 }
-/* line 402, ../sass/default-normal.scss */
+/* line 400, ../sass/default-normal.scss */
 #view-id-sessions-page_1 tbody td {
   padding: 0.5em;
   vertical-align: top;
 }
 
-/* line 414, ../sass/default-normal.scss */
+/* line 412, ../sass/default-normal.scss */
 #view-id-cod_schedule-page_1 th {
   font-size: 1.334em;
   background: none;
@@ -699,13 +662,13 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   padding: 0.5em;
 }
-/* line 421, ../sass/default-normal.scss */
+/* line 419, ../sass/default-normal.scss */
 #view-id-cod_schedule-page_1 tbody td {
   padding: 0.5em;
   vertical-align: top;
 }
 
-/* line 427, ../sass/default-normal.scss */
+/* line 425, ../sass/default-normal.scss */
 a.uc_signup_edit_info {
   text-shadow: none;
 }

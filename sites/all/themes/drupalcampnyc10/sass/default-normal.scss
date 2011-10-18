@@ -19,7 +19,7 @@ h1#site-name {
 }
 
 #header-group {
-  padding: 0 0 0px 0;
+  padding: 0;
   background-image:$menu-background-image;
   background-position:left bottom;
   background-repeat:repeat-x;
@@ -78,9 +78,7 @@ h1#site-name {
 
 //Main Menu and Dropdowns
 #primary-menu {
-  @include menu-corners;
-  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
-  @include menu-box-shadow;
+
   ul {
     font-size:2em;
     

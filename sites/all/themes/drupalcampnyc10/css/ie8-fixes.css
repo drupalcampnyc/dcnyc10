@@ -3,3 +3,31 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+/* line 9, ../sass/ie8-fixes.scss */
+#primary-menu {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 13, ../sass/ie8-fixes.scss */
+#primary-menu ul ul {
+  margin: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  background: #514943;
+}
+/* line 17, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+/* line 21, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li a:hover {
+  background: #35302c;
+}

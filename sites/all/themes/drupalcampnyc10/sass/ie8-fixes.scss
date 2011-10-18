@@ -2,4 +2,27 @@
  * Import this file using the following HTML or equivalent:
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
- * <![endif]--> */
+ * <![endif]--> */ 
+ @import "partials/_base";
+
+//Main Menu and Dropdowns
+ #primary-menu {
+   @include box-shadow-reset;
+   @include PIE;
+   ul {
+     ul { 
+       margin:0;
+       @include box-shadow-reset;
+       background:$menu-background;
+       li {
+         @include box-shadow-reset;
+           &:last-child {
+           } a {
+           &:hover {
+             background:$menu-middle-background;
+           }
+         }
+       } 
+     }
+   }
+}

@@ -12,9 +12,12 @@ $page-background-image2: url('../images/side_piece.png');
 
 $menu-background-image: url('../images/birds-transparent.png');
 
-$menu-top-background-gradient:rgba(81,73,67,.5);
-$menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
-$menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
+$menu-background:rgb(81,73,67); 
+$menu-top-background-gradient:rgba($menu-background,.5);
+$menu-middle-background:adjust-lightness($menu-background, -10%);
+$menu-bottom-background:adjust-lightness($menu-background, -15%);
+$menu-middle-background-gradient:rgba($menu-middle-background,.5);
+$menu-bottom-background-gradient:rgba($menu-bottom-background,.5);
 
 $content-area-background:adjust-lightness(rgba(81,73,67,.7), 20);
 
@@ -71,7 +74,10 @@ $header-dark-gradient-color: #23201e;
   @include PIE;
 }
 @mixin PIE {
-  behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  // Production and Dev
+  //behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  // Local
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
 }
 @mixin suckerfish-menu-corners {
   @include border-bottom-radius($image-corners); 
@@ -94,4 +100,7 @@ $header-dark-gradient-color: #23201e;
 }
 @mixin tab-shadow {
   @include box-shadow(2px -2px 4px rgba(0,0,0,.5));
+}
+@mixin box-shadow-reset {
+  @include box-shadow(none);
 }
