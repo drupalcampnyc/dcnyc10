@@ -20,6 +20,7 @@ regions[sidebar_last] = sidebar last
 regions[header] = header
 regions[content] = content
 regions[footer] = footer
+regions[sponsors] = sponsors
 
 ; Default theme settings
 settings[theme_grid] = grid12-960

@@ -106,14 +106,18 @@
         </div><!-- /sidebar-last -->
         <?php endif; ?>
       </div><!-- /main-group -->
-    </div><!-- /main -->
-
+    
+    <?php if ($sponsors): ?>
+      <div id="sponsors" class="sponsors-last row nested <?php print $sponsors_width; ?>">
+        <?php print $sponsors; ?>
+      </div> 
+    <?php endif; ?>
     <?php if ($footer): ?>
     <div id="footer" class="footer row <?php print $grid_width; ?>">
       <?php print $footer; ?>
     </div><!-- /footer -->
     <?php endif; ?>
-
+   </div><!-- /main -->
     <?php if ($footer_message): ?>
     <div id="footer-message" class="footer-message row <?php print $grid_width; ?>">
       <?php print theme('grid_block', $footer_message, 'footer-message-text'); ?>
