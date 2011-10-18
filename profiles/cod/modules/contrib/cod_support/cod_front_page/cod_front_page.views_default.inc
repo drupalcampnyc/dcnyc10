@@ -144,7 +144,7 @@ function cod_front_page_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'image_nodelink',
+      'format' => 'sponsor_logo_platinum_linked',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
@@ -156,6 +156,9 @@ function cod_front_page_views_default_views() {
       'table' => 'node_data_field_logo',
       'field' => 'field_logo_fid',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'title' => array(
       'label' => '',
@@ -251,7 +254,14 @@ function cod_front_page_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'Premium Sponsor');
-  $handler->override_option('items_per_page', 1);
+  $handler->override_option('items_per_page', 5);
+  $handler->override_option('style_plugin', 'grid');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'columns' => '5',
+    'alignment' => 'horizontal',
+    'fill_single_line' => 0,
+  ));
   $handler = $view->new_display('block', 'Premium Home Page', 'block_1');
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);

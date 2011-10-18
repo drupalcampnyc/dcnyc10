@@ -46,16 +46,16 @@ function cod_front_page_context_default_contexts() {
           'region' => 'sidebar_last',
           'weight' => 3,
         ),
-        'views-sponsors_front_page-block_1' => array(
-          'module' => 'views',
-          'delta' => 'sponsors_front_page-block_1',
-          'region' => 'sidebar_last',
-          'weight' => 4,
-        ),
         'views-news-block_1' => array(
           'module' => 'views',
           'delta' => 'news-block_1',
           'region' => 'content',
+          'weight' => 0,
+        ),
+        'views-sponsors_front_page-block_1' => array(
+          'module' => 'views',
+          'delta' => 'sponsors_front_page-block_1',
+          'region' => 'footer',
           'weight' => 0,
         ),
       ),
