@@ -3,3 +3,328 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+/* line 9, ../sass/ie7-fixes.scss */
+#primary-menu {
+  -moz-border-radius: 16px 16px 64px 64px;
+  -webkit-border-radius: 16px 16px 64px 64px;
+  -o-border-radius: 16px 16px 64px 64px;
+  -ms-border-radius: 16px 16px 64px 64px;
+  -khtml-border-radius: 16px 16px 64px 64px;
+  border-radius: 16px 16px 64px 64px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 14, ../sass/ie7-fixes.scss */
+#primary-menu ul ul {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  margin: -1px 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-right: dotted 1px #4c4642;
+  border-left: dotted 1px #4c4642;
+  background: #514943;
+}
+/* line 22, ../sass/ie7-fixes.scss */
+#primary-menu ul ul li {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-bottom: dotted 1px #4c4642;
+}
+/* line 29, ../sass/ie7-fixes.scss */
+#primary-menu ul ul li a:hover {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  background: #35302c;
+}
+
+/* line 42, ../sass/ie7-fixes.scss */
+.block-menu_block .inner.clearfix {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 48, ../sass/ie7-fixes.scss */
+.block-menu_block ul.menu li.leaf {
+  border-top: dotted 1px #151413;
+}
+/* line 50, ../sass/ie7-fixes.scss */
+.block-menu_block ul.menu li.leaf:first-child {
+  border-top: dotted 0px #151413 !important;
+}
+
+/* line 59, ../sass/ie7-fixes.scss */
+#block-menu-menu-quick-links .menu {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  background: black;
+  background: rgba(0, 0, 0, 0.75);
+  -pie-background: rgba(0, 0, 0, 0.75);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 68, ../sass/ie7-fixes.scss */
+#content-group {
+  letter-spacing: 0em;
+}
+/* line 70, ../sass/ie7-fixes.scss */
+#content-group #content-inner {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  position: relative;
+  background: #8e8076;
+  background: rgba(142, 128, 118, 0.7);
+  -pie-background: rgba(142, 128, 118, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+/* line 74, ../sass/ie7-fixes.scss */
+#content-group #content-inner #content-inner-inner {
+  border: 1px #444 dashed;
+  outline: 1px #908f90 dashed;
+}
+
+/* line 90, ../sass/ie7-fixes.scss */
+#content-tabs .primary li.active a, #content-tabs .primary li:hover a {
+  position: relative;
+  background: #72675f;
+  background: rgba(114, 103, 95, 0.7);
+  -pie-background: rgba(114, 103, 95, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 94, ../sass/ie7-fixes.scss */
+#content-tabs .primary li a {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 24px 24px 0 0;
+  -webkit-border-radius: 24px 24px 0 0;
+  -o-border-radius: 24px 24px 0 0;
+  -ms-border-radius: 24px 24px 0 0;
+  -khtml-border-radius: 24px 24px 0 0;
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  background: #574e48;
+  background: rgba(87, 78, 72, 0.7);
+  -pie-background: rgba(87, 78, 72, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 102, ../sass/ie7-fixes.scss */
+#content-tabs .secondary {
+  width: 100%;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #72675f;
+  background: rgba(114, 103, 95, 0.7);
+  -pie-background: rgba(114, 103, 95, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 107, ../sass/ie7-fixes.scss */
+#content-tabs .secondary li a {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 24px 24px 0 0;
+  -webkit-border-radius: 24px 24px 0 0;
+  -o-border-radius: 24px 24px 0 0;
+  -ms-border-radius: 24px 24px 0 0;
+  -khtml-border-radius: 24px 24px 0 0;
+  border-radius: 24px 24px 0 0;
+}
+/* line 110, ../sass/ie7-fixes.scss */
+#content-tabs .secondary li a.active, #content-tabs .secondary li a:hover {
+  position: relative;
+  background: #8e8076;
+  background: rgba(142, 128, 118, 0.7);
+  -pie-background: rgba(142, 128, 118, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 127, ../sass/ie7-fixes.scss */
+input[type="submit"],
+.uc_signup_previous,
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a,
+.comment_add a {
+  background: #708090 !important;
+}
+
+/* line 133, ../sass/ie7-fixes.scss */
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44 {
+  background: #2a8b13 !important;
+}
+
+/* line 137, ../sass/ie7-fixes.scss */
+input[type="submit"]#edit-items-0-remove {
+  background: #c71e1e !important;
+}
+
+/* line 140, ../sass/ie7-fixes.scss */
+#block-search-0 input[type="submit"] {
+  background: #708090 !important;
+}
+
+/* line 147, ../sass/ie7-fixes.scss */
+input[type="text"],
+input[type="password"] {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  border: 2px solid #222;
+}
+
+/* line 155, ../sass/ie7-fixes.scss */
+.picture {
+  position: relative;
+  background: white;
+  background: white;
+  -pie-background: white;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 2px 2.667px 4px 4px;
+  -webkit-border-radius: 2px 2.667px 4px 4px;
+  -o-border-radius: 2px 2.667px 4px 4px;
+  -ms-border-radius: 2px 2.667px 4px 4px;
+  -khtml-border-radius: 2px 2.667px 4px 4px;
+  border-radius: 2px 2.667px 4px 4px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  width: 170px;
+}
+
+/* line 170, ../sass/ie7-fixes.scss */
+#cart-form-products,
+#uc-signup-attendees-form,
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div,
+#line-items-div,
+table.cart-review,
+.order-review-table {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 174, ../sass/ie7-fixes.scss */
+#cart-form-products input[type="text"],
+#uc-signup-attendees-form input[type="text"],
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div input[type="text"],
+#line-items-div input[type="text"],
+table.cart-review input[type="text"],
+.order-review-table input[type="text"] {
+  background-color: #fff !important;
+}
+
+/* line 178, ../sass/ie7-fixes.scss */
+#uc-cart-checkout-forminput[type="text"] {
+  background-color: #fff !important;
+}
+
+/* line 186, ../sass/ie7-fixes.scss */
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 193, ../sass/ie7-fixes.scss */
+#order-pane-products thead, #order-pane-products th,
+#order-pane-line_items thead,
+#order-pane-line_items th {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 199, ../sass/ie7-fixes.scss */
+#content-group a.buy-tickets {
+  color: #fff;
+}
+/* line 201, ../sass/ie7-fixes.scss */
+#content-group a.buy-tickets:hover {
+  color: #fff;
+}
+/* line 205, ../sass/ie7-fixes.scss */
+#content-group a.buy-tickets:after {
+  border: 1px #111 dashed;
+  outline: 1px #ddd dashed;
+}
+
+/* line 211, ../sass/ie7-fixes.scss */
+select {
+  padding: 0 !important;
+}

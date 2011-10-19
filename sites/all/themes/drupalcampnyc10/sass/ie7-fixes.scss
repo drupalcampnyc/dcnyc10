@@ -2,4 +2,212 @@
  * Import this file using the following HTML or equivalent:
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
- * <![endif]--> */
+ * <![endif]--> */ 
+ @import "partials/_base"; 
+
+//Main Menu and Dropdowns
+#primary-menu {
+  @include menu-corners-ie; 
+  @include box-shadow-reset;
+  @include PIE;
+  ul {
+    ul {
+      @include suckerfish-menu-corners;
+      margin:-1px 0 ;
+      @include box-shadow-reset;
+      @include PIE;
+      border-right:dotted 1px #4c4642;
+      border-left:dotted 1px #4c4642; 
+      background:$menu-background;
+      li {
+        @include box-shadow-reset;
+        @include suckerfish-menu-corners;
+        @include PIE;
+        border-bottom:dotted 1px #4c4642;
+          &:last-child {
+          } a {
+            &:hover {
+              @include suckerfish-menu-corners;
+              @include PIE;
+              background:$menu-middle-background;
+            }
+         }
+      }
+    }
+  }
+}
+
+// Submenus
+.block-menu_block {
+  .inner.clearfix {
+    @include content-group-corners;
+    @include box-shadow-reset;  
+    @include PIE;
+  }
+  ul.menu {
+    li.leaf {
+      border-top:dotted 1px darken(#4c4642, 20);
+      &:first-child {     
+        border-top:dotted 0px darken(#4c4642, 20) !important;  
+      }
+    }
+  } 
+}
+
+// Userbar Last
+#block-menu-menu-quick-links {
+  .menu {
+    @include suckerfish-menu-corners;
+    @include rgba-background(rgb(0,0,0),.75);
+    @include PIE; 
+  }
+} 
+
+
+// Content Area
+#content-group {
+  letter-spacing:0em;
+  #content-inner {
+    @include content-group-corners;
+    @include rgba-background($content-area-background-flat,.7);
+     @include box-shadow-reset;
+    #content-inner-inner {
+      border: 1px #444 dashed;
+      outline: 1px #908f90 dashed;
+    } 
+  }
+}
+
+#content-tabs {
+  &.block {
+
+  }
+  .primary { 
+
+    li {
+
+      &.active, &:hover {   
+        a {
+         @include rgba-background(darken($content-area-background-flat,10),.7);      
+        }
+      }
+      a {
+        @include box-shadow-reset;  
+        @include PIE;                         
+        @include tab-corners-ie;            
+        @include rgba-background(darken($content-area-background-flat,20),.7);
+      }
+    }   
+  }
+  .secondary {
+    width: 100%; 
+    @include PIE; 
+    @include rgba-background(darken($content-area-background-flat,10),.7);
+    li {
+      a {
+        @include PIE;  
+        @include tab-corners-ie;
+        &.active, &:hover { 
+          @include rgba-background(darken($content-area-background-flat,0),.7); 
+        }
+      }
+    }
+  }
+} 
+
+// Forms And Buttons
+
+//Buttons and Links styled like buttons
+// Default Style Silver
+input[type="submit"], 
+.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a,
+.comment_add a {
+  background:$button-color-2 !important; 
+}
+ 
+// Forms Elements
+// Primary Style  Green
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44  {
+  background: #2a8b13 !important;   
+}
+// Remove Items Style RED
+input[type="submit"]#edit-items-0-remove {
+ background:#c71e1e !important;
+}
+#block-search-0 input[type="submit"] {
+   background:$button-color-2 !important;
+}
+
+
+// Text inputs
+input[type="text"],
+input[type="password"] {  
+  @include PIE;
+  @include border-radius(8px);
+  border: 2px solid #222; 
+
+} 
+ 
+// Profile
+.picture {
+   @include rgba-background(#fff,1);
+   @include speakers-corners; 
+   @include PIE;
+  @include box-shadow-reset;       
+  width:170px;
+  img {                       
+  }
+}
+
+#cart-form-products,
+#uc-signup-attendees-form,
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div,
+#line-items-div,
+table.cart-review,
+.order-review-table   {
+  @include content-group-corners;
+  @include PIE;
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  input[type="text"] {  
+    background-color:#fff !important;
+  }  
+}
+#uc-cart-checkout-forminput[type="text"] {  
+    background-color:#fff !important; 
+
+}
+  
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  @include content-group-corners;
+  @include PIE;
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  }
+#order-pane-products, 
+#order-pane-line_items {
+  thead, th {
+    @include PIE;
+    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  }
+} 
+
+#content-group a.buy-tickets { 
+  color: #fff;  
+  &:hover {  
+    color: #fff;
+  }
+
+  &:after {
+    border: 1px #111 dashed;
+    outline: 1px #ddd dashed; 
+  }
+}
+
+select {
+   padding: 0 !important;
+ }

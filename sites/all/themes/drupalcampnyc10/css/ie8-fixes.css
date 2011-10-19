@@ -1,93 +1,330 @@
-/*
-Syntax error: Undefined variable: "$heading-color-1".
-        on line 128 of /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss, in `sassy-button'
-        from line 128 of /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* line 9, ../sass/ie8-fixes.scss */
+#primary-menu {
+  -moz-border-radius: 16px 16px 64px 64px;
+  -webkit-border-radius: 16px 16px 64px 64px;
+  -o-border-radius: 16px 16px 64px 64px;
+  -ms-border-radius: 16px 16px 64px 64px;
+  -khtml-border-radius: 16px 16px 64px 64px;
+  border-radius: 16px 16px 64px 64px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 14, ../sass/ie8-fixes.scss */
+#primary-menu ul ul {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  margin: -1px 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-right: dotted 1px #4c4642;
+  border-left: dotted 1px #4c4642;
+  background: #514943;
+}
+/* line 22, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-bottom: dotted 1px #4c4642;
+}
+/* line 29, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li a:hover {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  background: #35302c;
+}
 
-Backtrace:
-/Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss:128:in `sassy-button'
-/Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss:128
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/script/variable.rb:45:in `_perform'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/script/node.rb:40:in `perform'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:190:in `visit_mixin'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/script/number.rb:371:in `inject'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:186:in `each'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:186:in `inject'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:186:in `visit_mixin'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:230:in `visit_rule'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:47:in `visit_root'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/tree/root_node.rb:20:in `render'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/engine.rb:291:in `_render'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/engine.rb:239:in `render'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/util.rb:297:in `silence_sass_warnings'
-/Users/mar22/.gem/ruby/1.8/gems/sass-3.1.3/lib/sass/../sass/engine.rb:239:in `render'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:133:in `compile'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:119:in `timed'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:132:in `compile'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/logger.rb:45:in `red'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:131:in `compile'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:111:in `compile_if_required'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:98:in `run'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:96:in `each'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:96:in `run'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:119:in `timed'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/compiler.rb:95:in `run'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/commands/watch_project.rb:142:in `recompile'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `to_proc'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `call'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `run_callback'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:55:in `callback_action'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:35:in `update'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:39:in `modified'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `each'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `modified'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:18:in `refresh'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:15:in `add_handler'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:14:in `each'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:14:in `add_handler'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/rubycocoa/fsevents.rb:107:in `call'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/rubycocoa/fsevents.rb:107:in `initialize'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `call'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `CFRunLoopRun'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `run'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm/monitor.rb:26:in `run'
-/Users/mar22/.gem/ruby/1.8/gems/fssm-0.2.7/lib/fssm.rb:20:in `monitor'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/commands/watch_project.rb:86:in `perform'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/commands/base.rb:18:in `execute'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/commands/project_base.rb:19:in `execute'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/bin/compass:25
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/bin/compass:39:in `call'
-/Users/mar22/.gem/ruby/1.8/gems/compass-0.11.3/bin/compass:39
-/Users/mar22/.gem/ruby/1.8/bin/compass:19:in `load'
-/Users/mar22/.gem/ruby/1.8/bin/compass:19
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$heading-color-1\".\A         on line 128 of /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss, in `sassy-button'\A         from line 128 of /Applications/MAMP/htdocs/dcnyc10/sites/all/themes/drupalcampnyc10/sass/ie8-fixes.scss"; }
+/* line 42, ../sass/ie8-fixes.scss */
+.block-menu_block .inner.clearfix {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 48, ../sass/ie8-fixes.scss */
+.block-menu_block ul.menu li.leaf {
+  border-top: dotted 1px #151413;
+}
+/* line 50, ../sass/ie8-fixes.scss */
+.block-menu_block ul.menu li.leaf:first-child {
+  border-top: dotted 0px #151413 !important;
+}
+
+/* line 59, ../sass/ie8-fixes.scss */
+#block-menu-menu-quick-links .menu {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  background: black;
+  background: rgba(0, 0, 0, 0.75);
+  -pie-background: rgba(0, 0, 0, 0.75);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 68, ../sass/ie8-fixes.scss */
+#content-group {
+  letter-spacing: 0em;
+}
+/* line 70, ../sass/ie8-fixes.scss */
+#content-group #content-inner {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  position: relative;
+  background: #8e8076;
+  background: rgba(142, 128, 118, 0.7);
+  -pie-background: rgba(142, 128, 118, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+/* line 74, ../sass/ie8-fixes.scss */
+#content-group #content-inner #content-inner-inner {
+  border: 1px #444 dashed;
+  outline: 1px #908f90 dashed;
+}
+
+/* line 90, ../sass/ie8-fixes.scss */
+#content-tabs .primary li.active a, #content-tabs .primary li:hover a {
+  position: relative;
+  background: #72675f;
+  background: rgba(114, 103, 95, 0.7);
+  -pie-background: rgba(114, 103, 95, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 94, ../sass/ie8-fixes.scss */
+#content-tabs .primary li a {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 24px 24px 0 0;
+  -webkit-border-radius: 24px 24px 0 0;
+  -o-border-radius: 24px 24px 0 0;
+  -ms-border-radius: 24px 24px 0 0;
+  -khtml-border-radius: 24px 24px 0 0;
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  background: #574e48;
+  background: rgba(87, 78, 72, 0.7);
+  -pie-background: rgba(87, 78, 72, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 102, ../sass/ie8-fixes.scss */
+#content-tabs .secondary {
+  width: 100%;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #72675f;
+  background: rgba(114, 103, 95, 0.7);
+  -pie-background: rgba(114, 103, 95, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 107, ../sass/ie8-fixes.scss */
+#content-tabs .secondary li a {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 24px 24px 0 0;
+  -webkit-border-radius: 24px 24px 0 0;
+  -o-border-radius: 24px 24px 0 0;
+  -ms-border-radius: 24px 24px 0 0;
+  -khtml-border-radius: 24px 24px 0 0;
+  border-radius: 24px 24px 0 0;
+}
+/* line 110, ../sass/ie8-fixes.scss */
+#content-tabs .secondary li a.active, #content-tabs .secondary li a:hover {
+  position: relative;
+  background: #8e8076;
+  background: rgba(142, 128, 118, 0.7);
+  -pie-background: rgba(142, 128, 118, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 127, ../sass/ie8-fixes.scss */
+input[type="submit"],
+.uc_signup_previous,
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a,
+.comment_add a {
+  background: #708090 !important;
+}
+
+/* line 133, ../sass/ie8-fixes.scss */
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44 {
+  background: #2a8b13 !important;
+}
+
+/* line 137, ../sass/ie8-fixes.scss */
+input[type="submit"]#edit-items-0-remove {
+  background: #c71e1e !important;
+}
+
+/* line 140, ../sass/ie8-fixes.scss */
+#block-search-0 input[type="submit"] {
+  background: #708090 !important;
+}
+
+/* line 147, ../sass/ie8-fixes.scss */
+input[type="text"],
+input[type="password"] {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  border: 2px solid #222;
+}
+
+/* line 155, ../sass/ie8-fixes.scss */
+.picture {
+  position: relative;
+  background: white;
+  background: white;
+  -pie-background: white;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-border-radius: 2px 2.667px 4px 4px;
+  -webkit-border-radius: 2px 2.667px 4px 4px;
+  -o-border-radius: 2px 2.667px 4px 4px;
+  -ms-border-radius: 2px 2.667px 4px 4px;
+  -khtml-border-radius: 2px 2.667px 4px 4px;
+  border-radius: 2px 2.667px 4px 4px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  width: 170px;
+}
+
+/* line 170, ../sass/ie8-fixes.scss */
+#cart-form-products,
+#uc-signup-attendees-form,
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div,
+#line-items-div,
+table.cart-review,
+.order-review-table {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 174, ../sass/ie8-fixes.scss */
+#cart-form-products input[type="text"],
+#uc-signup-attendees-form input[type="text"],
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div input[type="text"],
+#line-items-div input[type="text"],
+table.cart-review input[type="text"],
+.order-review-table input[type="text"] {
+  background-color: #fff !important;
+}
+
+/* line 178, ../sass/ie8-fixes.scss */
+#uc-cart-checkout-forminput[type="text"] {
+  background-color: #fff !important;
+}
+
+/* line 186, ../sass/ie8-fixes.scss */
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 193, ../sass/ie8-fixes.scss */
+#order-pane-products thead, #order-pane-products th,
+#order-pane-line_items thead,
+#order-pane-line_items th {
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  position: relative;
+  background: #35302c;
+  background: rgba(53, 48, 44, 0.5);
+  -pie-background: rgba(53, 48, 44, 0.5);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+
+/* line 199, ../sass/ie8-fixes.scss */
+#content-group a.buy-tickets {
+  color: #fff;
+}
+/* line 201, ../sass/ie8-fixes.scss */
+#content-group a.buy-tickets:hover {
+  color: #fff;
+}
+/* line 205, ../sass/ie8-fixes.scss */
+#content-group a.buy-tickets:after {
+  border: 1px #111 dashed;
+  outline: 1px #ddd dashed;
+}
+
+/* line 211, ../sass/ie8-fixes.scss */
+select {
+  padding: 0 !important;
+}

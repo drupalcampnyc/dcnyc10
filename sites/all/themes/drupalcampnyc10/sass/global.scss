@@ -442,7 +442,7 @@ tr.even, tr.odd {
   margin:10px 0;
   img {
     padding:10px;
-    @include background-image(linear-gradient(rgba(240,235,245,.75) 20%, rgba(225,215,225,.5) 65%, rgba(235,225,225,.95) 85%));
+    @include background-image(linear-gradient(rgba(240,239,241,.95) 20%, rgba(225,225,225,.95) 65%, rgba(225,225,225,.95) 85%));
     @include speakers-corners;
     @include menu-box-shadow;
   }
@@ -599,9 +599,7 @@ tr.even, tr.odd {
     color:$light-text-color;
   }
   #mc_embed_signup input {
-    @include border-radius(8px);
     @include border-background-reset;
-    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
     line-height:1.25em;
   }
   #mc_embed_signup input.button {
@@ -619,8 +617,6 @@ tr.even, tr.odd {
   }
   input[type="text"]{
     border:none;
-    @include border-radius(8px);
-    @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
     line-height:1.25em;
   }
 }

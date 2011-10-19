@@ -113,8 +113,9 @@
       }
     }
   }
-}
+} 
 
+// Forms And Buttons
 
 //Buttons and Links styled like buttons
 // Default Style Silver
@@ -124,33 +125,89 @@ input[type="submit"],
 a.uc_signup_edit_info,
 .order-pane a,
 .comment_add a {
-  @include text-shadow(none);
-  @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
-  padding: 0.5em 1.5em !important;   
+  background:$button-color-2 !important; 
 }
-a.uc_signup_previous, 
-#continue-shopping-link a,
-a.uc_signup_edit_info,
-.order-pane a,
-.comment_add a {
-  text-shadow: #C1C8CF 0 1px 0 !important;
-  font-family: $form-font;
-  font-weight: bold;
-  color:#111;
-  &:hover {
-    text-decoration:none !important;
-  }
-}
+ 
 // Forms Elements
 // Primary Style  Green
 input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44  {
-  @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+  background: #2a8b13 !important;   
 }
 // Remove Items Style RED
 input[type="submit"]#edit-items-0-remove {
-  @include sassy-button("matte", 25px, 14px, #f33737, #c71e1e, #111, "inset");
+ background:#c71e1e !important;
 }
 #block-search-0 input[type="submit"] {
-   @include sassy-button("matte", 5px, 12px, $heading-color-1, $heading-color-2, #111, "inset");
-padding: 0.25em 1em !important;
+   background:$button-color-2 !important;
 }
+
+
+// Text inputs
+input[type="text"],
+input[type="password"] {  
+  @include PIE;
+  @include border-radius(8px);
+  border: 2px solid #222; 
+
+} 
+ 
+// Profile
+.picture {
+   @include rgba-background(#fff,1);
+   @include speakers-corners; 
+   @include PIE;
+  @include box-shadow-reset;       
+  width:170px;
+  img {                       
+  }
+}
+
+#cart-form-products,
+#uc-signup-attendees-form,
+#uc_signup_attendees_pane-pane .fieldset-wrapper > div,
+#line-items-div,
+table.cart-review,
+.order-review-table   {
+  @include content-group-corners;
+  @include PIE;
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  input[type="text"] {  
+    background-color:#fff !important;
+  }  
+}
+#uc-cart-checkout-forminput[type="text"] {  
+    background-color:#fff !important; 
+
+}
+  
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  @include content-group-corners;
+  @include PIE;
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  }
+#order-pane-products, 
+#order-pane-line_items {
+  thead, th {
+    @include PIE;
+    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  }
+} 
+
+#content-group a.buy-tickets { 
+  color: #fff;  
+  &:hover {  
+    color: #fff;
+  }
+
+  &:after {
+    border: 1px #111 dashed;
+    outline: 1px #ddd dashed; 
+  }
+}
+
+select {
+   padding: 0 !important;
+ }
