@@ -10,14 +10,17 @@ function cod_sponsor_sales_user_default_permissions() {
   $permissions['create sponsorship products'] = array(
     'name' => 'create sponsorship products',
     'roles' => array(
-      '0' => 'sponsor organizer',
+      '0' => 'site administrator',
+      '1' => 'sponsor organizer',
     ),
   );
 
   // Exported permission: delete all sponsorship products
   $permissions['delete all sponsorship products'] = array(
     'name' => 'delete all sponsorship products',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'site administrator',
+    ),
   );
 
   // Exported permission: delete own sponsor content
@@ -36,7 +39,8 @@ function cod_sponsor_sales_user_default_permissions() {
   $permissions['edit all sponsorship products'] = array(
     'name' => 'edit all sponsorship products',
     'roles' => array(
-      '0' => 'sponsor organizer',
+      '0' => 'site administrator',
+      '1' => 'sponsor organizer',
     ),
   );
 
@@ -51,7 +55,9 @@ function cod_sponsor_sales_user_default_permissions() {
   // Exported permission: edit own sponsor content
   $permissions['edit own sponsor content'] = array(
     'name' => 'edit own sponsor content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit own sponsorship products

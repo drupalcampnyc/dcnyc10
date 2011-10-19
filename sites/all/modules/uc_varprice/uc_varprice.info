@@ -1,0 +1,16 @@
+
+name = Variable Price
+description = Defines a product feature to turn any product into a variable priced product.
+dependencies[] = uc_cart
+dependencies[] = uc_product
+dependencies[] = uc_store
+package = Ubercart - extra
+core = 6.x
+php = 5.0
+
+; Information added by drupal.org packaging script on 2011-07-14
+version = "6.x-1.0"
+core = "6.x"
+project = "uc_varprice"
+datestamp = "1310603232"
+

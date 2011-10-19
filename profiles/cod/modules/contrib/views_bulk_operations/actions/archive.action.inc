@@ -12,7 +12,8 @@ function views_bulk_operations_archive_action_info() {
 function views_bulk_operations_archive_action($fids, $context) {
   // Iterate on files.
   $files = array();
-  $f = db_query("SELECT * FROM {files} WHERE fid IN (%s)", implode(',', $fids));
+  $placeholders = db_placeholders($fids);
+  $f = db_query("SELECT * FROM {files} WHERE fid IN ($placeholders)", implode(',', $fids));
   while ($file = db_fetch_object($f)) {
     $files[] = $file;
   }
@@ -45,4 +46,3 @@ function views_bulk_operations_archive_action_do($files, $context) {
   unlink($zipfile);
   exit;
 }
-

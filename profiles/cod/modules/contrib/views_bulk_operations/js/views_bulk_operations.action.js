@@ -29,4 +29,3 @@ Drupal.behaviors.vbo_action = function(context) {
 
 // END jQuery
 })(jQuery);
-

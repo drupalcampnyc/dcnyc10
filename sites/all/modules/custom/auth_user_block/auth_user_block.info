@@ -1,0 +1,8 @@
+core = "6.x"
+dependencies[] = "context"
+dependencies[] = "menu"
+description = "Auth user block"
+features[context][] = "auth_user_menu"
+features[ctools][] = "context:context:3"
+name = "auth_user_block"
+package = "Features"

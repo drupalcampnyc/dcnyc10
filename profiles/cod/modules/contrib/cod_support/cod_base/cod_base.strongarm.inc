@@ -27,7 +27,7 @@ function cod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'configurable_timezones';
-  $strongarm->value = '0';
+  $strongarm->value = '1';
   $export['configurable_timezones'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -41,7 +41,7 @@ function cod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_footer';
-  $strongarm->value = 'Built on COD, the open source <a href="http://usecod.com">conference and event management solution.</a>';
+  $strongarm->value = '';
   $export['site_footer'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -60,17 +60,18 @@ function cod_base_strongarm() {
     'toggle_primary_links' => 1,
     'toggle_secondary_links' => 1,
     'toggle_node_info_event' => 0,
-    'toggle_node_info_forum' => 1,
-    'toggle_node_info_news' => 1,
+    'toggle_node_info_faq' => 0,
+    'toggle_node_info_news' => 0,
     'toggle_node_info_page' => 0,
     'toggle_node_info_product' => 0,
     'toggle_node_info_room' => 0,
     'toggle_node_info_schedule_item' => 0,
-    'toggle_node_info_session' => 0,
+    'toggle_node_info_session' => 1,
     'toggle_node_info_sponsor' => 0,
+    'toggle_node_info_sponsorship' => 0,
+    'toggle_node_info_supporter' => 0,
     'toggle_node_info_time_slot' => 0,
-    'toggle_node_info_training' => 0,
-    'toggle_node_info_venue' => 0,
+    'toggle_node_info_webform' => 0,
     'default_logo' => 1,
     'logo_path' => '',
     'logo_upload' => '',

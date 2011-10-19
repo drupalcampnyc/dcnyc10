@@ -87,4 +87,3 @@ function views_bulk_operations_ruleset_action_submit($form, $form_state) {
   }
   return $submit;
 }
-

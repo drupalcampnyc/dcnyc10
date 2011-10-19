@@ -17,47 +17,46 @@ function cod_front_page_context_default_contexts() {
       'values' => array(
         '<front>' => '<front>',
       ),
-      'options' => array(),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-Sponsors-block_4' => array(
-          'module' => 'views',
-          'delta' => 'Sponsors-block_4',
-          'weight' => 19,
-          'region' => 'right',
-          'status' => '0',
-          'label' => 'Sponsors: Home Page Platinum Featured',
-          'type' => 'context_ui',
+        'block-1' => array(
+          'module' => 'block',
+          'delta' => 1,
+          'region' => 'sidebar_last',
+          'weight' => 0,
         ),
-        'views-attendees-block_1' => array(
-          'module' => 'views',
-          'delta' => 'attendees-block_1',
-          'weight' => 20,
-          'region' => 'right',
-          'status' => '0',
-          'label' => 'Attendee block',
-          'type' => 'context_ui',
+        'block-2' => array(
+          'module' => 'block',
+          'delta' => 2,
+          'region' => 'sidebar_last',
+          'weight' => 1,
         ),
-        'views-featured_sessions-block_1' => array(
-          'module' => 'views',
-          'delta' => 'featured_sessions-block_1',
-          'weight' => 19,
-          'region' => 'content',
-          'status' => '0',
-          'label' => 'featured_sessions: Featured Sessions',
-          'type' => 'context_ui',
+        'countdown-0' => array(
+          'module' => 'countdown',
+          'delta' => 0,
+          'region' => 'sidebar_last',
+          'weight' => 2,
+        ),
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => 3,
+          'region' => 'sidebar_last',
+          'weight' => 3,
         ),
         'views-news-block_1' => array(
           'module' => 'views',
           'delta' => 'news-block_1',
-          'weight' => 20,
           'region' => 'content',
-          'status' => '0',
-          'label' => 'news: Single news item block',
-          'type' => 'context_ui',
+          'weight' => 0,
+        ),
+        'views-sponsors_front_page-block_1' => array(
+          'module' => 'views',
+          'delta' => 'sponsors_front_page-block_1',
+          'region' => 'sponsors',
+          'weight' => 0,
         ),
       ),
     ),

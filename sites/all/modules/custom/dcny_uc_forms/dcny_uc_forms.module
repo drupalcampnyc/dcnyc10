@@ -1,0 +1,43 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * This is the file description for Untitled module.
+ *
+ * In this more verbose, multi-line description, you can specify what this
+ * file does exactly. Make sure to wrap your documentation in column 78 so
+ * that the file can be displayed nicely in default-sized consoles.
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function dcny_uc_forms_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form);
+//dpm($form_state);
+//dpm($form_id);
+
+  switch ($form_id) {
+    case 'uc_signup_attendees_form':
+      $form['5']['#title'] = 'DrupalCampNYC 10';
+      $form['submit'] = array(
+        '#type' => $form['submit']['#type'],
+        '#value' => $form['submit']['#value'],
+        '#prefix' => '<div class="submit-button">',
+        '#suffix' => '</div>',
+      );
+      $copy = $form['instructions']['#value'];
+      $form['instructions']['#value'] = '<p>'. $copy . '</p>';
+      
+      break;
+    case 'search_block_form';
+      unset($form['search_block_form']['#title']);
+      //$form['search_block_form']['#value'] = t('search');  
+    default:
+      # code...
+      break;
+  }
+
+}
+

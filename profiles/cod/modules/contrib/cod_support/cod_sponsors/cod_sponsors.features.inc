@@ -108,6 +108,17 @@ function cod_sponsors_node_info() {
       'min_word_count' => '0',
       'help' => '',
     ),
+    'supporter' => array(
+      'name' => t('Supporter'),
+      'module' => 'features',
+      'description' => t('Who should we thank for your support?'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'has_body' => '0',
+      'body_label' => '',
+      'min_word_count' => '0',
+      'help' => '',
+    ),
   );
   return $items;
 }

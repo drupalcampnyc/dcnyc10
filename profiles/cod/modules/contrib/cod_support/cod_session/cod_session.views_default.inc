@@ -6,6 +6,285 @@
 function cod_session_views_default_views() {
   $views = array();
 
+  // Exported view: Speakers
+  $view = new view;
+  $view->name = 'Speakers';
+  $view->description = 'A list with photos and bios of those speaking at DrupalCampNYC';
+  $view->tag = 'program';
+  $view->view_php = '';
+  $view->base_table = 'node';
+  $view->is_cacheable = FALSE;
+  $view->api_version = 2;
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('relationships', array(
+    'field_speakers_uid' => array(
+      'label' => 'Speaker(s)',
+      'required' => 1,
+      'delta' => '-1',
+      'id' => 'field_speakers_uid',
+      'table' => 'node_data_field_speakers',
+      'field' => 'field_speakers_uid',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('fields', array(
+    'value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 1,
+      'id' => 'value',
+      'table' => 'profile_values_profile_first',
+      'field' => 'value',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'value_2' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 0,
+        'ellipsis' => 0,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 1,
+      'id' => 'value_2',
+      'table' => 'profile_values_profile_org',
+      'field' => 'value',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'picture' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'exclude' => 1,
+      'id' => 'picture',
+      'table' => 'users',
+      'field' => 'picture',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'value_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 1,
+      'id' => 'value_1',
+      'table' => 'profile_values_profile_last',
+      'field' => 'value',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'uid' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '<a href="http://drupalcampnyc.org/user/[uid]">[value]  [value_1] </a> <span class="speaker_org">[value_2]</span> [picture]',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 0,
+      'exclude' => 1,
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'value' => array(
+      'order' => 'ASC',
+      'id' => 'value',
+      'table' => 'profile_values_profile_last',
+      'field' => 'value',
+      'relationship' => 'field_speakers_uid',
+    ),
+    'value_1' => array(
+      'order' => 'ASC',
+      'id' => 'value_1',
+      'table' => 'profile_values_profile_first',
+      'field' => 'value',
+      'relationship' => 'field_speakers_uid',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'field_accepted_value_many_to_one' => array(
+      'operator' => 'or',
+      'value' => array(
+        '1' => '1',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'field_accepted_value_many_to_one',
+      'table' => 'node_data_field_accepted',
+      'field' => 'field_accepted_value_many_to_one',
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
+  $handler->override_option('access', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('cache', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('title', 'Speakers');
+  $handler->override_option('distinct', 0);
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => 'uid',
+    'type' => 'ul',
+  ));
+  $handler->override_option('row_options', array(
+    'inline' => array(
+      'value' => 'value',
+      'value_1' => 'value_1',
+      'value_2' => 'value_2',
+    ),
+    'separator' => '',
+    'hide_empty' => 0,
+  ));
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->override_option('path', 'program/speakers');
+  $handler->override_option('menu', array(
+    'type' => 'normal',
+    'title' => 'Speakers',
+    'description' => 'A list of those speaking at DrupalCampNYC',
+    'weight' => '0',
+    'name' => 'primary-links',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+
+  $views[$view->name] = $view;
+
   // Exported view: cod_schedule
   $view = new view;
   $view->name = 'cod_schedule';
@@ -319,6 +598,7 @@ function cod_session_views_default_views() {
   $handler->override_option('access', array(
     'type' => 'role',
     'role' => array(
+      '5' => 5,
       '3' => 3,
     ),
   ));
@@ -1379,6 +1659,7 @@ function cod_session_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('title', 'Sessions at DrupalCampNYC');
   $handler->override_option('style_plugin', 'rss');
   $handler->override_option('style_options', array(
     'mission_description' => FALSE,
@@ -1406,11 +1687,12 @@ function cod_session_views_default_views() {
   ));
   $handler->override_option('displays', array(
     'page_1' => 'page_1',
+    'page_2' => 'page_2',
     'default' => 0,
-    'page_2' => 0,
     'block_1' => 0,
+    'block_2' => 0,
   ));
-  $handler->override_option('sitename_title', FALSE);
+  $handler->override_option('sitename_title', 0);
   $handler = $view->new_display('block', 'Block: Session Details', 'block_1');
   $handler->override_option('relationships', array(
     'field_session_slot_nid' => array(
@@ -2074,6 +2356,68 @@ function cod_session_views_default_views() {
     'description' => '',
     'weight' => 0,
     'name' => 'navigation',
+  ));
+  $handler = $view->new_display('attachment', 'Content Above Accepted Sessions', 'attachment_1');
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'nid' => array(
+      'operator' => '=',
+      'value' => array(
+        'value' => '64',
+        'min' => '',
+        'max' => '',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'nid',
+      'table' => 'node',
+      'field' => 'nid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('title', '');
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+  ));
+  $handler->override_option('row_plugin', 'node');
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'full',
+    'links' => 0,
+    'comments' => 0,
+  ));
+  $handler->override_option('attachment_position', 'before');
+  $handler->override_option('inherit_arguments', TRUE);
+  $handler->override_option('inherit_exposed_filters', FALSE);
+  $handler->override_option('inherit_pager', FALSE);
+  $handler->override_option('render_pager', TRUE);
+  $handler->override_option('displays', array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+    'page_2' => 0,
   ));
 
   $views[$view->name] = $view;

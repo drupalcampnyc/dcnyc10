@@ -1,0 +1,201 @@
+<?php
+// $Id: uc_conditional_payment.module,v 1.4 2010/03/12 13:17:32 longwave Exp $
+
+/**
+ * Implementation of hook_menu().
+ */
+function uc_conditional_payment_menu() {
+  $items['cart/checkout/payment_methods'] = array(
+    'page callback' => 'uc_conditional_payment_javascript',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function uc_conditional_payment_form_uc_cart_checkout_form_alter(&$form, &$form_state) {
+  global $user;
+
+  // Attempt to load order details from $_POST if available.
+  if ($order = unserialize(rawurldecode($_POST['order']))) {
+    // Reset payment method that was previously selected.
+    if (isset($_POST['payment_method'])) {
+      $form['panes']['payment']['payment_method']['#default_value'] = $_POST['payment_method'];
+    }
+  }
+  else {
+    // Otherwise build a fake order object with enough information to pass CA condition tests.
+    $order = new stdClass();
+    $order->uid = $user->uid;
+    $order->order_status = uc_order_state_default('in_checkout');
+    $order->products = uc_cart_get_contents();
+    $order->order_total = uc_order_get_total($order, TRUE);
+
+    foreach (array('delivery', 'billing') as $pane) {
+      foreach (array('city', 'zone', 'postal_code', 'country') as $suffix) {
+        $field = $pane .'_'. $suffix;
+        $order->{$field} = $form['panes'][$pane][$field]['#default_value'];
+      }
+    }
+  }
+
+  $arguments = array(
+    'cart' => array(
+      '#entity' => 'cart',
+      '#title' => t('Cart'),
+      '#data' => uc_cart_get_contents(),
+    ),
+    'order' => array(
+      '#entity' => 'uc_order',
+      '#title' => t('Order'),
+      '#data' => $order,
+    ),
+    'account' => array(
+      '#entity' => 'user',
+      '#title' => t('User'),
+      '#data' => $user,
+    ),
+  );
+
+  // Remove payment methods that do not pass the Conditional Actions tests.
+  $predicates = ca_load_trigger_predicates('allow_payment_method');
+  foreach (_payment_method_list() as $method) {
+    $predicate = $predicates['uc_conditional_payment_allow_method_'. $method['id']];
+    if ($predicate && !ca_evaluate_conditions($predicate, $arguments)) {
+      unset($form['panes']['payment']['payment_method']['#options'][$method['id']]);
+
+      // If this was the default value, set it to the next available value instead.
+      if ($form['panes']['payment']['payment_method']['#default_value'] == $method['id']) {
+        $form['panes']['payment']['payment_method']['#default_value'] = array_shift(array_keys($form['panes']['payment']['payment_method']['#options']));
+      }
+    }
+  }
+
+  drupal_add_js(drupal_get_path('module', 'uc_conditional_payment') .'/uc_conditional_payment.js');
+  drupal_add_js(array(
+    'ucURL' => array(
+      'conditionalPayment' => url('cart/checkout/payment_methods'),
+    ),
+  ), 'setting');
+}
+
+/**
+ * AJAX callback to update available payment methods.
+ */
+function uc_conditional_payment_javascript() {
+  module_load_include('inc', 'uc_cart', 'uc_cart.pages');
+
+  drupal_set_header("Content-Type: text/javascript; charset=utf-8");
+  print drupal_get_form('uc_cart_checkout_form');
+  exit;
+}
+
+/**
+ * Implementation of hook_ca_predicate().
+ *
+ * Provide predicates for each payment method.
+ */
+function uc_conditional_payment_ca_predicate() {
+  $predicates = array();
+
+  foreach (_payment_method_list() as $method) {
+    $predicates['uc_conditional_payment_allow_method_'. $method['id']] = array(
+      '#title' => t('Payment via @method', array('@method' => $method['name'])),
+      '#class' => 'conditional_payment',
+      '#trigger' => 'allow_payment_method',
+      '#status' => $method['checkout'],
+      '#conditions' => array(),
+      '#actions' => array(),
+    );
+  }
+
+  return $predicates;
+}
+
+/**
+ * Implementation of hook_ca_trigger().
+ */
+function uc_conditional_payment_ca_trigger() {
+  $triggers['allow_payment_method'] = array(
+    '#title' => t('Allow payment methods'),
+    '#category' => t('Payment'),
+    '#arguments' => array(
+      'cart' => array('#entity' => 'cart', '#title' => t('Cart')),
+      'order' => array('#entity' => 'uc_order', '#title' => t('Order')),
+      'account' => array('#entity' => 'user', '#title' => t('User account')),
+    ),
+  );
+  return $triggers;
+}
+
+/**
+ * Implementation of hook_ca_condition()
+ */
+function uc_conditional_payment_ca_condition() {
+  return array(
+    'uc_conditional_payment_cart_total' => array(
+      '#title' => t('Compare the cart total to a specified price'),
+      '#category' => t('Cart'),
+      '#callback' => 'uc_conditional_payment_cart_total',
+      '#arguments' => array(
+        'cart' => array('#entity' => 'cart', '#title' => t('Cart')),
+      ),
+    ),
+  );
+}
+
+function uc_conditional_payment_cart_total($cart, $settings) {
+  $total = 0;
+  foreach ($cart as $item) {
+    $total += $item->price * $item->qty;
+  }
+
+  switch ($settings['operation']) {
+    case 'gt':
+      $result = $total > $settings['price'];
+      break;
+    case 'ge':
+      $result = $total >= $settings['price'];
+      break;
+    case 'le':
+      $result = $total <= $settings['price'];
+      break;
+    case 'lt':
+      $result = $total < $settings['price'];
+      break;
+  }
+  return $result;
+}
+
+function uc_conditional_payment_cart_total_form($form_state, $settings = array(), $arguments = array()) {
+  $form = array();
+  $form['operation'] = array(
+    '#type' => 'select',
+    '#title' => t('Operation'),
+    '#options' => array(
+      'gt' => t('Greater than'),
+      'ge' => t('Greater than or equal to'),
+      'le' => t('Less than or equal to'),
+      'lt' => t('Less than'),
+    ),
+    '#default_value' => $settings['operation'],
+  );
+  $form['price'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Price',
+    '#default_value' => isset($settings['price']) ? $settings['price'] : '',
+    '#field_prefix' => variable_get('uc_sign_after_amount', FALSE) ? '' : variable_get('uc_currency_sign', '$'),
+    '#field_suffix' => variable_get('uc_sign_after_amount', FALSE) ? variable_get('uc_currency_sign', '$') : '',
+  );
+  return $form;
+}
+
+function uc_conditional_payment_cart_total_validate($form, &$form_state) {
+  if (!is_numeric($form_state['values']['price'])) {
+    form_set_error('price', t('The price must be a number.'));
+  }
+}

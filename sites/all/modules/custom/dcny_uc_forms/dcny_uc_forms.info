@@ -1,0 +1,4 @@
+name = "DCNY Ubercart Overrides"
+description = "Overrides some of the default Ubercart form stuff"
+core = 6.x
+project = "dcny_uc_forms"

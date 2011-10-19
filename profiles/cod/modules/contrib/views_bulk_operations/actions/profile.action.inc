@@ -27,9 +27,9 @@ function views_bulk_operations_profile_action_form($context) {
     while ($field = db_fetch_object($fields)) {
       $form[$category['name']][$field->name]['#required'] = FALSE;
       $form[$field->name . '_check'] = array(
-        '#type' => 'checkbox', 
+        '#type' => 'checkbox',
         '#attributes' => array(
-          'class' => 'profile-action-toggler', 
+          'class' => 'profile-action-toggler',
           'onchange' => 'Drupal.vbo.profileAction.updateField(this, true)',
         ),
         '#default_value' => @$context[$field->name . '_check'],
@@ -116,4 +116,3 @@ function _views_bulk_operations_profile_action_save(&$edit, &$user, $category, $
     $edit[$field->name] = NULL;
   }
 }
-

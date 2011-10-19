@@ -1,6 +1,6 @@
 <?php
 /**
- * @file Drupal action to set individual field values. 
+ * @file Drupal action to set individual field values.
  */
 
 define('VBO_ACTION_FIELDS_ALL', '_all_');
@@ -99,7 +99,8 @@ function views_bulk_operations_fields_action_form($context) {
   // Get the content types of the selected nodes if any. Otherwise, get all types.
   if (isset($context['selection']) && isset($context['view'])) {
     $nids = array_map('_views_bulk_operations_get_oid', $context['selection'], array_fill(0, count($context['selection']), $context['view']->base_field));
-    $result = db_query("SELECT DISTINCT type FROM {node} WHERE nid IN (%s)", implode(',', $nids));
+    $placeholders = db_placeholders($nids);
+    $result = db_query("SELECT DISTINCT type FROM {node} WHERE nid IN ($placeholders)", implode(',', $nids));
   }
   else {
     $result = db_query("SELECT type FROM {node_type}");
@@ -120,13 +121,13 @@ function views_bulk_operations_fields_action_form($context) {
   // Iterate on fields, creating the input widget for each.
   foreach ($fields as $field) {
     // Skip fields for which the user has no permission.
-    if (module_exists('content_permissions') && 
-        in_array('edit ' . $field['field_name'], module_invoke('content_permissions', 'perm')) && 
+    if (module_exists('content_permissions') &&
+        in_array('edit ' . $field['field_name'], module_invoke('content_permissions', 'perm')) &&
         !user_access('edit ' . $field['field_name'])) continue;
 
     // Skip fields that are not selected in VBO settings.
-    if (!empty($context['settings']['display_fields']) && 
-        !in_array($field['field_name'], $context['settings']['display_fields']) && 
+    if (!empty($context['settings']['display_fields']) &&
+        !in_array($field['field_name'], $context['settings']['display_fields']) &&
         !in_array(VBO_ACTION_FIELDS_ALL, $context['settings']['display_fields'])) continue;
 
     // Set the default value in the synthesized node.
@@ -152,7 +153,7 @@ function views_bulk_operations_fields_action_form($context) {
 
     // CCK needs this to properly process its fields.
     $form['#field_info'][$field['field_name']] = $field;
-    
+
     // Adjust some settings on the field itself.
     $form[$field['field_name']]['#weight'] = $weight++;
     $form[$field['field_name']]['#prefix'] = '<div class="fields-action-togglable">' . @$form[$field['field_name']]['#prefix'];
@@ -160,7 +161,7 @@ function views_bulk_operations_fields_action_form($context) {
 
     // Checkbox to enable/disable this field.
     $form[$field['field_name'] . '_check'] = array(
-      '#type' => 'checkbox', 
+      '#type' => 'checkbox',
       '#attributes' => array('class' => 'fields-action-toggler'),
       '#default_value' => !empty($context[$field['field_name'] . '_check']),
     );
@@ -168,8 +169,8 @@ function views_bulk_operations_fields_action_form($context) {
     // Checkbox to add/overwrite values in this field.
     if (!empty($field['multiple'])) {
       $form[$field['field_name'] . '_add'] = array(
-        '#type' => 'checkbox', 
-        '#prefix' => '<div class="fields-action-togglable">', 
+        '#type' => 'checkbox',
+        '#prefix' => '<div class="fields-action-togglable">',
         '#suffix' => '</div>',
         '#attributes' => array(
           'title' => t('Check this box to add new values to this multi-valued field, instead of overwriting existing values.'),
@@ -196,9 +197,9 @@ function views_bulk_operations_fields_action_form($context) {
           }
           $sample = t(
             "&lt;?php\n" .
-            "return array(\n" . 
+            "return array(\n" .
             "  @columns\n" .
-            ");\n" . 
+            ");\n" .
             "?&gt;", array('@columns' => implode(",\n  ", $columns))
           );
         }
@@ -209,12 +210,12 @@ function views_bulk_operations_fields_action_form($context) {
         foreach ($columns as $key => $column) {
           $columns[$key] = t("'@column' => value for @column", array('@column' => $column));
         }
-        $sample = t($field['multiple'] ? 
+        $sample = t($field['multiple'] ?
           "&lt;?php\n" .
           "return array(\n" .
           "  0 => array(\n    @columns\n  ),\n" .
           "  1 => array(\n    @columns\n  ),\n" .
-          "  2 => ...\n" . 
+          "  2 => ...\n" .
           ");\n" .
           "?&gt;" :
           "&lt;?php\n" .
@@ -234,7 +235,7 @@ function views_bulk_operations_fields_action_form($context) {
         '#prefix' => '<div class="fields-action-togglable">',
         '#suffix' => '</div>',
       );
-    } 
+    }
   }
 
   // Special case for only one field: convert the checkbox into a value that's TRUE by default.
@@ -289,7 +290,7 @@ function theme_views_bulk_operations_fields_action_form($form) {
     drupal_add_js(drupal_get_path('module', 'views_bulk_operations') . '/js/fields.action.js');
 
     $header = array(
-      t('Select'), 
+      t('Select'),
       array('data' => t('Add?'), 'title' => t('Checkboxes in this column allow you to add new values to multi-valued fields, instead of overwriting existing values.')),
       t('Field')
     );
@@ -299,7 +300,7 @@ function theme_views_bulk_operations_fields_action_form($form) {
     if (!empty($form['#field_info'])) foreach ($form['#field_info'] as $field_name => $field) {
       $row = array(
         'class' => 'fields-action-row',
-        'id' => 'fields-action-row-' . str_replace('_', '-', $field_name), 
+        'id' => 'fields-action-row-' . str_replace('_', '-', $field_name),
         'data' => array(
           drupal_render($form[$field_name . '_check']),
           drupal_render($form[$field_name . '_add']),
@@ -311,7 +312,7 @@ function theme_views_bulk_operations_fields_action_form($form) {
       }
       $rows[] = $row;
     }
-    $output .= theme('table', $header, $rows); 
+    $output .= theme('table', $header, $rows);
   }
   $output .= drupal_render($form);
   return $output;
@@ -479,7 +480,7 @@ function views_bulk_operations_views_bulk_operations_fields($type) {
 }
 
 /**
- * Validate function for authoring form element. 
+ * Validate function for authoring form element.
  */
 function _views_bulk_operations_field_action_validate_authoring($value, $field) {
   if (!($account = user_load(array('name' => $value['name'])))) {
@@ -590,4 +591,3 @@ function _views_bulk_operations_fields_action_non_cck($type, $reset = FALSE) {
   drupal_alter('views_bulk_operations_fields', $fields, $type);
   return $fields[$type];
 }
-

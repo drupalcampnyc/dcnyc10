@@ -5,19 +5,22 @@ base theme = fusion_core
 core = 6.x
 engine = phptemplate
 
-stylesheets[all][] = css/drupalcampnyc10.css
+stylesheets[all][] = css/global.css
+stylesheets[all and (min-width : 768px)][] = css/desktop-tablet-fluid.css
 
 ;scripts[] = js/jquery-1.6.2.min.js 
 scripts[] = js/jquery.lettering.js
 scripts[] = js/kerning.js
 scripts[] = js/foutbgone.js
 
-
+regions[userbar_first] = userbar first
+regions[userbar_last] = userbar last
 regions[sidebar_first] = sidebar first
 regions[sidebar_last] = sidebar last
 regions[header] = header
 regions[content] = content
 regions[footer] = footer
+regions[sponsors] = sponsors
 
 ; Default theme settings
 settings[theme_grid] = grid12-960
@@ -26,8 +29,8 @@ settings[theme_grid_options][] = grid12-fluid
 settings[fluid_grid_width] = fluid-100
 settings[theme_font_size] = font-size-12
 settings[sidebar_layout] = sidebars-split
-settings[sidebar_first_width] = 2
-settings[sidebar_last_width] = 2
+settings[sidebar_first_width] = 3
+settings[sidebar_last_width] = 3
 
 ; Widths for 12 column, 960px/fluid grid
 skinr[grid12-width][title] = Width (12 column grid)

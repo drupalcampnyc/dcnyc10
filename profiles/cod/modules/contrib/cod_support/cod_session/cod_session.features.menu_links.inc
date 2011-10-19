@@ -22,25 +22,7 @@ function cod_session_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
-  );
-  // Exported menu link: primary-links:82568654-06d2-11e0-a3ab-29212d7dea21
-  $menu_links['primary-links:82568654-06d2-11e0-a3ab-29212d7dea21'] = array(
-    'menu_name' => 'primary-links',
-    'router_path' => 'node/%',
-    'link_title' => 'Program',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Program',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-48',
-    'uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
+    'weight' => '-47',
   );
   // Exported menu link: primary-links:program/session-schedule
   $menu_links['primary-links:program/session-schedule'] = array(
@@ -74,11 +56,31 @@ function cod_session_menu_default_menu_links() {
     'parent_path' => 'node/2',
     'parent_uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
   );
+  // Exported menu link: primary-links:program/speakers
+  $menu_links['primary-links:program/speakers'] = array(
+    'menu_name' => 'primary-links',
+    'link_path' => 'program/speakers',
+    'router_path' => 'program/speakers',
+    'link_title' => 'Speakers',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'A list of those speaking at DrupalCampNYC',
+      ),
+    ),
+    'module' => 'system',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-48',
+    'parent_path' => 'node/2',
+    'parent_uuid' => '82568654-06d2-11e0-a3ab-29212d7dea21',
+  );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Program');
   t('Session schedule');
   t('Sessions');
+  t('Speakers');
   t('Your schedule');
 
 
