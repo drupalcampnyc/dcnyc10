@@ -169,6 +169,7 @@ h1.title {
 
 // Userbar Last
 #userbar-last {
+  float:right;
   margin:0;
   padding:0;
   &.nested {
@@ -176,18 +177,42 @@ h1.title {
      margin:0;
      padding:0;
    }
-  #block-menu-menu-quick-links {
-   margin:0;
-    .menu {
+  #block-user-0 {
+    float:right;
+    .content {
+      margin:0;
+      padding:.25em 1em;      
       @include suckerfish-menu-corners;
       @include rgba-background(rgb(0,0,0),.75);
       @include background-image(linear-gradient(rgba(0,0,0,.75) 20%, rgba(0,0,0,.5) 65%, rgba(0,0,0,.35) 85%));
-      text-align:right;
-      float:right;
+      #toboggan-login-link-container {
+        font-size:1.2em;
+        
+        padding:.5em 0;
+      }
+      #toboggan-login {
+        label {
+          font-size:1em;
+          padding: 0 0 .25em 0;
+        }
+      }
+      .item-list {
+        font-size:1.1em;
+        padding:.25em 0;
+      }
+    }
+  } 
+  #block-menu-menu-quick-links {
+   margin:0;
+    .menu {
       display:inline;
+      float:right;
       margin:0;
       padding:.25em 1em;
-      li {
+      text-align:right;
+      @include suckerfish-menu-corners;
+      @include rgba-background(rgb(0,0,0),.75);
+      @include background-image(linear-gradient(rgba(0,0,0,.75) 20%, rgba(0,0,0,.5) 65%, rgba(0,0,0,.35) 85%));      li {
         display:block;
         float:left;
         padding:.5em;
@@ -204,6 +229,8 @@ h1.title {
     }
   }
 }
+
+
 // Content Area
 #content-group {
   @include maintext-text-shadow;
