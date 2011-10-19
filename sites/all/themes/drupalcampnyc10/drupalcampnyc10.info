@@ -11,7 +11,7 @@ stylesheets[all and (min-width : 768px)][] = css/desktop-tablet-fluid.css
 ;scripts[] = js/jquery-1.6.2.min.js 
 scripts[] = js/jquery.lettering.js
 scripts[] = js/kerning.js
-scripts[] = js/foutbgone.js
+;scripts[] = js/foutbgone.js
 
 regions[userbar_first] = userbar first
 regions[userbar_last] = userbar last
