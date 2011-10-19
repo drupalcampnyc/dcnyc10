@@ -58,15 +58,29 @@ function cod_events_uuid_features_default_content() {
   'signup' => 1,
   'signup_forwarding_email' => '',
   'signup_send_confirmation' => '1',
-  'signup_confirmation_email' => 'Enter your default confirmation email message here',
+  'signup_confirmation_email' => 'Hello %user_name,
+
+Thanks so much for registering to attend DrupalCampNYC 10 at John Jay College on December 10, 2011. This email is your confirmation that you are registered.
+
+Next steps:
+Submit a session proposal at http://www.drupalcampnyc.org/node/add/session
+If you\'ve got some fantastic Drupally knowledge you\'d like to share, let\'s hear it! Sessions will be accepted for Beginner, Intermediate, and Advanced audiences, and the tracks for this camp are Development, Site building, Presentation, Business & end users, and Sysadmin & performance. Check out How can I submit a session? (http://www.drupalcampnyc.org/about/faq/how-can-i-submit-session) for tips on putting together your proposal.
+
+Keep in touch! We\'re on Twitter , Facebook , and of course the NYC Drupal Group on groups.drupal.org .
+Tell your friends! The official hashtag for DrupalCampNYC 10 is #DCNYC10. Tweet about the Camp and let the world know you\'ll be there!
+See you at DrupalCamp!
+
+DCNYC10 Organizing Team
+
+If you are unable to attend, please cancel your attendance at %cancel_signup_url so another can have your place.',
   'signup_send_reminder' => '0',
   'signup_reminder_days_before' => '0',
   'signup_reminder_email' => '',
   'signup_close_signup_limit' => '400',
   'signup_status' => '1',
   'signup_user_reg_form' => '0',
-  'signup_total' => '11',
-  'signup_effective_total' => '11',
+  'signup_total' => '0',
+  'signup_effective_total' => NULL,
   'uc_order_product_id' => FALSE,
   'last_comment_timestamp' => '1316471187',
   'last_comment_name' => NULL,
