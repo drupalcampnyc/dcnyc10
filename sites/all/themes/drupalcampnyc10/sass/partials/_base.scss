@@ -79,7 +79,7 @@ $header-dark-gradient-color: #23201e;
   @include PIE;
 }
 @mixin PIE {
-  // Production and Dev
+  // Production and Dev needs to be at the root of the server
   behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
   // Local
   //behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
