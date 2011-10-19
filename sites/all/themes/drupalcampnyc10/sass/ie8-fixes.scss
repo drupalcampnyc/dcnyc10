@@ -3,26 +3,49 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */ 
- @import "partials/_base";
+ @import "partials/_base"; 
 
 //Main Menu and Dropdowns
- #primary-menu {
-   @include box-shadow-reset;
-   @include PIE;
-   ul {
-     ul { 
-       margin:0;
-       @include box-shadow-reset;
-       background:$menu-background;
-       li {
-         @include box-shadow-reset;
-           &:last-child {
-           } a {
-           &:hover {
-             background:$menu-middle-background;
-           }
+#primary-menu {
+  @include box-shadow-reset;
+  @include PIE;
+  ul {
+    ul {
+      @include suckerfish-menu-corners;
+      margin:0;
+      @include box-shadow-reset;
+      @include PIE;
+      border-right:dotted 1px #4c4642;
+      border-left:dotted 1px #4c4642; 
+      background:$menu-background;
+      li {
+        @include box-shadow-reset;
+        @include suckerfish-menu-corners;
+        @include PIE;
+        border-bottom:dotted 1px #4c4642;
+          &:last-child {
+          } a {
+            &:hover {
+              @include suckerfish-menu-corners;
+              @include PIE;
+              background:$menu-middle-background;
+            }
          }
-       } 
-     }
-   }
+      }
+    }
+  }
+}
+
+// Content Area
+#content-group {
+  letter-spacing:0em;
+  #content-inner {
+    @include content-group-corners;
+    @include rgba-background($content-area-background-flat,.7);
+     @include box-shadow-reset;
+    #content-inner-inner {
+      border: 1px #666 dashed;
+      outline: 1px #908f90 dashed;
+    } 
+  }
 }

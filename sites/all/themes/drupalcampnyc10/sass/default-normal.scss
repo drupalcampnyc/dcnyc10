@@ -15,7 +15,7 @@ body {
 
 } 
 h1#site-name {
-  font-size: 12.3em;
+  font-size: 11.95em;
 }
 
 #header-group {
@@ -76,17 +76,6 @@ h1#site-name {
   font-size:1.1em;
 }
 
-//Main Menu and Dropdowns
-#primary-menu {
-
-  ul {
-    font-size:2em;
-    
-    ul {
-      font-size:1em; 
-    }
-  }
-}
 
 // Submenus
 .block-menu_block {
@@ -124,7 +113,8 @@ a.uc_signup_edit_info,
   }
 }
 h1.title {
-  font-size: 5em;
+  font-size: 5em; 
+  letter-spacing:0;
 }
 
 // Front page 
