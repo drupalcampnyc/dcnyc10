@@ -142,69 +142,7 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'date' => '2011-10-12 17:07:28 -0400',
 );
   $nodes[] = array(
-  'type' => 'sponsorship',
-  'language' => '',
-  'uid' => '4',
-  'status' => '0',
-  'created' => '1318518644',
-  'changed' => '1318891848',
-  'comment' => '0',
-  'promote' => '0',
-  'moderate' => '0',
-  'sticky' => '0',
-  'tnid' => '0',
-  'translate' => '0',
-  'revision_uid' => '4',
-  'title' => 'Carryover Sponsor',
-  'body' => 'Sponsorship for DCNYC9 has carried over to DCNYC10.  As a carryover sponsor, you will receive:
-<ul><li>Company logo displayed on the general sponsor page of the web site</li>
-<li>Logo displayed on Camp signage beneath Premium Sponsor logos</li>
-<li>Logo projected in the opening ‘Thanks’ slides in the plenary session, beneath Premium Sponsor logos</li>
-<li>One Camp ticket for use by your staff</li>
-<li>Option to place SWAG on the SWAG table at registration.</li></ul>',
-  'teaser' => 'Sponsorship for DCNYC9 has carried over to DCNYC10.  As a carryover sponsor, you will receive:
-<ul><li>Company logo displayed on the general sponsor page of the web site</li>
-<li>Logo displayed on Camp signage beneath Premium Sponsor logos</li>
-<li>Logo projected in the opening ‘Thanks’ slides in the plenary session, beneath Premium Sponsor logos</li>
-<li>One Camp ticket for use by your staff</li>
-<li>Option to place SWAG on the SWAG table at registration.</li></ul>',
-  'log' => '',
-  'revision_timestamp' => '1318891848',
-  'format' => '1',
-  'name' => 'FatherShawn',
-  'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
-  'data' => 'a:4:{s:13:"form_build_id";s:37:"form-6952dea8017db635329ec02e56008264";s:7:"contact";i:1;s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";}',
-  'model' => '04-carryover-dcny10',
-  'list_price' => '0.00000',
-  'cost' => '0.00000',
-  'sell_price' => '0.00000',
-  'weight' => '0',
-  'weight_units' => 'lb',
-  'length' => '0',
-  'width' => '0',
-  'height' => '0',
-  'length_units' => 'in',
-  'pkg_qty' => '1',
-  'default_qty' => '1',
-  'unique_hash' => '362725f51eed99a3e8a65caa0511d05c',
-  'ordering' => '0',
-  'shippable' => '0',
-  'path' => 'sponsors/carryover-sponsor',
-  'field_sponsorship_level' => array(
-    '0' => array(
-      'value' => 'sponsor',
-    ),
-  ),
-  'signup' => 0,
-  'uc_order_product_id' => FALSE,
-  'last_comment_timestamp' => '1318518644',
-  'last_comment_name' => NULL,
-  'comment_count' => '0',
-  'taxonomy' => array(),
-  'uuid' => '85cd7da4-f5ad-11e0-a4e0-46138b83f027',
-  'revision_uuid' => '85cd8222-f5ad-11e0-a4e0-46138b83f027',
-  'pathauto_perform_alias' => FALSE,
-  'date' => '2011-10-13 11:10:44 -0400',
+  'date' => '1969-12-31 20:00:00 -0400',
 );
   $nodes[] = array(
   'type' => 'sponsorship',
@@ -277,19 +215,19 @@ function cod_sponsor_sales_uuid_features_default_content() {
   'uid' => '4',
   'status' => '1',
   'created' => '1318452946',
-  'changed' => '1318517882',
+  'changed' => '1318945481',
   'comment' => '0',
   'promote' => '0',
   'moderate' => '0',
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '0',
+  'revision_uid' => '4',
   'title' => 'Support',
   'body' => 'Supporters make a donation to DrupalCampNYC that is less than $250. ',
   'teaser' => 'Supporters make a donation to DrupalCampNYC that is less than $250. ',
   'log' => 'New version to force uuid',
-  'revision_timestamp' => '1318517882',
+  'revision_timestamp' => '1318945481',
   'format' => '1',
   'name' => 'FatherShawn',
   'picture' => 'sites/default/files/user_pictures/picture-4.jpg',
