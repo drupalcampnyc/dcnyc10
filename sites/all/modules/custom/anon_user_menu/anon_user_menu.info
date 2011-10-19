@@ -1,5 +1,6 @@
 core = "6.x"
 dependencies[] = "context"
+dependencies[] = "logintoboggan"
 dependencies[] = "strongarm"
 description = "Anonymous User Login and Any other links we need"
 features[context][] = "anon_user_menu"
