@@ -10,6 +10,7 @@ function drupalcampnyc10_preprocess_page(&$vars, $hook) {
   unset($vars['setting_styles']);
   $vars['styles'] = drupal_get_css($vars['css']);
   
+  /*
   // Added the global style to the beginning of the conditional comments (should be in a function but TO DO)
   $vars['ie8_styles_append'] = $vars['ie8_styles'];
   $vars['ie7_styles_append'] = $vars['ie7_styles'];
@@ -19,7 +20,7 @@ function drupalcampnyc10_preprocess_page(&$vars, $hook) {
   $vars['ie8_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie8_styles_append'];
   $vars['ie7_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie7_styles_append'];
   $vars['ie6_styles'] .= "  <link type=\"text/css\" rel=\"stylesheet\" media=\"all\" href=\"".base_path().path_to_theme()."/css/default-normal.css\" />\r" . $vars['ie6_styles_append'];
-  
+  */
   
   // Add Meta Viewport tag for mobile
   $vars['head'] .= drupal_set_html_head("<meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\" />\r");

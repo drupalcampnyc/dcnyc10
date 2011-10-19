@@ -3,6 +3,684 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+/* Layout - 16 column grid, fluid width, 20px gutters
+-------------------------------------------------------------- */
+/* grid widths */
+/* line 6, ../sass/partials/_grid12-fluid.scss */
+.grid12-1 {
+  width: 8.33%;
+}
+
+/* line 7, ../sass/partials/_grid12-fluid.scss */
+.grid12-2 {
+  width: 16.67%;
+}
+
+/* line 8, ../sass/partials/_grid12-fluid.scss */
+.grid12-3 {
+  width: 25%;
+}
+
+/* line 9, ../sass/partials/_grid12-fluid.scss */
+.grid12-4 {
+  width: 33.33%;
+}
+
+/* line 10, ../sass/partials/_grid12-fluid.scss */
+.grid12-5 {
+  width: 41.67%;
+}
+
+/* line 11, ../sass/partials/_grid12-fluid.scss */
+.grid12-6 {
+  width: 50%;
+}
+
+/* line 12, ../sass/partials/_grid12-fluid.scss */
+.grid12-7 {
+  width: 58.33%;
+}
+
+/* line 13, ../sass/partials/_grid12-fluid.scss */
+.grid12-8 {
+  width: 66.67%;
+}
+
+/* line 14, ../sass/partials/_grid12-fluid.scss */
+.grid12-9 {
+  width: 75%;
+}
+
+/* line 15, ../sass/partials/_grid12-fluid.scss */
+.grid12-10 {
+  width: 83.33%;
+}
+
+/* line 16, ../sass/partials/_grid12-fluid.scss */
+.grid12-11 {
+  width: 91.67%;
+}
+
+/* line 17, ../sass/partials/_grid12-fluid.scss */
+.grid12-12 {
+  width: 100%;
+}
+
+/* block indents */
+/* line 20, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-1 {
+  margin-left: 8.33%;
+}
+
+/* line 21, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-2 {
+  margin-left: 16.67%;
+}
+
+/* line 22, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-3 {
+  margin-left: 25%;
+}
+
+/* line 23, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-4 {
+  margin-left: 33.33%;
+}
+
+/* line 24, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-5 {
+  margin-left: 41.67%;
+}
+
+/* line 25, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-6 {
+  margin-left: 50%;
+}
+
+/* line 26, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-7 {
+  margin-left: 58.33%;
+}
+
+/* line 27, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-8 {
+  margin-left: 66.67%;
+}
+
+/* line 28, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-9 {
+  margin-left: 75%;
+}
+
+/* line 29, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-10 {
+  margin-left: 83.33%;
+}
+
+/* line 30, ../sass/partials/_grid12-fluid.scss */
+.grid12-indent-11 {
+  margin-left: 91.67%;
+}
+
+/* gutters (2 x margin) */
+/* line 33, ../sass/partials/_grid12-fluid.scss */
+.block .inner {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* page min width */
+/* line 40, ../sass/partials/_grid12-fluid.scss */
+body,
+div.full-width {
+  min-width: 780px;
+}
+
+/* row max-min width */
+/* line 45, ../sass/partials/_grid12-fluid.scss */
+.row {
+  max-width: 1320px;
+  /* 960px + 360px */
+  min-width: 780px;
+  /* 960px - 180px */
+}
+
+/* allow nested rows to be smaller */
+/* line 51, ../sass/partials/_grid12-fluid.scss */
+.row.nested {
+  min-width: 0;
+}
+
+/* theme setting: set fluid grid width on top-level full-width elements */
+/* line 56, ../sass/partials/_grid12-fluid.scss */
+.fluid-100 .full-width .grid12-12 {
+  width: 100%;
+}
+
+/* line 57, ../sass/partials/_grid12-fluid.scss */
+.fluid-95 .full-width .grid12-12 {
+  width: 95%;
+}
+
+/* line 58, ../sass/partials/_grid12-fluid.scss */
+.fluid-90 .full-width .grid12-12 {
+  width: 90%;
+}
+
+/* line 59, ../sass/partials/_grid12-fluid.scss */
+.fluid-85 .full-width .grid12-12 {
+  width: 85%;
+}
+
+/* now reset all nested full-width elements back to 100% */
+/* line 62, ../sass/partials/_grid12-fluid.scss */
+#page .grid12-12 .grid12-12 {
+  width: 100%;
+}
+
+/* line 6, ../sass/desktop-tablet-fluid.scss */
+body {
+  background-image: url("../images/background_retaining_wall-1280.png");
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(100px, rgba(35, 32, 30, 0.75)), color-stop(250px, rgba(35, 32, 30, 0.15)), color-stop(400px, rgba(128, 116, 107, 0.15)), color-stop(95%, rgba(128, 116, 107, 0))), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-image: -webkit-linear-gradient(rgba(35, 32, 30, 0.75) 100px, rgba(35, 32, 30, 0.15) 250px, rgba(128, 116, 107, 0.15) 400px, rgba(128, 116, 107, 0) 95%), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-image: -moz-linear-gradient(rgba(35, 32, 30, 0.75) 100px, rgba(35, 32, 30, 0.15) 250px, rgba(128, 116, 107, 0.15) 400px, rgba(128, 116, 107, 0) 95%), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-image: -o-linear-gradient(rgba(35, 32, 30, 0.75) 100px, rgba(35, 32, 30, 0.15) 250px, rgba(128, 116, 107, 0.15) 400px, rgba(128, 116, 107, 0) 95%), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-image: -ms-linear-gradient(rgba(35, 32, 30, 0.75) 100px, rgba(35, 32, 30, 0.15) 250px, rgba(128, 116, 107, 0.15) 400px, rgba(128, 116, 107, 0) 95%), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-image: linear-gradient(rgba(35, 32, 30, 0.75) 100px, rgba(35, 32, 30, 0.15) 250px, rgba(128, 116, 107, 0.15) 400px, rgba(128, 116, 107, 0) 95%), url("../images/side_piece.png"), url("../images/background_retaining_wall-1280.png");
+  background-position: top center,90% 0,top center;
+  background-repeat: no-repeat, repeat-y, repeat;
+}
+
+/* line 17, ../sass/desktop-tablet-fluid.scss */
+h1#site-name {
+  font-size: 11.95em;
+}
+
+/* line 21, ../sass/desktop-tablet-fluid.scss */
+#header-group {
+  padding: 0;
+  background-image: url("../images/birds-transparent.png");
+  background-position: left bottom;
+  background-repeat: repeat-x;
+}
+
+/* line 29, ../sass/desktop-tablet-fluid.scss */
+#content-group {
+  font-size: 1.334em;
+  line-height: 1.66em;
+}
+/* line 32, ../sass/desktop-tablet-fluid.scss */
+#content-group #content-inner {
+  width: 95%;
+  padding: 2%;
+}
+/* line 35, ../sass/desktop-tablet-fluid.scss */
+#content-group p {
+  max-width: 38em;
+}
+/* line 37, ../sass/desktop-tablet-fluid.scss */
+#content-group ul {
+  list-style: disc;
+  max-width: 33em;
+  line-height: 1.334em;
+}
+/* line 41, ../sass/desktop-tablet-fluid.scss */
+#content-group ul li {
+  margin: 0 0 .66em 0;
+}
+
+/* line 49, ../sass/desktop-tablet-fluid.scss */
+#content-tabs.block {
+  margin: 0;
+  padding: 1em 0 0 0;
+}
+/* line 53, ../sass/desktop-tablet-fluid.scss */
+#content-tabs .primary {
+  display: inline;
+  border: none;
+}
+/* line 56, ../sass/desktop-tablet-fluid.scss */
+#content-tabs .primary li {
+  display: block;
+  float: left;
+  margin: 0;
+}
+/* line 66, ../sass/desktop-tablet-fluid.scss */
+#content-tabs .secondary li {
+  background: none;
+  border: none;
+}
+
+/* line 75, ../sass/desktop-tablet-fluid.scss */
+#footer-message {
+  font-size: 1.1em;
+}
+
+/* line 84, ../sass/desktop-tablet-fluid.scss */
+.block-menu_block ul.menu {
+  font-size: 1.66em;
+}
+
+/* line 96, ../sass/desktop-tablet-fluid.scss */
+input[type="submit"],
+.uc_signup_previous,
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a {
+  padding: 0.5em 1.5em !important;
+}
+
+/* line 100, ../sass/desktop-tablet-fluid.scss */
+#block-countdown-0 {
+  margin: -8px 0 0 0;
+  height: 160px;
+  font-size: 1em;
+}
+/* line 104, ../sass/desktop-tablet-fluid.scss */
+#block-countdown-0 em {
+  font-size: 14em;
+  line-height: 1em;
+}
+/* line 108, ../sass/desktop-tablet-fluid.scss */
+#block-countdown-0 span {
+  top: -160px;
+  left: 120px;
+  width: 120px;
+  font-size: 5.5em;
+}
+
+/* line 115, ../sass/desktop-tablet-fluid.scss */
+h1.title {
+  font-size: 5em;
+  letter-spacing: 0;
+}
+
+/* line 121, ../sass/desktop-tablet-fluid.scss */
+.float-right {
+  float: right;
+  width: 350px;
+}
+
+/* line 129, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 h2, #block-block-5 h2 {
+  font-size: 4.65em;
+}
+/* line 132, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 label, #block-block-5 label {
+  font-size: 1.5em;
+}
+/* line 135, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 #mc_embed_signup input, #block-block-5 #mc_embed_signup input {
+  width: 212px;
+  font-size: 1.5em;
+}
+/* line 139, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
+  width: 136px;
+  height: 52px;
+  font-size: 3em;
+}
+/* line 144, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
+  float: right;
+  font-size: 3em;
+}
+/* line 148, ../sass/desktop-tablet-fluid.scss */
+#block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
+  width: 240px;
+  font-size: 2em;
+}
+
+/* line 154, ../sass/desktop-tablet-fluid.scss */
+#block-block-1 {
+  font-size: 1em;
+}
+/* line 156, ../sass/desktop-tablet-fluid.scss */
+#block-block-1 h3 {
+  font-size: 7.5em;
+}
+/* line 159, ../sass/desktop-tablet-fluid.scss */
+#block-block-1 p {
+  font-size: 5.7em;
+}
+
+/* line 163, ../sass/desktop-tablet-fluid.scss */
+#block-block-2 {
+  font-size: 1em;
+}
+/* line 165, ../sass/desktop-tablet-fluid.scss */
+#block-block-2 h3 {
+  font-size: 8.25em;
+}
+/* line 168, ../sass/desktop-tablet-fluid.scss */
+#block-block-2 p {
+  font-size: 3.75em;
+}
+/* line 170, ../sass/desktop-tablet-fluid.scss */
+#block-block-2 p span {
+  font-size: 1.6em;
+  line-height: .9em;
+}
+
+/* line 176, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 {
+  font-size: 1em;
+}
+/* line 178, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 h2 {
+  font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 4.65em;
+}
+/* line 182, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 ul {
+  display: block;
+  height: 42px;
+}
+/* line 185, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 ul li {
+  float: left;
+}
+/* line 187, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 ul li a {
+  display: block;
+  float: left;
+  width: 45px;
+  height: 42px;
+}
+/* line 192, ../sass/desktop-tablet-fluid.scss */
+#block-block-3 ul li a em {
+  width: 45px;
+  height: 42px;
+}
+
+/* line 200, ../sass/desktop-tablet-fluid.scss */
+#block-block-4 {
+  float: right;
+  width: 350px;
+}
+
+/* line 207, ../sass/desktop-tablet-fluid.scss */
+#block-search-0 {
+  margin: 95px 0px 0 0px;
+  float: right;
+  text-align: right;
+}
+/* line 211, ../sass/desktop-tablet-fluid.scss */
+#block-search-0 #edit-search-block-form-1 {
+  margin: 0 5px 0 5px;
+}
+
+/* line 219, ../sass/desktop-tablet-fluid.scss */
+#cart-form-products thead th {
+  font-size: 1.2em;
+}
+/* line 222, ../sass/desktop-tablet-fluid.scss */
+#cart-form-products tr.even, #cart-form-products tr.odd {
+  background: none;
+  border: none;
+}
+/* line 224, ../sass/desktop-tablet-fluid.scss */
+#cart-form-products tr.even td, #cart-form-products tr.odd td {
+  padding: .5em 1em .5em .5em;
+}
+
+/* line 232, ../sass/desktop-tablet-fluid.scss */
+#product-group .product-image {
+  float: right;
+  margin: 0 0 1em 0;
+}
+
+/* line 237, ../sass/desktop-tablet-fluid.scss */
+#product-details {
+  margin: 2em 0 0 0;
+}
+/* line 239, ../sass/desktop-tablet-fluid.scss */
+#product-details .uc-price-display {
+  margin: 0 1em 0 0;
+  font-size: 3em;
+}
+/* line 243, ../sass/desktop-tablet-fluid.scss */
+#product-details .product-image {
+  float: right;
+}
+
+/* line 248, ../sass/desktop-tablet-fluid.scss */
+#uc-signup-attendees-form {
+  clear: both;
+  width: 460px;
+}
+/* line 252, ../sass/desktop-tablet-fluid.scss */
+#uc-signup-attendees-form .submit-button {
+  text-align: right;
+}
+/* line 255, ../sass/desktop-tablet-fluid.scss */
+#uc-signup-attendees-form .uc_signup_previous {
+  float: left;
+}
+/* line 258, ../sass/desktop-tablet-fluid.scss */
+#uc-signup-attendees-form input[type="text"] {
+  width: 95%;
+  font-size: 1.2em;
+}
+
+/* line 264, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
+  float: left;
+  width: 260px;
+  word-wrap: break-word;
+}
+/* line 270, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
+  float: none;
+}
+/* line 274, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form .field-label {
+  padding: .3em;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
+  color: #eeeeee;
+}
+/* line 280, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form select {
+  padding: 0.4em 0;
+  font-size: 1em;
+}
+/* line 284, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form #billing-pane select {
+  width: 320px;
+}
+/* line 287, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form input[type="text"] {
+  font-size: 1.2em;
+}
+/* line 290, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form #line-items-div {
+  font-size: 1.2em;
+}
+/* line 293, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form table.cart-review {
+  font-size: .8em;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+}
+/* line 297, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form thead th {
+  font-size: 1.2em;
+}
+/* line 300, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form td {
+  font-size: 1.2em;
+}
+/* line 304, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
+  font-size: 1.2em;
+  letter-spacing: .05em;
+}
+/* line 308, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form .uc-price {
+  font-size: 1.2em;
+  letter-spacing: .05em;
+}
+/* line 312, ../sass/desktop-tablet-fluid.scss */
+#uc-cart-checkout-form .solid-border {
+  border: none;
+}
+
+/* line 318, ../sass/desktop-tablet-fluid.scss */
+#pid-cart-checkout-review #content-content > p {
+  width: 480px;
+}
+
+/* line 322, ../sass/desktop-tablet-fluid.scss */
+.order-review-table {
+  width: 480px;
+  font-size: 1.2em;
+}
+/* line 326, ../sass/desktop-tablet-fluid.scss */
+.order-review-table td.title-col {
+  text-align: right;
+}
+/* line 329, ../sass/desktop-tablet-fluid.scss */
+.order-review-table td.data-col {
+  color: #eeeeee;
+}
+/* line 336, ../sass/desktop-tablet-fluid.scss */
+.order-review-table .row-border-top {
+  border: none;
+}
+/* line 339, ../sass/desktop-tablet-fluid.scss */
+.order-review-table .review-button-row {
+  border: none;
+  background: none;
+}
+/* line 342, ../sass/desktop-tablet-fluid.scss */
+.order-review-table .review-button-row #edit-submit {
+  float: right;
+}
+
+/* line 348, ../sass/desktop-tablet-fluid.scss */
+#pid-cart-checkout-complete #content-content > p {
+  width: 480px;
+  font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* line 357, ../sass/desktop-tablet-fluid.scss */
+#order-pane-uc_signup_info,
+#order-pane-bill_to,
+#order-pane-payment,
+#order-pane-order_comments {
+  padding: 10px;
+  border: none;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  line-height: 1.5em;
+  color: #eeeeee;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+}
+
+/* line 366, ../sass/desktop-tablet-fluid.scss */
+.order-pane {
+  background: none;
+  border: none;
+}
+/* line 368, ../sass/desktop-tablet-fluid.scss */
+.order-pane thead {
+  background: none;
+  border: none;
+}
+/* line 370, ../sass/desktop-tablet-fluid.scss */
+.order-pane thead th {
+  background: none;
+  border: none;
+}
+/* line 374, ../sass/desktop-tablet-fluid.scss */
+.order-pane tr, .order-pane tr.even, .order-pane tr.odd {
+  background: none;
+  border: none;
+}
+
+/* line 378, ../sass/desktop-tablet-fluid.scss */
+#order-pane-uc_signup_info {
+  width: 460px;
+}
+
+/* line 383, ../sass/desktop-tablet-fluid.scss */
+#order-pane-products thead,
+#order-pane-line_items thead {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+}
+
+/* line 389, ../sass/desktop-tablet-fluid.scss */
+#view-id-sessions-page_1 thead tr {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 393, ../sass/desktop-tablet-fluid.scss */
+#view-id-sessions-page_1 thead th {
+  font-size: 1.334em;
+  background: none;
+  border: none;
+  padding: 0.5em;
+}
+/* line 400, ../sass/desktop-tablet-fluid.scss */
+#view-id-sessions-page_1 tbody td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+/* line 412, ../sass/desktop-tablet-fluid.scss */
+#view-id-cod_schedule-page_1 th {
+  font-size: 1.334em;
+  background: none;
+  border: none;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
+  background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -moz-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -o-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
+  padding: 0.5em;
+}
+/* line 419, ../sass/desktop-tablet-fluid.scss */
+#view-id-cod_schedule-page_1 tbody td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+/* line 425, ../sass/desktop-tablet-fluid.scss */
+a.uc_signup_edit_info {
+  text-shadow: none;
+}
+
 /* line 9, ../sass/ie7-fixes.scss */
 #primary-menu {
   -moz-border-radius: 16px 16px 64px 64px;

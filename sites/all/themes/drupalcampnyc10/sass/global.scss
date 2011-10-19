@@ -631,12 +631,7 @@ tr.even, tr.odd {
   }
 }
 #block-search-0 {
-  
-  margin:95px 0px 0 0px;
-  float:right;
-  text-align:right;
   #edit-search-block-form-1 {
-    //width:188px;
     margin:0 5px 0 5px;
   }
 }
@@ -1114,10 +1109,13 @@ thead th, th.active  {
     }
     h1.title {
       font-size: 3em;
-    }
-    #edit-search-block-form-1 {
-      width:338px;
-      margin:0 5px 0 5px;
+    }  
+    #block-search-0 {
+      margin:5px 0px 0 0px;        
+      #edit-search-block-form-1 {
+        width:338px;
+        margin:0 5px 0 5px;
+      }
     }
   }
 
@@ -1238,11 +1236,13 @@ thead th, th.active  {
   }
   h1.title {
     font-size: 3em;
-  }
-  #edit-search-block-form-1 {
-    width:188px;
-    margin:0 5px 0 5px;
-  }
-  
+  }  
+  #block-search-0 {
+    margin:5px 0px 0 0px;
+    #edit-search-block-form-1 {
+      width:188px;
+      margin:0 5px 0 5px;
+    }
+  } 
 }
 
