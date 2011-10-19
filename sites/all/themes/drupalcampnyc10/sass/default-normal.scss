@@ -15,11 +15,11 @@ body {
 
 } 
 h1#site-name {
-  font-size: 12.3em;
+  font-size: 11.95em;
 }
 
 #header-group {
-  padding: 0 0 0px 0;
+  padding: 0;
   background-image:$menu-background-image;
   background-position:left bottom;
   background-repeat:repeat-x;
@@ -76,19 +76,6 @@ h1#site-name {
   font-size:1.1em;
 }
 
-//Main Menu and Dropdowns
-#primary-menu {
-  @include menu-corners;
-  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
-  @include menu-box-shadow;
-  ul {
-    font-size:2em;
-    
-    ul {
-      font-size:1em; 
-    }
-  }
-}
 
 // Submenus
 .block-menu_block {
@@ -126,7 +113,8 @@ a.uc_signup_edit_info,
   }
 }
 h1.title {
-  font-size: 5em;
+  font-size: 5em; 
+  letter-spacing:0;
 }
 
 // Front page 

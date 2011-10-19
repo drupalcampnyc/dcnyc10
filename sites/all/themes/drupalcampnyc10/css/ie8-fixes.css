@@ -3,3 +3,83 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+/* line 9, ../sass/ie8-fixes.scss */
+#primary-menu {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+}
+/* line 13, ../sass/ie8-fixes.scss */
+#primary-menu ul ul {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  margin: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-right: dotted 1px #4c4642;
+  border-left: dotted 1px #4c4642;
+  background: #514943;
+}
+/* line 21, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  border-bottom: dotted 1px #4c4642;
+}
+/* line 28, ../sass/ie8-fixes.scss */
+#primary-menu ul ul li a:hover {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -khtml-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  background: #35302c;
+}
+
+/* line 40, ../sass/ie8-fixes.scss */
+#content-group {
+  letter-spacing: 0em;
+}
+/* line 42, ../sass/ie8-fixes.scss */
+#content-group #content-inner {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  position: relative;
+  background: #8e8076;
+  background: rgba(142, 128, 118, 0.7);
+  -pie-background: rgba(142, 128, 118, 0.7);
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+/* line 46, ../sass/ie8-fixes.scss */
+#content-group #content-inner #content-inner-inner {
+  border: 1px #666 dashed;
+  outline: 1px #908f90 dashed;
+}

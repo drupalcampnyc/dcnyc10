@@ -2,7 +2,6 @@
 @import "partials/_typography";
 @import "partials/_base";
 @import "partials/_kerning";
-//@import "partials/_media_queries";
 
 // variables and mixins are in @import "partials/_base";
 
@@ -75,7 +74,9 @@ h1.title {
 }
 #primary-menu {
   @include menu-corners;
-  @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
+  @include background-image(linear-gradient($menu-background 15, $menu-middle-background 65%, $menu-bottom-background 85%));
+  @include background-image(linear-gradient($menu-top-background-gradient 0%, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
   @include menu-box-shadow;
   ul {
     margin:0;
@@ -112,7 +113,8 @@ h1.title {
         line-height:1.2em;         
           &:last-child {     
           } a {
-          &:hover {
+          &:hover { 
+            @include suckerfish-menu-corners;
             @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
           }
         }
@@ -202,14 +204,12 @@ h1.title {
   @include maintext-text-shadow;
   letter-spacing:.066em;
   color:#111;
-  
   a { 
     @include maintext-link-shadow;
   }
   font-size:1.33em;
   line-height:1.5em;  
   #content-inner {
-    
     padding:2%;
     @include content-group-corners;
     background: desaturate(lighten($content-area-background, 0),0);
@@ -324,8 +324,8 @@ input[type="submit"]#edit-items-0-remove {
   @include sassy-button("matte", 25px, 14px, #f33737, #c71e1e, #111, "inset");
 }
 #block-search-0 input[type="submit"] {
-   @include sassy-button("matte", 5px, 16px, $heading-color-1, $heading-color-2, #111, "inset");
-padding: 0.5em 1.5em !important;
+   @include sassy-button("matte", 5px, 12px, $heading-color-1, $heading-color-2, #111, "inset");
+padding: 0.25em 1em !important;
 }
 
 // Text inputs
@@ -522,19 +522,19 @@ tr.even, tr.odd {
     margin:0;
     line-height:.9em; 
     a {
-      color:$heading-color-1;
+      color:$heading-color-2;
     }
   }
   p {
     margin:10px 0 0 0;
     line-height:1em;
     text-align:justify;
-    color:$heading-color-2;
+    color:$heading-color-1;
     span {
       line-height:.9em;  
     }
     a {
-      color:$heading-color-2; 
+      color:$heading-color-1; 
     }
   }
   &.block {
@@ -634,11 +634,12 @@ tr.even, tr.odd {
   }
 }
 #block-search-0 {
-  margin:10px 5px 0 5px;
+  
+  margin:95px 0px 0 0px;
   float:right;
   text-align:right;
   #edit-search-block-form-1 {
-    width:188px;
+    //width:188px;
     margin:0 5px 0 5px;
   }
 }
@@ -995,21 +996,20 @@ thead th, th.active  {
     bottom: 0;
     left: 0;
     z-index:1;
-
       //@include background-image(radial-gradient(.6em .6em, white .55em, rgba(255,255,255,0) .6em) -.6em -.6em,
       //radial-gradient(1em 50%, white .35em, rgba(255,255,255,0) .4em), 
       //radial-gradient(1em 47%,  rgba(0,0,0,.4) .4em, rgba(255,255,255,0)  .43em));
-      background: -moz-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
-                  -moz-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+      background: -moz-radial-gradient(.6em .6em, circle, $content-area-background-flat-cover .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -moz-radial-gradient(1em 50%, circle, $content-area-background-flat-cover .35em, rgba(255,255,255,.1) .3em),
                   -moz-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
-      background: -o-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
-                  -o-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+      background: -o-radial-gradient(.6em .6em, circle, $content-area-background-flat-cover .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -o-radial-gradient(1em 50%, circle, $content-area-background-flat-cover .35em, rgba(255,255,255,.1) .3em),
                   -o-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
-      background: -ms-radial-gradient(.6em .6em, circle,$page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
-                  -ms-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+      background: -ms-radial-gradient(.6em .6em, circle,$content-area-background-flat-cover .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -ms-radial-gradient(1em 50%, circle, $content-area-background-flat-cover .35em, rgba(255,255,255,.1) .3em),
                   -ms-radial-gradient(1em 47%, circle, rgba(0,0,0,.4) .3em, transparent .33em);
-      background: -webkit-radial-gradient(.6em .6em, circle, $page-background-color .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
-                  -webkit-radial-gradient(1em 50%, circle, $page-background-color .35em, rgba(255,255,255,.1) .3em),
+      background: -webkit-radial-gradient(.6em .6em, circle, $content-area-background-flat-cover .59em, rgba(255,255,255,0) .6em) -.6em -.6em,
+                  -webkit-radial-gradient(1em 50%, circle, $content-area-background-flat-cover .35em, rgba(255,255,255,.1) .3em),
                   -webkit-radial-gradient(1em 48%, circle, rgba(0,0,0,.4) .4em, transparent .43em);
     }
   &:after {

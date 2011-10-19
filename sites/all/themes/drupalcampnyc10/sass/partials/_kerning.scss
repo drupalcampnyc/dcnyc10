@@ -1,31 +1,31 @@
 $heading-color-1:rgba(#a0aab5, 1);
-$heading-color-2:rgba(#708090, 1);
+$heading-color-2:adjust-lightness(rgba(#708090, 1), -12%);  
 
 
 // make directive here  
 h1.title .word1 {
-  color:$heading-color-2;
+  color:$heading-color-1;
 }
 h1.title .word2 {
-  color:$heading-color-1;
+  color:$heading-color-2;
 }
 h1.title .word3 {
-  color:$heading-color-2;
+  color:$heading-color-1;
 }
 h1.title .word4 {
-  color:$heading-color-1;
+  color:$heading-color-2;
 }
 h1.title .word5 {
-  color:$heading-color-2;
+  color:$heading-color-1;
 }
 h1.title .word6 {
-  color:$heading-color-1;
-}
-h1.title .word7 {
   color:$heading-color-2;
 }
-h1.title .word8 {
+h1.title .word7 {
   color:$heading-color-1;
+}
+h1.title .word8 {
+  color:$heading-color-2;
 }
 // Header site name kerning
 
@@ -92,59 +92,10 @@ h1.title .word8 {
 }
 
 // kerning h1 Title
-.front h1.title .char1,
-.front h1.title .char2,
-.front h1.title .char3,
-.front h1.title .char4,
-.front h1.title .char5,
-.front h1.title .char6,
-.front h1.title .char7,
-.front h1.title .char8,
-.front h1.title .char9,
-.front h1.title .char10,
-.front h1.title .char11,
-.front h1.title .char18,
-.front h1.title .char19,
-.front h1.title .char20,
-.front h1.title .char21,
-.front h1.title .char26,
-.front h1.title .char27 {
-  color:$heading-color-1;
-}
-
-.front h1.title .char13 {
-	margin-left: -0.013em;
-}
-.front h1.title .char15 {
-	margin-left: -0.013em;
-}
-.front h1.title .char17 {
-	margin-left: -0.026em;
-}
-.front h1.title .char19 {
-	margin-left: 0em;
-}
-.front h1.title .char20 {
-	margin-left: -0.013em;
-}
-.front h1.title .char21 {
-	margin-left: -0.013em;
-}
-.front h1.title .char22 {
-	margin-left: -0.013em;
-}
-.front h1.title .char23 {
-	margin-left: -0.013em;
-}
-.front h1.title .char24 {
-	margin-left: -0.026em;
-}
-.front h1.title .char25 {
-	margin-left: 0em;
-}
-.front h1.title .char26 {
-	margin-left: -0.026em;
-}
-.front h1.title .char27 {
-	margin-left: 0em; 
+.front h1.title .word1 .char7,
+.front h1.title .word1 .char8,
+.front h1.title .word1 .char9,
+.front h1.title .word1 .char10
+{
+  color:$heading-color-2;
 }

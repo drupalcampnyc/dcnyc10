@@ -12,11 +12,18 @@ $page-background-image2: url('../images/side_piece.png');
 
 $menu-background-image: url('../images/birds-transparent.png');
 
-$menu-top-background-gradient:rgba(81,73,67,.5);
-$menu-middle-background-gradient:adjust-lightness(rgba(81,73,67,.5), -10%);
-$menu-bottom-background-gradient:adjust-lightness(rgba(81,73,67,.5), -15%);
+$menu-background:rgb(81,73,67); 
+$menu-top-background-gradient:rgba($menu-background,.5);
+$menu-middle-background:adjust-lightness($menu-background, -10%);
+$menu-bottom-background:adjust-lightness($menu-background, -15%);
+$menu-middle-background-gradient:rgba($menu-middle-background,.5);
+$menu-bottom-background-gradient:rgba($menu-bottom-background,.5);
 
-$content-area-background:adjust-lightness(rgba(81,73,67,.7), 20);
+$content-area-background-flat:adjust-lightness(rgb(81,73,67), 22);
+
+$content-area-background:rgba($content-area-background-flat,.7);
+
+$content-area-background-flat-cover:(#897c72);
 
 $heading-link-color: #1950af;
 $heading-link-color-over: saturate($heading-link-color, 10%);
@@ -27,8 +34,6 @@ $menu-active-link-color: #eee;
 $menu-link-color-over: lighten($menu-link-color, 20%);
 $menu-link-color-visited: desaturate($menu-link-color, 20%);
 
-$heading-color-1:rgba(#a0aab5, 1);
-$heading-color-2:rgba(#708090, 1);
 $button-color-3:rgba(#1e2327, .9);
 
 $link-color: #e5a100;
@@ -71,10 +76,14 @@ $header-dark-gradient-color: #23201e;
   @include PIE;
 }
 @mixin PIE {
-  behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  // Production and Dev
+  //behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  // Local
+  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
 }
 @mixin suckerfish-menu-corners {
-  @include border-bottom-radius($image-corners); 
+  //@include border-bottom-radius($image-corners);
+  @include border-radius(0 0 $image-corners $image-corners);  
 }
 @mixin speakers-corners {
   @include border-radius(($image-corners / 4) ($image-corners / 3) ($image-corners / 2)); 
@@ -94,4 +103,7 @@ $header-dark-gradient-color: #23201e;
 }
 @mixin tab-shadow {
   @include box-shadow(2px -2px 4px rgba(0,0,0,.5));
+}
+@mixin box-shadow-reset {
+  @include box-shadow(none);
 }
