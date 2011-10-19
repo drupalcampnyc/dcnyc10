@@ -34,6 +34,9 @@ $menu-active-link-color: #eee;
 $menu-link-color-over: lighten($menu-link-color, 20%);
 $menu-link-color-visited: desaturate($menu-link-color, 20%);
 
+$button-color-1:rgba(#a0aab5, 1);
+$button-color-2:adjust-lightness(rgba(#708090, 1), 0);
+
 $button-color-3:rgba(#1e2327, .9);
 
 $link-color: #e5a100;
@@ -82,22 +85,29 @@ $header-dark-gradient-color: #23201e;
   behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
 }
 @mixin suckerfish-menu-corners {
-  //@include border-bottom-radius($image-corners);
   @include border-radius(0 0 $image-corners $image-corners);  
 }
 @mixin speakers-corners {
-  @include border-radius(($image-corners / 4) ($image-corners / 3) ($image-corners / 2)); 
+  @include border-radius(($image-corners / 4) ($image-corners / 3) ($image-corners / 2) ($image-corners / 2)); 
 }
 @mixin content-group-corners {
-  @include border-radius($image-corners * 1); 
+  @include border-radius($image-corners); 
 }
 @mixin menu-corners {
   @include border-top-radius($image-corners * 2); 
-  @include border-bottom-radius(($image-corners * 5) ($image-corners * 10)); 
+  @include border-bottom-radius(($image-corners * 5) ($image-corners * 10));
+}
+@mixin menu-corners-ie {
+  @include border-radius(($image-corners * 2) ($image-corners * 2) ($image-corners * 8) ($image-corners * 8)); 
 }
 @mixin tab-corners {
   @include border-top-radius(($image-corners * 5) ($image-corners * 10)); 
 }
+@mixin tab-corners-ie {
+  @include border-radius(($image-corners * 3) ($image-corners * 3) 0 0); 
+}
+
+//Box Shadows
 @mixin menu-box-shadow {
   @include box-shadow(4px 4px 10px rgba(0,0,0,.5));
 }
