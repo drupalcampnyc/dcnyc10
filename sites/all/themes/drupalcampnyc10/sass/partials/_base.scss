@@ -80,9 +80,9 @@ $header-dark-gradient-color: #23201e;
 }
 @mixin PIE {
   // Production and Dev
-  //behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  behavior: url("/sites/all/themes/drupalcampnyc10/css/PIE.htc");
   // Local
-  behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
+  //behavior: url("/dcnyc10/sites/all/themes/drupalcampnyc10/css/PIE.htc");
 }
 @mixin suckerfish-menu-corners {
   @include border-radius(0 0 $image-corners $image-corners);  
