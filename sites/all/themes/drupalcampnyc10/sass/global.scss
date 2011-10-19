@@ -221,7 +221,7 @@ h1.title {
     @include menu-box-shadow;
     #content-inner-inner {
       margin:0;
-      padding:.25em 1em;
+      padding:.25em;
       border: 1px rgba(0,0,0,.3) dashed;
       outline: 1px rgba($heading-color-2,.5) dashed;
     } 
@@ -303,7 +303,7 @@ a.uc_signup_edit_info,
 .order-pane a,
 .comment_add a {
   @include text-shadow(none);
-  @include sassy-button("matte", 5px, 16px, $button-color-1, $button-color-2, #111, "inset");
+  @include sassy-button("matte", 5px, 12px, $button-color-1, $button-color-2, #111, "inset");
   padding: 0.5em 1.5em !important;   
 }
 a.uc_signup_previous, 
@@ -322,11 +322,11 @@ a.uc_signup_edit_info,
 // Forms Elements
 // Primary Style  Green
 input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44  {
-  @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+  @include sassy-button("matte", 5px, 12px, #5fe041, #2a8b13, #111, "inset");   
 }
 // Remove Items Style RED
 input[type="submit"]#edit-items-0-remove {
-  @include sassy-button("matte", 25px, 14px, #f33737, #c71e1e, #111, "inset");
+  @include sassy-button("matte", 25px, 10px, #f33737, #c71e1e, #111, "inset");
 }
 #block-search-0 input[type="submit"] {
    @include sassy-button("matte", 5px, 12px, $button-color-1, $button-color-2, #111, "inset");
@@ -669,25 +669,19 @@ thead th, th.active  {
   color:#aaa; 
 }
 #cart-form-products {
-  padding:1em;
   font-family: $form-font;
   @include content-group-corners;
   @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   thead th {
-    padding: .5em 1em;
-    font-size:1.2em;
-    @include border-background-reset;
-    letter-spacing: .05em;
-    @include menu-text-shadow;
-    color:#aaa;
+    padding:0 4px;
+    font-size:.8em;
   }
   td {
-    padding:.5em 1em .5em .5em; 
+    padding:0 4px;
+    font-size:.8em;
   }
   tbody .desc, tbody .uc-price {
-    font-size:1.2em;
-    letter-spacing: .05em;
     color:#ccc;
   }
   tbody .subtotal {
@@ -696,9 +690,7 @@ thead th, th.active  {
   tbody td.image {
   }
   #edit-items-0-qty {
-    font-size:1em;
-    line-height:1.5em;
-    text-align:center;
+    font-size:.8em;
   }
 }
 // DrupalCamp tickets
@@ -711,7 +703,6 @@ thead th, th.active  {
 #product-details {
   margin:2em 0 0 0;
   .uc-price-display {
-    margin:0 1em 0 0;
     font-family: $heading-font;
     font-size:3em;
     line-height:.95em;
@@ -728,8 +719,6 @@ thead th, th.active  {
   letter-spacing:0em;
   color:#000;
   clear:both;
-  width:460px;
-  padding:10px 10px 10px 10px;
   font-family: $form-font;
   @include content-group-corners;
    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
@@ -810,10 +799,10 @@ thead th, th.active  {
     font-size: 1em;
   }  
   #billing-pane select { 
-    width: 320px;
+   
   }
   input[type="text"] {
-    font-size:1.2em;
+    font-size:1em;
   }
   .description {
     margin:0em 0 1em 0;
@@ -882,7 +871,7 @@ thead th, th.active  {
   }  
 } 
 .order-review-table  {
-  width:480px;
+  width:420px;
   margin: 0em 0 1em 0;
   padding:10px;
   border:none;
@@ -892,7 +881,7 @@ thead th, th.active  {
    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   td {
-    padding:.5em 1em .5em .5em;
+    padding:.5em .25em .5em .25em;
     vertical-align:top;
     &.title-col {
       color:#aaa;
@@ -1070,6 +1059,7 @@ thead th, th.active  {
   #header-site-info.block {
     margin:0;
   }
+  
 }
 
 /* Smartphones (landscape) ----------- */
@@ -1140,6 +1130,14 @@ thead th, th.active  {
         width:338px;
         margin:0 5px 0 5px;
       }
+    }
+    #cart-form-products th:nth-child(2),
+    #cart-form-products td:nth-child(2)  { 
+      display:none;
+    }
+    #billing-pane {
+      font-size:.8em;
+      max-width:460px
     }
   }
 
@@ -1268,6 +1266,18 @@ thead th, th.active  {
       width:188px;
       margin:0 5px 0 5px;
     }
+  }
+  table.sticky-header,
+   table.sticky-enabled  {
+    width:240px !important;
+    left:0px;
   } 
+  #continue-shopping-link a {
+    display:none;
+  }
+  #cart-form-products th:nth-child(2),
+  #cart-form-products td:nth-child(2)  { 
+    display:none;
+  }
 }
 

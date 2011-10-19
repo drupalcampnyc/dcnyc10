@@ -41,6 +41,9 @@ h1#site-name {
     li {
       margin:0 0 .66em 0;
     }
+    #content-inner-inner {
+      padding:.25em 1em;
+    }
   }
 }
 
@@ -87,14 +90,45 @@ h1#site-name {
 }
 
 // Forms Elements
+// Forms And Buttons
 
 //Buttons and Links styled like buttons
+// Default Style Silver
 input[type="submit"], 
 .uc_signup_previous, 
 #continue-shopping-link a,
 a.uc_signup_edit_info,
-.order-pane a {
+.order-pane a,
+.comment_add a {
+  @include text-shadow(none);
+  @include sassy-button("matte", 5px, 16px, $button-color-1, $button-color-2, #111, "inset");
   padding: 0.5em 1.5em !important;   
+}
+a.uc_signup_previous, 
+#continue-shopping-link a,
+a.uc_signup_edit_info,
+.order-pane a,
+.comment_add a {
+  text-shadow: #C1C8CF 0 1px 0 !important;
+  font-family: $form-font;
+  font-weight: bold;
+  color:#111;
+  &:hover {
+    text-decoration:none !important;
+  }
+}
+// Forms Elements
+// Primary Style  Green
+input[type="submit"]#edit-submit, #edit-submit-5, #edit-checkout, #edit-continue, #edit-submit-44  {
+  @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+}
+// Remove Items Style RED
+input[type="submit"]#edit-items-0-remove {
+  @include sassy-button("matte", 25px, 16px, #f33737, #c71e1e, #111, "inset");
+}
+#block-search-0 input[type="submit"] {
+   @include sassy-button("matte", 5px, 12px, $button-color-1, $button-color-2, #111, "inset");
+padding: 0.25em 1em !important;
 }
 
 #block-countdown-0 {
@@ -216,14 +250,31 @@ h1.title {
 
 //Ubercart 
 #cart-form-products {
+  padding:1em;
   thead th {
     font-size:1.2em;
+    @include border-background-reset;
+    letter-spacing: .05em;
+    @include menu-text-shadow;
+    color:#aaa;
   }
-  tr.even, tr.odd {
-    @include border-background-reset; 
-    td {
-      padding:.5em 1em .5em .5em; 
-    }
+  td {
+    padding:.5em 1em .5em .5em; 
+  }
+  tbody .desc, tbody .uc-price {
+    font-size:1.2em;
+    letter-spacing: .05em;
+    color:#ccc;
+  }
+  tbody .subtotal {
+   color:#999; 
+  }
+  tbody td.image {
+  }
+  #edit-items-0-qty {
+    font-size:1em;
+    line-height:1.5em;
+    text-align:center;
   }
 }
 
@@ -323,6 +374,7 @@ h1.title {
   width:480px;
   font-size: 1.2em;
   td {
+    padding:.5em 1em .5em .5em;
     &.title-col {
       text-align: right;
     }
