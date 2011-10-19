@@ -83,6 +83,7 @@ h1.title {
     padding:0 0 0 2em;
     font-size:2em;
     @include menu-text-shadow;
+    
     li {
       margin:0;
       padding:0 .5em;
@@ -102,7 +103,8 @@ h1.title {
       @include suckerfish-menu-corners;
       border-right:dotted 1px rgba(25,25,25 ,.5);
       border-left:dotted 1px rgba(25,25,25 ,.5);
-      font-size:1em; 
+      font-size:1em;
+      background:$menu-background;  
       @include background-image(linear-gradient($menu-top-background-gradient, $menu-middle-background-gradient 65%, $menu-bottom-background-gradient 85%));
       @include menu-box-shadow;
       li {
@@ -115,6 +117,7 @@ h1.title {
           } a {
           &:hover { 
             @include suckerfish-menu-corners;
+            background:$menu-middle-background; 
             @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
           }
         }
@@ -177,6 +180,7 @@ h1.title {
    margin:0;
     .menu {
       @include suckerfish-menu-corners;
+      @include rgba-background(rgb(0,0,0),.75);
       @include background-image(linear-gradient(rgba(0,0,0,.75) 20%, rgba(0,0,0,.5) 65%, rgba(0,0,0,.35) 85%));
       text-align:right;
       float:right;
@@ -442,6 +446,7 @@ tr.even, tr.odd {
   margin:10px 0;
   img {
     padding:10px;
+    @include rgba-background(#fff,1);  
     @include background-image(linear-gradient(rgba(240,239,241,.95) 20%, rgba(225,225,225,.95) 65%, rgba(225,225,225,.95) 85%));
     @include speakers-corners;
     @include menu-box-shadow;
@@ -667,6 +672,7 @@ thead th, th.active  {
   padding:1em;
   font-family: $form-font;
   @include content-group-corners;
+  @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   thead th {
     padding: .5em 1em;
@@ -726,6 +732,7 @@ thead th, th.active  {
   padding:10px 10px 10px 10px;
   font-family: $form-font;
   @include content-group-corners;
+   @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   .submit-button {
     text-align:right;
@@ -768,6 +775,7 @@ thead th, th.active  {
     padding:10px;
     @include content-group-corners;
     color:$light-text-color;
+    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
     .uc_signup_user_events {
       color:#aaa;
@@ -817,6 +825,7 @@ thead th, th.active  {
     font-size:1.2em;
     letter-spacing: .05em;
     @include menu-text-shadow;
+    @include rgba-background(adjust-lightness($menu-background, -10%),.5);
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
     color:#aaa;
   } 
@@ -824,6 +833,7 @@ thead th, th.active  {
     margin: 0em 0 1em 0;
     @include content-group-corners;
     font-size:.8em;
+    @include rgba-background(adjust-lightness($menu-background, -10%),.5); 
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   }
   thead th {
@@ -879,6 +889,7 @@ thead th, th.active  {
   font-family: $form-font;
   font-size: 1.2em;
   @include content-group-corners;
+   @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   td {
     padding:.5em 1em .5em .5em;
@@ -926,6 +937,7 @@ thead th, th.active  {
   font-family: $form-font;
   line-height:1.5em;
   color:$light-text-color;
+   @include rgba-background(adjust-lightness($menu-background, -10%),.5);
   @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
   }
 .order-pane {
@@ -960,6 +972,7 @@ thead th, th.active  {
   line-height:1.5em; 
   color:$light-text-color;
   thead {
+     @include rgba-background(adjust-lightness($menu-background, -10%),.5);
     @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));  
   }
 }
