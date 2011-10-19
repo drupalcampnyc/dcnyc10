@@ -1028,6 +1028,17 @@ thead th, th.active  {
   }
 }
 
+// Sponsor button
+.page-become-sponsor .add-to-cart {
+  text-align:right;
+  max-width:38em;
+  margin: 1em 0 3em 0;
+   // Primary Style  Green
+  input[type="submit"]  {
+    @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
+  }
+}
+
 
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
@@ -1118,6 +1129,7 @@ thead th, th.active  {
       }
     }
   }
+
 
 
 /* Smartphones (portrait) ----------- */

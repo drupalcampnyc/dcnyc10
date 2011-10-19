@@ -1880,8 +1880,54 @@ thead th, th.active {
   z-index: 10;
 }
 
+/* line 1032, ../sass/global.scss */
+.page-become-sponsor .add-to-cart {
+  text-align: right;
+  max-width: 38em;
+  margin: 1em 0 3em 0;
+}
+/* line 1037, ../sass/global.scss */
+.page-become-sponsor .add-to-cart input[type="submit"] {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0.5em 1.5em;
+  line-height: 1.2em;
+  border-style: solid;
+  border-width: 1px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #5fe041;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cef5c5), color-stop(3%, #5fe041), color-stop(70%, #2a8b13));
+  background: -webkit-linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  background: -moz-linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  background: -o-linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  background: -ms-linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  -pie-background: linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  background: linear-gradient(#cef5c5, #5fe041 3%, #2a8b13 70%);
+  border-color: #2a8b13;
+  color: #111111;
+  text-shadow: #b2f0a4 0 1px 0;
+}
+/* line 11, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/sassy-buttons-0.0.5/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+.page-become-sponsor .add-to-cart input[type="submit"]:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cef5c5), color-stop(3%, #71e457), color-stop(75%, #31a116));
+  background: -webkit-linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+  background: -moz-linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+  background: -o-linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+  background: -ms-linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+  -pie-background: linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+  background: linear-gradient(#cef5c5, #71e457 3%, #31a116 75%);
+}
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
-  /* line 1033, ../sass/global.scss */
+  /* line 1044, ../sass/global.scss */
   body {
     background-image: url("../images/background_retaining_wall-480.png");
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(100px, rgba(35, 32, 30, 0.75)), color-stop(250px, rgba(35, 32, 30, 0.15)), color-stop(400px, rgba(128, 116, 107, 0.15)), color-stop(95%, rgba(128, 116, 107, 0))), url("../images/background_retaining_wall-480.png");
@@ -1896,34 +1942,34 @@ thead th, th.active {
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  /* line 1043, ../sass/global.scss */
+  /* line 1054, ../sass/global.scss */
   h1#site-name {
     margin: .25em;
   }
 
-  /* line 1046, ../sass/global.scss */
+  /* line 1057, ../sass/global.scss */
   #header-site-info.block {
     margin: 0;
   }
 }
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width : 480px) {
-  /* line 1053, ../sass/global.scss */
+  /* line 1064, ../sass/global.scss */
   h1#site-name {
     font-size: 7.2em;
     margin: .25em;
   }
 
-  /* line 1058, ../sass/global.scss */
+  /* line 1069, ../sass/global.scss */
   #sidebar-first.nested {
     float: none;
   }
-  /* line 1061, ../sass/global.scss */
+  /* line 1072, ../sass/global.scss */
   #sidebar-first .grid-3 {
     width: 100% !important;
   }
 
-  /* line 1065, ../sass/global.scss */
+  /* line 1076, ../sass/global.scss */
   #primary-menu {
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -1932,64 +1978,64 @@ thead th, th.active {
     -khtml-border-radius: 8px;
     border-radius: 8px;
   }
-  /* line 1067, ../sass/global.scss */
+  /* line 1078, ../sass/global.scss */
   #primary-menu ul {
     margin: 0;
     padding: 0;
   }
-  /* line 1072, ../sass/global.scss */
+  /* line 1083, ../sass/global.scss */
   #primary-menu ul li a {
     margin: 0;
     padding: .5em;
   }
-  /* line 1075, ../sass/global.scss */
+  /* line 1086, ../sass/global.scss */
   #primary-menu ul li a.active, #primary-menu ul li a:hover {
     color: #eeeeee;
   }
-  /* line 1080, ../sass/global.scss */
+  /* line 1091, ../sass/global.scss */
   #primary-menu ul ul {
     display: none;
   }
-  /* line 1082, ../sass/global.scss */
+  /* line 1093, ../sass/global.scss */
   #primary-menu ul ul li {
     display: none;
   }
-  /* line 1084, ../sass/global.scss */
+  /* line 1095, ../sass/global.scss */
   #primary-menu ul ul li a {
     display: none;
   }
 
-  /* line 1092, ../sass/global.scss */
+  /* line 1103, ../sass/global.scss */
   #sidebar-last.nested {
     float: none;
   }
-  /* line 1095, ../sass/global.scss */
+  /* line 1106, ../sass/global.scss */
   #sidebar-last .grid-3 {
     width: 100% !important;
   }
 
-  /* line 1100, ../sass/global.scss */
+  /* line 1111, ../sass/global.scss */
   #content-group.nested {
     float: none;
     overflow: visible;
     margin: 0 0 0 2%;
     width: 93% !important;
   }
-  /* line 1106, ../sass/global.scss */
+  /* line 1117, ../sass/global.scss */
   #content-group ul {
     margin: 1em 0;
   }
 
-  /* line 1110, ../sass/global.scss */
+  /* line 1121, ../sass/global.scss */
   h1.title {
     font-size: 3em;
   }
 
-  /* line 1113, ../sass/global.scss */
+  /* line 1124, ../sass/global.scss */
   #block-search-0 {
     margin: 5px 0px 0 0px;
   }
-  /* line 1115, ../sass/global.scss */
+  /* line 1126, ../sass/global.scss */
   #block-search-0 #edit-search-block-form-1 {
     width: 338px;
     margin: 0 5px 0 5px;
@@ -1997,13 +2043,13 @@ thead th, th.active {
 }
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-  /* line 1125, ../sass/global.scss */
+  /* line 1137, ../sass/global.scss */
   h1#site-name {
     margin: .1em;
     font-size: 5em;
   }
 
-  /* line 1129, ../sass/global.scss */
+  /* line 1141, ../sass/global.scss */
   #primary-menu {
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -2012,69 +2058,69 @@ thead th, th.active {
     -khtml-border-radius: 8px;
     border-radius: 8px;
   }
-  /* line 1131, ../sass/global.scss */
+  /* line 1143, ../sass/global.scss */
   #primary-menu ul {
     margin: 0;
     padding: 0;
     font-size: 1.5em;
   }
-  /* line 1136, ../sass/global.scss */
+  /* line 1148, ../sass/global.scss */
   #primary-menu ul li a {
     margin: 0;
     padding: .5em;
   }
-  /* line 1139, ../sass/global.scss */
+  /* line 1151, ../sass/global.scss */
   #primary-menu ul li a.active, #primary-menu ul li a:hover {
     color: #eeeeee;
   }
-  /* line 1144, ../sass/global.scss */
+  /* line 1156, ../sass/global.scss */
   #primary-menu ul ul {
     display: none;
   }
-  /* line 1146, ../sass/global.scss */
+  /* line 1158, ../sass/global.scss */
   #primary-menu ul ul li {
     display: none;
   }
-  /* line 1148, ../sass/global.scss */
+  /* line 1160, ../sass/global.scss */
   #primary-menu ul ul li a {
     display: none;
   }
 
-  /* line 1156, ../sass/global.scss */
+  /* line 1168, ../sass/global.scss */
   #sidebar-last.nested {
     float: none;
     width: 100% !important;
     padding: 1em;
   }
-  /* line 1161, ../sass/global.scss */
+  /* line 1173, ../sass/global.scss */
   #sidebar-last .grid-3 {
     width: 100% !important;
   }
 
-  /* line 1166, ../sass/global.scss */
+  /* line 1178, ../sass/global.scss */
   #content-group.nested {
     float: none;
     overflow: visible;
     margin: 0 0 0 2%;
     width: 93% !important;
   }
-  /* line 1172, ../sass/global.scss */
+  /* line 1184, ../sass/global.scss */
   #content-group ul {
     margin: 0;
   }
 
-  /* line 1176, ../sass/global.scss */
+  /* line 1188, ../sass/global.scss */
   #block-countdown-0 {
     margin: -8px 0 0 0;
     height: 160px;
     font-size: 1em;
   }
-  /* line 1180, ../sass/global.scss */
+  /* line 1192, ../sass/global.scss */
   #block-countdown-0 em {
     font-size: 14em;
     line-height: 1em;
   }
-  /* line 1184, ../sass/global.scss */
+  /* line 1196, ../sass/global.scss */
   #block-countdown-0 span {
     top: -160px;
     left: 120px;
@@ -2082,78 +2128,78 @@ thead th, th.active {
     font-size: 5.5em;
   }
 
-  /* line 1191, ../sass/global.scss */
+  /* line 1203, ../sass/global.scss */
   #block-block-1 {
     font-size: 1em;
   }
-  /* line 1193, ../sass/global.scss */
+  /* line 1205, ../sass/global.scss */
   #block-block-1 h3 {
     font-size: 7.5em;
   }
-  /* line 1196, ../sass/global.scss */
+  /* line 1208, ../sass/global.scss */
   #block-block-1 p {
     font-size: 5.7em;
   }
 
-  /* line 1200, ../sass/global.scss */
+  /* line 1212, ../sass/global.scss */
   #block-block-2 {
     font-size: 1em;
   }
-  /* line 1202, ../sass/global.scss */
+  /* line 1214, ../sass/global.scss */
   #block-block-2 h3 {
     font-size: 8.25em;
   }
-  /* line 1205, ../sass/global.scss */
+  /* line 1217, ../sass/global.scss */
   #block-block-2 p {
     font-size: 3.75em;
   }
-  /* line 1207, ../sass/global.scss */
+  /* line 1219, ../sass/global.scss */
   #block-block-2 p span {
     font-size: 1.6em;
     line-height: .9em;
   }
 
-  /* line 1213, ../sass/global.scss */
+  /* line 1225, ../sass/global.scss */
   #block-block-3 {
     font-size: 1em;
   }
-  /* line 1215, ../sass/global.scss */
+  /* line 1227, ../sass/global.scss */
   #block-block-3 h2 {
     font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-size: 4.65em;
   }
-  /* line 1219, ../sass/global.scss */
+  /* line 1231, ../sass/global.scss */
   #block-block-3 ul {
     display: block;
     height: 42px;
   }
-  /* line 1222, ../sass/global.scss */
+  /* line 1234, ../sass/global.scss */
   #block-block-3 ul li {
     float: left;
   }
-  /* line 1224, ../sass/global.scss */
+  /* line 1236, ../sass/global.scss */
   #block-block-3 ul li a {
     display: block;
     float: left;
     width: 45px;
     height: 42px;
   }
-  /* line 1229, ../sass/global.scss */
+  /* line 1241, ../sass/global.scss */
   #block-block-3 ul li a em {
     width: 45px;
     height: 42px;
   }
 
-  /* line 1237, ../sass/global.scss */
+  /* line 1249, ../sass/global.scss */
   h1.title {
     font-size: 3em;
   }
 
-  /* line 1240, ../sass/global.scss */
+  /* line 1252, ../sass/global.scss */
   #block-search-0 {
     margin: 5px 0px 0 0px;
   }
-  /* line 1242, ../sass/global.scss */
+  /* line 1254, ../sass/global.scss */
   #block-search-0 #edit-search-block-form-1 {
     width: 188px;
     margin: 0 5px 0 5px;
