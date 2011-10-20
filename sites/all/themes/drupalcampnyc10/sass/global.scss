@@ -994,8 +994,6 @@ thead th, th.active  {
 }
 
 #content-group a.buy-tickets { 
-  font-size: 2em;
-  letter-spacing:.05em;
   display: inline-block;
   position:relative;
   padding: .7em;
@@ -1005,6 +1003,8 @@ thead th, th.active  {
   color: rgba(255,255,255,.8);
   text-decoration:none;
   font-family: $heading-font;
+  font-size: 2em;
+  letter-spacing:.05em;
   &:hover {  
     background:#b30;
     color: rgba(255,255,255,.8);
@@ -1048,11 +1048,11 @@ thead th, th.active  {
 .homepage-tickets {
   float:right;
   margin:0 0 0 10px;
-  width:280px;
+  width:320px;
   img {
     position:relative;
     top:6px;
-    right:0;
+    left:20px;
     z-index:10;
   }
 }
