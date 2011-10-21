@@ -131,26 +131,6 @@ input[type="submit"]#edit-items-0-remove {
 padding: 0.25em 1em !important;
 }
 
-#block-countdown-0 {
-  margin:-8px 0 0 0; 
-  height:160px;
-  font-size:1em;
-  em {
-    font-size:14em;
-    line-height:1em;
-  }
-  span {
-    top:-160px;
-    left:120px;  
-    width:120px;
-    font-size:5.5em;
-  }
-}
-h1.title {
-  font-size: 5em; 
-  letter-spacing:0;
-}
-
 // Front page 
 .float-right {
   float:right;
@@ -231,11 +211,25 @@ h1.title {
    }
   }
 }
-#block-block-4 {
-  float:right;
-  width:350px;
+#block-countdown-0 {
+  margin:-8px 0 0 0; 
+  height:160px;
+  font-size:1em;
+  em {
+    font-size:14em;
+    line-height:1em;
+  }
+  span {
+    top:-160px;
+    left:120px;  
+    width:120px;
+    font-size:5.5em;
+  }
 }
-
+h1.title {
+  font-size: 5em; 
+  letter-spacing:0;
+}
 //
 
 #block-search-0 {
@@ -476,4 +470,92 @@ h1.title {
 }
 a.uc_signup_edit_info {
  @include text-shadow(none); 
- }
+} 
+
+
+@media only screen and (min-width : 480px) and (max-width : 959px) {
+  h1#site-name {
+    font-size: 9.2em;
+  }
+
+  h1.title {
+  font-size: 4em;
+  }
+
+  #block-block-1 {
+    font-size:1em;
+    h3 {
+      font-size:5.5em;
+    }
+    p {
+      font-size:4.2em;
+    }
+  }
+  #block-block-2 {
+    font-size:1em;
+    h3 {
+      font-size:6.25em;
+    }
+    p {
+      font-size:2.85em;
+    }
+  }
+  #block-block-3 {
+    font-size:1em;  
+    h2 {
+      font-size:4.65em;
+    }
+    ul {
+      display:block;
+      height:42px;
+     li {
+       float:left;
+       a { 
+         display:block;
+         float:left;
+         width:45px;
+         height:42px;
+         em {
+           width:45px;
+           height:42px;        
+         }
+       }
+     }
+    }
+  }
+  
+  #block-countdown-0 {
+    margin:-8px 0 0 0; 
+    height:120px;
+    font-size:1em;
+    em {
+      font-size:10.5em;
+      line-height:1em;
+    }
+    span {
+      top: -120px;
+      left: 95px;
+      width: 100px;
+      font-size: 4.1em;
+    }
+  }
+  h1.title {
+    font-size: 5em; 
+    letter-spacing:0;
+  } 
+  
+  #edit-search-block-form-1 {
+    width:90px; 
+    line-height:1.25em;
+    font-size:1em;
+  }
+  #block-search-0 input[type="submit"] {
+     @include sassy-button("matte", 5px, 11px, $button-color-1, $button-color-2, #111, "inset");
+  padding: 0.25em 1em !important;
+  } 
+  #block-user-0 {
+    &.grid12-2 {
+      width: 25%;
+    }
+  }
+}
