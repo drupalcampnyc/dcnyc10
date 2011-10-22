@@ -2395,6 +2395,11 @@ function cod_session_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('cache', array(
+    'type' => 'time',
+    'results_lifespan' => '300',
+    'output_lifespan' => '300',
+  ));
   $handler->override_option('title', '');
   $handler->override_option('style_plugin', 'default');
   $handler->override_option('style_options', array(

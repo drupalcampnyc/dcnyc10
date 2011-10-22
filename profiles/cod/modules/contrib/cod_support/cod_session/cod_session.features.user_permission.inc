@@ -32,7 +32,6 @@ function cod_session_user_default_permissions() {
     'roles' => array(
       '0' => 'attendee',
       '1' => 'site administrator',
-      '2' => 'volunteer',
     ),
   );
 
@@ -227,8 +226,9 @@ function cod_session_user_default_permissions() {
   $permissions['edit field_track'] = array(
     'name' => 'edit field_track',
     'roles' => array(
-      '0' => 'session organizer',
-      '1' => 'site administrator',
+      '0' => 'authenticated user',
+      '1' => 'session organizer',
+      '2' => 'site administrator',
     ),
   );
 
