@@ -19,7 +19,8 @@ function cod_sponsors_user_default_permissions() {
   $permissions['create supporter content'] = array(
     'name' => 'create supporter content',
     'roles' => array(
-      '0' => 'authenticated user',
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
     ),
   );
 

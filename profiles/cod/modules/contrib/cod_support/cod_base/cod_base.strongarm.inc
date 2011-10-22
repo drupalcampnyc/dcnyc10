@@ -147,8 +147,8 @@ function cod_base_strongarm() {
     'default_logo' => 1,
     'logo_path' => '',
     'logo_upload' => '',
-    'default_favicon' => 1,
-    'favicon_path' => '',
+    'default_favicon' => 0,
+    'favicon_path' => 'sites/all/themes/drupalcampnyc10/images/favicon/favicon.ico',
     'favicon_upload' => '',
   );
   $export['theme_settings'] = $strongarm;
