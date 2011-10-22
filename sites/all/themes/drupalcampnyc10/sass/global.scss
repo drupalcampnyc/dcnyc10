@@ -179,6 +179,9 @@ h1.title {
    }
   #block-user-0 {
     float:right;
+    &.block {
+      margin:0;
+    }
     .content {
       margin:0;
       padding:.25em 1em;      
@@ -1067,7 +1070,12 @@ thead th, th.active  {
     @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset");   
   }
 }
+ 
+#gmap-venue {
+  width:100%;
+  max-width:100%;
 
+}
 
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
@@ -1075,25 +1083,10 @@ thead th, th.active  {
     @include background-image(linear-gradient(rgba($header-dark-gradient-color,.75) 100px, rgba($header-dark-gradient-color,.15) 250px, rgba($header-light-gradient-color,.15) 400px, rgba($header-light-gradient-color,.0) 95%), $page-background-image-480);
     background-position: top center,top center;
     background-repeat:no-repeat, repeat;
-  }
-}
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  h1#site-name {
-    margin:.25em;
-  }
-  #header-site-info.block {
-    margin:0;
-  }
-  
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width : 321px) and (max-width : 480px) {
+  } 
   h1#site-name {
     font-size: 7.2em;
-    margin:.25em;
+    margin: .1em;
   }
   #sidebar-first {
     &.nested {
@@ -1103,53 +1096,134 @@ thead th, th.active  {
       width:100% !important;
     }
   }
-    #primary-menu {
-      @include content-group-corners;
-      ul {
-        margin:0;
-        padding:0;
-        
-        li {
-          a {
-            margin:0;
-            padding: .5em;
-            &.active, &:hover {
-              color:$menu-active-link-color;
-            }
+  #primary-menu {
+    @include content-group-corners;
+    ul {
+      margin:0;
+      padding:0;
+      
+      li {
+        a {
+          margin:0;
+          padding: .5em;
+          &.active, &:hover {
+            color:$menu-active-link-color;
           }
         }
-        ul {
-          display:none;
-          li {
-           display:none;   
-             a {
-              display:none;
-            }
-          } 
+      }
+      ul {
+        display:none;
+        li {
+         display:none;   
+           a {
+            display:none;
+          }
+        } 
+      }
+    }
+
+  }
+  #sidebar-last {
+    &.nested {
+      float:none;
+      width:100% !important;
+      padding:1em;
+    }
+    .grid-3 {
+      width:100% !important;
+    }
+  }
+  #content-group {
+    &.nested {
+      float:none;
+      overflow: visible;
+      margin:0 0 0 2% ;
+      width:93% !important;
+    } 
+    ul {
+      margin:1em 0;
+    }
+  }
+  #block-countdown-0 {
+     margin:-8px 0 0 0; 
+     height:160px;
+     font-size:1em;
+     em {
+       font-size:14em;
+       line-height:1em;
+     }
+     span {
+       top:-160px;
+       left:120px;  
+       width:120px;
+       font-size:5.5em;
+     }
+   }
+   #block-block-1 {
+     font-size:1em;
+     h3 {
+       font-size:7.5em;
+     }
+     p {
+       font-size:5.7em;
+     }
+   }
+   #block-block-2 {
+     font-size:1em;
+     h3 {
+       font-size:8.25em;
+     }
+     p {
+       font-size:3.75em;
+       span {
+         font-size:1.6em;
+         line-height:.9em;  
+       }
+     }
+   }
+   #block-block-3 {
+     font-size:1em;  
+     h2 {
+       font-family: $heading-font;
+       font-size:4.65em;
+     }
+     ul {
+       display:block;
+       height:42px;
+      li {
+        float:left;
+        a { 
+          display:block;
+          float:left;
+          width:45px;
+          height:42px;
+          em {
+            width:45px;
+            height:42px;        
+          }
         }
       }
-    }
-    #sidebar-last {
-      &.nested {
-        float:none;
-      }
-      .grid-3 {
-        width:100% !important;
-      }
-    }
-    #content-group {
-      &.nested {
-        float:none;
-        overflow: visible;
-        margin:0 0 0 2% ;
-        width:93% !important;
-      } 
-      ul {
-        margin:1em 0;
-      }
-    }
+     }
+   }
+   h1.title {
+     font-size: 4em;
+   }  
+  
+}
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) and (max-width : 480px) {
+  h1#site-name {
+    font-size: 7.2em;
+    margin: .1em;
+  }
     h1.title {
       font-size: 3em;
+    }
+    
+    .homepage-tickets {
+    float: none;
     }  
     #block-search-0 {
       margin:5px 0px 5px 0px;        
@@ -1168,12 +1242,10 @@ thead th, th.active  {
     }
   }
 
-
-
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
   h1#site-name {
-    margin: .1em ;
+    margin: .1em;
     font-size: 5em;
   }
   #primary-menu {
@@ -1202,91 +1274,7 @@ thead th, th.active  {
       }
     }
   }
-  #sidebar-last {
-    &.nested {
-      float:none;
-      width:100% !important;
-      padding:1em;
-    }
-    .grid-3 {
-      width:100% !important;
-    }
-  }
-  #content-group {
-    &.nested {
-      float:none;
-      overflow: visible;
-      margin:0 0 0 2% ;
-      width:93% !important;
-    } 
-    ul {
-      margin:0;
-    }
-  }
-  #block-countdown-0 {
-    margin:-8px 0 0 0; 
-    height:160px;
-    font-size:1em;
-    em {
-      font-size:14em;
-      line-height:1em;
-    }
-    span {
-      top:-160px;
-      left:120px;  
-      width:120px;
-      font-size:5.5em;
-    }
-  }
-  #block-block-1 {
-    font-size:1em;
-    h3 {
-      font-size:7.5em;
-    }
-    p {
-      font-size:5.7em;
-    }
-  }
-  #block-block-2 {
-    font-size:1em;
-    h3 {
-      font-size:8.25em;
-    }
-    p {
-      font-size:3.75em;
-      span {
-        font-size:1.6em;
-        line-height:.9em;  
-      }
-    }
-  }
-  #block-block-3 {
-    font-size:1em;  
-    h2 {
-      font-family: $heading-font;
-      font-size:4.65em;
-    }
-    ul {
-      display:block;
-      height:42px;
-     li {
-       float:left;
-       a { 
-         display:block;
-         float:left;
-         width:45px;
-         height:42px;
-         em {
-           width:45px;
-           height:42px;        
-         }
-       }
-     }
-    }
-  }
-  h1.title {
-    font-size: 3em;
-  }  
+
   #block-search-0 {
     margin:5px 0px 10px 0px;
     #edit-search-block-form-1 {
@@ -1295,7 +1283,7 @@ thead th, th.active  {
     }
   }
   table.sticky-header,
-   table.sticky-enabled  {
+  table.sticky-enabled  {
     width:240px !important;
     left:0px;
   } 
@@ -1307,4 +1295,3 @@ thead th, th.active  {
     display:none;
   }
 }
-
