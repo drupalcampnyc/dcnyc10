@@ -39,11 +39,11 @@ h1#site-name {
     max-width:33em;
     line-height:1.334em;
     li {
-      margin:0 0 .66em 0;
+      margin:0 0 0.66em 0;
     }
-    #content-inner-inner {
-      padding:.25em 1em;
-    }
+  }
+  #content-inner-inner {
+    padding:0.5em 0em 0.5em 1em !important;
   }
 }
 
@@ -472,6 +472,26 @@ a.uc_signup_edit_info {
  @include text-shadow(none); 
 } 
 
+// Sponsor page
+.node-type-sponsor {
+  .imagefield-field_logo {
+    float:right;
+    margin:0 10px 10px 10px;
+  }
+}
+
+// Sponsor View
+#view-id-Sponsors-page_1 {
+  ul {
+    li {
+      img {
+        margin:0 20px 0 0;
+      }
+    }  
+  }
+}
+
+/// Media Query
 
 @media only screen and (min-width : 480px) and (max-width : 959px) {
   h1#site-name {

@@ -1077,6 +1077,36 @@ thead th, th.active  {
 
 }
 
+// Sponsor page
+.node-type-sponsor {
+  .imagefield-field_logo {
+    margin:10px 0px 10px 0px;
+  }
+  .field-field-sponsorship-level {
+    font-size:1.2em;
+    font-style:italic;
+  }
+}
+
+// Sponsor View
+#view-id-Sponsors-page_1 {
+  ul {
+    margin:0;
+    padding:0;
+    display:inline;
+    li {
+      float:left;
+      margin:0;
+      padding:0;
+      list-style:none;
+      img {
+        max-width:100%;
+        margin:10px 20px 0 0;
+      }
+    }  
+  }
+}
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
     background-image:$page-background-image-480;
