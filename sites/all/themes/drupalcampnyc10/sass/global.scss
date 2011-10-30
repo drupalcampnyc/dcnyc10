@@ -366,9 +366,10 @@ padding: 0.25em 1em !important;
 // Text inputs
 input[type="text"],
 input[type="password"] {  
- margin:0em 0 .5em 0;
+  margin:0em 0 .5em 0;
   padding:.25em  0 .25em .5em;
   border:none;
+  background:white;
   @include border-radius(8px);
   @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
   line-height:1.5em;
@@ -469,9 +470,16 @@ tr.even, tr.odd {
   }
 }
 .profile dt {
- width:50%;
- margin:1em 0 1em 0;
+  float: none;
+  margin: 0;
+  padding: 5px 0;
+  text-align: left;
+  width:100%;
 }
+.profile dl {
+  margin:1em 0 1em 0;
+}
+
 .picture {
   margin:10px 0;
   img {
@@ -662,7 +670,8 @@ tr.even, tr.odd {
     font-size:3.75em;
     line-height:1em; 
     color:$heading-color-1;
-    @include reg-text-shadow; 
+    @include reg-text-shadow;
+    margin:0 .25em;
   }
   ul {
     list-style:none;
@@ -1117,6 +1126,15 @@ thead th, th.active  {
   }
 }
 
+// Session page 
+#view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+  
+  td {
+    vertical-align:top;
+    font-size:.8em;
+  }
+}
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
     background-image:$page-background-image-480;
@@ -1140,8 +1158,7 @@ thead th, th.active  {
     @include content-group-corners;
     ul {
       margin:0;
-      padding:0;
-      
+      padding:0;     
       li {
         a {
           margin:0;
@@ -1258,29 +1275,72 @@ thead th, th.active  {
     font-size: 7.2em;
     margin: .1em;
   }
-    h1.title {
-      font-size: 3em;
-    }
-    
-    .homepage-tickets {
-    float: none;
-    }  
-    #block-search-0 {
-      margin:5px 0px 5px 0px;        
-      #edit-search-block-form-1 {
-        width:338px;
-        margin:0 5px 0 5px;
+  h1.title {
+    font-size: 3em;
+  }
+  .block-menu_block ul.menu {
+    font-size: 1.3em;
+    li.leaf {
+      float:left;
+      border:none;
+      border-left:dotted 1px rgba(0, 0, 0, 0.25);
+      padding: .25em 1em;
+      &:first-child{
+         border:none;
       }
     }
-    #cart-form-products th:nth-child(2),
-    #cart-form-products td:nth-child(2)  { 
-      display:none;
-    }
-    #billing-pane {
-      font-size:.8em;
-      max-width:460px
+  }
+  #primary-menu {
+    ul { 
+      font-size:1.4em;   
+      }
+  }
+  .homepage-tickets {
+  float: none;
+  }  
+  #block-search-0 {
+    margin:5px 0px 5px 0px;        
+    #edit-search-block-form-1 {
+      width:338px;
+      margin:0 5px 0 5px;
     }
   }
+  #cart-form-products th:nth-child(2),
+  #cart-form-products td:nth-child(2)  { 
+    display:none;
+  }
+  #billing-pane {
+    font-size:.8em;
+    max-width:460px
+  }
+  #block-views-sponsors_front_page-block_1 {
+      ul {
+         li {
+           img {
+             max-width:220px;
+             max-height:150px;
+           }
+        }
+      }
+    }
+    #view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+      th {
+        font-size:.9em;
+      }
+      td {
+        font-size:.8em;
+        line-height:1.6em;
+      }
+    }
+    input[type="text"],
+    input[type="password"] {
+      max-width:425px;
+    }
+    #content-group {
+      font-size: 1.2em;
+    }
+  }
+  
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
@@ -1288,16 +1348,30 @@ thead th, th.active  {
     margin: .1em;
     font-size: 5em;
   }
+  .block-menu_block ul.menu {
+    font-size: 1.2em;
+      li.leaf {
+        float:left;
+        border:none;
+        border-left:dotted 1px rgba(0, 0, 0, 0.25);
+        padding: .25em 1em;
+        &:first-child{
+           border:none;
+        }
+      }
+    }
   #primary-menu {
-    @include content-group-corners;
+    &.block {
+      margin:0 0 .75em 0;
+    }
     ul {
       margin:0;
       padding:0;
-      font-size:1.5em;
+      font-size:1em;
       li {
         a {
           margin:0;
-          padding: .5em;
+          padding: .25em;
           &.active, &:hover {
             color:$menu-active-link-color;
           }
@@ -1314,7 +1388,15 @@ thead th, th.active  {
       }
     }
   }
-
+  #content-tabs {
+    ul.primary {
+      li a:link, 
+      li a:visited  {
+        font-size: .8em;
+        padding: .5em 1em;
+      }
+    }
+  }
   #block-search-0 {
     margin:5px 0px 10px 0px;
     #edit-search-block-form-1 {
@@ -1333,5 +1415,43 @@ thead th, th.active  {
   #cart-form-products th:nth-child(2),
   #cart-form-products td:nth-child(2)  { 
     display:none;
+  }
+  input[type="text"],
+  input[type="password"] {
+    max-width:275px;
+  }
+  h1.title {
+    font-size: 3em;
+  }
+  #block-views-sponsors_front_page-block_1 {
+    ul {
+       li {
+         margin: 0 0 4px 10px; 
+         img {
+           max-width:145px;
+           max-height:100px;
+         }
+      }
+    }
+  }
+  .homepage-tickets {
+  float: none;
+  margin: 0;
+  width: 325px;
+  }
+  #content-group a.buy-tickets { 
+    font-size: 1.75em;
+  }
+  #view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+    th {
+      font-size:.8em;
+    }
+    td {
+      font-size:.7em;
+      line-height:1.4em;
+    }
+  }
+  #content-group {
+    font-size: 1.2em;
   }
 }
