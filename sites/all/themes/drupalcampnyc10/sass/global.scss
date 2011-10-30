@@ -1293,7 +1293,10 @@ thead th, th.active  {
   #primary-menu {
     ul { 
       font-size:1.4em;   
+      li {
+        padding: 0 .33em;
       }
+    }
   }
   .homepage-tickets {
   float: none;
@@ -1369,9 +1372,10 @@ thead th, th.active  {
       padding:0;
       font-size:1em;
       li {
+        padding: 0 .2em;
         a {
           margin:0;
-          padding: .25em;
+          
           &.active, &:hover {
             color:$menu-active-link-color;
           }
