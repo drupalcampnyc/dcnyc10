@@ -17,7 +17,7 @@ function cod_sponsors_content_default_fields() {
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'image_plain',
+        'format' => 'image_nodelink',
         'exclude' => 0,
       ),
       'full' => array(
@@ -193,7 +193,7 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_sponsorship_level',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '-3',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -234,7 +234,7 @@ sponsor|Sponsor',
       ),
       'default_value_php' => NULL,
       'label' => 'Sponsorship Level',
-      'weight' => '2',
+      'weight' => '-3',
       'description' => '',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -246,14 +246,14 @@ sponsor|Sponsor',
     'field_name' => 'field_url',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '-1',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'default',
-        'exclude' => 0,
+        'format' => 'hidden',
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'default',
@@ -292,7 +292,7 @@ sponsor|Sponsor',
       ),
       'default_value_php' => NULL,
       'label' => 'URL',
-      'weight' => '-1',
+      'weight' => '2',
       'description' => '',
       'type' => 'link',
       'module' => 'link',

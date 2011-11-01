@@ -152,7 +152,7 @@ function cod_sponsors_strongarm() {
   $strongarm->name = 'content_extra_weights_sponsor';
   $strongarm->value = array(
     'title' => '-5',
-    'body_field' => '0',
+    'body_field' => '-1',
     'revision_information' => '4',
     'author' => '3',
     'options' => '5',
