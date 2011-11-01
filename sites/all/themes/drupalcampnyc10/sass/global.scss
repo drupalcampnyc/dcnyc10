@@ -34,13 +34,21 @@ em {
 
 //Header site name
 h1#site-name {
-  margin:0 0 .22em 0;
+  margin: .1em;  
   font-family: $heading-font;
   line-height:.95em;
   @include reg-text-shadow;      
   a {
     color:$heading-color-1;  
   }
+}
+
+#slogan {
+  letter-spacing:.05em;  
+  font-family: $heading-font;
+  color:$heading-color-1;
+  line-height:.95em;
+  @include reg-text-shadow;
 }
 #header-site-info.block {
   margin:0;
@@ -1146,6 +1154,10 @@ thead th, th.active  {
     font-size: 7.2em;
     margin: .1em;
   }
+  #slogan{
+    margin: -.1em .2em .1em .25em;
+    font-size:2em;   
+  }
   #sidebar-first {
     &.nested {
       float:none;
@@ -1269,7 +1281,11 @@ thead th, th.active  {
    h1.title {
      font-size: 4em;
    }  
-  
+   #block-search-0 {
+     margin:-2.9em 0 .33em 0;
+     float:right;
+     width:220px;
+   }
 }
 
 
@@ -1358,6 +1374,10 @@ thead th, th.active  {
     #content-group {
       font-size: 1.2em;
     }
+    #block-search-0 {
+      float:none;
+      width:100%;
+    }
   }
   
 
@@ -1418,6 +1438,8 @@ thead th, th.active  {
     }
   }
   #block-search-0 {
+    float:none;
+    width:100%;
     margin:5px 0px 10px 0px;
     #edit-search-block-form-1 {
       width:188px;

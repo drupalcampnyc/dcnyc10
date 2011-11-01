@@ -15,7 +15,12 @@ body {
 
 } 
 h1#site-name {
+  margin:0 0 .22em 0;  
   font-size: 11.95em;
+}
+#slogan{
+  margin: -1.25em .2em .1em 4.3em;
+  font-size:3em;   
 }
 
 #header-group {
@@ -497,7 +502,10 @@ a.uc_signup_edit_info {
   h1#site-name {
     font-size: 9.2em;
   }
-
+  #slogan{
+    margin: -1em .2em .1em 4.3em;
+    font-size:2.4em;   
+  }
   h1.title {
   font-size: 4em;
   }
