@@ -373,7 +373,8 @@ padding: 0.25em 1em !important;
 
 // Text inputs
 input[type="text"],
-input[type="password"] {  
+input[type="password"],
+input[type="email"] {  
   margin:0em 0 .5em 0;
   padding:.25em  0 .25em .5em;
   border:none;
@@ -649,27 +650,23 @@ tr.even, tr.odd {
     @include reg-text-shadow;
     color:$light-text-color;
   }
+  P { 
+    font-size:1.2em;
+    margin:8px 0 0 0;
+    line-height:1.5em;
+    @include reg-text-shadow;
+    color:$light-text-color;
+  }
   #mc_embed_signup input {
-    @include border-background-reset;
     line-height:1.25em;
   }
   #mc_embed_signup input.button {
     @include box-shadow;
   }
   input[type="submit"] {
-    border:none;
-    @include border-radius(8px);
-    @include box-shadow;
-    font-family: $heading-font;
-    text-transform:uppercase;
-    line-height:1.25em;
-    color:$button-color-3;
-    background:$heading-color-1;
+   @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset"); 
   }
-  input[type="text"]{
-    border:none;
-    line-height:1.25em;
-  }
+
 }
 #block-views-sponsors_front_page-block_1 {
   margin:8px 14px 0 0;
@@ -1277,6 +1274,12 @@ thead th, th.active  {
         }
       }
      }
+   }
+   #block-mailing_list-1, #block-block-5 {
+     h2 {
+       font-size: 4.75em;
+    }
+
    }
    h1.title {
      font-size: 4em;

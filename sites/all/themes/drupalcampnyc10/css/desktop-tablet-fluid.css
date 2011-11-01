@@ -482,94 +482,83 @@ input[type="submit"]#edit-items-0-remove:hover {
 /* line 158, ../sass/desktop-tablet-fluid.scss */
 #block-mailing_list-1 #mc_embed_signup input.button, #block-block-5 #mc_embed_signup input.button {
   width: 136px;
-  height: 52px;
-  font-size: 3em;
-}
-/* line 163, ../sass/desktop-tablet-fluid.scss */
-#block-mailing_list-1 input[type="submit"], #block-block-5 input[type="submit"] {
-  float: right;
-  font-size: 3em;
-}
-/* line 167, ../sass/desktop-tablet-fluid.scss */
-#block-mailing_list-1 input[type="text"], #block-block-5 input[type="text"] {
-  width: 240px;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
-/* line 173, ../sass/desktop-tablet-fluid.scss */
+/* line 169, ../sass/desktop-tablet-fluid.scss */
 #block-block-1 {
   font-size: 1em;
 }
-/* line 175, ../sass/desktop-tablet-fluid.scss */
+/* line 171, ../sass/desktop-tablet-fluid.scss */
 #block-block-1 h3 {
   font-size: 7.5em;
 }
-/* line 178, ../sass/desktop-tablet-fluid.scss */
+/* line 174, ../sass/desktop-tablet-fluid.scss */
 #block-block-1 p {
   font-size: 5.7em;
 }
 
-/* line 182, ../sass/desktop-tablet-fluid.scss */
+/* line 178, ../sass/desktop-tablet-fluid.scss */
 #block-block-2 {
   font-size: 1em;
 }
-/* line 184, ../sass/desktop-tablet-fluid.scss */
+/* line 180, ../sass/desktop-tablet-fluid.scss */
 #block-block-2 h3 {
   font-size: 8.25em;
 }
-/* line 187, ../sass/desktop-tablet-fluid.scss */
+/* line 183, ../sass/desktop-tablet-fluid.scss */
 #block-block-2 p {
   font-size: 3.75em;
 }
-/* line 189, ../sass/desktop-tablet-fluid.scss */
+/* line 185, ../sass/desktop-tablet-fluid.scss */
 #block-block-2 p span {
   font-size: 1.6em;
   line-height: .9em;
 }
 
-/* line 195, ../sass/desktop-tablet-fluid.scss */
+/* line 191, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 {
   font-size: 1em;
 }
-/* line 197, ../sass/desktop-tablet-fluid.scss */
+/* line 193, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 h2 {
   font-family: "LeagueGothicRegular", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 4.65em;
 }
-/* line 201, ../sass/desktop-tablet-fluid.scss */
+/* line 197, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 ul {
   display: block;
   height: 42px;
 }
-/* line 204, ../sass/desktop-tablet-fluid.scss */
+/* line 200, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 ul li {
   float: left;
 }
-/* line 206, ../sass/desktop-tablet-fluid.scss */
+/* line 202, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 ul li a {
   display: block;
   float: left;
   width: 45px;
   height: 42px;
 }
-/* line 211, ../sass/desktop-tablet-fluid.scss */
+/* line 207, ../sass/desktop-tablet-fluid.scss */
 #block-block-3 ul li a em {
   width: 45px;
   height: 42px;
 }
 
-/* line 219, ../sass/desktop-tablet-fluid.scss */
+/* line 215, ../sass/desktop-tablet-fluid.scss */
 #block-countdown-0 {
   margin: -8px 0 0 0;
   height: 160px;
   font-size: 1em;
 }
-/* line 223, ../sass/desktop-tablet-fluid.scss */
+/* line 219, ../sass/desktop-tablet-fluid.scss */
 #block-countdown-0 em {
   font-size: 14em;
   line-height: 1em;
 }
-/* line 227, ../sass/desktop-tablet-fluid.scss */
+/* line 223, ../sass/desktop-tablet-fluid.scss */
 #block-countdown-0 span {
   top: -160px;
   left: 120px;
@@ -577,28 +566,28 @@ input[type="submit"]#edit-items-0-remove:hover {
   font-size: 5.5em;
 }
 
-/* line 234, ../sass/desktop-tablet-fluid.scss */
+/* line 230, ../sass/desktop-tablet-fluid.scss */
 h1.title {
   font-size: 5em;
   letter-spacing: 0;
 }
 
-/* line 240, ../sass/desktop-tablet-fluid.scss */
+/* line 236, ../sass/desktop-tablet-fluid.scss */
 #block-search-0 {
   margin: 95px 0px 0 0px;
   float: right;
   text-align: right;
 }
-/* line 244, ../sass/desktop-tablet-fluid.scss */
+/* line 240, ../sass/desktop-tablet-fluid.scss */
 #block-search-0 #edit-search-block-form-1 {
   margin: 0 5px 0 5px;
 }
 
-/* line 251, ../sass/desktop-tablet-fluid.scss */
+/* line 247, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products {
   padding: 1em;
 }
-/* line 253, ../sass/desktop-tablet-fluid.scss */
+/* line 249, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products thead th {
   font-size: 1.2em;
   background: none;
@@ -607,101 +596,101 @@ h1.title {
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.66), 1px 1px 1px rgba(205, 205, 205, 0.25);
   color: #aaa;
 }
-/* line 260, ../sass/desktop-tablet-fluid.scss */
+/* line 256, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products td {
   padding: .5em 1em .5em .5em;
 }
-/* line 263, ../sass/desktop-tablet-fluid.scss */
+/* line 259, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products tbody .desc, #cart-form-products tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
   color: #ccc;
 }
-/* line 268, ../sass/desktop-tablet-fluid.scss */
+/* line 264, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products tbody .subtotal {
   color: #999;
 }
-/* line 273, ../sass/desktop-tablet-fluid.scss */
+/* line 269, ../sass/desktop-tablet-fluid.scss */
 #cart-form-products #edit-items-0-qty {
   font-size: 1em;
   line-height: 1.5em;
   text-align: center;
 }
 
-/* line 282, ../sass/desktop-tablet-fluid.scss */
+/* line 278, ../sass/desktop-tablet-fluid.scss */
 #product-group .product-image {
   float: right;
   margin: 0 0 1em 0;
 }
 
-/* line 287, ../sass/desktop-tablet-fluid.scss */
+/* line 283, ../sass/desktop-tablet-fluid.scss */
 #product-details {
   margin: 2em 0 0 0;
 }
-/* line 289, ../sass/desktop-tablet-fluid.scss */
+/* line 285, ../sass/desktop-tablet-fluid.scss */
 #product-details .uc-price-display {
   margin: 0 1em 0 0;
   font-size: 3em;
 }
-/* line 293, ../sass/desktop-tablet-fluid.scss */
+/* line 289, ../sass/desktop-tablet-fluid.scss */
 #product-details .product-image {
   float: right;
 }
 
-/* line 298, ../sass/desktop-tablet-fluid.scss */
+/* line 294, ../sass/desktop-tablet-fluid.scss */
 #uc-signup-attendees-form {
   clear: both;
   width: 460px;
 }
-/* line 302, ../sass/desktop-tablet-fluid.scss */
+/* line 298, ../sass/desktop-tablet-fluid.scss */
 #uc-signup-attendees-form .submit-button {
   text-align: right;
 }
-/* line 305, ../sass/desktop-tablet-fluid.scss */
+/* line 301, ../sass/desktop-tablet-fluid.scss */
 #uc-signup-attendees-form .uc_signup_previous {
   float: left;
 }
-/* line 308, ../sass/desktop-tablet-fluid.scss */
+/* line 304, ../sass/desktop-tablet-fluid.scss */
 #uc-signup-attendees-form input[type="text"] {
   width: 95%;
   font-size: 1.2em;
 }
 
-/* line 314, ../sass/desktop-tablet-fluid.scss */
+/* line 310, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div {
   float: left;
   width: 260px;
   word-wrap: break-word;
 }
-/* line 320, ../sass/desktop-tablet-fluid.scss */
+/* line 316, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form #uc_signup_attendees_pane-pane .fieldset-wrapper > div .uc_signup_edit_info {
   float: none;
 }
-/* line 324, ../sass/desktop-tablet-fluid.scss */
+/* line 320, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form .field-label {
   padding: .3em;
   font-size: 1.1em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 0px -1px 2px rgba(0, 0, 25, 0.25);
   color: #eeeeee;
 }
-/* line 330, ../sass/desktop-tablet-fluid.scss */
+/* line 326, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form select {
   padding: 0.4em 0;
   font-size: 1em;
 }
-/* line 334, ../sass/desktop-tablet-fluid.scss */
+/* line 330, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form #billing-pane select {
   width: 320px;
 }
-/* line 337, ../sass/desktop-tablet-fluid.scss */
+/* line 333, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form input[type="text"] {
   font-size: 1.2em;
 }
-/* line 340, ../sass/desktop-tablet-fluid.scss */
+/* line 336, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form #line-items-div {
   font-size: 1.2em;
 }
-/* line 343, ../sass/desktop-tablet-fluid.scss */
+/* line 339, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form table.cart-review {
   font-size: .8em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -711,72 +700,72 @@ h1.title {
   background-image: -ms-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
-/* line 347, ../sass/desktop-tablet-fluid.scss */
+/* line 343, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form thead th {
   font-size: 1.2em;
 }
-/* line 350, ../sass/desktop-tablet-fluid.scss */
+/* line 346, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form td {
   font-size: 1.2em;
 }
-/* line 354, ../sass/desktop-tablet-fluid.scss */
+/* line 350, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form tbody .desc, #uc-cart-checkout-form tbody .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 358, ../sass/desktop-tablet-fluid.scss */
+/* line 354, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form .uc-price {
   font-size: 1.2em;
   letter-spacing: .05em;
 }
-/* line 362, ../sass/desktop-tablet-fluid.scss */
+/* line 358, ../sass/desktop-tablet-fluid.scss */
 #uc-cart-checkout-form .solid-border {
   border: none;
 }
 
-/* line 368, ../sass/desktop-tablet-fluid.scss */
+/* line 364, ../sass/desktop-tablet-fluid.scss */
 #pid-cart-checkout-review #content-content > p {
   width: 480px;
 }
 
-/* line 372, ../sass/desktop-tablet-fluid.scss */
+/* line 368, ../sass/desktop-tablet-fluid.scss */
 .order-review-table {
   width: 480px;
   font-size: 1.2em;
 }
-/* line 375, ../sass/desktop-tablet-fluid.scss */
+/* line 371, ../sass/desktop-tablet-fluid.scss */
 .order-review-table td {
   padding: .5em 1em .5em .5em;
 }
-/* line 377, ../sass/desktop-tablet-fluid.scss */
+/* line 373, ../sass/desktop-tablet-fluid.scss */
 .order-review-table td.title-col {
   text-align: right;
 }
-/* line 380, ../sass/desktop-tablet-fluid.scss */
+/* line 376, ../sass/desktop-tablet-fluid.scss */
 .order-review-table td.data-col {
   color: #eeeeee;
 }
-/* line 387, ../sass/desktop-tablet-fluid.scss */
+/* line 383, ../sass/desktop-tablet-fluid.scss */
 .order-review-table .row-border-top {
   border: none;
 }
-/* line 390, ../sass/desktop-tablet-fluid.scss */
+/* line 386, ../sass/desktop-tablet-fluid.scss */
 .order-review-table .review-button-row {
   border: none;
   background: none;
 }
-/* line 393, ../sass/desktop-tablet-fluid.scss */
+/* line 389, ../sass/desktop-tablet-fluid.scss */
 .order-review-table .review-button-row #edit-submit {
   float: right;
 }
 
-/* line 399, ../sass/desktop-tablet-fluid.scss */
+/* line 395, ../sass/desktop-tablet-fluid.scss */
 #pid-cart-checkout-complete #content-content > p {
   width: 480px;
   font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* line 408, ../sass/desktop-tablet-fluid.scss */
+/* line 404, ../sass/desktop-tablet-fluid.scss */
 #order-pane-uc_signup_info,
 #order-pane-bill_to,
 #order-pane-payment,
@@ -800,33 +789,33 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 417, ../sass/desktop-tablet-fluid.scss */
+/* line 413, ../sass/desktop-tablet-fluid.scss */
 .order-pane {
   background: none;
   border: none;
 }
-/* line 419, ../sass/desktop-tablet-fluid.scss */
+/* line 415, ../sass/desktop-tablet-fluid.scss */
 .order-pane thead {
   background: none;
   border: none;
 }
-/* line 421, ../sass/desktop-tablet-fluid.scss */
+/* line 417, ../sass/desktop-tablet-fluid.scss */
 .order-pane thead th {
   background: none;
   border: none;
 }
-/* line 425, ../sass/desktop-tablet-fluid.scss */
+/* line 421, ../sass/desktop-tablet-fluid.scss */
 .order-pane tr, .order-pane tr.even, .order-pane tr.odd {
   background: none;
   border: none;
 }
 
-/* line 429, ../sass/desktop-tablet-fluid.scss */
+/* line 425, ../sass/desktop-tablet-fluid.scss */
 #order-pane-uc_signup_info {
   width: 460px;
 }
 
-/* line 434, ../sass/desktop-tablet-fluid.scss */
+/* line 430, ../sass/desktop-tablet-fluid.scss */
 #order-pane-products thead,
 #order-pane-line_items thead {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
@@ -837,7 +826,7 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
 }
 
-/* line 440, ../sass/desktop-tablet-fluid.scss */
+/* line 436, ../sass/desktop-tablet-fluid.scss */
 #view-id-sessions-page_1 thead tr {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, rgba(81, 73, 67, 0.5)), color-stop(45%, rgba(53, 48, 44, 0.5)), color-stop(85%, rgba(39, 35, 32, 0.5)));
   background-image: -webkit-linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
@@ -852,20 +841,20 @@ h1.title {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 444, ../sass/desktop-tablet-fluid.scss */
+/* line 440, ../sass/desktop-tablet-fluid.scss */
 #view-id-sessions-page_1 thead th {
   font-size: 1.334em;
   background: none;
   border: none;
   padding: 0.5em;
 }
-/* line 451, ../sass/desktop-tablet-fluid.scss */
+/* line 447, ../sass/desktop-tablet-fluid.scss */
 #view-id-sessions-page_1 tbody td {
   padding: 0.5em;
   vertical-align: top;
 }
 
-/* line 463, ../sass/desktop-tablet-fluid.scss */
+/* line 459, ../sass/desktop-tablet-fluid.scss */
 #view-id-cod_schedule-page_1 th {
   font-size: 1.334em;
   background: none;
@@ -878,113 +867,113 @@ h1.title {
   background-image: linear-gradient(rgba(81, 73, 67, 0.5) 20%, rgba(53, 48, 44, 0.5) 45%, rgba(39, 35, 32, 0.5) 85%);
   padding: 0.5em;
 }
-/* line 470, ../sass/desktop-tablet-fluid.scss */
+/* line 466, ../sass/desktop-tablet-fluid.scss */
 #view-id-cod_schedule-page_1 tbody td {
   padding: 0.5em;
   vertical-align: top;
 }
 
-/* line 476, ../sass/desktop-tablet-fluid.scss */
+/* line 472, ../sass/desktop-tablet-fluid.scss */
 a.uc_signup_edit_info {
   text-shadow: none;
 }
 
-/* line 482, ../sass/desktop-tablet-fluid.scss */
+/* line 478, ../sass/desktop-tablet-fluid.scss */
 .node-type-sponsor .imagefield-field_logo {
   float: right;
   margin: 0 10px 10px 10px;
 }
 
-/* line 492, ../sass/desktop-tablet-fluid.scss */
+/* line 488, ../sass/desktop-tablet-fluid.scss */
 #view-id-Sponsors-page_1 ul li img {
   margin: 0 20px 0 0;
 }
 
 @media only screen and (min-width : 480px) and (max-width : 959px) {
-  /* line 502, ../sass/desktop-tablet-fluid.scss */
+  /* line 498, ../sass/desktop-tablet-fluid.scss */
   h1#site-name {
     font-size: 9.2em;
   }
 
-  /* line 505, ../sass/desktop-tablet-fluid.scss */
+  /* line 501, ../sass/desktop-tablet-fluid.scss */
   #slogan {
     margin: -1em 0.2em 0.1em 4.3em;
     font-size: 2.4em;
   }
 
-  /* line 509, ../sass/desktop-tablet-fluid.scss */
+  /* line 505, ../sass/desktop-tablet-fluid.scss */
   h1.title {
     font-size: 4em;
   }
 
-  /* line 513, ../sass/desktop-tablet-fluid.scss */
+  /* line 509, ../sass/desktop-tablet-fluid.scss */
   #block-block-1 {
     font-size: 1em;
   }
-  /* line 515, ../sass/desktop-tablet-fluid.scss */
+  /* line 511, ../sass/desktop-tablet-fluid.scss */
   #block-block-1 h3 {
     font-size: 5.5em;
   }
-  /* line 518, ../sass/desktop-tablet-fluid.scss */
+  /* line 514, ../sass/desktop-tablet-fluid.scss */
   #block-block-1 p {
     font-size: 4.2em;
   }
 
-  /* line 522, ../sass/desktop-tablet-fluid.scss */
+  /* line 518, ../sass/desktop-tablet-fluid.scss */
   #block-block-2 {
     font-size: 1em;
   }
-  /* line 524, ../sass/desktop-tablet-fluid.scss */
+  /* line 520, ../sass/desktop-tablet-fluid.scss */
   #block-block-2 h3 {
     font-size: 6.25em;
   }
-  /* line 527, ../sass/desktop-tablet-fluid.scss */
+  /* line 523, ../sass/desktop-tablet-fluid.scss */
   #block-block-2 p {
     font-size: 2.85em;
   }
 
-  /* line 531, ../sass/desktop-tablet-fluid.scss */
+  /* line 527, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 {
     font-size: 1em;
   }
-  /* line 533, ../sass/desktop-tablet-fluid.scss */
+  /* line 529, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 h2 {
     font-size: 4.65em;
   }
-  /* line 536, ../sass/desktop-tablet-fluid.scss */
+  /* line 532, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 ul {
     display: block;
     height: 42px;
   }
-  /* line 539, ../sass/desktop-tablet-fluid.scss */
+  /* line 535, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 ul li {
     float: left;
   }
-  /* line 541, ../sass/desktop-tablet-fluid.scss */
+  /* line 537, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 ul li a {
     display: block;
     float: left;
     width: 45px;
     height: 42px;
   }
-  /* line 546, ../sass/desktop-tablet-fluid.scss */
+  /* line 542, ../sass/desktop-tablet-fluid.scss */
   #block-block-3 ul li a em {
     width: 45px;
     height: 42px;
   }
 
-  /* line 555, ../sass/desktop-tablet-fluid.scss */
+  /* line 551, ../sass/desktop-tablet-fluid.scss */
   #block-countdown-0 {
     margin: -8px 0 0 0;
     height: 120px;
     font-size: 1em;
   }
-  /* line 559, ../sass/desktop-tablet-fluid.scss */
+  /* line 555, ../sass/desktop-tablet-fluid.scss */
   #block-countdown-0 em {
     font-size: 10.5em;
     line-height: 1em;
   }
-  /* line 563, ../sass/desktop-tablet-fluid.scss */
+  /* line 559, ../sass/desktop-tablet-fluid.scss */
   #block-countdown-0 span {
     top: -120px;
     left: 95px;
@@ -992,20 +981,20 @@ a.uc_signup_edit_info {
     font-size: 4.1em;
   }
 
-  /* line 570, ../sass/desktop-tablet-fluid.scss */
+  /* line 566, ../sass/desktop-tablet-fluid.scss */
   h1.title {
     font-size: 5em;
     letter-spacing: 0;
   }
 
-  /* line 575, ../sass/desktop-tablet-fluid.scss */
+  /* line 571, ../sass/desktop-tablet-fluid.scss */
   #edit-search-block-form-1 {
     width: 90px;
     line-height: 1.25em;
     font-size: 1em;
   }
 
-  /* line 580, ../sass/desktop-tablet-fluid.scss */
+  /* line 576, ../sass/desktop-tablet-fluid.scss */
   #block-search-0 input[type="submit"] {
     display: inline-block;
     width: auto;
@@ -1046,7 +1035,7 @@ a.uc_signup_edit_info {
     background: linear-gradient(#f6f7f8, #aeb7c0 3%, #7e8d9b 75%);
   }
 
-  /* line 585, ../sass/desktop-tablet-fluid.scss */
+  /* line 581, ../sass/desktop-tablet-fluid.scss */
   #block-user-0.grid12-2 {
     width: 25%;
   }
