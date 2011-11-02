@@ -10,9 +10,11 @@ function cod_base_user_default_permissions() {
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
     'roles' => array(
-      '0' => 'content manager',
-      '1' => 'site administrator',
-      '2' => 'sponsor organizer',
+      '0' => 'camp coordinator',
+      '1' => 'content manager',
+      '2' => 'finance coordinator',
+      '3' => 'site administrator',
+      '4' => 'sponsor organizer',
     ),
   );
 
@@ -70,11 +72,13 @@ function cod_base_user_default_permissions() {
     'name' => 'use admin toolbar',
     'roles' => array(
       '0' => 'attendee manager',
-      '1' => 'content manager',
-      '2' => 'session organizer',
-      '3' => 'site administrator',
-      '4' => 'sponsor organizer',
-      '5' => 'volunteer',
+      '1' => 'camp coordinator',
+      '2' => 'content manager',
+      '3' => 'finance coordinator',
+      '4' => 'session organizer',
+      '5' => 'site administrator',
+      '6' => 'sponsor organizer',
+      '7' => 'volunteer',
     ),
   );
 
