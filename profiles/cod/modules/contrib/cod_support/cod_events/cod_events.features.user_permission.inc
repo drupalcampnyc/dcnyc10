@@ -97,6 +97,8 @@ function cod_events_user_default_permissions() {
     'name' => 'view all signups',
     'roles' => array(
       '0' => 'attendee manager',
+      '1' => 'camp coordinator',
+      '2' => 'content manager',
     ),
   );
 

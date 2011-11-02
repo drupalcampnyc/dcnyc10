@@ -34,13 +34,21 @@ em {
 
 //Header site name
 h1#site-name {
-  margin:0 0 .22em 0;
+  margin: .1em;  
   font-family: $heading-font;
   line-height:.95em;
   @include reg-text-shadow;      
   a {
     color:$heading-color-1;  
   }
+}
+
+#slogan {
+  letter-spacing:.05em;  
+  font-family: $heading-font;
+  color:$heading-color-1;
+  line-height:.95em;
+  @include reg-text-shadow;
 }
 #header-site-info.block {
   margin:0;
@@ -365,10 +373,12 @@ padding: 0.25em 1em !important;
 
 // Text inputs
 input[type="text"],
-input[type="password"] {  
- margin:0em 0 .5em 0;
+input[type="password"],
+input[type="email"] {  
+  margin:0em 0 .5em 0;
   padding:.25em  0 .25em .5em;
   border:none;
+  background:white;
   @include border-radius(8px);
   @include box-shadow(inset 2px 2px 3px rgba(0,0,0,.95));
   line-height:1.5em;
@@ -469,9 +479,16 @@ tr.even, tr.odd {
   }
 }
 .profile dt {
- width:50%;
- margin:1em 0 1em 0;
+  float: none;
+  margin: 0;
+  padding: 5px 0;
+  text-align: left;
+  width:100%;
 }
+.profile dl {
+  margin:1em 0 1em 0;
+}
+
 .picture {
   margin:10px 0;
   img {
@@ -633,36 +650,43 @@ tr.even, tr.odd {
     @include reg-text-shadow;
     color:$light-text-color;
   }
+  P { 
+    font-size:1.2em;
+    margin:8px 0 0 0;
+    line-height:1.5em;
+    @include reg-text-shadow;
+    color:$light-text-color;
+  }
   #mc_embed_signup input {
-    @include border-background-reset;
     line-height:1.25em;
   }
   #mc_embed_signup input.button {
     @include box-shadow;
   }
   input[type="submit"] {
-    border:none;
-    @include border-radius(8px);
-    @include box-shadow;
-    font-family: $heading-font;
-    text-transform:uppercase;
-    line-height:1.25em;
-    color:$button-color-3;
-    background:$heading-color-1;
+   @include sassy-button("matte", 5px, 16px, #5fe041, #2a8b13, #111, "inset"); 
   }
-  input[type="text"]{
-    border:none;
-    line-height:1.25em;
-  }
+
 }
 #block-views-sponsors_front_page-block_1 {
-  margin:8px 0 0 0;
+  margin:8px 14px 0 0;
   h2 {
     font-family: $heading-font;
     font-size:3.75em;
     line-height:1em; 
     color:$heading-color-1;
-    @include reg-text-shadow; 
+    @include reg-text-shadow;
+    margin:0 .25em;
+  }
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+     li {
+      list-style:none;
+      margin:0 0 10px 14px;
+      float:left;
+    }
   }
 }
 #block-search-0 {
@@ -1051,7 +1075,7 @@ thead th, th.active  {
 .homepage-tickets {
   float:right;
   margin:0 0 0 10px;
-  width:320px;
+  width:325px;
   img {
     position:relative;
     top:6px;
@@ -1077,6 +1101,45 @@ thead th, th.active  {
 
 }
 
+// Sponsor page
+.node-type-sponsor {
+  .imagefield-field_logo {
+    margin:10px 0px 10px 0px;
+  }
+  .field-field-sponsorship-level {
+    font-size:1.2em;
+    font-style:italic;
+  }
+}
+
+// Sponsor View
+#view-id-Sponsors-page_1 {
+  ul {
+    margin:0;
+    padding:0;
+    display:inline;
+    li {
+      float:left;
+      margin:0;
+      padding:0;
+      list-style:none;
+      img {
+        max-width:100%;
+        margin:10px 20px 0 0;
+      }
+    }  
+  }
+}
+
+// Session page 
+#view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+  
+  td {
+    vertical-align:top;
+    font-size:.8em;
+  }
+}
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
     background-image:$page-background-image-480;
@@ -1087,6 +1150,10 @@ thead th, th.active  {
   h1#site-name {
     font-size: 7.2em;
     margin: .1em;
+  }
+  #slogan{
+    margin: -.1em .2em .1em .25em;
+    font-size:2em;   
   }
   #sidebar-first {
     &.nested {
@@ -1100,8 +1167,7 @@ thead th, th.active  {
     @include content-group-corners;
     ul {
       margin:0;
-      padding:0;
-      
+      padding:0;     
       li {
         a {
           margin:0;
@@ -1143,6 +1209,10 @@ thead th, th.active  {
     ul {
       margin:1em 0;
     }
+  }
+  
+  .block-menu_block .inner.clearfix {
+    padding:0;
   }
   #block-countdown-0 {
      margin:-8px 0 0 0; 
@@ -1205,10 +1275,20 @@ thead th, th.active  {
       }
      }
    }
+   #block-mailing_list-1, #block-block-5 {
+     h2 {
+       font-size: 4.75em;
+    }
+
+   }
    h1.title {
      font-size: 4em;
    }  
-  
+   #block-search-0 {
+     margin:-2.9em 0 .33em 0;
+     float:right;
+     width:220px;
+   }
 }
 
 
@@ -1218,29 +1298,91 @@ thead th, th.active  {
     font-size: 7.2em;
     margin: .1em;
   }
-    h1.title {
-      font-size: 3em;
-    }
-    
-    .homepage-tickets {
-    float: none;
-    }  
-    #block-search-0 {
-      margin:5px 0px 5px 0px;        
-      #edit-search-block-form-1 {
-        width:338px;
-        margin:0 5px 0 5px;
+  h1.title {
+    font-size: 3em;
+  }
+  .block-menu_block ul.menu {
+    font-size: 1.3em;
+    li.leaf {
+      float:left;
+      border:none;
+      border-left:dotted 1px rgba(0, 0, 0, 0.25);
+      padding: .25em 1em;
+      &:first-child{
+         border:none;
       }
     }
-    #cart-form-products th:nth-child(2),
-    #cart-form-products td:nth-child(2)  { 
-      display:none;
-    }
-    #billing-pane {
-      font-size:.8em;
-      max-width:460px
+  }
+  #primary-menu {
+    ul { 
+      font-size:1.4em;   
+      li {
+        padding: 0 .33em;
+      }
     }
   }
+  .homepage-tickets {
+  float: none;
+  }  
+  #block-search-0 {
+    margin:5px 0px 10px 0px;        
+    #edit-search-block-form-1 {
+      width:338px;
+      margin:0 5px 0 5px;
+    }
+  }
+  #cart-form-products th:nth-child(2),
+  #cart-form-products td:nth-child(2)  { 
+    display:none;
+  }
+  #billing-pane {
+    font-size:.8em;
+    max-width:460px
+  }
+  #block-views-sponsors_front_page-block_1 {
+      ul {
+         li {
+           img {
+             max-width:220px;
+             max-height:150px;
+           }
+        }
+      }
+    }
+    #view-id-Sponsors-page_1 {
+        ul {
+          margin:10px 0 0 0;
+           li {
+             img {
+               margin:0 0 5px 10px;
+               max-width:204px;
+               max-height:140px;
+             }
+          }
+        }
+      }
+    #view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+      th {
+        font-size:.9em;
+      }
+      td {
+        font-size:.8em;
+        line-height:1.6em;
+      }
+    }
+    input[type="text"],
+    input[type="password"] {
+      max-width:425px;
+    }
+    #content-group {
+      font-size: 1.2em;
+    }
+    #block-search-0 {
+      float:none;
+      width:100%;
+    }
+  }
+  
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
@@ -1248,16 +1390,31 @@ thead th, th.active  {
     margin: .1em;
     font-size: 5em;
   }
+  .block-menu_block ul.menu {
+    font-size: 1.2em;
+      li.leaf {
+        float:left;
+        border:none;
+        border-left:dotted 1px rgba(0, 0, 0, 0.25);
+        padding: .25em 1em;
+        &:first-child{
+           border:none;
+        }
+      }
+    }
   #primary-menu {
-    @include content-group-corners;
+    &.block {
+      margin:0 0 .75em 0;
+    }
     ul {
       margin:0;
       padding:0;
-      font-size:1.5em;
+      font-size:1em;
       li {
+        padding: 0 .2em;
         a {
           margin:0;
-          padding: .5em;
+          
           &.active, &:hover {
             color:$menu-active-link-color;
           }
@@ -1274,8 +1431,18 @@ thead th, th.active  {
       }
     }
   }
-
+  #content-tabs {
+    ul.primary {
+      li a:link, 
+      li a:visited  {
+        font-size: .8em;
+        padding: .5em 1em;
+      }
+    }
+  }
   #block-search-0 {
+    float:none;
+    width:100%;
     margin:5px 0px 10px 0px;
     #edit-search-block-form-1 {
       width:188px;
@@ -1293,5 +1460,62 @@ thead th, th.active  {
   #cart-form-products th:nth-child(2),
   #cart-form-products td:nth-child(2)  { 
     display:none;
+  }
+  input[type="text"],
+  input[type="password"] {
+    max-width:275px;
+  }
+  h1.title {
+    font-size: 3em;
+  }
+  #block-views-sponsors_front_page-block_1 {
+    ul {
+      margin:0;
+      padding:0;
+       li {
+         margin: 0 0 4px 10px;
+         img {
+           max-width:145px;
+           max-height:100px;
+         }
+      }
+    }
+  }
+  #view-id-Sponsors-page_1 {
+    ul {
+      margin:10px 0 0 0;
+      padding:0;
+       li {
+         padding:0;
+         margin: 0;
+         img {
+           padding:0;
+           margin: 0 0 0 5px;
+           max-width:138px;
+           max-height:95px;
+         }
+      }
+    }
+  }
+  #view-id-Sponsors-page_1 
+  .homepage-tickets {
+  float: none;
+  margin: 0;
+  width: 325px;
+  }
+  #content-group a.buy-tickets { 
+    font-size: 1.75em;
+  }
+  #view-id-sessions-page_2 table, #view-id-sessions-page_1 table {
+    th {
+      font-size:.8em;
+    }
+    td {
+      font-size:.7em;
+      line-height:1.4em;
+    }
+  }
+  #content-group {
+    font-size: 1.2em;
   }
 }

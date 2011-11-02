@@ -11,13 +11,13 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_logo',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => 0,
+      'weight' => '-1',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'image_nodelink',
+        'format' => 'image_plain',
         'exclude' => 0,
       ),
       'full' => array(
@@ -58,7 +58,7 @@ function cod_sponsors_content_default_fields() {
       'default_image' => NULL,
       'use_default_image' => 0,
       'label' => 'Logo (Low Resolution)',
-      'weight' => 0,
+      'weight' => '-1',
       'description' => 'This field is limited to 300px (width) by 400px (height)',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
@@ -70,7 +70,7 @@ function cod_sponsors_content_default_fields() {
     'field_name' => 'field_logo_high',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '1',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -125,7 +125,7 @@ function cod_sponsors_content_default_fields() {
       'default_image' => NULL,
       'use_default_image' => 0,
       'label' => 'Logo (High Resolution)',
-      'weight' => '1',
+      'weight' => '2',
       'description' => 'This logo will be used in print media, such as signs, at DrupalCampNYC',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
@@ -140,7 +140,7 @@ function cod_sponsors_content_default_fields() {
       'weight' => '-2',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -246,14 +246,14 @@ sponsor|Sponsor',
     'field_name' => 'field_url',
     'type_name' => 'sponsor',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '1',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'hidden',
-        'exclude' => 1,
+        'format' => 'default',
+        'exclude' => 0,
       ),
       'full' => array(
         'format' => 'default',
@@ -292,7 +292,7 @@ sponsor|Sponsor',
       ),
       'default_value_php' => NULL,
       'label' => 'URL',
-      'weight' => '2',
+      'weight' => '1',
       'description' => '',
       'type' => 'link',
       'module' => 'link',

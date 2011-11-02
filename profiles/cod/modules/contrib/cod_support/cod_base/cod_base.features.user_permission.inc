@@ -12,8 +12,9 @@ function cod_base_user_default_permissions() {
     'roles' => array(
       '0' => 'camp coordinator',
       '1' => 'content manager',
-      '2' => 'site administrator',
-      '3' => 'sponsor organizer',
+      '2' => 'finance coordinator',
+      '3' => 'site administrator',
+      '4' => 'sponsor organizer',
     ),
   );
 
@@ -73,10 +74,11 @@ function cod_base_user_default_permissions() {
       '0' => 'attendee manager',
       '1' => 'camp coordinator',
       '2' => 'content manager',
-      '3' => 'session organizer',
-      '4' => 'site administrator',
-      '5' => 'sponsor organizer',
-      '6' => 'volunteer',
+      '3' => 'finance coordinator',
+      '4' => 'session organizer',
+      '5' => 'site administrator',
+      '6' => 'sponsor organizer',
+      '7' => 'volunteer',
     ),
   );
 
