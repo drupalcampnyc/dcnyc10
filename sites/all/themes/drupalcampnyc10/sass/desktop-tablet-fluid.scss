@@ -491,8 +491,18 @@ a.uc_signup_edit_info {
     }  
   }
 }
+// News Page
+.page-news #content-group {
+  #content-inner {
+   background:$content-area-background;
+   background-image: $page-background-image3;
+   background-repeat:no-repeat;
+   background-position:bottom right;
+  }
+}
 
-/// Media Query
+
+/// Media Query for narrow screens
 
 @media only screen and (min-width : 480px) and (max-width : 959px) {
   h1#site-name {
