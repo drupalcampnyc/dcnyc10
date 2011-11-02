@@ -504,7 +504,7 @@ a.uc_signup_edit_info {
 
 /// Media Query for narrow screens
 
-@media only screen and (min-width : 480px) and (max-width : 959px) {
+@media only screen and (min-width : 768px) and (max-width : 959px) {
   h1#site-name {
     font-size: 9.2em;
   }
