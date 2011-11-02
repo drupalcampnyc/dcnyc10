@@ -254,7 +254,7 @@ function cod_front_page_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'Premium Sponsors');
-  $handler->override_option('items_per_page', 5);
+  $handler->override_option('items_per_page', 12);
   $handler->override_option('style_plugin', 'list');
   $handler->override_option('style_options', array(
     'grouping' => '',
