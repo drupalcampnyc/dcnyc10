@@ -1,7 +1,8 @@
+// Variables and mixins are in @import "partials/_base";
 @import "partials/_base";
 // Import the Fusion grid only with a media query so that it's responsive
 @import "partials/_grid12-fluid";
-// Variables and mixins are in @import "partials/_base";
+
 
 body {
   background-image:$page-background-image-1280;

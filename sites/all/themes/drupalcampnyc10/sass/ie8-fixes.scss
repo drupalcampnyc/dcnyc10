@@ -1,9 +1,6 @@
-/* Welcome to Compass. Use this file to write IE specific override styles.
- * Import this file using the following HTML or equivalent:
- * <!--[if IE]>
- *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
- * <![endif]--> */ 
+// Variables and mixins are in @import "partials/_base";
 @import "partials/_base"; 
+// Import the desktop-tablet-fluid.css file
 @import "desktop-tablet-fluid"; 
 
 //Main Menu and Dropdowns
