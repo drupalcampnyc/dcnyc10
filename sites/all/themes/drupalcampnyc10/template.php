@@ -6,13 +6,6 @@ function drupalcampnyc10_preprocess_page(&$vars, $hook) {
 
   // Remove the Grid
   unset($vars['setting_styles']);
-
-	// Added the global style to the beginning of the conditional comments (should be in a function but TO DO)
-  $vars['ie8_styles_append'] = $vars['ie8_styles'];
-  $vars['ie7_styles_append'] = $vars['ie7_styles'];
-  $vars['ie6_styles_append'] = $vars['ie6_styles'];
-  
-  unset($vars['ie8_styles'], $vars['ie7_styles'], $vars['ie6_styles']);
    
  	// Remove Fusion Core IE stylesheets
   unset($vars['ie8_styles'], $vars['ie7_styles'], $vars['ie6_styles']);  
