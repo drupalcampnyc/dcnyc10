@@ -57,7 +57,10 @@ function cod_base_views_default_views() {
     ),
   ));
   $handler->override_option('access', array(
-    'type' => 'none',
+    'type' => 'role',
+    'role' => array(
+      10 => 10,
+    ),
   ));
   $handler->override_option('cache', array(
     'type' => 'none',
@@ -352,7 +355,10 @@ function cod_base_views_default_views() {
     ),
   ));
   $handler->override_option('access', array(
-    'type' => 'none',
+    'type' => 'role',
+    'role' => array(
+      10 => 10,
+    ),
   ));
   $handler->override_option('cache', array(
     'type' => 'none',
