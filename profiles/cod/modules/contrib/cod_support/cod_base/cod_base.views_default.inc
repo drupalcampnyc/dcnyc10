@@ -130,7 +130,7 @@ function cod_base_views_default_views() {
     'type' => 'normal',
     'title' => 'Diet Totals',
     'description' => '',
-    'weight' => '2',
+    'weight' => '3',
     'name' => 'menu-conference-admin',
   ));
   $handler->override_option('tab_options', array(
@@ -390,7 +390,7 @@ function cod_base_views_default_views() {
     'type' => 'normal',
     'title' => 'T-Shirt Totals',
     'description' => '',
-    'weight' => '3',
+    'weight' => '4',
     'name' => 'menu-conference-admin',
   ));
   $handler->override_option('tab_options', array(
