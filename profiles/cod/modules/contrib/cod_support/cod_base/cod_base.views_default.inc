@@ -388,9 +388,9 @@ function cod_base_views_default_views() {
   $handler->override_option('path', 'conference-admin/tshirt');
   $handler->override_option('menu', array(
     'type' => 'normal',
-    'title' => 'Diet Totals',
+    'title' => 'T-Shirt Totals',
     'description' => '',
-    'weight' => '2',
+    'weight' => '3',
     'name' => 'menu-conference-admin',
   ));
   $handler->override_option('tab_options', array(
