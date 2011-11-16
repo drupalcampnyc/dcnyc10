@@ -55,6 +55,23 @@ function cod_base_views_default_views() {
       'table' => 'profile_values_profile_diet',
       'field' => 'value',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'role',
@@ -127,6 +144,25 @@ function cod_base_views_default_views() {
       ),
     ),
   ));
+  $handler->override_option('filters', array(
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
   $handler->override_option('items_per_page', 0);
   $handler->override_option('path', 'conference-admin/diet');
   $handler->override_option('menu', array(
@@ -164,6 +200,26 @@ function cod_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('title', 'Total Number of Vegan Options Selected');
   $handler->override_option('header', '<strong>Vegan</strong>');
@@ -198,6 +254,26 @@ function cod_base_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
     ),
   ));
   $handler->override_option('title', 'Total Number of Vegetarian Options Selected');
@@ -234,6 +310,26 @@ function cod_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('title', 'Total Number of Kosher / Hallal Options Selected');
   $handler->override_option('header', '<strong>Kosher / Hallal</strong>');
@@ -268,6 +364,26 @@ function cod_base_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
     ),
   ));
   $handler->override_option('title', 'Total Number of Gluten Free Options Selected');
@@ -353,6 +469,23 @@ function cod_base_views_default_views() {
       'field' => 'value',
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'role',
@@ -389,7 +522,28 @@ function cod_base_views_default_views() {
     'detailed_values' => '1',
   ));
   $handler = $view->new_display('page', 'Total', 'page_1');
-  $handler->override_option('filters', array());
+  $handler->override_option('filters', array(
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
   $handler->override_option('items_per_page', 0);
   $handler->override_option('path', 'conference-admin/tshirt');
   $handler->override_option('menu', array(
@@ -427,6 +581,26 @@ function cod_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('title', 'Total Number of "No thanks!" Selected');
   $handler->override_option('header', '<strong>No thanks!</strong>');
@@ -461,6 +635,26 @@ function cod_base_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
     ),
   ));
   $handler->override_option('title', 'Total Number of Small Selected');
@@ -497,6 +691,26 @@ function cod_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('title', 'Total Number of Medium Selected');
   $handler->override_option('header', '<strong>Medium</strong>');
@@ -532,6 +746,26 @@ function cod_base_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('title', 'Total Number of Large Selected');
   $handler->override_option('header', '<strong>Large</strong>');
@@ -566,6 +800,26 @@ function cod_base_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+    'rid' => array(
+      'operator' => 'or',
+      'value' => array(
+        11 => '11',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'rid',
+      'table' => 'users_roles',
+      'field' => 'rid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
     ),
   ));
   $handler->override_option('title', 'Total Number of X-Large Selected');
