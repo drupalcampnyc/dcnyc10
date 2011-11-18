@@ -11,10 +11,9 @@ function cod_session_views_default_views() {
   $view->name = 'Speakers';
   $view->description = 'A list with photos and bios of those speaking at DrupalCampNYC';
   $view->tag = 'program';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -229,7 +228,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -290,10 +289,9 @@ function cod_session_views_default_views() {
   $view->name = 'cod_schedule';
   $view->description = 'Session Schedule';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -598,8 +596,8 @@ function cod_session_views_default_views() {
   $handler->override_option('access', array(
     'type' => 'role',
     'role' => array(
-      '5' => 5,
-      '3' => 3,
+      5 => 5,
+      3 => 3,
     ),
   ));
   $handler->override_option('cache', array(
@@ -865,10 +863,9 @@ function cod_session_views_default_views() {
   $view->name = 'cod_time_slots';
   $view->description = 'List of time slots for COD schedules';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -937,11 +934,11 @@ function cod_session_views_default_views() {
       'field' => 'field_slot_datetime_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '4' => 0,
-        '5' => 0,
-        '3' => 0,
-        '6' => 0,
+        2 => 0,
+        4 => 0,
+        5 => 0,
+        3 => 0,
+        6 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -1026,10 +1023,9 @@ function cod_session_views_default_views() {
   $view->name = 'schedule_room_list';
   $view->description = 'List of rooms for COD schedules';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -1112,10 +1108,9 @@ function cod_session_views_default_views() {
   $view->name = 'sessions';
   $view->description = 'Submitted sessions (before voting)';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -1443,7 +1438,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1850,20 +1845,20 @@ function cod_session_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '5' => 0,
-        '6' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        5 => 0,
+        6 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'me_redirect' => 0,
       'me_validate_user_argument_type' => 'uid',
       'me_validate_user_roles' => array(
-        '2' => 0,
-        '5' => 0,
-        '6' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        5 => 0,
+        6 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -1883,7 +1878,7 @@ function cod_session_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '1' => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -2088,20 +2083,20 @@ function cod_session_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '5' => 0,
-        '6' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        5 => 0,
+        6 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'me_redirect' => 0,
       'me_validate_user_argument_type' => 'uid',
       'me_validate_user_roles' => array(
-        '2' => 0,
-        '5' => 0,
-        '6' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        5 => 0,
+        6 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -2121,7 +2116,7 @@ function cod_session_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '1' => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -2171,7 +2166,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -2317,7 +2312,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'not',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -2432,10 +2427,9 @@ function cod_session_views_default_views() {
   $view->name = 'sessions_admin';
   $view->description = 'Session organizing View';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -2749,7 +2743,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -2944,7 +2938,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -3112,7 +3106,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '2' => '2',
+        2 => '2',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -3178,6 +3172,296 @@ function cod_session_views_default_views() {
     'name' => 'navigation',
   ));
   $handler = $view->new_display('page', 'Unprocessed sessions', 'page_4');
+  $handler->override_option('relationships', array(
+    'flag_content_rel' => array(
+      'label' => 'flag',
+      'required' => 0,
+      'flag' => 'session_vote',
+      'user_scope' => 'any',
+      'id' => 'flag_content_rel',
+      'table' => 'node',
+      'field' => 'flag_content_rel',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('fields', array(
+    'title' => array(
+      'label' => 'Title',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'field_accepted_value' => array(
+      'label' => 'Status',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 1,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'widget',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_accepted_value',
+      'table' => 'node_data_field_accepted',
+      'field' => 'field_accepted_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+    'count' => array(
+      'label' => 'Votes',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => ',',
+      'format_plural' => 0,
+      'format_plural_singular' => '1',
+      'format_plural_plural' => '@count',
+      'prefix' => '',
+      'suffix' => '',
+      'exclude' => 0,
+      'id' => 'count',
+      'table' => 'flag_counts',
+      'field' => 'count',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'field_speakers_uid' => array(
+      'label' => 'Speakers',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'custom',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 0,
+      'id' => 'field_speakers_uid',
+      'table' => 'node_data_field_speakers',
+      'field' => 'field_speakers_uid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+    'field_experience_value' => array(
+      'label' => 'Experience',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'widget',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 0,
+      'id' => 'field_experience_value',
+      'table' => 'node_data_field_experience',
+      'field' => 'field_experience_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+    'field_track_value' => array(
+      'label' => 'Track',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 0,
+        'ellipsis' => 0,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'widget',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_track_value',
+      'table' => 'node_data_field_track',
+      'field' => 'field_track_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+    'edit_node' => array(
+      'label' => 'Ops',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'text' => '',
+      'exclude' => 0,
+      'id' => 'edit_node',
+      'table' => 'node',
+      'field' => 'edit_node',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('filters', array(
     'type' => array(
       'operator' => 'in',
@@ -3243,8 +3527,8 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'not',
       'value' => array(
-        '1' => '1',
-        '2' => '2',
+        1 => '1',
+        2 => '2',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -3471,10 +3755,9 @@ function cod_session_views_default_views() {
   $view->name = 'sessions_admin_contact';
   $view->description = 'Session organizing View';
   $view->tag = 'cod session';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -3813,7 +4096,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4164,7 +4447,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4259,7 +4542,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '2' => '2',
+        2 => '2',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4336,8 +4619,8 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'not',
       'value' => array(
-        '1' => '1',
-        '2' => '2',
+        1 => '1',
+        2 => '2',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4414,7 +4697,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4554,7 +4837,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4689,10 +4972,9 @@ function cod_session_views_default_views() {
   $view->name = 'sessions_speaker_confirmation';
   $view->description = 'Your sessions';
   $view->tag = '';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -4830,11 +5112,11 @@ function cod_session_views_default_views() {
       'field' => 'field_speakers_uid',
       'validate_user_argument_type' => 'either',
       'validate_user_roles' => array(
-        '2' => 0,
-        '7' => 0,
-        '4' => 0,
-        '3' => 0,
-        '5' => 0,
+        2 => 0,
+        7 => 0,
+        4 => 0,
+        3 => 0,
+        5 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -4875,7 +5157,7 @@ function cod_session_views_default_views() {
     'field_accepted_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
