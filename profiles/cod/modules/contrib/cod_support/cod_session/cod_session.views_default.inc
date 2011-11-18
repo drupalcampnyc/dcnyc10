@@ -3173,14 +3173,13 @@ function cod_session_views_default_views() {
   ));
   $handler = $view->new_display('page', 'Unprocessed sessions', 'page_4');
   $handler->override_option('relationships', array(
-    'flag_content_rel' => array(
-      'label' => 'flag',
+    'flag_count_rel' => array(
+      'label' => 'Votes',
       'required' => 0,
       'flag' => 'session_vote',
-      'user_scope' => 'any',
-      'id' => 'flag_content_rel',
+      'id' => 'flag_count_rel',
       'table' => 'node',
-      'field' => 'flag_content_rel',
+      'field' => 'flag_count_rel',
       'override' => array(
         'button' => 'Use default',
       ),
@@ -3577,6 +3576,51 @@ function cod_session_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Unprocessed sessions');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'override' => 1,
+    'sticky' => 0,
+    'order' => 'desc',
+    'summary' => '',
+    'columns' => array(
+      'title' => 'title',
+      'field_accepted_value' => 'field_accepted_value',
+      'count' => 'count',
+      'field_speakers_uid' => 'field_speakers_uid',
+      'field_experience_value' => 'field_experience_value',
+      'field_track_value' => 'field_track_value',
+      'edit_node' => 'edit_node',
+    ),
+    'info' => array(
+      'title' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_accepted_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'count' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_speakers_uid' => array(
+        'separator' => '',
+      ),
+      'field_experience_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_track_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'edit_node' => array(
+        'separator' => '',
+      ),
+    ),
+    'default' => 'count',
+  ));
   $handler->override_option('path', 'conference-admin/sessions/unprocessed');
   $handler->override_option('menu', array(
     'type' => 'default tab',
