@@ -1,0 +1,3 @@
+name = COD API
+description = JSON API for COD.
+core = 6.x
