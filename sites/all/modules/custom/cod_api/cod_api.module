@@ -20,6 +20,12 @@ function cod_api_menu() {
     'page arguments' => array(1),
   );
 
+  $items['cod-api/schedule'] = array(
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+    'page callback' => '_cod_api_schedule_json',
+  );
+
   $items['cod-api/%/%node'] = array(
     'type' => MENU_CALLBACK,
     'access callback' => 'cod_api_menu_node_access',
@@ -40,7 +46,7 @@ function cod_api_menu() {
 }
 
 function cod_api_accessible_node_types() {
-  return array('session', 'sponsor', 'news');
+  return array('session', 'sponsor', 'news', 'schedule_item');
 }
 
 function cod_api_node_type_access($type) {
@@ -53,6 +59,12 @@ function cod_api_node_type_access($type) {
  */
 function cod_api_menu_node_access($op, $type, $node) {
   return ($type == $node->type) && cod_api_node_type_access($type) && node_access($op, $node);
+}
+
+function cod_api_json_deliver($data) {
+  drupal_set_header("Content-Type: application/json; charset=utf-8");
+  print json_encode($data);
+  module_invoke_all('exit');
 }
 
 /**
@@ -207,6 +219,26 @@ function cod_api_cod_api_node_alter(&$json, $node) {
       $json->accepted = !empty($node->field_accepted[0]['value']);
       break;
 
+    case 'schedule_item':
+      if (!empty($node->field_session_slot[0]['nid']) && ($slot = node_load($node->field_session_slot[0]['nid']))) {
+        $fields = content_fields();
+        $field = $fields['field_slot_datetime'];
+        $data = $slot->field_slot_datetime[0];
+
+        $start_date = date_make_date($data['value'], $data['timezone'], $field['type'], $field['granularity']);
+        $end_date = date_make_date($data['value2'], $data['timezone'], $field['type'], $field['granularity']);
+
+        $json->start = date_format_date($start_date, 'custom', 'Y-m-d\TH:i:s');
+        $json->end = date_format_date($end_date, 'custom', 'Y-m-d\TH:i:s');
+      }
+
+      if (!empty($node->field_session_room[0]['nid']) && ($room = node_load($node->field_session_room[0]['nid']))) {
+        $json->room = $room->title;
+      }
+
+      $json->accepted = !empty($node->field_accepted[0]['value']);
+      break;
+
     case 'room':
       $json->capacity = $node->field_room_capacity[0]['value'];
       break;
@@ -225,4 +257,16 @@ function cod_api_cod_api_node_alter(&$json, $node) {
     default:
       break;
   }
+}
+
+function _cod_api_schedule_json() {
+  $data = array(
+    'session' => _cod_api_get_nodes_by_type('session'),
+    'schedule_item' => _cod_api_get_nodes_by_type('schedule_item'),
+  );
+
+  drupal_set_header("Content-Type: application/json; charset=utf-8");
+  print json_encode($data);
+  module_invoke_all('exit');
+  exit;
 }
