@@ -1,0 +1,7 @@
+core = "6.x"
+dependencies[] = "views"
+description = "Mobile news layout"
+features[views][] = "mobile_news"
+features[views_api][] = "api:2"
+name = "Mobile News"
+package = "Features"
