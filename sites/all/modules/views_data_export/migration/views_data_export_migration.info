@@ -1,0 +1,12 @@
+name = Views data export migration
+description = Provides helper functions and UI for converting a views_bonus_export display to a views_data_export display
+core = 6.x
+
+dependencies[] = views_data_export
+dependencies[] = views_bonus_export
+; Information added by drupal.org packaging script on 2011-07-01
+version = "6.x-2.0-beta5"
+core = "6.x"
+project = "views_data_export"
+datestamp = "1309549921"
+

@@ -1,0 +1,249 @@
+<?php
+
+/**
+ * @file Provides helpers and UI (admin/build/views/tools/views-data-export-migration)
+ * for migrating views_bonus_export views to views_data_export.
+ */
+
+/**
+ * Implementation of hook_menu()
+ */
+function views_data_export_migration_menu() {
+  $items = array();
+  
+  $items['admin/build/views/tools/views-data-export-migration'] = array (
+    'title' => 'Data export migration', 
+    'description' => 'Helper to convert views_bonus_export views to views_data_export views.', 
+    'page callback' => 'views_data_export_migration_page',
+    'page arguments' => array('views_data_export_migration_page'),
+    'access arguments' => array('administer views'), 
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+  
+  return $items;
+}
+
+
+/**
+ * Menu callback
+ */
+function views_data_export_migration_page() {
+  
+  // If a view is supplied in GET then convert & print the export out
+  if (($view_name = $_GET['view']) && ($view = views_get_view($view_name))) {
+    return views_data_export_migration_page_export($view, $_GET['display']);
+  }
+  
+  // Otherwise list all views that may be compatible
+  else {
+    $views = views_data_export_migratable_views();
+    
+    $output = theme('views_data_export_migration_view_page', $views);
+    
+    return $output;
+  } 
+}
+
+
+function views_data_export_migration_page_export($view, $display = NULL) {
+  $new_view = views_data_export_migration_convert($view, $display);
+  if ($new_view) {
+    views_include('admin');
+    return drupal_get_form('views_ui_export_page', $new_view);
+  }
+  
+  return '';
+}
+
+/**
+ * Return an array of all views / displays that are
+ * migratable from views_bonus_export to views_data_export
+ *
+ * Statically caches it
+ *
+ * Simply looks for all feed displays that have one of the
+ * views_bonus_export style plugins
+ */
+function views_data_export_migratable_views($view_name = NULL, $display_name = NULL, $reset = FALSE) {
+  static $relevant_views;
+  
+  if (!isset($relevant_views) || $reset) {
+    
+    $views = views_get_all_views();
+    $relevant_views = array();
+    
+    foreach ($views as $v) {
+      if (count($relevant_displays = _views_data_export_migratable_displays($v))) {
+        $relevant_views[$v->name] = $relevant_displays;
+      }
+    }
+  }
+  
+  if (isset($view_name)) {
+    if (isset($display_name)) {
+      return $relevant_views[$view_name][$display_name];
+    }
+    return $relevant_views[$view_name];
+  }
+  return $relevant_views;
+}
+
+/**
+ * Helper function that returns all the migratable
+ * displays in a given view
+ */
+function _views_data_export_migratable_displays($view) {
+  
+  static $views_bonus_style_plugins;
+  if (!isset($views_bonus_style_plugins)) {
+    // I suppose we could try and grab this list from the module itself
+    $views_bonus_style_plugins = array_keys(_views_data_export_migration_style_plugin_mappings());
+  }
+  
+  $relevant_displays = array();
+  foreach ($view->display as $dn => $d) {
+    if ($d->display_plugin == 'feed') {
+      $view->set_display($dn);
+      if (in_array($view->display_handler->get_option('style_plugin'), $views_bonus_style_plugins)) {
+        $relevant_displays[$view->current_display] = $view->current_display;
+      }
+    }
+  }
+  //dsm($relevant_displays);
+  return $relevant_displays;
+}
+
+
+/**
+ * Implementation of hook_theme()
+ */
+function views_data_export_migration_theme() {
+  $items = array();
+  
+  $items['views_data_export_migration_view_page'] = array (
+    'arguments' => array ('views' => array()),
+  );
+  
+  $items['views_data_export_migration_view_list'] = array (
+    'arguments' => array ('views' => array()),
+  );
+  
+  return $items;
+}
+
+
+function theme_views_data_export_migration_view_page($views) {
+  $output = '';
+  
+  $output .= '<p>';
+  $output .= t('This tool assists in migrating views_bonus_export views to views_data_export views.') . ' ';
+  
+  if (count($views)) {
+    $output .= t('The following views are available to be migrated, click a link below to generate the migrated export code.');
+    $output .= '</p>';
+    $output .= theme('views_data_export_migration_view_list', $views);
+  }
+  else {
+    $output .= t('There are no views_bonus_export views on the site. Nothing to migrate.');
+    $output .= '</p>';
+  }
+  
+  return $output;
+}
+
+function theme_views_data_export_migration_view_list($views) {
+  
+  $links = array();
+  foreach ($views as $vn => $displays) {
+    $link = array();
+    $link['data'] = l(t('@view_name (all displays)', array('@view_name' => $vn)), 'admin/build/views/tools/views-data-export-migration', array('query' => array('view' => $vn)));
+    $link['children'] = array();
+    foreach ($displays as $dn => $view) {
+      $link['children']['data'] = l(t('@display_name display only', array('@view_name' => $vn, '@display_name' => $dn)), 'admin/build/views/tools/views-data-export-migration', array('query' => array('view' => $vn, 'display' => $dn)));
+    }
+    $links[] = $link;
+  }
+  return theme('item_list', $links);
+}
+
+
+/**
+ * Converts all views_bonus_export displays on the
+ * given view to views_data_export displays and
+ * returns the new view
+ *
+ * @param $view
+ *   The view object to migrate
+ * @param $displays
+ *   An array of displays to migrate, or a single display_id to migrate.
+ *   If nothing is provided here, all migratable displays will be migrated.
+ * @param $options
+ *   There are some options that views_data_export displays have
+ *   that feed displays do not, provide here the values desired
+ *   in the migrated version. The defaults are:
+ *     'use_batch' => 1
+ */
+function views_data_export_migration_convert($view_to_export, $displays = NULL, $options = array()) {
+  
+  // Get all migratable displays for our view
+  $_all_migratable_displays = _views_data_export_migratable_displays($view_to_export);
+  
+  // Find views_bonus_export displays we want to export
+  if (!isset($display)) {
+    $displays = $_all_migratable_displays;
+  }
+  if (isset($displays) && !is_array($displays)) {
+    $displays = array ($displays);
+  }
+  // Ensure displays passed to this function are indeed suitable for migration
+  $displays = array_intersect($_all_migratable_displays, $displays);
+  
+  if (empty($displays)) {
+    drupal_set_message(t('There are no displays on this view suitable for migration.'), 'error');
+    return FALSE;
+  }
+  
+  // Make sure we have a clean copy of the view
+  $view = $view_to_export->clone_view();
+  
+  foreach ($displays as $d) {
+    // Change display views_data_export display
+    $view->display[$d]->display_plugin = 'views_data_export';
+  
+    // We may have had to work out what to do if the display was
+    // inheriting its options from the default
+    // But at the moment it is impossible to make the default
+    // display have any of views_bonus_export's style plugins, so they
+    // will never be inherited from the default display
+  
+    //Change the style plugin to our one
+    $view->display[$d]->display_options['style_plugin'] = _views_data_export_migration_style_plugin_mappings($view->display[$d]->display_options['style_plugin']);
+    
+    // Set any display options we wanted to add/override
+    foreach ($options as $opname => $opval) {
+      $view->display[$d]->display_options[$opname] = $opval;
+    }
+  }
+  
+  return $view;
+}
+
+
+/**
+ * Helper function that maps views_bonus_export style plugins names
+ * to views_data_export's versions of them
+ */
+function _views_data_export_migration_style_plugin_mappings($k = NULL) {
+  $mappings = array (
+    'views_csv' => 'views_data_export_csv',
+    'views_doc' => 'views_data_export_doc',
+    'views_txt' => 'views_data_export_txt',
+    'views_xls' => 'views_data_export_xls',
+    'views_xml' => 'views_data_export_xml',
+  );
+  if (isset($k)) {
+    return $mappings[$k];
+  }
+  return $mappings;
+}
