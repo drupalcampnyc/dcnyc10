@@ -18,7 +18,7 @@ function cod_community_menu_default_menu_links() {
       ),
     ),
     'module' => 'system',
-    'hidden' => '1',
+    'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',

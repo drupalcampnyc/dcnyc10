@@ -11,10 +11,9 @@ function cod_community_views_default_views() {
   $view->name = 'attendees';
   $view->description = 'View of users that have signed up and are attendees';
   $view->tag = '';
-  $view->view_php = '';
   $view->base_table = 'users';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -343,7 +342,7 @@ function cod_community_views_default_views() {
     'uid' => array(
       'operator' => 'not in',
       'value' => array(
-        '0' => 0,
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
