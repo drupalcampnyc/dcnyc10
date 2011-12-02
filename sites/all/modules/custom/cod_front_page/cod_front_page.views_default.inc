@@ -11,10 +11,9 @@ function cod_front_page_views_default_views() {
   $view->name = 'front';
   $view->description = 'Front Page Content';
   $view->tag = 'front';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('sorts', array(
@@ -112,10 +111,9 @@ function cod_front_page_views_default_views() {
   $view->name = 'sponsors_front_page';
   $view->description = '';
   $view->tag = 'sponsors front-ui';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -254,7 +252,7 @@ function cod_front_page_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'Premium Sponsors');
-  $handler->override_option('items_per_page', 12);
+  $handler->override_option('items_per_page', 18);
   $handler->override_option('style_plugin', 'list');
   $handler->override_option('style_options', array(
     'grouping' => '',
