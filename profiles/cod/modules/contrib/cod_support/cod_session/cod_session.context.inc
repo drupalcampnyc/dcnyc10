@@ -15,7 +15,9 @@ function cod_session_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'program*' => 'program*',
+        'program/sessions' => 'program/sessions',
+        'program/community-spotlights' => 'program/community-spotlights',
+        'program/sessions/accepted*' => 'program/sessions/accepted*',
       ),
     ),
   );

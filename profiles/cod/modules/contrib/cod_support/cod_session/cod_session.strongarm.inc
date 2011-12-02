@@ -507,30 +507,36 @@ Conference organizing team';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'views_send_message_sessions_admin_contact:page_2';
-  $strongarm->value = 'Thank you for proposing the session session, "[views-send-node_title]".
+  $strongarm->value = 'Dear [views-send-users_node_data_field_speakers_profile_values_profile_first_value],
 
-We are happy to inform you that your session has been accepted for the conference.
+Congratulations! Your session, [views-send-node_title] , has been accepted for the upcoming DrupalCampNYC 10!
 
-Please confirm that you are able to present this session at the scheduled date and time by visiting [site-url]user .
+We are still finalizing the content schedule, but you will be able to see your assigned time and room on the site very soon.
 
-Thanks!
+Thank you very much for contributing your session for this event. We are very excited with the quality of content for this camp, and look forward to seeing you on December 10th!
 
-Conference organizing team';
+Stay Drupally,
+The DrupalCampNYC 10 Organizing Team';
   $export['views_send_message_sessions_admin_contact:page_2'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'views_send_message_sessions_admin_contact:page_3';
-  $strongarm->value = 'Hello [views-send-users_node_data_field_speakers_profile_values_profile_first_value],
+  $strongarm->value = 'Dear [views-send-users_node_data_field_speakers_profile_values_profile_first_value],
 
-Thank you for proposing the session session, "[views-send-node_title]".
+Thank you so much for suggesting your session, [views-send-node_title],  for DrupalCampNYC 10. Unfortunately, we were unable to provide this session a time slot for this camp.
 
-Unfortunately, we are unable to offer you a spot to present at the conference. We thank you for your submission and hope that you\'ll submit a proposal in the future.
+We were truly blown away by the caliber of content ideas submitted this year, and regret that we were unable to accommodate them all. The degree of expertise and innovation demonstrated by these submissions was impressive and very exciting to see.
 
-Thanks,
+While your session was not selected for this camp, we would encourage you to consider bringing your insights to an upcoming meetup. If you are not familiar with the NYC Drupal meetups, they are well-attended monthly events where NYC Drupallers gather to talk Drupal and share insights in formats ranging from 5-minute lightning rounds to 20-minute presentations. All are welcome to attend and speak.
 
-Conference organizing team';
+Be sure to check out the group page and join if you are not already a member: http://groups.drupal.org/nyc
+
+Looking forward to seeing you December 10th!
+
+Stay Drupally,
+The DrupalCampNYC 10 Organizing Team';
   $export['views_send_message_sessions_admin_contact:page_3'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -616,14 +622,14 @@ Conference organizing team';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'views_send_subject_sessions_admin_contact:page_2';
-  $strongarm->value = 'Presenter confirmation';
+  $strongarm->value = 'DCNYC10: Session [views-send-node_title] accepted!';
   $export['views_send_subject_sessions_admin_contact:page_2'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'views_send_subject_sessions_admin_contact:page_3';
-  $strongarm->value = 'Your session submission';
+  $strongarm->value = 'DCNYC10: Your session [views-send-node_title]';
   $export['views_send_subject_sessions_admin_contact:page_3'] = $strongarm;
 
   $strongarm = new stdClass;

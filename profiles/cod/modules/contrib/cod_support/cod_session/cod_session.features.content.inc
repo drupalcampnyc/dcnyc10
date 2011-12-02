@@ -877,7 +877,8 @@ advanced|Advanced',
 development|Development
 front_end|Presentation
 business|Business & end users
-sysadmin|Sysadmin & performance',
+sysadmin|Sysadmin & performance
+case_study|Case study',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(

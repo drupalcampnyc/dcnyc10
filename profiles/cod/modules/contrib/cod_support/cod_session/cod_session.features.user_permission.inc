@@ -30,8 +30,7 @@ function cod_session_user_default_permissions() {
   $permissions['create session content'] = array(
     'name' => 'create session content',
     'roles' => array(
-      '0' => 'attendee',
-      '1' => 'site administrator',
+      '0' => 'site administrator',
     ),
   );
 

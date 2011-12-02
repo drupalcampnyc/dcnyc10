@@ -39,14 +39,16 @@ function cod_session_flag_default_flags() {
     'link_type' => 'toggle',
     'roles' => array(
       'flag' => array(
-        '0' => 2,
+        '0' => 3,
       ),
-      'unflag' => array(),
+      'unflag' => array(
+        '0' => 3,
+      ),
     ),
     'show_on_page' => 1,
     'show_on_teaser' => 1,
     'show_on_form' => 0,
-    'access_author' => '',
+    'access_author' => 'own',
     'i18n' => 0,
     'module' => 'cod_session',
     'locked' => array(
@@ -104,13 +106,13 @@ function cod_session_flag_default_flags() {
     'link_type' => 'toggle',
     'roles' => array(
       'flag' => array(
-        '0' => 3,
+        '0' => 11,
       ),
       'unflag' => array(
-        '0' => 3,
+        '0' => 11,
       ),
     ),
-    'show_on_page' => 1,
+    'show_on_page' => 0,
     'show_on_teaser' => 0,
     'show_on_form' => 0,
     'access_author' => '',
