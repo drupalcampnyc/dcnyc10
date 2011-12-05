@@ -465,7 +465,7 @@ h1.title {
     
   }
   tbody {
-    background:rgba(255,255,255,.25);
+    background:rgba(255,255,255,.15);
       td {
          font-size:.8em;
          line-height:1.5em;
@@ -486,7 +486,7 @@ h1.title {
            background:rgba(25,25,25,.15);  
          }
          &.time-label {
-           background:rgba(255,255,255,.25);
+           background:rgba(255,255,255,.15);
          }
       }
       tr.odd {
