@@ -452,56 +452,59 @@ h1.title {
   }
 }
 #view-id-cod_schedule-page_1 { 
-  thead {
-    tr {
-      
+  table { 
+    border:solid 2px rgba(0,0,0,.25);
+    margin-right: 2em;
+    thead {
+      tr {
+      } 
+    }
+    th {
+      @include border-background-reset;
+      @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+      padding:0.15em;
+      text-align:center;
+      border-left:solid 2px rgba(0,0,0,.125);
+      border-bottom:solid 2px rgba(0,0,0,.25); 
     } 
-  }
-  th {
-    
-    @include border-background-reset;
-    @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
-    padding:0.15em;
-    
-  }
-  tbody {
-    background:rgba(255,255,255,.15);
-      td {
-         font-size:.8em;
-         line-height:1.5em;
-         word-wrap: break-word; 
-         padding: 0.25em 0.25em;
-         vertical-align:top;
-         .views-field-field-track-value {
-           padding: 0.25em 0.15em;
-           display:block;
-           height:42px;
-           font-weight:bold;
-         }
-         .views-field-field-experience-value label {
-           display:none;
-         }
-
-         &:nth-child(odd) {
-           background:rgba(25,25,25,.15);  
-         }
-         &.time-label {
-           background:rgba(255,255,255,.15);
-         }
+    th:first-child {
+       border-left:solid 1px rgba(0,0,0,.25);  
+    }
+    tbody {
+      background:rgba(255,255,255,.15);
+        td {
+          font-size:.8em;
+          line-height:1.5em;
+          word-wrap: break-word; 
+          padding: 0.25em 0.25em;
+          vertical-align:top;
+          .views-field-field-track-value {
+            padding: 0.25em 0.15em;
+            display:block;
+            height:42px;
+            font-weight:bold;
+          }
+          .views-field-field-experience-value label {
+            display:none;
+          }
+          &:nth-child(odd) {
+            background:rgba(25,25,25,.15);  
+          }
+          &.time-label {
+            background:rgba(255,255,255,.15);
+          }
+        }
+        tr.odd {
+          @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
+       } 
+       tr:nth-child(2) .views-field-field-track-value,
+       tr:nth-child(5) .views-field-field-track-value, 
+       tr:nth-child(5) .views-field-field-experience-value,
+       tr:nth-child(9) .views-field-field-track-value {
+         display:none;
+       }
       }
-      tr.odd {
-        @include background-image(linear-gradient($menu-top-background-gradient 20%, $menu-middle-background-gradient 45%, $menu-bottom-background-gradient 85%));
-     } 
-     tr:nth-child(2) .views-field-field-track-value,
-     tr:nth-child(5) .views-field-field-track-value, 
-     tr:nth-child(5) .views-field-field-experience-value,
-     tr:nth-child(9) .views-field-field-track-value {
-       display:none;
-     }
-
-
-  }
-  
+  } 
 }
 a.uc_signup_edit_info {
  @include text-shadow(none); 
