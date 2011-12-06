@@ -1141,6 +1141,19 @@ thead th, th.active  {
   }
 }
 
+#pid-program-session-schedule #main-group .row, #pid-program-session-schedule #main-group .nested, , #pid-program-session-schedule #main-group .block {
+  overflow-x: visible !important;
+}
+#pid-program-session-schedule #content-group #content-inner-inner  {
+  border:none;
+  outline:none;
+  padding:0; 
+} 
+#pid-program-session-schedule #content-group #content-inner { 
+   @include box-shadow(0px 0px 0px rgba(0,0,0,0)); 
+}
+
+
 @media only screen and (min-width : 240px) and (max-width : 767px) {
   body {
     background-image:$page-background-image-480;
