@@ -1,4 +1,3 @@
-// $Id: flag.js,v 1.1.2.7.2.10 2010/12/20 00:46:18 mooffie Exp $
 (function ($) {
 
 /**

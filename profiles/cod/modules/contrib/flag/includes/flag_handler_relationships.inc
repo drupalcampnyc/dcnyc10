@@ -1,5 +1,4 @@
 <?php
-// $Id: flag_handler_relationships.inc,v 1.1.2.9.2.6 2010/12/27 23:24:46 mooffie Exp $
 
 /**
  * @file
