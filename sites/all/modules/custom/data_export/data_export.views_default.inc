@@ -467,6 +467,203 @@ function data_export_views_default_views() {
   $handler->override_option('displays', array());
   $handler->override_option('sitename_title', 0);
   $handler->override_option('use_batch', TRUE);
+  $handler = $view->new_display('views_data_export', 'Data export late', 'views_data_export_3');
+  $handler->override_option('fields', array(
+    'value' => array(
+      'label' => 'First name',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 1,
+      'exclude' => 0,
+      'id' => 'value',
+      'table' => 'profile_values_profile_first',
+      'field' => 'value',
+      'relationship' => 'uid',
+    ),
+    'value_1' => array(
+      'label' => 'Last name',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_user' => 1,
+      'exclude' => 0,
+      'id' => 'value_1',
+      'table' => 'profile_values_profile_last',
+      'field' => 'value',
+      'relationship' => 'uid',
+    ),
+    'value_2' => array(
+      'label' => 'Dietary',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => 'None',
+      'hide_empty' => 0,
+      'empty_zero' => 1,
+      'exclude' => 0,
+      'id' => 'value_2',
+      'table' => 'profile_values_profile_diet',
+      'field' => 'value',
+      'relationship' => 'uid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'value_3' => array(
+      'label' => 'T-Shirt',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'exclude' => 0,
+      'id' => 'value_3',
+      'table' => 'profile_values_profile_shirt',
+      'field' => 'value',
+      'relationship' => 'uid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
+      'value' => array(
+        0 => 0,
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
+    ),
+    'signup_time' => array(
+      'operator' => '>',
+      'value' => array(
+        'type' => 'date',
+        'value' => '2011-12-06 00:00:00',
+        'min' => '',
+        'max' => '',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'signup_time',
+      'table' => 'signup_log',
+      'field' => 'signup_time',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'uid',
+    ),
+  ));
+  $handler->override_option('title', 'Attendee: All Data');
+  $handler->override_option('items_per_page', '0');
+  $handler->override_option('style_plugin', 'views_data_export_csv');
+  $handler->override_option('style_options', array(
+    'mission_description' => FALSE,
+    'description' => '',
+  ));
+  $handler->override_option('row_plugin', '');
+  $handler->override_option('path', 'attendee-all/%/csv');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('displays', array());
+  $handler->override_option('sitename_title', 0);
+  $handler->override_option('use_batch', TRUE);
 
   $views[$view->name] = $view;
 
