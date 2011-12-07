@@ -190,11 +190,6 @@ function data_export_views_default_views() {
       'field' => 'uid',
       'relationship' => 'uid',
     ),
-    'signup_time' => array(
-      'id' => 'signup_time',
-      'table' => 'signup_log',
-      'field' => 'signup_time',
-    ),
   ));
   $handler->override_option('access', array(
     'type' => 'perm',
