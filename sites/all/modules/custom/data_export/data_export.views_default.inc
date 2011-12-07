@@ -624,7 +624,7 @@ function data_export_views_default_views() {
       'operator' => '>',
       'value' => array(
         'type' => 'date',
-        'value' => '2011-12-05 00:00:00',
+        'value' => '2011-12-06 00:00:00',
         'min' => '',
         'max' => '',
       ),
