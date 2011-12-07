@@ -16,6 +16,24 @@ function cod_base_views_default_views() {
   $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('relationships', array(
+    'nid' => array(
+      'label' => 'Signup node',
+      'required' => 1,
+      'id' => 'nid',
+      'table' => 'signup_log',
+      'field' => 'nid',
+      'relationship' => 'none',
+    ),
+    'uid' => array(
+      'label' => 'Signup user',
+      'required' => 1,
+      'id' => 'uid',
+      'table' => 'signup_log',
+      'field' => 'uid',
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'value' => array(
       'label' => '',
@@ -49,16 +67,81 @@ function cod_base_views_default_views() {
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('filters', array(
-    'value' => array(
-      'id' => 'value',
-      'table' => 'profile_values_profile_diet',
-      'field' => 'value',
+  $handler->override_option('arguments', array(
+    'nid' => array(
+      'default_action' => 'default',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'signup_status',
+      'validate_fail' => 'not found',
+      'break_phrase' => 0,
+      'not' => 0,
+      'id' => 'nid',
+      'table' => 'node',
+      'field' => 'nid',
+      'relationship' => 'nid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        2 => 0,
+        11 => 0,
+        4 => 0,
+        10 => 0,
+        7 => 0,
+        12 => 0,
+        5 => 0,
+        3 => 0,
+        6 => 0,
+        8 => 0,
+      ),
+      'default_options_div_prefix' => '',
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(),
+      'default_argument_user' => 0,
+      'default_argument_fixed' => '44',
+      'validate_argument_node_type' => array(
+        'news' => 0,
+        'page' => 0,
+        'room' => 0,
+        'schedule_item' => 0,
+        'session' => 0,
+        'time_slot' => 0,
+        'product' => 0,
+        'event' => 0,
+        'sponsorship' => 0,
+        'faq' => 0,
+        'sponsor' => 0,
+        'supporter' => 0,
+        'webform' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_node_flag_name' => '*relationship*',
+      'validate_argument_node_flag_test' => 'flaggable',
+      'validate_argument_node_flag_id_type' => 'id',
+      'validate_argument_user_flag_name' => '*relationship*',
+      'validate_argument_user_flag_test' => 'flaggable',
+      'validate_argument_user_flag_id_type' => 'id',
+      'validate_argument_signup_status' => 'any',
+      'validate_argument_signup_node_access' => 0,
     ),
-    'rid' => array(
-      'operator' => 'or',
+  ));
+  $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -66,11 +149,10 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('access', array(
@@ -144,25 +226,6 @@ function cod_base_views_default_views() {
       ),
     ),
   ));
-  $handler->override_option('filters', array(
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
-    ),
-  ));
   $handler->override_option('items_per_page', 0);
   $handler->override_option('path', 'conference-admin/diet');
   $handler->override_option('menu', array(
@@ -181,6 +244,22 @@ function cod_base_views_default_views() {
   ));
   $handler = $view->new_display('attachment', 'Vegan', 'attachment_1');
   $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
+      'value' => array(
+        0 => 0,
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
+    ),
     'value' => array(
       'operator' => 'in',
       'value' => array(
@@ -198,27 +277,7 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-    ),
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Vegan Options Selected');
@@ -236,6 +295,22 @@ function cod_base_views_default_views() {
   ));
   $handler = $view->new_display('attachment', 'Vegetarian', 'attachment_2');
   $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
+      'value' => array(
+        0 => 0,
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
+    ),
     'value' => array(
       'operator' => 'in',
       'value' => array(
@@ -253,27 +328,7 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-    ),
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Vegetarian Options Selected');
@@ -291,6 +346,22 @@ function cod_base_views_default_views() {
   ));
   $handler = $view->new_display('attachment', 'Kosher / Hallal', 'attachment_3');
   $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
+      'value' => array(
+        0 => 0,
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
+    ),
     'value' => array(
       'operator' => 'in',
       'value' => array(
@@ -308,27 +379,7 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-    ),
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Kosher / Hallal Options Selected');
@@ -346,6 +397,22 @@ function cod_base_views_default_views() {
   ));
   $handler = $view->new_display('attachment', 'Gluten Free', 'attachment_4');
   $handler->override_option('filters', array(
+    'uid' => array(
+      'operator' => 'not in',
+      'value' => array(
+        0 => 0,
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
+      'relationship' => 'uid',
+    ),
     'value' => array(
       'operator' => 'in',
       'value' => array(
@@ -363,27 +430,7 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-    ),
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Gluten Free Options Selected');
@@ -412,6 +459,24 @@ function cod_base_views_default_views() {
   $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('relationships', array(
+    'nid' => array(
+      'label' => 'Signup node',
+      'required' => 1,
+      'id' => 'nid',
+      'table' => 'signup_log',
+      'field' => 'nid',
+      'relationship' => 'none',
+    ),
+    'uid' => array(
+      'label' => 'Signup user',
+      'required' => 1,
+      'id' => 'uid',
+      'table' => 'signup_log',
+      'field' => 'uid',
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'value' => array(
       'label' => '',
@@ -448,15 +513,84 @@ function cod_base_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('arguments', array(
+    'nid' => array(
+      'default_action' => 'default',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'signup_status',
+      'validate_fail' => 'not found',
+      'break_phrase' => 0,
+      'not' => 0,
+      'id' => 'nid',
+      'table' => 'node',
+      'field' => 'nid',
+      'relationship' => 'nid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        2 => 0,
+        11 => 0,
+        4 => 0,
+        10 => 0,
+        7 => 0,
+        12 => 0,
+        5 => 0,
+        3 => 0,
+        6 => 0,
+        8 => 0,
+      ),
+      'default_options_div_prefix' => '',
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(),
+      'default_argument_user' => 0,
+      'default_argument_fixed' => '44',
+      'validate_argument_node_type' => array(
+        'news' => 0,
+        'page' => 0,
+        'room' => 0,
+        'schedule_item' => 0,
+        'session' => 0,
+        'time_slot' => 0,
+        'product' => 0,
+        'event' => 0,
+        'sponsorship' => 0,
+        'faq' => 0,
+        'sponsor' => 0,
+        'supporter' => 0,
+        'webform' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_node_flag_name' => '*relationship*',
+      'validate_argument_node_flag_test' => 'flaggable',
+      'validate_argument_node_flag_id_type' => 'id',
+      'validate_argument_user_flag_name' => '*relationship*',
+      'validate_argument_user_flag_test' => 'flaggable',
+      'validate_argument_user_flag_id_type' => 'id',
+      'validate_argument_signup_status' => 'any',
+      'validate_argument_signup_node_access' => 0,
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+  ));
   $handler->override_option('filters', array(
-    'value' => array(
+    'uid' => array(
       'operator' => 'not in',
       'value' => array(
-        'No thanks!' => 'No thanks!',
-        'Small' => 'Small',
-        'Medium' => 'Medium',
-        'Large' => 'Large',
-        'X-Large' => 'X-Large',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -464,27 +598,10 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'value',
-      'table' => 'profile_values_profile_shirt',
-      'field' => 'value',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'relationship' => 'none',
-    ),
-    'rid' => array(
-      'operator' => 'or',
-      'value' => array(
-        11 => '11',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
     ),
   ));
   $handler->override_option('access', array(
@@ -523,10 +640,10 @@ function cod_base_views_default_views() {
   ));
   $handler = $view->new_display('page', 'Total', 'page_1');
   $handler->override_option('filters', array(
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -534,14 +651,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('items_per_page', 0);
@@ -579,12 +695,12 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
+      'relationship' => 'uid',
     ),
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -592,14 +708,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of "No thanks!" Selected');
@@ -634,12 +749,12 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
+      'relationship' => 'uid',
     ),
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -647,14 +762,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Small Selected');
@@ -689,12 +803,12 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
+      'relationship' => 'uid',
     ),
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -702,14 +816,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Medium Selected');
@@ -744,12 +857,12 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
+      'relationship' => 'uid',
     ),
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -757,14 +870,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of Large Selected');
@@ -799,12 +911,12 @@ function cod_base_views_default_views() {
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
+      'relationship' => 'uid',
     ),
-    'rid' => array(
-      'operator' => 'or',
+    'uid' => array(
+      'operator' => 'not in',
       'value' => array(
-        11 => '11',
+        0 => 0,
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -812,14 +924,13 @@ function cod_base_views_default_views() {
         'operator' => FALSE,
         'label' => '',
       ),
-      'id' => 'rid',
-      'table' => 'users_roles',
-      'field' => 'rid',
+      'id' => 'uid',
+      'table' => 'users',
+      'field' => 'uid',
       'override' => array(
         'button' => 'Use default',
       ),
-      'relationship' => 'none',
-      'reduce_duplicates' => 0,
+      'relationship' => 'uid',
     ),
   ));
   $handler->override_option('title', 'Total Number of X-Large Selected');
