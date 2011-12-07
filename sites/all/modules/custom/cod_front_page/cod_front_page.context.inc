@@ -40,17 +40,11 @@ function cod_front_page_context_default_contexts() {
           'region' => 'sidebar_last',
           'weight' => 2,
         ),
-        'block-5' => array(
-          'module' => 'block',
-          'delta' => 5,
-          'region' => 'sidebar_last',
-          'weight' => 3,
-        ),
         'block-3' => array(
           'module' => 'block',
           'delta' => 3,
           'region' => 'sidebar_last',
-          'weight' => 4,
+          'weight' => 3,
         ),
         'views-news-block_1' => array(
           'module' => 'views',
