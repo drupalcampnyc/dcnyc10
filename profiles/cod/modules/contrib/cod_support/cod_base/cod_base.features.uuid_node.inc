@@ -19,7 +19,7 @@ function cod_base_uuid_features_default_content() {
   'sticky' => '0',
   'tnid' => '0',
   'translate' => '0',
-  'revision_uid' => '1',
+  'revision_uid' => '0',
   'title' => 'COD help',
   'body' => '<em>For the latest documentation, please visit <a href="http://drupal.org/documentation/build/cod">http://drupal.org/documentation/build/cod</a>.</em>
         
@@ -163,6 +163,7 @@ COD is the Conference Organizing Distribution, used for building conference and 
   'picture' => '',
   'data' => NULL,
   'path' => 'content/cod-help',
+  'field_illustration' => array(),
   'signup' => 0,
   'uc_order_product_id' => FALSE,
   'last_comment_timestamp' => '1295735036',
@@ -173,7 +174,6 @@ COD is the Conference Organizing Distribution, used for building conference and 
   'revision_uuid' => '79f12ce8-755e-102e-a8fe-4040db1cdced',
   'pathauto_perform_alias' => FALSE,
   'date' => '2011-01-19 15:54:23 -0500',
-  'field_illustration' => array(),
 );
   return $nodes;
 }
