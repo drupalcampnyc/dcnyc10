@@ -1141,18 +1141,26 @@ thead th, th.active  {
   }
 }
 
-#pid-program-session-schedule #main-group .row, #pid-program-session-schedule #main-group .nested, , #pid-program-session-schedule #main-group .block {
+#pid-program-session-schedule #main-group .row, 
+#pid-program-session-schedule #main-group .nested,  
+#pid-program-session-schedule #main-group .block,
+#pid-program-session-schedule-your-schedule  #main-group .row, 
+#pid-program-session-schedule-your-schedule #main-group .nested,  
+#pid-program-session-schedule-your-schedule  #main-group .block {
   overflow-x: visible !important;
 }
-#pid-program-session-schedule #content-group #content-inner-inner  {
+#pid-program-session-schedule #content-group #content-inner-inner,
+#pid-program-session-schedule-your-schedule #content-group #content-inner-inner  {
   border:none;
   outline:none;
   padding:0; 
-} 
-#pid-program-session-schedule #content-group #content-inner { 
+}
+ 
+#pid-program-session-schedule #content-group #content-inner,
+#pid-program-session-schedule-your-schedule #content-group #content-inner { 
    @include box-shadow(0px 0px 0px rgba(0,0,0,0)); 
 }
-#view-id-cod_schedule-page_1 { 
+#view-id-cod_schedule-page_1, , #view-id-cod_schedule-page_4 { 
   table { 
     border:solid 2px rgba(0,0,0,.25);
     margin-right: 2em;
