@@ -7,7 +7,8 @@ engine = phptemplate
 
 stylesheets[all][] = css/global.css
 stylesheets[all and (min-width : 768px)][] = css/desktop-tablet-fluid.css
-
+stylesheets[print][] = css/print.css
+  
 ;scripts[] = js/jquery-1.6.2.min.js 
 scripts[] = js/jquery.lettering.js
 scripts[] = js/kerning.js
